@@ -1,0 +1,44 @@
+{
+    "description": "Processing OSM data",
+    "input": {
+        "locations": [
+		[46.257330,4.870033,46.269970,4.905224]
+        ],
+		"timeout": 7200,
+		"maxsize": 1073741824,
+        "endpoint":"https://z.overpass-api.de/api"
+    },
+    "output": {
+        "folder": "./urbain",
+		"srid": 4326
+    },
+    "parameters": {
+        "rsu_indicators": {
+            "indicatorUse": [
+                "LCZ",
+                "TEB",
+                "UTRF"
+            ],
+            "svfSimplified": true,
+            "estimateHeight": true
+        },
+        "grid_indicators": {
+            "x_size": 10,
+	    "y_size": 10,
+	    "rowCol": false,
+	    "output" : "geojson",
+	    "indicators" :[
+                 "BUILDING_FRACTION",
+                 "BUILDING_HEIGHT",
+                 "WATER_FRACTION",
+                 "VEGETATION_FRACTION",
+                 "ROAD_FRACTION",
+                 "IMPERVIOUS_FRACTION",
+                 "LCZ_FRACTION",
+				 "GROUND_SKY_VIEW_FACTOR"
+             ]
+         }
+    }
+}
+
+

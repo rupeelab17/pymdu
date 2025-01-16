@@ -1,0 +1,26 @@
+services:
+  pymdu:
+    image: "tipee/pymdu"
+    platform: linux/amd64
+    container_name: pymdu
+    build:
+      dockerfile: Dockerfile
+      args:
+        DOCKER_BUILDKIT: 1
+    restart: unless-stopped
+    volumes:
+      - "./pymdu:/app/pymdu"
+      - "./docker/docker-entrypoint.sh:/docker-entrypoint.sh"
+    entrypoint: [ "/bin/sh", "/docker-entrypoint.sh" ]
+    environment:
+      - "PYMDU_BIN=/opt/conda/envs/umep_pymdu/bin/python"
+    expose:
+      - 8898
+    ports:
+      - 8898:8898
+    networks:
+      - local_network
+
+networks:
+  local_network:
+    driver: bridge

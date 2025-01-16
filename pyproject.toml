@@ -1,0 +1,227 @@
+# https://python-poetry.org/docs/pyproject/
+#[project]
+#requires-python = ">=3.10"
+
+[tool.poetry]
+name = "pymdu"
+description = "PYMDU"
+authors = ["Boris Brangeon <boris.boris@plateforme-tipee.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent"]
+version = "0.0.1"
+
+# Only include cythonized files in final build
+include = [{ path = "pymdu/**/*.so", format = "wheel" }, { path = "pymdu/**/*.so", format = "sdist" }]  # ignored in VCS, so we need to be explicit
+
+exclude = [
+    #    "pymdu/**/*.py",
+    #    "pymdu/**/*.c",
+    #    "pymdu/**/*.cpp",
+    ".benchmarks",
+    ".eggs",
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".venv",
+    "build",
+    "dist",
+    "venv",
+]
+
+[tool.poetry-dynamic-versioning]
+enable = false
+
+[tool.poetry-dynamic-versioning.files."pymdu/_version.py"]
+persistent-substitution = true
+initial-content = """
+  # These version placeholders will be replaced later during substitution.
+  __version__ = "0.0.0"
+  __version_tuple__ = (0, 0, 0)
+"""
+
+[tool.setuptools_scm]
+#version_file = "pymdu/_version.py"
+#write_to_template = "# -*- coding: utf-8 -*-\n\n__version__ = '{version}'\n"
+
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+click = "^8.1.3"
+geopandas = "^1.0.1"
+jaydebeapi = "^1.2.3"
+matplotlib = "^3.6.2"
+numpy = "2.0.0"
+ogr = "^0.41.0"
+osmpythontools = "^0.3.5"
+packaging = "^23.1"
+pandas = "2.0.0"
+requests-cache = "^0.9.7"
+rioxarray = "0.15.0"
+setuptools = "^67.7.2"
+shapely = "^2.0.6"
+t4gpd = "^0.9.5"
+tqdm = "^4.64.1"
+urllib3 = "^1.26.13"
+uwg-schema = "^0.2.11"
+rtree = "^1.0.1"
+pysolar = "^0.10"
+suntimes = "^1.1.2"
+h3 = "^3.7.6"
+h3pandas = "^0.2.3"
+pydeck = "^0.8.0"
+plotly = "^5.11.0"
+orjson = "^3.8.3"
+geocube = "^0.3.3"
+numba = "^0.60.0"
+jsonmerge = "^1.9.0"
+rasterio = "^1.3.6"
+owslib = "^0.28.1"
+netcdf4 = "^1.6.3"
+scikit-image = "^0.20.0"
+bokeh = "^3.1.0"
+osmnx = "^1.3.0"
+momepy = "^0.8.1"
+folium = "^0.14.0"
+pythermalcomfort = "^2.7.0"
+joblib = "^1.2.0"
+sqlalchemy = "1.4.49"
+psycopg2-binary = "^2.9.9"
+lxml = "^4.9.2"
+dask = "^2023.6.0"
+distributed = "^2023.6.0"
+image-processing = { git = "https://github.com/bodleian/image-processing.git", branch = "master" }
+scipy = "^1.11.3"
+seaborn = "^0.13.0"
+clustergram = "^0.8.0"
+mapclassify = "^2.6.1"
+windrose = "^1.9.0"
+imageio = { extras = ["ffmpeg"], version = "^2.33.1" }
+pybind11 = "^2.11.1"
+setuptools-cpp = "^0.1.0"
+geopy = "^2.4.1"
+contextily = "^1.5.2"
+pyephem-sunpath = "^0.2.2"
+selenium = "^4.18.1"
+pymupdf = "^1.23.26"
+pdfkit = "^1.0.0"
+wkhtmltopdf = "^0.2"
+scienceplots = "^2.1.1"
+xlsxwriter = "^3.2.0"
+tabulate = "^0.9.0"
+mpld3 = "^0.5.10"
+gdal = { extras = ["numpy"], version = "=3.9.2" }
+edsger = "^0.0.13"
+gdal-utils = "^3.9.3.0"
+ipython = "^8.29.0"
+ipywidgets = "^8.1.5"
+python-gitlab = "^5.1.0"
+
+
+
+[tool.poetry.extras]
+docs = []
+
+[tool.poetry.group.extras.dependencies]
+livereload = "^2.6.3"
+myst-parser = "^2.0.0"
+pydata-sphinx-theme = "^0.13.3"
+linkify-it-py = "^2.0.2"
+autodocsumm = "^0.2.11"
+build = "^1.0.3"
+
+[tool.poetry.group.additional.dependencies]
+poetry-dynamic-versioning = "^1.3.0"
+
+
+[tool.poetry.group.docs]
+optional = true
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+mkdocs-material = { version = "^9.5.39" }
+mkdocs-git-committers-plugin-2 = "^2.4.1"
+mkdocs-git-revision-date-localized-plugin = "^1.2.9"
+mkdocs-git-authors-plugin = "^0.9.0"
+mkdocs-glightbox = "^0.4.0"
+mkdocs-autoapi = "^0.3.1"
+mkdocstrings = { extras = ["python"], version = "^0.26.1" }
+griffe-typingdoc = "^0.2.7"
+mkdocs-autorefs = "^1.2.0"
+xdoctest = "^1.2.0"
+markdown-exec = { extras = ["ansi"], version = "^1.9.3" }
+mkdocs-jupyter = "^0.25.1"
+jupyterlite-pyodide-kernel = "^0.4.2"
+jupyterlite = "^0.4.3"
+mkdocs-rss-plugin = "^1.15.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.0.0"
+ruff = "^0.5.5"
+jupyter = "^1.1.1"
+
+[tool.ruff]
+#line-length = 100
+
+[tool.ruff.format]
+quote-style = "single"
+#indent-style = "tab"
+docstring-code-format = true
+
+[tool.ruff.lint]
+preview = true
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+
+[tool.poetry.dev-dependencies]
+Cython = "^3.0.4"
+
+[tool.poetry.build]
+# The allows us to build C extensions (using Cython). Unstable feature
+# https://github.com/python-poetry/poetry/issues/2740#issuecomment-666551481
+#script = "build_cython.py"
+generate-setup-file = false
+script = "scripts/build_rasterize_lidar.py"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core", "poetry-dynamic-versioning>=1.0.0,<2.0.0", "setuptools>=67.7.2", "numpy>=1.26.1",
+    "Cython==3.0.4", "pybind11>=2.10.0", "setuptools-cpp"]
+#build-backend = "poetry_dynamic_versioning.backend"
+#build-backend = "setuptools.build_meta"

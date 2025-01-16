@@ -1,0 +1,47 @@
+{
+  "description": "Processing OSM data",
+  "input": {
+    "locations": [
+      [
+        46.18164411990319,
+        -1.1526621755955395,
+        46.18697647993231,
+        -1.1399804483310232
+      ]
+    ],
+    "timeout": 7200,
+    "maxsize": 1073741824,
+    "endpoint": "https://z.overpass-api.de/api"
+  },
+  "output": {
+    "folder": "C:\\Users\\simon\\OneDrive - TIPEE\\FranceRelance_MDU\\ARTICLE\\UWG",
+    "srid": 4326
+  },
+  "parameters": {
+    "rsu_indicators": {
+      "indicatorUse": [
+        "LCZ",
+        "TEB",
+        "UTRF"
+      ],
+      "svfSimplified": true,
+      "estimateHeight": true
+    },
+    "grid_indicators": {
+      "x_size": 10,
+      "y_size": 10,
+      "rowCol": false,
+      "output": "geojson",
+      "indicators": [
+        "BUILDING_FRACTION",
+        "BUILDING_HEIGHT",
+        "WATER_FRACTION",
+        "VEGETATION_FRACTION",
+        "ROAD_FRACTION",
+        "IMPERVIOUS_FRACTION",
+        "LCZ_FRACTION",
+        "GROUND_SKY_VIEW_FACTOR"
+      ]
+    }
+  }
+}

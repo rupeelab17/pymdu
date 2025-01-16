@@ -1,0 +1,12 @@
+name: umep_pymdu
+channels:
+  - conda-forge
+  - defaults
+  - numba
+dependencies:
+  - python=3.11
+  - rasterio
+  - gdal=3.9
+  - openjpeg
+  - llvmlite
+  - laspy[lazrs,laszip]

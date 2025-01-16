@@ -1,0 +1,1011 @@
+Service;Nom_Clé_Partagée;Nom_commercial ;Nom technique;URL d'accès
+TMS;administratif;Admin EXPRESS;ADMIN_EXPRESS;https://wxs.ign.fr/administratif/geoportail/tms/1.0.0/ADMIN_EXPRESS/metadata.json/
+WFS;administratif;ADMIN EXPRESS COG 2021 - arrondissement;ADMINEXPRESS-COG.LATEST:arrondissement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - arrondissement_municipal;ADMINEXPRESS-COG.LATEST:arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - canton;ADMINEXPRESS-COG.LATEST:canton;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - chflieu_arrondissement_municipal;ADMINEXPRESS-COG.LATEST:chflieu_arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - chflieu_commune;ADMINEXPRESS-COG.LATEST:chflieu_commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - chflieu_commune_associee_ou_deleguee;ADMINEXPRESS-COG.LATEST:chflieu_commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - collectivite_territoriale;ADMINEXPRESS-COG.LATEST:collectivite_territoriale;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - commune;ADMINEXPRESS-COG.LATEST:commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - commune_associee_ou_deleguee;ADMINEXPRESS-COG.LATEST:commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - departement;ADMINEXPRESS-COG.LATEST:departement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - epci;ADMINEXPRESS-COG.LATEST:epci;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG 2021 - region;ADMINEXPRESS-COG.LATEST:region;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - arrondissement;ADMINEXPRESS-COG-CARTO.LATEST:arrondissement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - arrondissement_municipal;ADMINEXPRESS-COG-CARTO.LATEST:arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - canton;ADMINEXPRESS-COG-CARTO.LATEST:canton;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - chflieu_arrondissement_municipal;ADMINEXPRESS-COG-CARTO.LATEST:chflieu_arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - chflieu_commune;ADMINEXPRESS-COG-CARTO.LATEST:chflieu_commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - chflieu_commune_associee_ou_deleguee;ADMINEXPRESS-COG-CARTO.LATEST:chflieu_commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - collectivite_territoriale;ADMINEXPRESS-COG-CARTO.LATEST:collectivite_territoriale;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - commune;ADMINEXPRESS-COG-CARTO.LATEST:commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - commune_associee_ou_deleguee;ADMINEXPRESS-COG-CARTO.LATEST:commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - departement;ADMINEXPRESS-COG-CARTO.LATEST:departement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - epci;ADMINEXPRESS-COG-CARTO.LATEST:epci;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS COG CARTO 2021 - region;ADMINEXPRESS-COG-CARTO.LATEST:region;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - arrondissement;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:arrondissement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - arrondissement departemental;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:arrondissement_departemental;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - arrondissement_municipal;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - canton;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:canton;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - chef lieu;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - chef lieu_arrondissement_municipal;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chflieu_arrondissement_municipal;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - chef lieu_commune;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chflieu_commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - chef lieu_commune_associee_ou_deleguee;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chflieu_commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - collectivite_territoriale;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:collectivite_territoriale;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - commune;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:commune;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - commune_associee_ou_deleguee;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:commune_associee_ou_deleguee;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - departement;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:departement;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - epci;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:epci;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;administratif;ADMIN EXPRESS mises à jour en continu - region;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:region;https://wxs.ign.fr/administratif/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;administratif;ADMIN EXPRESS COG 2021;ADMINEXPRESS-COG.LATEST                ;https://wxs.ign.fr/administratif/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;administratif;ADMIN EXPRESS COG CARTO 2021;ADMINEXPRESS-COG-CARTO.LATEST;https://wxs.ign.fr/administratif/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;administratif;Limites administratives mises à jour en continu;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST;https://wxs.ign.fr/administratif/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;administratif;ADMIN EXPRESS COG 2021;ADMINEXPRESS-COG.LATEST                ;https://wxs.ign.fr/administratif/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;administratif;ADMIN EXPRESS COG CARTO 2021;ADMINEXPRESS-COG-CARTO.LATEST;https://wxs.ign.fr/administratif/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;administratif;Limites administratives mises à jour en continu;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST;https://wxs.ign.fr/administratif/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;adresse;Base Adresse Nationale BAN (DATA.GOUV.FR);BAN.DATA.GOUV:ban;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;Base Adresse Nationale (BAN);BAN.ADRESSE:ban;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEN ADRESSE_BATI;ADRESSE-PREMIUM.LIEN.BATI:lien_adresse_bati;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEN ADRESSE_HEXA;ADRESSE-PREMIUM.LIEN.HEXA:lien_adresse_hexa;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEN ADRESSE_PARCELLE;ADRESSE-PREMIUM.LIEN.PARCELLE:lien_adresse_parcelle;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEN ADRESSE_IRIS;ADRESSE-PREMIUM.LIEN.IRIS:lien_adresse_iris;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEN BATI_PARCELLE;ADRESSE-PREMIUM.LIEN.BATI-PARCELLE:lien_bati_parcelle;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;ADRESSE (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:adresse;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;ARRONDISSEMENT (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:arrondissement;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;CHEF_LIEU (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:chef_lieu;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;COMMUNE (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:commune;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;LIEU_DIT_HABITE (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:lieu_dit_habite;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;ROUTE_ADRESSE (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:route_adresse;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;adresse;ROUTE_ADRESSE_NOMMEE (éd.18.2);BDADRESSE_BDD_WLD_WGS84G:route_adresse_nommee;https://wxs.ign.fr/adresse/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Vecteur;adresse;Base Adresse Nationale BAN (DATA.GOUV.FR);BAN.DATA.GOUV;https://wxs.ign.fr/adresse/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;adresse;Base Adresse Nationale (BAN);BAN.ADRESSE;https://wxs.ign.fr/adresse/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;adresse;POINT ADRESSE®;BDADRESSE-POINTADRESSE_BDD_FXX_RGF93G;https://wxs.ign.fr/adresse/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;adresse;ROUTE ADRESSE®;BDADRESSE-ROUTESADRESSE_BDD_FXX_RGF93G;https://wxs.ign.fr/adresse/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WFS;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.LATEST:bcae_cours_eau;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.2022:bcae_cours_eau;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2010;RPG.2010:rpg_2010;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2011;RPG.2011:rpg_2011;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2012;RPG.2012:rpg_2012;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2013;RPG.2013:rpg_2013;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2014:ilots anonymes;RPG.2014:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2015:parcelles graphiques;RPG.2015:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2015:ilots anonymes;RPG.2015:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2016:ilots anonymes;RPG.2016:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2016:parcelles graphiques;RPG.2016:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2017 parcelles graphiques;RPG.2017:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2017 ilots anonymes;RPG.2017:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2018 parcelles graphiques;RPG.2018:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2018 ilots anonymes;RPG.2018:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2019 parcelles graphiques;RPG.2019:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2019 ilots anonymes;RPG.2019:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2020 parcelles graphiques;RPG.2020:parcelles_graphiques;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;agriculture;RPG 2020 ilots anonymes;RPG.2020:ilots_anonymes;https://wxs.ign.fr/agriculture/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.LATEST;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.2022;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;Carte des pentes pour l'agriculture BCAE5;GEOGRAPHICALGRIDSYSTEMS.SLOPES.PAC;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2007;LANDUSE.AGRICULTURE2007;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2008;LANDUSE.AGRICULTURE2008;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2009;LANDUSE.AGRICULTURE2009;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2010;LANDUSE.AGRICULTURE2010;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2011;LANDUSE.AGRICULTURE2011;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2012;LANDUSE.AGRICULTURE2012;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2013;LANDUSE.AGRICULTURE2013;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2014;LANDUSE.AGRICULTURE2014;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2015;LANDUSE.AGRICULTURE2015;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2016;LANDUSE.AGRICULTURE2016;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2017;LANDUSE.AGRICULTURE2017;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2018;LANDUSE.AGRICULTURE2018;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2019;LANDUSE.AGRICULTURE2019;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;agriculture;RPG 2020;LANDUSE.AGRICULTURE2020;https://wxs.ign.fr/agriculture/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.LATEST;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;Carte des cours d’eau BCAE1 2022;HYDROGRAPHY.BCAE.2022;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;Carte des pentes pour l'agriculture BCAE5;GEOGRAPHICALGRIDSYSTEMS.SLOPES.PAC;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2007;LANDUSE.AGRICULTURE2007;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2008;LANDUSE.AGRICULTURE2008;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2009;LANDUSE.AGRICULTURE2009;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2010;LANDUSE.AGRICULTURE2010;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2011;LANDUSE.AGRICULTURE2011;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2012;LANDUSE.AGRICULTURE2012;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2013;LANDUSE.AGRICULTURE2013;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2014;LANDUSE.AGRICULTURE2014;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2015;LANDUSE.AGRICULTURE2015;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2016;LANDUSE.AGRICULTURE2016;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2017;LANDUSE.AGRICULTURE2017;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2018;LANDUSE.AGRICULTURE2018;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2019;LANDUSE.AGRICULTURE2019;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;agriculture;RPG 2020;LANDUSE.AGRICULTURE2020;https://wxs.ign.fr/agriculture/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;altimetrie;Masque de source du RGE Alti;ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY:source_fra;https://wxs.ign.fr/altimetrie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Cartes des pentes;GEOGRAPHICALGRIDSYSTEMS.SLOPES.MOUNTAIN;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Estompage;ELEVATION.ELEVATIONGRIDCOVERAGE.SHADOW;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Estompage MNS;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES.MNS.SHADOW ;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Masque de source du RGE Alti;ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de surface;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES.MNS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain BD Alti ;ELEVATION.ELEVATIONGRIDCOVERAGE;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain mondial SRTM3 ;ELEVATION.ELEVATIONGRIDCOVERAGE.SRTM3;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti ;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Seuils de pentes - Epandage - pour l’agriculture;ELEVATION.ELEVATIONGRIDCOVERAGE.THRESHOLD;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Fr Métro;RGEALTI-MNT_PYR-ZIP_FXX_LAMB93_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Guadeloupe;RGEALTI-MNT_PYR-ZIP_GLP_WGS84UTM20_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Martinique;RGEALTI-MNT_PYR-ZIP_MTQ_WGS84UTM20_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Guyane;RGEALTI-MNT_PYR-ZIP_GUF_UTM22RGFG95_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti La Réunion;RGEALTI-MNT_PYR-ZIP_REU_RGR92UTM40S_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Saint-Pierre-et-Miquelon;RGEALTI-MNT_PYR-ZIP_SPM_RGSPM06U21_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;altimetrie;Modèle numérique de terrain RGE Alti Mayotte;RGEALTI-MNT_PYR-ZIP_MYT_RGM04UTM38S_WMS;https://wxs.ign.fr/altimetrie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;altimetrie;Masque vecteur source;ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY;https://wxs.ign.fr/altimetrie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Altitude;ELEVATION.SLOPES;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Cartes des pentes;GEOGRAPHICALGRIDSYSTEMS.SLOPES.MOUNTAIN;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Estompage;ELEVATION.ELEVATIONGRIDCOVERAGE.SHADOW;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Masque de source du RGE Alti;ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Modèle numérique de surface;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES.MNS;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Modèle numérique de terrain BD Alti ;ELEVATION.ELEVATIONGRIDCOVERAGE;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Modèle numérique de terrain mondial SRTM3 ;ELEVATION.ELEVATIONGRIDCOVERAGE.SRTM3;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Modèle numérique de terrain RGE Alti ;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Seuils de pentes - Epandage - pour l’agriculture;ELEVATION.ELEVATIONGRIDCOVERAGE.THRESHOLD;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;altimetrie;Trait de côte;ELEVATION.LEVEL0;https://wxs.ign.fr/altimetrie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+Alticodage;calcul;Alticodage;SERVICE_CALCUL_ALTIMETRIQUE;https://wxs.ign.fr/calcul/alti/rest/elevation.{format}
+Geocodage;calcul;geocodage Administratif;Administratif;https://wxs.ign.fr/calcul/geoportail/ols?
+Geocodage;calcul;geocodage Adresses;StreetAddress;https://wxs.ign.fr/calcul/geoportail/ols?
+Geocodage;calcul;geocodage Toponymes;PositionOfInterest;https://wxs.ign.fr/calcul/geoportail/ols?
+Geocodage;calcul;geocodage Parcelles cadastrales;CadastralParcel;https://wxs.ign.fr/calcul/geoportail/ols?
+Geocodage;calcul;geocodage Bornes géodésiques;GeodeticFixedPoint;https://wxs.ign.fr/calcul/geoportail/ols?
+Isochrone;calcul;Isochrones - Piéton pgr;bdtopo-pgr-pieton;https://wxs.ign.fr/calcul/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;calcul;Isochrones – Voiture pgr;bdtopo-pgr-voiture;https://wxs.ign.fr/calcul/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;calcul;Isochrones - Piéton iso;bdtopo-iso-pieton;https://wxs.ign.fr/calcul/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;calcul;Isochrones – Voiture iso;bdtopo-iso-voiture;https://wxs.ign.fr/calcul/geoportail/isochrone/rest/1.0.0/isochrone?
+Itineraire;calcul;Calcul d'itinéraire - Piéton osrm;bdtopo-osrm-pieton;https://wxs.ign.fr/calcul/geoportail/itineraire/rest/1.0.0/route?
+Itineraire;calcul;Calcul d'itinéraire - Piéton pgr;bdtopo-pgr-pieton;https://wxs.ign.fr/calcul/geoportail/itineraire/rest/1.0.0/route?
+Itineraire;calcul;Calcul d'itinéraire - Voiture osrm;bdtopo-osrm-voiture;https://wxs.ign.fr/calcul/geoportail/itineraire/rest/1.0.0/route?
+Itineraire;calcul;Calcul d'itinéraire - Voiture pgr;bdtopo-pgr-voiture;https://wxs.ign.fr/calcul/geoportail/itineraire/rest/1.0.0/route?
+Look4;calcul;Look4 - Adresses, lieux et points routiers ;locating;https://wxs.ign.fr/calcul/look4/user
+Look4;calcul;Look4 - Contenus du site Géoportail ;wwwLayers;https://wxs.ign.fr/calcul/look4/user
+Look4;calcul;Look4 - Contenus du Géocatalogue ;geocatLayers;https://wxs.ign.fr/calcul/look4/user
+Look4;calcul;Look4 - Index des voies par communes ;voies_nommees;https://wxs.ign.fr/calcul/look4/user
+TMS;cartes;PLAN IGN;PLAN.IGN;https://wxs.ign.fr/cartes/geoportail/tms/1.0.0/PLAN.IGN/metadata.json/
+WFS;cartes;Graphe de mosaïquage SCAN 50 1950;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950.GRAPHE:ta_france_cartes_50k_1950_date_wm;https://wxs.ign.fr/cartes/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartes;Graphe de mosaïquage SCAN 25;GEOGRAPHICAL.GRIDSYSTEMS.MAPS.SCAN25.GRAPHE-MOSAIQUAGE:graphe_scan25;https://wxs.ign.fr/cartes/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;cartes;Carte de l'état-major 1 : 10 000 (Environs de Paris 1818-1824);GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR10;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;Carte de l'état-major 1 : 40 000 (1820-1866);GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR40;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;Plan IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;PLAN IGN J+1;GEOGRAPHICALGRIDSYSTEMS.MAPS.BDUNI.J1;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;Plan Terrier de Corse (XVIIIe siècle) V1;GEOGRAPHICALGRIDSYSTEMS.TERRIER_V1;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;Plan Terrier de Corse (XVIIIe siècle) V2;GEOGRAPHICALGRIDSYSTEMS.TERRIER_V2;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;SCAN 1000®;SCAN1000_PYR-JPEG_WLD_WM;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;SCAN 50® 1950;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;SCAN Départemental®;SCANDEP_PYR-JPEG_FXX_WM;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;cartes;SCAN Régional®;SCANREG_PYR-JPEG_WLD_WM;https://wxs.ign.fr/cartes/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartes;Graphe de mosaïquage SCAN 25;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN25.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/cartes/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;cartes;Carte de Guyane (1780 - Col Bonne);GEOGRAPHICALGRIDSYSTEMS.BONNE;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Carte de l'état-major 1 : 10 000 (Environs de Paris 1818-1824);GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR10;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Carte de l'état-major 1 : 40 000 (1820-1866);GEOGRAPHICALGRIDSYSTEMS.ETATMAJOR40;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Carte de Paris de 1906;GEOGRAPHICALGRIDSYSTEMS.1900TYPEMAPS;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Mini-carte;GEOGRAPHICALGRIDSYSTEMS.MAPS.OVERVIEW;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;PLAN IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;PLAN IGN J+1;GEOGRAPHICALGRIDSYSTEMS.MAPS.BDUNI.J1;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Plan Terrier de Corse (XVIIIe siècle) V1;GEOGRAPHICALGRIDSYSTEMS.TERRIER_V1;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;Plan Terrier de Corse (XVIIIe siècle) V2;GEOGRAPHICALGRIDSYSTEMS.TERRIER_V2;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;cartes;SCAN 50 Historique 1950;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950;https://wxs.ign.fr/cartes/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ACCES_EQUIPEMENT;BDCARTO_BDD_WLD_WGS84G:acces_equipement;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;AERODROME;BDCARTO_BDD_WLD_WGS84G:aerodrome;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ARRONDISSEMENT Départementale;BDCARTO_BDD_WLD_WGS84G:arrondissement_departemental;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;CIMETIERE;BDCARTO_BDD_WLD_WGS84G:cimetiere;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;COMMUNE;BDCARTO_BDD_WLD_WGS84G:commune;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;COMMUNICATION_RESTREINTE;BDCARTO_BDD_WLD_WGS84G:communication_restreinte;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;CONSTRUCTION ELEVEE;BDCARTO_BDD_WLD_WGS84G:construction_elevee;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;DEPARTEMENT;BDCARTO_BDD_WLD_WGS84G:departement;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;DIGUE;BDCARTO_BDD_WLD_WGS84G:digue;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ENCEINTE MILITAIRE;BDCARTO_BDD_WLD_WGS84G:enceinte_militaire;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;EQUIPEMENT_ROUTIER;BDCARTO_BDD_WLD_WGS84G:equipement_routier;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ETABLISSEMENT;BDCARTO_BDD_WLD_WGS84G:etablissement;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;FRANCHISSEMENT;BDCARTO_BDD_WLD_WGS84G:franchissement;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ITINERAIRE;BDCARTO_BDD_WLD_WGS84G:itineraire;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;LAISSE;BDCARTO_BDD_WLD_WGS84G:laisse;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;LIAISON_MARITIME;BDCARTO_BDD_WLD_WGS84G:liaison_maritime;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;LIGNE_ELECTRIQUE;BDCARTO_BDD_WLD_WGS84G:ligne_electrique;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;LIMITE_ADMINISTRATIVE;BDCARTO_BDD_WLD_WGS84G:limite_administrative;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;MASSIF_BOISE;BDCARTO_BDD_WLD_WGS84G:massif_boise;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;METRO_AERIEN;BDCARTO_BDD_WLD_WGS84G:metro_aerien;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;NŒUD_FERRE;BDCARTO_BDD_WLD_WGS84G:noeud_ferre;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;NŒUD_ROUTIER;BDCARTO_BDD_WLD_WGS84G:noeud_routier;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;PISTE_AERODROME;BDCARTO_BDD_WLD_WGS84G:piste_aerodrome;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;POINT_REMARQUABLE_RELIEF;BDCARTO_BDD_WLD_WGS84G:point_remarquable_relief;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;PONCTUEL_HYDROGRAPHIQUE;BDCARTO_BDD_WLD_WGS84G:ponctuel_hydrographique;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;REGION;BDCARTO_BDD_WLD_WGS84G:region;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;SURFACE_HYDROGRAPHIQUE;BDCARTO_BDD_WLD_WGS84G:surface_hydrographique;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;TRANSPORT_CABLE;BDCARTO_BDD_WLD_WGS84G:transport_cable;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;TRONCON_HYDROGRAPHIQUE;BDCARTO_BDD_WLD_WGS84G:troncon_hydrographique;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;TRONCON_ROUTE;BDCARTO_BDD_WLD_WGS84G:troncon_route;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;TRONCON_VOIE_FERREE;BDCARTO_BDD_WLD_WGS84G:troncon_voie_ferree;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ZONE_ACTIVITE;BDCARTO_BDD_WLD_WGS84G:zone_activite;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ZONE_HABITAT Mairie;BDCARTO_BDD_WLD_WGS84G:zone_habitat_mairie;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ZONE_HYDROGRAPHIQUE_TEXTURE;BDCARTO_BDD_WLD_WGS84G:zone_hydrographique_texture;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ZONE_OCCUPATION_SOL;BDCARTO_BDD_WLD_WGS84G:zone_occupation_sol;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;ZONE_REGLEMENTEE_TOURISTIQUE;BDCARTO_BDD_WLD_WGS84G:zone_reglementee_touristique;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;Stations vertes;LABELS.TOURISTIQUES:stations_vertes;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;Villages Etapes;LABELS.TOURISTIQUES:villages_etape;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;Contours IRIS France Entière;STATISTICALUNITS.IRIS:contours_iris;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;cartovecto;Contours IRIS Grande Echelle France Entière;STATISTICALUNITS.IRISGE:iris_ge;https://wxs.ign.fr/cartovecto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;cartovecto;Points de repère routiers – BDPR;TRANSPORTNETWORK.COMMONTRANSPORTELEMENTS.MARKERPOST;https://wxs.ign.fr/cartovecto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Administratif;BDCARTO-GEOPO-ADMINISTRATIF_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Équipement;BDCARTO-GEOPO-EQUIPEMENT_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Habillage;BDCARTO-GEOPO-HABILLAGE_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Hydrographie;BDCARTO-GEOPO-HYDROGRAPHIE_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Réseau ferré;BDCARTO-GEOPO-RESEAU_FERRE_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Réseau routier;BDCARTO-GEOPO-RESEAU_ROUTIER_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;BD CARTO® - Toponymie;BDCARTO-GEOPO-TOPONYME_WLD_WGS84G;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;Contours IRIS;STATISTICALUNITS.IRIS;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;Contours IRIS Grande Echelle;STATISTICALUNITS.IRISGE;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;Stations Vertes;STATIONSVERTES;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;cartovecto;Villages Etapes;VILLAGESETAPE;https://wxs.ign.fr/cartovecto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;cartovecto;Points de repère routiers – BDPR;TRANSPORTNETWORK.COMMONTRANSPORTELEMENTS.MARKERPOST;https://wxs.ign.fr/cartovecto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 1990 - France Métropolitaine ;LANDCOVER.CLC90_FR:clc90_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2000 - France Métropolitaine ;LANDCOVER.CLC00_FR:clc00_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2000 - Outre-Mer ;LANDCOVER.CLC00_DOM:clc00_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2000 révisée - France Métropolitaine ;LANDCOVER.CLC0OR_FR:clc00r_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2006 - France Métropolitaine ;LANDCOVER.CLC06_FR:clc06_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2006 - Outre-Mer ;LANDCOVER.CLC06_DOM:clc06_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2006 révisée - France Métropolitaine ;LANDCOVER.CLC06R_FR:clc06r_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2006 revisée - France Outre-Mer ;LANDCOVER.CLC06R_DOM:clc06r_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2012 - France Métropolitaine ;LANDCOVER.CLC12_FR:clc12_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2012 - Outre-Mer ;LANDCOVER.CLC12_DOM:clc12_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2012 révisée - France Métropolitaine;LANDCOVER.CLC12R_FR:clc12r_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2012 révisée - France Outre-Mer ;LANDCOVER.CLC12R_DOM:clc12r_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2018 - France Métropolitaine ;LANDCOVER.CLC18_FR:clc18_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover 2018 - Outre-Mer;LANDCOVER.CLC18_DOM:clc18_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 1990-2000 - France Métropolitaine ;LANDCOVER.CHA00_FR:cha00_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2000-2006 - France Métropolitaine ;LANDCOVER.CHA06_FR:cha06_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2000-2006 - Outre-Mer ;LANDCOVER.CHA06_DOM:cha06_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2006-2012 - France Métropolitaine ;LANDCOVER.CHA12_FR:cha12_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2006-2012 - Outre-Mer ;LANDCOVER.CHA12_DOM:cha12_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2012-2018 – France Métropolitaine ;LANDCOVER.CHA18_FR:cha18_fr;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;clc;Corine Land Cover Changements 2012-2018 – Outre-Mer;LANDCOVER.CHA18_DOM:cha18_dom;https://wxs.ign.fr/clc/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 1990 - France Métropolitaine ;LANDCOVER.CLC90_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 1990 - Grille - France Métropolitaine ;LANDCOVER.GRID.CLC90_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - France Métropolitaine ;LANDCOVER.CLC00_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - Grille - France Entière;LANDCOVER.GRID.CLC00;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - Grille - France Métropolitaine;LANDCOVER.GRID.CLC00_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - Grille - Outre-Mer;LANDCOVER.GRID.CLC00_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - Grille révisée - France Métropolitaine ;LANDCOVER.GRID.CLC00R_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 - Outre-Mer ;LANDCOVER.CLC00_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2000 révisée - France Métropolitaine ;LANDCOVER.CLC00R_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - France Métropolitaine ;LANDCOVER.CLC06_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille - France Entière;LANDCOVER.GRID.CLC06;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille - France Métropolitaine;LANDCOVER.GRID.CLC06_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille - Outre-Mer;LANDCOVER.GRID.CLC06_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille révisée - France Entière;LANDCOVER.GRID.CLC06R;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille révisée - France Métropolitaine;LANDCOVER.GRID.CLC06R_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Grille révisée - Outre-Mer;LANDCOVER.GRID.CLC06R_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 - Outre-Mer ;LANDCOVER.CLC06_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 révisée - France Métropolitaine ;LANDCOVER.CLC06R_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2006 révisée - Outre-Mer ;LANDCOVER.CLC06R_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 - France Métropolitaine ;LANDCOVER.CLC12_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 - Grille - France Entière;LANDCOVER.GRID.CLC12;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 - Outre-Mer ;LANDCOVER.CLC12_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 haute résolution - taux de couvert arboré - France Entière;LANDCOVER.HR.TCD.CLC12;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 haute résolution - taux d'imperméabilisation des sols - France Entière ;LANDCOVER.HR.IMD.CLC12;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 haute résolution - type de forêt dominant - France Entière;LANDCOVER.HR.DLT.CLC12;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 révisée - France Entière;LANDCOVER.CLC12R;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 révisée - France Métropolitaine ;LANDCOVER.CLC12R_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2012 révisée - Outre-Mer ;LANDCOVER.CLC12R_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2015 haute résolution - prairies - France Entière  ;LANDCOVER.HR.GRA.CLC15;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2015 haute résolution - taux de couvert arboré - France Entière;LANDCOVER.HR.TCD.CLC15;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2015 haute résolution - taux d'imperméabilisation des sols - France Entière ;LANDCOVER.HR.IMD.CLC15;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2015 haute résolution - type de forêt dominant - France Entière;LANDCOVER.HR.DLT.CLC15;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2015 haute résolution - zones humides et surfaces en eaux - France Entière;LANDCOVER.HR.WAW.CLC15;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2018 - France Entière;LANDCOVER.CLC18;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2018 - France Métropolitaine ;LANDCOVER.CLC18_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover 2018 - Outre-Mer;LANDCOVER.CLC18_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 1990-2000 - France Métropolitaine ;LANDCOVER.CHA00_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2000-2006 - France Métropolitaine ;LANDCOVER.CHA06_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2000-2006 - Outre-Mer ;LANDCOVER.CHA06_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2006-2012 – France Métropolitaine ;LANDCOVER.CHA12_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2006-2012 - Outre-Mer ;LANDCOVER.CHA12_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2012-2018 – France Métropolitaine ;LANDCOVER.CHA18_FR;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2012-2018 – Outre Mer;LANDCOVER.CHA18_DOM;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;clc;Corine Land Cover Changements 2018 - France Entière;LANDCOVER.CHA18;https://wxs.ign.fr/clc/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 1990 - France Métropolitaine ;LANDCOVER.CLC90_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 1990 - Grille - France Métropolitaine ;LANDCOVER.GRID.CLC90_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - France Métropolitaine ;LANDCOVER.CLC00_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - Grille - France Entière;LANDCOVER.GRID.CLC00;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - Grille - France Métropolitaine;LANDCOVER.GRID.CLC00_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - Grille - Outre-Mer;LANDCOVER.GRID.CLC00_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - Grille révisée - France Métropolitaine ;LANDCOVER.GRID.CLC00R_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 - Outre-Mer ;LANDCOVER.CLC00_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2000 révisée - France Métropolitaine ;LANDCOVER.CLC00R_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - France Métropolitaine ;LANDCOVER.CLC06_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille - France Entière;LANDCOVER.GRID.CLC06;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille - France Métropolitaine;LANDCOVER.GRID.CLC06_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille - Outre-Mer;LANDCOVER.GRID.CLC06_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille révisée - France Entière;LANDCOVER.GRID.CLC06R;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille révisée - France Métropolitaine;LANDCOVER.GRID.CLC06R_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Grille révisée - Outre-Mer;LANDCOVER.GRID.CLC06R_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 - Outre-Mer ;LANDCOVER.CLC06_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 révisée - France Métropolitaine ;LANDCOVER.CLC06R_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2006 révisée - Outre-Mer ;LANDCOVER.CLC06R_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 - France Entière;LANDCOVER.CLC12;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 - France Métropolitaine ;LANDCOVER.CLC12_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 - Grille - France Entière;LANDCOVER.GRID.CLC12;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 - Outre-Mer ;LANDCOVER.CLC12_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 haute résolution - taux de couvert arboré - France Entière;LANDCOVER.HR.TCD.CLC12;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 haute résolution - taux d'imperméabilisation des sols - France Entière ;LANDCOVER.HR.IMD.CLC12;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 haute résolution - type de forêt dominant - France Entière;LANDCOVER.HR.DLT.CLC12;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 révisée - France Entière;LANDCOVER.CLC12R;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 révisée - France Métropolitaine ;LANDCOVER.CLC12R_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2012 révisée - Outre-Mer ;LANDCOVER.CLC12R_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2015 haute résolution - prairies - France Entière  ;LANDCOVER.HR.GRA.CLC15;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2015 haute résolution - taux de couvert arboré - France Entière;LANDCOVER.HR.TCD.CLC15;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2015 haute résolution - taux d'imperméabilisation des sols - France Entière ;LANDCOVER.HR.IMD.CLC15;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2015 haute résolution - type de forêt dominant - France Entière;LANDCOVER.HR.DLT.CLC15;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2015 haute résolution - zones humides et surfaces en eaux - France Entière;LANDCOVER.HR.WAW.CLC15;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2018 - France Entière;LANDCOVER.CLC18;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2018 - France Métropolitaine ;LANDCOVER.CLC18_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover 2018 - Outre-Mer;LANDCOVER.CLC18_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 1990-2000 - France Métropolitaine ;LANDCOVER.CHA00_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2000-2006 - France Métropolitaine ;LANDCOVER.CHA06_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2000-2006 - Outre-Mer ;LANDCOVER.CHA06_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2006-2012 – France Métropolitaine ;LANDCOVER.CHA12_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2006-2012 - Outre-Mer ;LANDCOVER.CHA12_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2012-2018 – France Métropolitaine ;LANDCOVER.CHA18_FR;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2012-2018 – Outre Mer;LANDCOVER.CHA18_DOM;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;Corine Land Cover Changements 2018 - France Entière;LANDCOVER.CHA18;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Constructions;OCSGE.CONSTRUCTIONS;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Constructions 2002;OCSGE.CONSTRUCTIONS.2002;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Constructions 2014;OCSGE.CONSTRUCTIONS.2014;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Constructions 2016;OCSGE.CONSTRUCTIONS.2016;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Couverture;OCSGE.COUVERTURE;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Couverture 2002;OCSGE.COUVERTURE.2002;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Couverture 2014;OCSGE.COUVERTURE.2014;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Couverture 2016;OCSGE.COUVERTURE.2016;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Usage;OCSGE.USAGE;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Usage 2002;OCSGE.USAGE.2002;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Usage 2014;OCSGE.USAGE.2014;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;clc;OCSGE Usage 2016;OCSGE.USAGE.2016;https://wxs.ign.fr/clc/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMS Raster;clé personnelle *;Cartes;GEOGRAPHICALGRIDSYSTEMS.MAPS;"https://wxs.ign.fr/CLEF/geoportail/r/wms?SERVICE=WMS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMS Raster;clé personnelle *;SCAN 100®;SCAN100_PYR-JPEG_WLD_WM;"https://wxs.ign.fr/CLEF/geoportail/r/wms?SERVICE=WMS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMS Raster;clé personnelle *;SCAN 100®  L93;SCAN100_PYR-PNG_FXX_LAMB93;"https://wxs.ign.fr/CLEF/geoportail/r/wms?SERVICE=WMS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMS Raster;clé personnelle *;SCAN 25® Touristique;SCAN25TOUR_PYR-JPEG_WLD_WM;"https://wxs.ign.fr/CLEF/geoportail/r/wms?SERVICE=WMS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMS Raster;clé personnelle *;SCAN OACI;SCANOACI_PYR-JPEG_WLD_WM;"https://wxs.ign.fr/CLEF/geoportail/r/wms?SERVICE=WMS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMTS;clé personnelle *;Cartes SCAN 25® Touristique;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN25TOUR.L93;"https://wxs.ign.fr/CLEF/geoportail/wmts?SERVICE=WMTS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMTS;clé personnelle *;Cartes IGN;GEOGRAPHICALGRIDSYSTEMS.MAPS;"https://wxs.ign.fr/CLEF/geoportail/wmts?SERVICE=WMTS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMTS;clé personnelle *;Cartes SCAN 25® Touristique;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN25TOUR;"https://wxs.ign.fr/CLEF/geoportail/wmts?SERVICE=WMTS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMTS;clé personnelle *;Cartes SCAN OACI;GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-OACI;"https://wxs.ign.fr/CLEF/geoportail/wmts?SERVICE=WMTS&REQUEST=GetCapabilities<!-- Le paramètre CLEF étant à remplacer par votre clé personnelle à créer/gérer dans la rubrique ""Mes Clés"" de votre compte de profil ""particulier"" ou ""professionnel"" sur le site Géoservices -->"
+WMTS;découverte;Photographies aériennes;ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/decouverte/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;découverte;PLAN IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2;https://wxs.ign.fr/decouverte/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;economie;Dispositif Pinel Bretagne - Carreaux (quand ajout ressource/indiquer le nom du client à E Cajoly);DREAL.ZONAGE_PINEL:carreaux;https://wxs.ign.fr/economie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;economie;Dispositif Pinel Bretagne - Communes (quand ajout ressource/indiquer le nom du client à E Cajoly));DREAL.ZONAGE_PINEL:communes;https://wxs.ign.fr/economie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;economie;Dispositif Pinel Bretagne - Iris (quand ajout ressource/indiquer le nom du client à E Cajoly);DREAL.ZONAGE_PINEL:iris;https://wxs.ign.fr/economie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;economie;% des 0-17 ans;INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;% des plus de 65 ans;INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Densité de Population;INSEE.FILOSOFI.POPULATION;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Dispositif Pinel Bretagne (quand ajout ressource/indiquer le nom du client à E Cajoly);DREAL.ZONAGE_PINEL;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Familles monoparentales;INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Individus de 25 à 39 ans;INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Individus de 40 à 54 ans;INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Individus de 55 à 64 ans;INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements collectifs;INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements construits après 1990;INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements construits avant 1945;INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements construits entre 1945 et 1970;INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements construits entre 1970 et 1990;INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Logements sociaux;INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Ménages 5 personnes ou +;INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Ménages d'une personne;INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Ménages en maison;INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Ménages pauvres;INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Ménages propriétaires;INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Niveau de vie winsorisé des individus;INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;economie;Surface moyenne des logements;INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET;https://wxs.ign.fr/economie/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;% des 0-17 ans;INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;% des plus de 65 ans;INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Densité de Population;INSEE.FILOSOFI.POPULATION;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Dispositif Pinel Bretagne (quand ajout ressource/indiquer le nom du client à E Cajoly);DREAL.ZONAGE_PINEL;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Familles monoparentales;INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Individus de 25 à 39 ans;INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Individus de 40 à 54 ans;INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Individus de 55 à 64 ans;INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements collectifs;INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements construits après 1990;INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements construits avant 1945;INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements construits entre 1945 et 1970;INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements construits entre 1970 et 1990;INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Logements sociaux;INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Ménages 5 personnes ou +;INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Ménages d'une personne;INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Ménages en maison;INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Ménages pauvres;INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Ménages propriétaires;INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Niveau de vie winsorisé des individus;INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;economie;Surface moyenne des logements;INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET;https://wxs.ign.fr/economie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;economie;% des 0-17 ans;INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;% des plus de 65 ans;INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Densité de Population;INSEE.FILOSOFI.POPULATION;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Dispositif Pinel Bretagne (quand ajout ressource/indiquer le nom du client à E Cajoly);DREAL.ZONAGE_PINEL;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Familles monoparentales;INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Individus de 25 à 39 ans;INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Individus de 40 à 54 ans;INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Individus de 55 à 64 ans;INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements collectifs;INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements construits après 1990;INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements construits avant 1945;INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements construits entre 1945 et 1970;INSEE.FILOSOfI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements construits entre 1970 et 1990;INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Logements sociaux;INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Ménages 5 personnes ou +;INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Ménages d'une personne;INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Ménages en maison;INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Ménages pauvres;INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Ménages propriétaires;INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Niveau de vie winsorisé des individus;INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Quartiers prioritaires de la politique de la ville;COMMUNES.PRIORITYDISCTRICT;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Surface moyenne des logements;INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Zones Franches Urbaines (données tiers limitées au non-commercial);AREAMANAGEMENT.ZFU;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;economie;Zones Urbaines Sensibles (données tiers limitées au non-commercial);AREAMANAGEMENT.ZUS;https://wxs.ign.fr/economie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;environnement;Aires protégées Géoparcs;PROTECTEDAREAS.GP:gp;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Arrêtés de protection d’habitats naturels;PROTECTEDAREAS.APHN:aphn;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Arrêtés de protection de biotope;PROTECTEDAREAS.APB:apb;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Arrêtés de protection de géotope;PROTECTEDAREAS.APG:apg;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Carte forestière v1 (1987 - 2004);LANDCOVER.FORESTINVENTORY.V1:resu_bdv1_shape;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Carte forestière v2 (2006 -...);LANDCOVER.FORESTINVENTORY.V2:bdforetv2;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Conservatoire du littoral : parcelles protégées;PROTECTEDAREAS.MNHN.CDL.PARCELS:cdl;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Conservatoire du littoral : périmètres d'intervention;PROTECTEDAREAS.MNHN.CDL.PERIMETER:wld_perimetre_intervention_wm;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Conservatoires d'Espaces Naturel;PROTECTEDAREAS.MNHN.CONSERVATOIRES:cen;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Inventaire National du Patrimoine Géologique;PROTECTEDAREAS.INPG:inpg;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Mesures compensatoires des atteintes à la biodiversité _emprises commune;MESURES_COMPENSATOIRES:emprises_commune;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Mesures compensatoires des atteintes à la biodiversité _emprises_linéaires;MESURES_COMPENSATOIRES:emprises_lineaires;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Mesures compensatoires des atteintes à la biodiversité _emprises_polygones;MESURES_COMPENSATOIRES:emprises_polygones;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Mesures compensatoires des atteintes à la biodiversité _emprises_ponctuelles;MESURES_COMPENSATOIRES:emprises_ponctuelles;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Parcs nationaux;PROTECTEDAREAS.PN:pn;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Parcs naturels marins;PROTECTEDAREAS.PNM:pnm;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Parcs naturels régionaux;PROTECTEDAREAS.PNR:pnr;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Périmètres de protection de réserves naturelles;PROTECTEDAREAS.MNHN.RN.PERIMETER:pprnn;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Points de Rencontre de Secours en Forêt (PRSF);PROTECTEDAREAS.PRSF:prsf;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves biologiques;PROTECTEDAREAS.RB:rb;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves de biosphère;PROTECTEDAREAS.BIOS:bios;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves intégrales des Parc nationaux;PROTECTEDAREAS.RIPN:ripn;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves nationales de chasse et de faune sauvage;PROTECTEDAREAS.RNCF:rncfs_fxx;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves naturelles de Corse;PROTECTEDAREAS.RNC:rnc;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves naturelles nationales;PROTECTEDAREAS.RNN:rnn;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Réserves naturelles régionales;PROTECTEDSITES.MNHN.RESERVES-REGIONALES:wld_rnr;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Sites Natura 2000 (Directive Habitats);PROTECTEDAREAS.SIC:sic;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Sites Natura 2000 (Directive Oiseaux);PROTECTEDAREAS.ZPS:zps;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Zones humides d'importance internationale;PROTECTEDAREAS.RAMSAR:ramsar;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1 (ZNIEFF 1 mer) ;PROTECTEDAREAS.ZNIEFF1.SEA:znieff1_mer;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1 (ZNIEFF 1);PROTECTEDAREAS.ZNIEFF1:znieff1;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2 (ZNIEFF 2 mer) ;PROTECTEDAREAS.ZNIEFF2.SEA:znieff2_mer;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2 (ZNIEFF 2);PROTECTEDAREAS.ZNIEFF2:znieff2;https://wxs.ign.fr/environnement/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Aires protégées Géoparcs;PROTECTEDAREAS.GP;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Arrêtés de protection d’habitats naturels;PROTECTEDAREAS.APHN;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Arrêtés de protection de biotope;PROTECTEDAREAS.APB;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Arrêtés de protection de géotope;PROTECTEDAREAS.APG;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Carroyages DFCI;GEOGRAPHICALGRIDSYSTEM.DFCI;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Carte forestière V1 (1987-2004) ;LANDCOVER.FORESTINVENTORY.V1;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Carte forestière V2 (2006-...) ;LANDCOVER.FORESTINVENTORY.V2;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Conservatoire du littoral : parcelles protégées ;PROTECTEDAREAS.MNHN.CDL.PARCELS;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Conservatoire du littoral : périmètres d'intervention ;PROTECTEDAREAS.MNHN.CDL.PERIMETER;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Conservatoires d'Espaces Naturel;PROTECTEDAREAS.MNHN.CONSERVATOIRES;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Forêts publiques;FORETS.PUBLIQUES;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Inventaire National du Patrimoine Géologique;PROTECTEDAREAS.INPG;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Parcs nationaux;PROTECTEDAREAS.PN;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Parcs naturels marins;PROTECTEDAREAS.PNM;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Parcs naturels régionaux;PROTECTEDAREAS.PNR;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Périmètres de protection de réserves naturelles;PROTECTEDAREAS.MNHN.RN.PERIMETER;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Points de Rencontre de Secours en Forêt (PRSF);PROTECTEDAREAS.PRSF;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves biologiques;PROTECTEDAREAS.RB;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves de biosphère;PROTECTEDAREAS.BIOS;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves intégrales des Parc nationaux;PROTECTEDAREAS.RIPN;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves nationales de chasse et de faune sauvage;PROTECTEDAREAS.RNCF;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves naturelles de Corse;PROTECTEDAREAS.RNC;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves naturelles nationales;PROTECTEDAREAS.RN;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Réserves naturelles régionales;PROTECTEDSITES.MNHN.RESERVES-REGIONALES;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Sites Natura 2000 (Directive Habitats);PROTECTEDAREAS.SIC;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Sites Natura 2000 (Directive Oiseaux);PROTECTEDAREAS.ZPS;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1;PROTECTEDAREAS.ZNIEFF1;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1 (ZNIEFF 1 mer) ;PROTECTEDAREAS.ZNIEFF1.SEA;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2;PROTECTEDAREAS.ZNIEFF2;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2 (ZNIEFF 2 mer) ;PROTECTEDAREAS.ZNIEFF2.SEA;https://wxs.ign.fr/environnement/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;environnement;Mesures compensatoires des atteintes à la biodiversité ;MESURES_COMPENSATOIRES;https://wxs.ign.fr/environnement/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;environnement;Aires protégées Géoparcs;PROTECTEDAREAS.GP;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Arrêtés de protection d’habitats naturels;PROTECTEDAREAS.APHN;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Arrêtés de protection de biotope;PROTECTEDAREAS.APB;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Arrêtés de protection de géotope;PROTECTEDAREAS.APG;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Carroyages DFCI;GEOGRAPHICALGRIDSYSTEM.DFCI;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Carte forestière V1 (1987-2004) ;LANDCOVER.FORESTINVENTORY.V1;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Carte forestière V2 (2006-...) ;LANDCOVER.FORESTINVENTORY.V2;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Conservatoire du littoral : parcelles protégées ;PROTECTEDAREAS.MNHN.CDL.PARCELS;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Conservatoire du littoral : périmètres d'intervention ;PROTECTEDAREAS.MNHN.CDL.PERIMETER;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Conservatoires d'Espaces Naturel;PROTECTEDAREAS.MNHN.CONSERVATOIRES;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Forêts publiques;FORETS.PUBLIQUES;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Inventaire National du Patrimoine Géologique;PROTECTEDAREAS.INPG;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Parcs nationaux;PROTECTEDAREAS.PN;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Parcs naturels marins;PROTECTEDAREAS.PNM;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Parcs naturels régionaux;PROTECTEDAREAS.PNR;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Périmètres de protection de réserves naturelles;PROTECTEDAREAS.MNHN.RN.PERIMETER;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Points de Rencontre de Secours en Forêt (PRSF);PROTECTEDAREAS.PRSF;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Régions forestières nationales;LANDCOVER.FORESTAREAS;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves biologiques;PROTECTEDAREAS.RB;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves de biosphère;PROTECTEDAREAS.BIOS;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves intégrales des Parc nationaux;PROTECTEDAREAS.RIPN;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves nationales de chasse et de faune sauvage;PROTECTEDAREAS.RNCF;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves naturelles de Corse;PROTECTEDAREAS.RNC;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves naturelles nationales;PROTECTEDAREAS.RN;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Réserves naturelles régionales;PROTECTEDSITES.MNHN.RESERVES-REGIONALES;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Sites Natura 2000 (Directive Habitats);PROTECTEDAREAS.SIC;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Sites Natura 2000 (Directive Oiseaux);PROTECTEDAREAS.ZPS;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Sylvoécorégions;LANDCOVER.SYLVOECOREGIONS;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Sylvoécorégions d'alluvions récentes;LANDCOVER.SYLVOECOREGIONS.ALLUVIUM;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Zones humides d'importance internationale;PROTECTEDAREAS.RAMSAR;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1 (ZNIEFF 1 mer) ;PROTECTEDAREAS.ZNIEFF1.SEA;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 1 (ZNIEFF 1);PROTECTEDAREAS.ZNIEFF1;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2 (ZNIEFF 2 mer) ;PROTECTEDAREAS.ZNIEFF2.SEA;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;environnement;Zones naturelles d'intérêt écologique faunistique et floristique de type 2 (ZNIEFF 2);PROTECTEDAREAS.ZNIEFF2;https://wxs.ign.fr/environnement/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+Alticodage;essentiels;Alticodage;SERVICE_CALCUL_ALTIMETRIQUE;https://wxs.ign.fr/essentiels/alti/rest/elevation.{format}
+Geocodage;essentiels;geocodage Administratif;Administratif;https://wxs.ign.fr/essentiels/geoportail/ols?
+Geocodage;essentiels;geocodage Adresses;StreetAddress;https://wxs.ign.fr/essentiels/geoportail/ols?
+Geocodage;essentiels;geocodage Toponymes;PositionOfInterest;https://wxs.ign.fr/essentiels/geoportail/ols?
+Geocodage;essentiels;geocodage Parcelles cadastrales;CadastralParcel;https://wxs.ign.fr/essentiels/geoportail/ols?
+Geocodage;essentiels;geocodage Bornes géodésiques;GeodeticFixedPoint;https://wxs.ign.fr/essentiels/geoportail/ols?
+Isochrone;essentiels;Isochrones - Piéton pgr;bdtopo-pgr-pieton;https://wxs.ign.fr/essentiels/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;essentiels;Isochrones – Voiture pgr;bdtopo-pgr-voiture;https://wxs.ign.fr/essentiels/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;essentiels;Isochrones - Piéton iso;bdtopo-iso-pieton;https://wxs.ign.fr/essentiels/geoportail/isochrone/rest/1.0.0/isochrone?
+Isochrone;essentiels;Isochrones – Voiture iso;bdtopo-iso-voiture;https://wxs.ign.fr/essentiels/geoportail/isochrone/rest/1.0.0/isochrone?
+Itineraire;essentiels;Calcul d'itinéraire - Piéton osrm;bdtopo-osrm-pieton;https://wxs.ign.fr/essentiels/geoportail/itineraire/rest/1.0.0/route?
+Itineraire;essentiels;Calcul d'itinéraire - Voiture osrm;bdtopo-osrm-voiture;https://wxs.ign.fr/essentiels/geoportail/itineraire/rest/1.0.0/route?
+Look4;essentiels;Look4 - Adresses, lieux et points routiers ;locating;https://wxs.ign.fr/essentiels/look4/user
+Look4;essentiels;Look4 - Index des voies par communes ;voies_nommees;https://wxs.ign.fr/essentiels/look4/user
+TMS;essentiels;Admin EXPRESS;ADMIN_EXPRESS;https://wxs.ign.fr/essentiels/geoportail/tms/1.0.0/ADMIN_EXPRESS/metadata.json/
+TMS;essentiels;PLAN IGN;PLAN.IGN;https://wxs.ign.fr/essentiels/geoportail/tms/1.0.0/ADMIN_EXPRESS/metadata.json/
+WFS;essentiels;BD TOPO® V3 batiment;BDTOPO_V3:batiment;https://wxs.ign.fr/essentiels/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;essentiels;BD TOPO® V3 troncon de route;BDTOPO_V3:troncon_de_route;https://wxs.ign.fr/essentiels/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;essentiels;Parcellaire Express (PCI) parcelle;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle;https://wxs.ign.fr/essentiels/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;essentiels;Limites administratives mises à jour en continu;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST;https://wxs.ign.fr/essentiels/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;essentiels;Parcellaire Express (PCI);CADASTRALPARCELS.PARCELLAIRE_EXPRESS;https://wxs.ign.fr/essentiels/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;essentiels;Photographies aériennes;ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/essentiels/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;essentiels;Plan IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2;https://wxs.ign.fr/essentiels/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;essentiels;Graphe de mosaiquage BD ORTHO;ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/essentiels/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;essentiels;Parcellaire Express (PCI);CADASTRALPARCELS.PARCELLAIRE_EXPRESS;https://wxs.ign.fr/essentiels/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;essentiels;Photographies aériennes;ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/essentiels/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;essentiels;PLAN IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2;https://wxs.ign.fr/essentiels/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;geodesie;BDGéodésique - points géodésiques;BDGEODESIQUE:rgp;https://wxs.ign.fr/geodesie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;geodesie;BDGéodésique - repères de nivellement;BDGEODESIQUE:rn;https://wxs.ign.fr/geodesie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;geodesie;BDGéodésique - sites géodésiques;BDGEODESIQUE:site;https://wxs.ign.fr/geodesie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;geodesie;BDGéodésique - triplet;BDGEODESIQUE:triplet;https://wxs.ign.fr/geodesie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Vecteur;geodesie;Réseau de base français (RBF);BDGEODESIQUE-SITE-RBF_BDD-POI_WLD;https://wxs.ign.fr/geodesie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;geodesie;Réseau de détail français (RDF);BDGEODESIQUE-SITE-RDF_BDD-POI_WLD;https://wxs.ign.fr/geodesie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;geodesie;Réseau de nivellement;BDGEODESIQUE-RN_BDD-POI_WLD;https://wxs.ign.fr/geodesie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;geodesie;Réseau GNSS permanent;BDGEODESIQUE-RGP_BDD-POI_WLD;https://wxs.ign.fr/geodesie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;geodesie;Triplets de repères de nivellement;BDGEODESIQUE-TRIPLET_BDD-POI_WLD;https://wxs.ign.fr/geodesie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau;net:Network;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:AerodromeArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:AerodromeNode;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:AerodromeType;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:ConditionOfAirFacility;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:RunwayArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:SurfaceComposition;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:UseRestriction;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport par cable;tn-c:CablewayLink;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:NominalTrackGauge;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:NumberOfTracks;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn-a:AerodromeCategory;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayElectrification;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayStationNode;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayType;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayUse;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayYardArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:ERoad;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:FormOfWay;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:FunctionalRoadClass;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:NumberOfLanes;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:Road;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadLink;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadName;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport ferroviaire;tn-ra:RailwayLink;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadNode;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadServiceArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadSurfaceCategory;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:RoadWidth;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport routier;tn-ro:VehicleTrafficArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:Beacon;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:FerryCrossing;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:PortArea;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:FerryUse;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:PortNode;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport fluvial - maritime;tn-w:WaterwayLink;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn:AccessRestriction;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn:ConditionOfFacility;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn:TrafficFlowDirection;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn:TransportNetwork;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Réseau de transport aérien;tn:VerticalPosition;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-n:HydroNode;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-n:WatercourseLink;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:Watercourse;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:Ford;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:Falls;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:DrainageBasin;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:DamOrWeir;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:LandWaterBoundary;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:Lock;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:StandingWater;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-n:WatercourseLinkSequence;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Hydrographie;hy-p:Crossing;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Adresses;ad:Address;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Adresses;ad:AddressAreaName;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Adresses;ad:AdminUnitName;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Adresses;ad:PostalDescriptor;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Adresses;ad:ThoroughfareName;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Unités administratives;au:AdministrativeBoundary;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Unités administratives;au:AdministrativeUnit;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Toponymes;gn:NamedPlace;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;inspire;Bâtiments;bu-core2d:Building;https://wxs.ign.fr/inspire/inspire/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;inspire;Ortho-imagerie;OI.OrthoimageCoverage;https://wxs.ign.fr/inspire/inspire/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;inspire;Ortho-imagerie HR;OI.OrthoimageCoverage.HR;https://wxs.ign.fr/inspire/inspire/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;inspire;Parcelles cadastrales;CP.CadastralParcel;https://wxs.ign.fr/inspire/inspire/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;inspire;EL.GridCoverage;EL.GridCoverage;https://wxs.ign.fr/inspire/inspire/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Bâtiments;BU.Building;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Réseau de transport aérien;TN.AirTransportNetwork;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Réseau de transport ferroviaire;TN.RailTransportNetwork;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Réseau de transport routier;TN.RoadTransportNetwork;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Réseau de transport routier;TN.RoadTransportNetwork-2;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Noms géographiques;GN.GeographicalNames;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Adresses;AD.Address;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Unités d'administration séparées;AU.AdministrativeUnit;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Hydrographie;HY.PhysicalWaters;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;inspire;Services d'utilité publique;US.UtilityAndGovernmentalServices;https://wxs.ign.fr/inspire/inspire/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WFS;lambert93;Carroyages DFCI 1X1 ;GEOGRAPHICALGRIDSYSTEM.DFCI:carro_dfci_1x1_l93;https://wxs.ign.fr/lambert93/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;lambert93;Carroyages DFCI 2X2 ;GEOGRAPHICALGRIDSYSTEM.DFCI:carro_dfci_2x2_l93;https://wxs.ign.fr/lambert93/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;lambert93;Carte de l'état-major 1 : 40 000  L93 (1820-1866);SCANEM40_PYR_PNG_FXX_LAMB93;https://wxs.ign.fr/lambert93/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;lambert93;Modèle numérique de surface L93;ELEVATION.ELEVATIONGRIDCOVERAGE.HIGHRES.MNS.L93;https://wxs.ign.fr/lambert93/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;lambert93;BD PARCELLAIRE® MAJ2018 (Normal,Orange, Noir, Blanc);CADASTRALPARCELS.PARCELS.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Limites administratives mises à jour en continu;LIMITES_ADMINISTRATIVES_EXPRESS.LATEST.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Orthophotographies L93;ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Ortho Express L93 2019;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2019.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Ortho Express L93 2020;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2020.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Ortho Express L93 2021;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2021.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;ORTHO Express IRC L93 2019;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2019.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;ORTHO Express IRC L93 2020;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2020.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;ORTHO Express IRC L93 2021;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2021.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;Parcellaire Express (PCI);CADASTRALPARCELS.PARCELLAIRE_EXPRESS.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;lambert93;PLAN IGN;GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2.L93;https://wxs.ign.fr/lambert93/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;ortho;Graphe de mosaïquage BD ORTHO;ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE:graphe_bdortho;https://wxs.ign.fr/ortho/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;ortho;Graphe de mosaïquage ORTHO EXPRESS;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.GRAPHE-MOSAIQUAGE:orthoexpress;https://wxs.ign.fr/ortho/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;ortho;Zones interdites à la prise de vue aérienne;ORTHOIMAGERY.ORTHOPHOS.RESTRICTEDAREAS:arrete;https://wxs.ign.fr/ortho/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;ortho;BD ORTHO® 50 cm;ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO Express 2021;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2021;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO Express IRC 2021;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2021;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO HR® ;HR.ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO IRC;ORTHOIMAGERY.ORTHOPHOTOS.IRC;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO THR;THR.ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO-ASP_PAC2021;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2021;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;ORTHO-ASP_PAC2022;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2022;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;PCRS;PCRS;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;PCRS  (L93);PCRS.LAMB93;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;Photographies aériennes;ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;Photographies aériennes Toulon Provence Méditerranée Ombre;ORTHOIMAGERY.ORTHOPHOTOS.TPM.OMBRES;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;ortho;Zones interdites à la prise de vue aérienne;ORTHOIMAGERY.ORTHOPHOS.RESTRICTEDAREAS;https://wxs.ign.fr/ortho/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;ortho;Graphe de mosaiquage BD ORTHO;ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/ortho/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;ortho;Graphe de mosaïquage ORTHO EXPRESS;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/ortho/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;ortho;BD ORTHO® 50 cm;ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO Express 2021;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2021;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO Express IRC 2021;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2021;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO HR;HR.ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO IRC;ORTHOIMAGERY.ORTHOPHOTOS.IRC;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO THR;THR.ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO-ASP_PAC2021;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2021;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;ORTHO-ASP_PAC2022;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2022;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;Orthophotos du littoral coast;ORTHOIMAGERY.ORTHOPHOTOS.COAST2000;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;PCRS;PCRS;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;PCRS  (L93);PCRS.LAMB93;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;Photographies aériennes;ORTHOIMAGERY.ORTHOPHOTOS;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;Photographies aériennes iles du nord;ORTHOIMAGERY.ORTHOPHOTOS.ILESDUNORD;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;ortho;Zones interdites à la prise de vue aérienne;ORTHOIMAGERY.ORTHOPHOTOS.RESTRICTEDAREAS;https://wxs.ign.fr/ortho/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;orthohisto;Graphe de mosaïquage ORTHO 1950-1965;ORTHOIMAGERY.ORTHOPHOTOS.1950-1965.GRAPHE-MOSAIQUAGE:graphe;https://wxs.ign.fr/orthohisto/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;BD ORTHO®  1950-1965;ORTHOIMAGERY.ORTHOPHOTOS.1950-1965;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO ASP 2018 (édition 2019);ORTHOIMAGERY.ORTHOPHOTOS.SOCLE-ASP.2018;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express 2017;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2017;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express 2019;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2019;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express 2020;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2020;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express IRC 2018;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2018;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express IRC 2019;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2019;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO Express IRC 2020;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2020;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2012;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2012;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2013;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2013;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2014;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2014;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2015;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2015;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2016;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2016;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO IRC 2017;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2017;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;ORTHO-ASP_PAC2020;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2020;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Orthophotographie d’urgence Alex;ORTHOIMAGERY.ORTHOPHOTOS.URGENCE.ALEX;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2000;ORTHOIMAGERY.ORTHOPHOTOS2000;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2000-2005;ORTHOIMAGERY.ORTHOPHOTOS2000-2005;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2001;ORTHOIMAGERY.ORTHOPHOTOS2001;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2002;ORTHOIMAGERY.ORTHOPHOTOS2002;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2003;ORTHOIMAGERY.ORTHOPHOTOS2003;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2004;ORTHOIMAGERY.ORTHOPHOTOS2004;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2005;ORTHOIMAGERY.ORTHOPHOTOS2005;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2006;ORTHOIMAGERY.ORTHOPHOTOS2006;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2006-2010;ORTHOIMAGERY.ORTHOPHOTOS2006-2010;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2007;ORTHOIMAGERY.ORTHOPHOTOS2007;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2008;ORTHOIMAGERY.ORTHOPHOTOS2008;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2009;ORTHOIMAGERY.ORTHOPHOTOS2009;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2010;ORTHOIMAGERY.ORTHOPHOTOS2010;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2011;ORTHOIMAGERY.ORTHOPHOTOS2011;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2011-2015;ORTHOIMAGERY.ORTHOPHOTOS2011-2015;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2012;ORTHOIMAGERY.ORTHOPHOTOS2012;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2013;ORTHOIMAGERY.ORTHOPHOTOS2013;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2014;ORTHOIMAGERY.ORTHOPHOTOS2014;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2015;ORTHOIMAGERY.ORTHOPHOTOS2015;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2016;ORTHOIMAGERY.ORTHOPHOTOS2016;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2017;ORTHOIMAGERY.ORTHOPHOTOS2017;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2018;ORTHOIMAGERY.ORTHOPHOTOS2018;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;orthohisto;Photographies aériennes 2019;ORTHOIMAGERY.ORTHOPHOTOS2019;https://wxs.ign.fr/orthohisto/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;orthohisto;Graphe de mosaïquage ORTHO 1950-1965;ORTHOIMAGERY.ORTHOPHOTOS.1950-1965.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/orthohisto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;orthohisto;Graphe de mosaiquage urgence Alex;ORTHOIMAGERY.ORHOPHOTOS.URGENCE.ALEX.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/orthohisto/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO ASP 2018 (édition 2019);ORTHOIMAGERY.ORTHOPHOTOS.SOCLE-ASP.2018;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express 2017;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2017;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express 2019;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2019;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express 2020;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-EXPRESS.2020;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express IRC 2018;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2018;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express IRC 2019;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2019;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO Express IRC 2020;ORTHOIMAGERY.ORTHOPHOTOS.IRC-EXPRESS.2020;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO IRC 2013;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2013;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO IRC 2014;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2014;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO IRC 2015;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2015;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO IRC 2016;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2016;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO IRC 2017;ORTHOIMAGERY.ORTHOPHOTOS.IRC.2017;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;ORTHO-ASP_PAC2020;ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2020;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Orthophotographie d’urgence Alex;ORTHOIMAGERY.ORTHOPHOTOS.URGENCE.ALEX;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 1950-1965;ORTHOIMAGERY.ORTHOPHOTOS.1950-1965;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2000;ORTHOIMAGERY.ORTHOPHOTOS2000;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2000-2005;ORTHOIMAGERY.ORTHOPHOTOS2000-2005;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2001;ORTHOIMAGERY.ORTHOPHOTOS2001;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2002;ORTHOIMAGERY.ORTHOPHOTOS2002;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2003;ORTHOIMAGERY.ORTHOPHOTOS2003;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2004;ORTHOIMAGERY.ORTHOPHOTOS2004;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2005;ORTHOIMAGERY.ORTHOPHOTOS2005;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2006;ORTHOIMAGERY.ORTHOPHOTOS2006;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2006-2010;ORTHOIMAGERY.ORTHOPHOTOS2006-2010;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2007;ORTHOIMAGERY.ORTHOPHOTOS2007;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2008;ORTHOIMAGERY.ORTHOPHOTOS2008;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2009;ORTHOIMAGERY.ORTHOPHOTOS2009;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2010;ORTHOIMAGERY.ORTHOPHOTOS2010;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2011;ORTHOIMAGERY.ORTHOPHOTOS2011;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2011-2015;ORTHOIMAGERY.ORTHOPHOTOS2011-2015;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2012;ORTHOIMAGERY.ORTHOPHOTOS2012;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2013;ORTHOIMAGERY.ORTHOPHOTOS2013;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2014;ORTHOIMAGERY.ORTHOPHOTOS2014;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2015;ORTHOIMAGERY.ORTHOPHOTOS2015;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2016;ORTHOIMAGERY.ORTHOPHOTOS2016;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2017;ORTHOIMAGERY.ORTHOPHOTOS2017;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2018;ORTHOIMAGERY.ORTHOPHOTOS2018;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;orthohisto;Photographies aériennes 2019;ORTHOIMAGERY.ORTHOPHOTOS2019;https://wxs.ign.fr/orthohisto/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+TMS;parcellaire;Parcellaire Express (PCI);PCI;https://wxs.ign.fr/parcellaire/geoportail/tms/1.0.0/PCI/metadata.json/
+WFS;parcellaire;ARRONDISSEMENT;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:arrondissement;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;BATIMENT;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;COMMUNE;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:commune;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;DIVCAD;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:divcad;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;LOCALISANT;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:localisant;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;PARCELLE;BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:parcelle;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Délimitations parcellaires AOC viticoles (INAO);AOC-VITICOLES:aire_parcellaire;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) commune;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:commune;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) batiment;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) localisant;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) parcelle;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) subdivision fiscale;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:subdivision_fiscale;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) borne parcelle;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) feuille;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:feuille;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) arrondissement;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:arrondissement;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Parcellaire Express (PCI) borne limite propriete;CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_limite_propriete;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;parcellaire;Décalage de la représentation cadastrale;DEVIATION_BDP_PCI_BDD_SYMBO_WLD_WM_20200428:parcelle_wld;https://wxs.ign.fr/parcellaire/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;parcellaire;BD PARCELLAIRE® MAJ2018 (Normal,Orange, Noir, Blanc);CADASTRALPARCELS.PARCELS;https://wxs.ign.fr/parcellaire/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;parcellaire;Décalage de la représentation cadastrale;CADASTRALPARCELS.HEATMAP;https://wxs.ign.fr/parcellaire/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;parcellaire;Délimitations parcellaires AOC viticoles (INAO);Aire-Parcellaire;https://wxs.ign.fr/parcellaire/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;parcellaire;Parcellaire Express (PCI);CADASTRALPARCELS.PARCELLAIRE_EXPRESS;https://wxs.ign.fr/parcellaire/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;parcellaire;Parcelles cadastrales historiques (2008-2013);CADASTRALPARCELS.HISTO.2008-2013.PARCELS;https://wxs.ign.fr/parcellaire/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;parcellaire;BD PARCELLAIRE® Communes;CADASTRALPARCELS.COMMUNES;https://wxs.ign.fr/parcellaire/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;parcellaire;BD PARCELLAIRE® Sections Cadastrales ;CADASTRALPARCELS.SECTIONS;https://wxs.ign.fr/parcellaire/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;parcellaire;Graphe de mosaïquage BD Parcellaire;CADASTRALPARCELS.GRAPHE;https://wxs.ign.fr/parcellaire/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;parcellaire;BD PARCELLAIRE® MAJ2018 (Normal,Orange, Noir, Blanc);CADASTRALPARCELS.PARCELS;https://wxs.ign.fr/parcellaire/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;parcellaire;Décalage de la représentation cadastrale;CADASTRALPARCELS.HEATMAP;https://wxs.ign.fr/parcellaire/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;parcellaire;Délimitations parcellaires AOC viticoles (INAO);Aire-Parcellaire;https://wxs.ign.fr/parcellaire/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;parcellaire;Parcellaire Express (PCI);CADASTRALPARCELS.PARCELLAIRE_EXPRESS;https://wxs.ign.fr/parcellaire/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;parcellaire;Parcelles cadastrales historiques (2008-2013);CADASTRALPARCELS.HISTO.2008-2013.PARCELS;https://wxs.ign.fr/parcellaire/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;satellite;Graphe de mosaïquage SPOT 2014;ORTHOIMAGERY.ORTHO-SAT.SPOT.2014.GRAPHE-MOSAIQUAGE:france_2014;https://wxs.ign.fr/satellite/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;satellite;Graphe de mosaïquage SPOT 2015;ORTHOIMAGERY.ORTHO-SAT.SPOT.2015.GRAPHE-MOSAIQUAGE:france_2015;https://wxs.ign.fr/satellite/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;satellite;Graphe de mosaïquage SPOT 2016;ORTHOIMAGERY.ORTHO-SAT.SPOT.2016.GRAPHE-MOSAIQUAGE:france_2016;https://wxs.ign.fr/satellite/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2012;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2012;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2013;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2013;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2014;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2014;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2015;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2015;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2016;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2016;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2017;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2017;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2018;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2018;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2019;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2019;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2020;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2020;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2021;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2021;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;Pléiades 2022;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2022;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;RapidEye 2010;ORTHOIMAGERY.ORTHO-SAT.RAPIDEYE.2010;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;RapidEye 2011;ORTHO-SAT-RAPIDEYE-2011_PYR-JPEG_WLD_WM_20160801;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2013;ORTHOIMAGERY.ORTHO-SAT.SPOT.2013;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2014;ORTHOIMAGERY.ORTHO-SAT.SPOT.2014;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2015;ORTHOIMAGERY.ORTHO-SAT.SPOT.2015;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2016;ORTHOIMAGERY.ORTHO-SAT.SPOT.2016;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2017;ORTHOIMAGERY.ORTHO-SAT.SPOT.2017;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2018;ORTHOIMAGERY.ORTHO-SAT.SPOT.2018;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2019;ORTHOIMAGERY.ORTHO-SAT.SPOT.2019;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2020;ORTHOIMAGERY.ORTHO-SAT.SPOT.2020;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;satellite;SPOT 2021;ORTHOIMAGERY.ORTHO-SAT.SPOT.2021;https://wxs.ign.fr/satellite/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;satellite;Graphe de mosaiquage SPOT 2014;ORTHOIMAGERY.ORTHO-SAT.SPOT.2014.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/satellite/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;satellite;Graphe de mosaiquage SPOT 2015;ORTHOIMAGERY.ORTHO-SAT.SPOT.2015.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/satellite/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;satellite;Graphe de mosaiquage SPOT 2016;ORTHOIMAGERY.ORTHO-SAT.SPOT.2016.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/satellite/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;satellite;Graphe de mosaiquage SPOT 2017;ORTHOIMAGERY.ORTHO-SAT.SPOT.2017.GRAPHE-MOSAIQUAGE;https://wxs.ign.fr/satellite/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2012;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2012;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2013 ;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2013;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2014 ;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2014;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2015;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2015;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2016 ;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2016;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2017;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2017;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2018;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2018;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2019;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2019;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2020;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2020;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2021;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2021;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;Pléiades 2022;ORTHOIMAGERY.ORTHO-SAT.PLEIADES.2022;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;RapidEye 2010;ORTHO-SAT-RAPIDEYE-2010_PYR-JPEG_WLD_WM_20160801;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;RapidEye 2011;ORTHO-SAT-RAPIDEYE-2011_PYR-JPEG_WLD_WM_2011;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2013;ORTHOIMAGERY.ORTHO-SAT.SPOT.2013;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2014 ;ORTHOIMAGERY.ORTHO-SAT.SPOT.2014;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2015;ORTHOIMAGERY.ORTHO-SAT.SPOT.2015;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2016;ORTHOIMAGERY.ORTHO-SAT.SPOT.2016;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2017;ORTHOIMAGERY.ORTHO-SAT.SPOT.2017;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2018;ORTHOIMAGERY.ORTHO-SAT.SPOT.2018;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2019;ORTHOIMAGERY.ORTHO-SAT.SPOT.2019;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2020;ORTHOIMAGERY.ORTHO-SAT.SPOT.2020;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;satellite;SPOT 2021;ORTHOIMAGERY.ORTHO-SAT.SPOT.2021;https://wxs.ign.fr/satellite/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major limite administrative N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:a_1_limite_administrative;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major surface administrative N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:a_2_surface_administrative;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon de route N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:b_1_troncon_de_route;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon de voie ferree N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:b_2_troncon_de_voie_ferree;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon_de cours d'eau N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:b_3_troncon_de_cours_d_eau;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major ocs ancien N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:c_1_1_ocs_ancien;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major ocs ancien sans bati N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:c_1_2_ocs_ancien_sans_bati;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major batiment N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:c_2_1_batiment;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major batiment hors zone urbaine N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:c_2_2_batiment_hors_zone_urbaine;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major zone urbaine N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:c_3_zone_urbaine;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major chantier N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3:z_1_chantier;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major limite administrative N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:a_1_limite_administrative;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major surface administrative N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:a_2_surface_administrative;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon de route N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:b_1_troncon_de_route;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon de voie ferree N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:b_2_troncon_de_voie_ferree;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major troncon_de cours d'eau N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:b_3_troncon_de_cours_d_eau;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major ocs ancien N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:c_1_1_ocs_ancien;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major ocs ancien sans bati N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:c_1_2_ocs_ancien_sans_bati;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major batiment N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:c_2_1_batiment;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major batiment hors zone urbaine N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:c_2_2_batiment_hors_zone_urbaine;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major zone urbaine N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:c_3_zone_urbaine;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;sol;BD Carto® État-major chantier N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4:z_1_chantier;https://wxs.ign.fr/sol/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;sol;BD Carto® État-major N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3;https://wxs.ign.fr/sol/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;sol;BD Carto® État-major N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4;https://wxs.ign.fr/sol/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;sol;BD Carto® État-major N3 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU3;https://wxs.ign.fr/sol/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;sol;BD Carto® État-major N4 (occupation du sol historique);BDCARTO_ETAT-MAJOR.NIVEAU4;https://wxs.ign.fr/sol/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+TMS;topographie;BD TOPO® V3;BDTOPO;https://wxs.ign.fr/topographie/geoportail/tms/1.0.0/BDTOPO/metadata.json/
+WFS;topographie;BD TOPO® V3 adresse;BDTOPO_V3:adresse;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 batiment;BDTOPO_V3:batiment;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 aérodrome;BDTOPO_V3:aerodrome;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 bassin versant topographique;BDTOPO_V3:bassin_versant_topographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 arrondissement;BDTOPO_V3:arrondissement;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 arrondissement municipal;BDTOPO_V3:arrondissement_municipal;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 canalisation;BDTOPO_V3:canalisation;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 cimetiere;BDTOPO_V3:cimetiere;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 collectivite territoriale;BDTOPO_V3:collectivite_territoriale;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 commune;BDTOPO_V3:commune;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 construction lineaire;BDTOPO_V3:construction_lineaire;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 construction ponctuelle;BDTOPO_V3:construction_ponctuelle;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 construction surfacique;BDTOPO_V3:construction_surfacique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 cours d'eau;BDTOPO_V3:cours_d_eau;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 departement;BDTOPO_V3:departement;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 detail hydrographique;BDTOPO_V3:detail_hydrographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 detail orographique;BDTOPO_V3:detail_orographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 epci;BDTOPO_V3:epci;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 equipement de transport;BDTOPO_V3:equipement_de_transport;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 erp;BDTOPO_V3:erp;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 foret publique;BDTOPO_V3:foret_publique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 haie;BDTOPO_V3:haie;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 lieu dit non habite;BDTOPO_V3:lieu_dit_non_habite;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 ligne electrique;BDTOPO_V3:ligne_electrique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 ligne orographique;BDTOPO_V3:ligne_orographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 limite terre mer;BDTOPO_V3:limite_terre_mer;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 noeud hydrographique;BDTOPO_V3:noeud_hydrographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 non communication;BDTOPO_V3:non_communication;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 parc ou reserve;BDTOPO_V3:parc_ou_reserve;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 piste d'aerodrome;BDTOPO_V3:piste_d_aerodrome;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 plan d'eau;BDTOPO_V3:plan_d_eau;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 point de repere;BDTOPO_V3:point_de_repere;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 point du reseau;BDTOPO_V3:point_du_reseau;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 poste de transformation;BDTOPO_V3:poste_de_transformation;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 pylone;BDTOPO_V3:pylone;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 region;BDTOPO_V3:region;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 reservoir;BDTOPO_V3:reservoir;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 route numerotee ou nommee;BDTOPO_V3:route_numerotee_ou_nommee;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 surface hydrographique;BDTOPO_V3:surface_hydrographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 terrain de sport;BDTOPO_V3:terrain_de_sport;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie hydrographie;BDTOPO_V3:toponymie_hydrographie;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie bati;BDTOPO_V3:toponymie_bati;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie lieux nommes;BDTOPO_V3:toponymie_lieux_nommes;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie services et activites;BDTOPO_V3:toponymie_services_et_activites;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie transport;BDTOPO_V3:toponymie_transport;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 toponymie zones reglementees;BDTOPO_V3:toponymie_zones_reglementees;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 transport par cable;BDTOPO_V3:transport_par_cable;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 troncon de route;BDTOPO_V3:troncon_de_route;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 troncon de voie ferree;BDTOPO_V3:troncon_de_voie_ferree;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 troncon hydrographique;BDTOPO_V3:troncon_hydrographique;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 voie ferree nommee;BDTOPO_V3:voie_ferree_nommee;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 zone d'activite ou d'interet;BDTOPO_V3:zone_d_activite_ou_d_interet;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 zone d'estran;BDTOPO_V3:zone_d_estran;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 zone d'habitation;BDTOPO_V3:zone_d_habitation;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;topographie;BD TOPO® V3 zone de vegetation;BDTOPO_V3:zone_de_vegetation;https://wxs.ign.fr/topographie/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Bâtiments;BDTOPO-GEOPO-BATI_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Haies;hedge.hedge ;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Hydrographie;BDTOPO-GEOPO-HYDROGRAPHIE_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Orographie;BDTOPO-GEOPO-OROGRAPHIE_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - PAI Accueil Police et Gendarmerie;UTILITYANDGOVERNMENTALSERVICES.MININT.POI.ACCUEIL_POLICE-GENDARMERIE;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Réseau routier;BDTOPO-GEOPO-RESEAU_ROUTIER_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Transport énergie;BDTOPO-GEOPO-TRANSPORT_ENERGIE_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Végétation;BDTOPO-GEOPO-VEGETATION_WLD_WGS84G ;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Voies ferrées;BDTOPO-GEOPO-TRANSPORT_VOIES_FERREES_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;topographie;BD TOPO® V3  - Zone d'activités;BDTOPO-GEOPO-ZONE-ACTIVITES_WLD_WGS84G;https://wxs.ign.fr/topographie/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Bâtiments;BUILDINGS.BUILDINGS;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Dénominations géographiques;GEOGRAPHICALNAMES.NAMES;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Haies;hedge.hedge ;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Lignes Electriques;UTILITYANDGOVERNMENTALSERVICES.ALL;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Pistes d'aéroport et aérodromes;TRANSPORTNETWORKS.RUNWAYS;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Réseaux hydrographiques;HYDROGRAPHY.HYDROGRAPHY;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Réseaux ferroviaires;TRANSPORTNETWORKS.RAILWAYS;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;topographie;BD TOPO® V3 - Réseaux routiers;TRANSPORTNETWORKS.ROADS;https://wxs.ign.fr/topographie/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC - PSA (Plans de servitudes aéronautiques) - ponctuel;TRANSPORTS.AIRNOISE:psa_p_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC - PSA (Plans de servitudes aéronautiques) - linéaire;TRANSPORTS.AIRNOISE:psa_l_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC Documentations - PSA (Plans de servitudes aéronautiques);TRANSPORTS.AIRNOISE.DOCS:dgac_psa_poi_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC - PGS (Plans de gêne sonore);DGAC-PGS_BDD_FXX_WM:fxx_pgs_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC Documentations - PGS (Plans de gêne sonore);DGAC-PGS-POI_BDD_FXX_WM:aerodrome_avec_pgs_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC - PEB (Plans d'exposition aux bruits);DGAC-PEB_BDD_FXX_WM:fxx_peb_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;DGAC Documentations - PEB (Plans d'exposition aux bruits);DGAC-PEB-POI_BDD_WLD_WM:aerodrome_avec_peb_wm;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Réseaux de transports exceptionnels – Franchissements;SECUROUTE.TE.N_TE_FRANCHISSEMENT_P_FXX;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Réseaux de transports exceptionnels – Prescriptions;SECUROUTE.TE.N_TE_PRESCRIPTION_FXX;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Réseaux de transports exceptionnels – Relations Franchissements-Prescriptions;SECUROUTE.TE.N_TE_REL_FRANPRES_FXX;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Réseaux de transports exceptionnels – Relations Tronçons-Prescriptions;SECUROUTE.TE.N_TE_REL_TRONPRES_FXX;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Réseaux de transports exceptionnels – Tronçons routiers;SECUROUTE.TE.N_TE_TRONCON_L_FXX;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WFS;transports;Restrictions pour drones de loisir;TRANSPORTS.DRONES.RESTRICTIONS:carte_restriction_drones_lf;https://wxs.ign.fr/transports/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseaux de transports exceptionnels - Passages à niveau (autre que franchissement difficile) ;SECUROUTE.TE.PN;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseaux de transports exceptionnels - Passages à niveau à franchissement difficile ;SECUROUTE.TE.PND;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels - Tous les franchissements;SECUROUTE.TE.ALL;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseaux de transports exceptionnels – Ouvrages d’art (autre que passages à niveau) ;SECUROUTE.TE.OA;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels 1TE;SECUROUTE.TE.1TE;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels 2TE48;SECUROUTE.TE.2TE48;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels TE72;SECUROUTE.TE.TE72;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels TE94;SECUROUTE.TE.TE94;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Réseau de transports exceptionnels TE120;SECUROUTE.TE.TE120;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Restrictions pour drones de loisir;TRANSPORTS.DRONES.RESTRICTIONS;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Raster;transports;Sens de circulation;TRANSPORTNETWORKS.ROADS.DIRECTION;https://wxs.ign.fr/transports/geoportail/r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC - PSA (Plans de servitudes aéronautiques);TRANSPORTS.AIRNOISE;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC Documentations - PSA (Plans de servitudes aéronautiques);TRANSPORTS.AIRNOISE.DOCS;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC - PGS (Plans de gêne sonore);DGAC-PGS_BDD_FXX_WM_WMS;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC Documentations - PGS (Plans de gêne sonore);DGAC-PGS-POI_BDD_FXX_WM_WM;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC - PEB (Plans d'exposition aux bruits);DGAC-PEB_BDD_FXX_WM_WMS;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;DGAC Documentations - PEB (Plans d'exposition aux bruits);DGAC-PEB-POI_BDD_WLD_WM;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseaux de transports exceptionnels - Passages à niveau (autre que franchissement difficile) ;SECUROUTE.TE.PN;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseaux de transports exceptionnels - Passages à niveau à franchissement difficile ;SECUROUTE.TE.PND;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels - Tous les franchissements;SECUROUTE.TE.ALL;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseaux de transports exceptionnels – Ouvrages d’art (autre que passages à niveau) ;SECUROUTE.TE.OA;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels 1TE;SECUROUTE.TE.1TE;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels 2TE48;SECUROUTE.TE.2TE48;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels TE72;SECUROUTE.TE.TE72;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels TE94;SECUROUTE.TE.TE94;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMS Vecteur;transports;Réseau de transports exceptionnels TE120;SECUROUTE.TE.TE120;https://wxs.ign.fr/transports/geoportail/v/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities
+WMTS;transports;Réseaux de transports exceptionnels - Passages à niveau (autre que franchissement difficile) ;SECUROUTE.TE.PN;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseaux de transports exceptionnels - Passages à niveau à franchissement difficile ;SECUROUTE.TE.PND;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels - Tous les franchissements;SECUROUTE.TE.ALL;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseaux de transports exceptionnels – Ouvrages d’art (autre que passages à niveau) ;SECUROUTE.TE.OA;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels 1TE;SECUROUTE.TE.1TE;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels 2TE48;SECUROUTE.TE.2TE48;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels TE72;SECUROUTE.TE.TE72;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels TE94;SECUROUTE.TE.TE94;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Réseau de transports exceptionnels TE120;SECUROUTE.TE.TE120;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Restrictions pour drones de loisir;TRANSPORTS.DRONES.RESTRICTIONS;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
+WMTS;transports;Sens de circulation;TRANSPORTNETWORKS.ROADS.DIRECTION;https://wxs.ign.fr/transports/geoportail/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities
