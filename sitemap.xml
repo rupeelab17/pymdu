@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://pymdu.plateforme-tipee.com/</loc>
+         <lastmod>2025-01-20</lastmod>
+    </url>
+    <url>
+         <loc>https://pymdu.plateforme-tipee.com/demo_data_inputs/</loc>
+         <lastmod>2025-01-20</lastmod>
+    </url>
+    <url>
+         <loc>https://pymdu.plateforme-tipee.com/documentation/</loc>
+         <lastmod>2025-01-20</lastmod>
+    </url>
+    <url>
+         <loc>https://pymdu.plateforme-tipee.com/installation/</loc>
+         <lastmod>2025-01-20</lastmod>
+    </url>
+    <url>
+         <loc>https://pymdu.plateforme-tipee.com/references/</loc>
+         <lastmod>2025-01-20</lastmod>
+    </url>
+</urlset>
