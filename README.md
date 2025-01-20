@@ -19,3 +19,14 @@ Thank you!
 
 
 ```Simon Martinez, Emmanuel Bozonnet, Manon Rendu, Boris Brangeon. Modèle de données urbain pour l'étude de la surchauffe des quartiers. IBPSA France 2024, May 2024, La Rochelle - Ile d'Oléron, France. ⟨hal-04599209⟩```
+
+
+[1]: https://github.com/thomas-leduc/t4gpd
+
+[2]: https://github.com/UMEP-dev/UMEP
+
+[3]: https://urbanmicroclimate.scripts.mit.edu/umc.php
+
+[4]: https://github.com/orbisgis/geoclimate
+
+[5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
