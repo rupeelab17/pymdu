@@ -1,7 +1,6 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
 # Pymdu (Python Modèle de Données Urbain)
-![Pymdu](./figures/logo-pymdu.png){align=left; width=100px;}
 Pymdu (Modèle de Données Urbain) est un package Python conçu pour collecter, post-traiter, modéliser et analyser des
 données urbaines. Il s'inspire et réutilise des outils comme [GeoClimate][4], [UWG][3], [UMEP-DEV][2], [t4gpd][1], et [pythermalcomfort][5] pour
 offrir une solution complète à l'analyse de l'environnement urbain. Une application clé de pymdu est l'analyse du
