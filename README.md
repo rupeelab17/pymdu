@@ -1,3 +1,5 @@
+<img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
+
 # Documentation :
 https://pymdu.plateforme-tipee.com/
 
