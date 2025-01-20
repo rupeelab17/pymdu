@@ -56,7 +56,7 @@ click = "^8.1.3"
 geopandas = "^1.0.1"
 jaydebeapi = "^1.2.3"
 matplotlib = "^3.6.2"
-numpy = "2.0.0"
+numpy = "1.26.3"
 ogr = "^0.41.0"
 osmpythontools = "^0.3.5"
 packaging = "^23.1"
@@ -221,7 +221,7 @@ script = "scripts/build_rasterize_lidar.py"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core", "poetry-dynamic-versioning>=1.0.0,<2.0.0", "setuptools>=67.7.2", "numpy>=1.26.1",
+requires = ["poetry-core", "poetry-dynamic-versioning>=1.0.0,<2.0.0", "setuptools>=67.7.2",
     "Cython==3.0.4", "pybind11>=2.10.0", "setuptools-cpp"]
 #build-backend = "poetry_dynamic_versioning.backend"
 #build-backend = "setuptools.build_meta"
