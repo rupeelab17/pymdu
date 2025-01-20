@@ -1,10 +1,10 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
 # Documentation :
-https://pymdu.plateforme-tipee.com/
+https://rupeelab17.github.io/pymdu/
 
 # Install :
-https://pymdu.plateforme-tipee.com/installation/
+https://rupeelab17.github.io/pymdu/installation/
 
 ## Citations :
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper attribution helps maintain the integrity of the original work and supports the contributors. 
