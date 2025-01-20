@@ -5,7 +5,7 @@
 [tool.poetry]
 name = "pymdu"
 description = "PYMDU"
-authors = ["Boris Brangeon <boris.boris@plateforme-tipee.com>"]
+authors = ["Boris Brangeon <boris.boris@plateforme-tipee.com>", "Simon Martinez <simon.martinez@plateforme-tipee.com>", "Ainagul Jumabekova <ainagul.jumabekova@plateforme-tipee.com>"]
 license = "MIT"
 readme = "README.md"
 classifiers = [
