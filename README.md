@@ -1,6 +1,8 @@
-# pymdu
+# Docs :pymdu
 https://pymdu.plateforme-tipee.com/
 
+# Install
+https://pymdu.plateforme-tipee.com/installation/
 
 ## 
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper attribution helps maintain the integrity of the original work and supports the contributors. 
