@@ -48,7 +48,7 @@ class Lcz(GeoCore):
             set_crs (int): The CRS (Coordinate Reference System) to be set.
 
         Example:
-            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            ```python exec="false" source="tabbed-right" html="1" tabs="Source code|Plot"
             import matplotlib.pyplot as plt
             import matplotlib.patches as mpatches
 

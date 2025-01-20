@@ -42,7 +42,7 @@ class Road(IgnCollect):
             output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
 
         Example:
-            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            ```python exec="false" source="tabbed-right" html="1" tabs="Source code|Plot"
             import matplotlib.pyplot as plt
             import pymdu.geometric.Road as Road
 

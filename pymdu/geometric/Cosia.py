@@ -65,7 +65,7 @@ class Cosia(GeoCore):
             template_raster_path (str): The default height of each storey.
 
         Example:
-            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            ```python exec="false" source="tabbed-right" html="1" tabs="Source code|Plot"
             import matplotlib.pyplot as plt
 
             plt.clf()  # markdown-exec: hide
