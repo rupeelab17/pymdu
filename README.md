@@ -1,6 +1,6 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
-# Documentation :
+# Documentation : 
 https://rupeelab17.github.io/pymdu/
 
 # Installation :
