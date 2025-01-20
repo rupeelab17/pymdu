@@ -3,7 +3,7 @@
 # Documentation :
 https://rupeelab17.github.io/pymdu/
 
-# Install :
+# Installation :
 https://rupeelab17.github.io/pymdu/installation/
 
 ## Citations :
