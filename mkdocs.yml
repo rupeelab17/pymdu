@@ -8,9 +8,9 @@ nav:
   - Documentation: documentation.md
   - API Références: references.md
 #  - Demos: demo_data_inputs.ipynb
-site_url: https://pymdu.plateforme-tipee.com
+site_url: https://rupeelab17.github.io/pymdu
 site_description: website
-repo_url: https://gitlab.plateforme-tipee.com/mdu/pymdu
+repo_url: https://github.com/rupeelab17/pymdu
 watch:
   - pymdu
   - docs

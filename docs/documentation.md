@@ -1,7 +1,7 @@
 ## Construire la documentation
 Pour générer la documentation en local avec ce projet, suivez les étapes ci-dessous :
 
-1. Cloner le projet : `git clone https://gitlab.plateforme-tipee.com/mdu/pymdu.git`
+1. Cloner le projet : `git clone https://github.com/rupeelab17/pymdu.git`
 2. Prévisualisez la documentation : `mkdocs serve`
 3. La documentation sera accessible à l'adresse suivante : `http://127.0.0.1:8000/mdu/pymdu/site/`.
 4. Ajouter du contenu dans les doctrings pour la documentation des classes et méthodes.
