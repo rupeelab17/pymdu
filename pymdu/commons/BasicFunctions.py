@@ -137,6 +137,7 @@ class BasicFunctions(object):
     @staticmethod
     def epw_index():
         initRun = '2021-01-01 01:00:00'
+        # endRun = '2022-01-01 00:00:00'
         endRun = '2022-01-01 00:00:00'
         myIndex = pd.date_range(start=initRun, end=endRun, freq='1h')
         return myIndex
