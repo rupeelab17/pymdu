@@ -120,11 +120,11 @@ class LandCover(GeoCore, BasicFunctions):
             fig, ax = plt.subplots(figsize=(10, 10))
 
             if cosia_gdf is not None:
-            landcover_gdf.plot(color=landcover_gdf["color"])
-            fig_hist = plot_sol_occupancy(cosia_gdf, landcover_gdf)
-            fig_hist.show()
+                landcover_gdf.plot(color=landcover_gdf["color"])
+                fig_hist = plot_sol_occupancy(cosia_gdf, landcover_gdf)
+                fig_hist.show()
             else:
-            landcover_gdf.plot(ax=plt.gca(), edgecolor="black", column="type")
+                landcover_gdf.plot(ax=plt.gca(), edgecolor="black", column="type")
 
             from io import StringIO  # markdown-exec: hide
 
