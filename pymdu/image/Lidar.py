@@ -54,6 +54,60 @@ class Lidar(GeoCore):
         output_path: FilePath = None,
         classification: int = None,
     ):
+        """
+        Initializes the object with the given parameters.
+
+        Args:
+             building_gdf: gpd.GeoDataFrame = None,
+            vegetation_gdf: gpd.GeoDataFrame = None,
+            water_gdf: gpd.GeoDataFrame = None,
+            pedestrian_gdf: gpd.GeoDataFrame = None,
+            cosia_gdf: gpd.GeoDataFrame = None,
+            dxf_gdf: gpd.GeoDataFrame = None,
+            output_path: str = None,
+            write_file: bool = True,
+
+        Example:
+            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            import matplotlib.pyplot as plt
+            import matplotlib.patches as mpatches
+
+            plt.clf()  # markdown-exec: hide
+
+            from shapely.geometry.geo import box
+            from pyproj import Transformer
+            import matplotlib.pyplot as plt
+            import rasterio.plot
+            from pymdu.geometric.Lidar import Lidar
+
+            lidar = Lidar(
+                output_path="./",
+                classification=6,
+            )
+            lidar.bbox = [-1.154894, 46.182639, -1.148361, 46.186820]
+            # lidar_gdf = lidar.run().to_gdf()
+            # # lidar_gdf.plot(ax=plt.gca(), edgecolor='black')
+            # # plt.show()
+            # lidar.to_shp(name='LidarTest')
+
+            lidar_tif = lidar.to_tif(write_out_file=True)
+
+            # Lire les données et les afficher avec rasterio.plot
+            with lidar_tif.open() as src:
+                fig, ax = plt.subplots(figsize=(8, 8))
+                rasterio.plot.show(src, ax=ax, title="Lidar CDSM")
+
+            from io import StringIO  # markdown-exec: hide
+
+            buffer = StringIO()  # markdown-exec: hide
+            plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
+            plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
+            print(buffer.getvalue())  # markdown-exec: hide
+            ```
+
+        Todo:
+            * For module TODOs
+        """
         self.list_path_laz = None
         self.output_path = output_path if output_path else TEMP_PATH
         self.classification = classification
