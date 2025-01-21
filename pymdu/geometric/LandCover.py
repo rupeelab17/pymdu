@@ -14,7 +14,6 @@
 #  You should have received a copy of the GNU General Public License           *
 #  along with pymdu.  If not, see <https://www.gnu.org/licenses/>.             *
 # ******************************************************************************
-import os
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import box
@@ -57,12 +56,12 @@ class LandCover(GeoCore, BasicFunctions):
     ):
         self.output_path = output_path if output_path else TEMP_PATH
         if isinstance(building_gdf, gpd.geodataframe.GeoDataFrame):
-            self.building = building_gdf[['geometry']].copy()
-            self.building['type'] = 2
+            self.building = building_gdf[["geometry"]].copy()
+            self.building["type"] = 2
             self.listGDF.append(self.building)
         if isinstance(vegetation_gdf, gpd.geodataframe.GeoDataFrame):
-            self.vegetation = vegetation_gdf[['geometry']].copy()
-            self.vegetation['type'] = 5
+            self.vegetation = vegetation_gdf[["geometry"]].copy()
+            self.vegetation["type"] = 5
             self.listGDF.append(self.vegetation)
 
         self.cosia_gdf = cosia_gdf
@@ -70,15 +69,13 @@ class LandCover(GeoCore, BasicFunctions):
 
         if isinstance(water_gdf, gpd.geodataframe.GeoDataFrame):
             # water_gdf.to_file('./water.shp', driver='ESRI Shapefile')
-            self.water = water_gdf[['geometry']].copy()
-            self.water['type'] = 7
+            self.water = water_gdf[["geometry"]].copy()
+            self.water["type"] = 7
             self.listGDF.append(self.water)
 
-
-
         if isinstance(pedestrian_gdf, gpd.geodataframe.GeoDataFrame):
-            self.pedestrian = pedestrian_gdf[['geometry']].copy()
-            self.pedestrian['type'] = 6
+            self.pedestrian = pedestrian_gdf[["geometry"]].copy()
+            self.pedestrian["type"] = 6
             # self.pedestrian['type']= self.pedestrian[self.pedestrian['type']] = 6
             # pedestrian_gdf.to_file('./pedestrian.shp', driver='ESRI Shapefile')
             self.listGDF.append(self.pedestrian)
@@ -93,7 +90,7 @@ class LandCover(GeoCore, BasicFunctions):
 
     def run(self, mask=None, keep_geom_type=True):
         if self.cosia_gdf is not None and self.dxf_gdf is not None:
-            self.gdf  = self.unify_cosia_dxf()
+            self.gdf = self.unify_cosia_dxf()
         elif self.cosia_gdf is not None:
             self.gdf = self.cosia_gdf
         else:
@@ -105,7 +102,7 @@ class LandCover(GeoCore, BasicFunctions):
             else:
                 bbox = box(self._bbox[0], self._bbox[1], self._bbox[2], self._bbox[3])
 
-            mask = gpd.GeoDataFrame(index=[0], crs='epsg:4326', geometry=[bbox])
+            mask = gpd.GeoDataFrame(index=[0], crs="epsg:4326", geometry=[bbox])
             mask = mask.to_crs(self._epsg)
 
             # print("CONCAT 1")
@@ -113,14 +110,17 @@ class LandCover(GeoCore, BasicFunctions):
 
             # print("OVERLAY")
             ground = mask.overlay(
-                no_ground, how='difference', keep_geom_type=keep_geom_type, make_valid=True
+                no_ground,
+                how="difference",
+                keep_geom_type=keep_geom_type,
+                make_valid=True,
             )
             ground = ground.copy()
             ground = ground.to_crs(self._epsg)
             ground = ground.explode(ignore_index=True)
 
             # ground.insert(len(ground.columns), 'type', 1)
-            ground['type'] = 1
+            ground["type"] = 1
             ground.crs = mask.crs
 
             # print("CONCAT 2")
@@ -138,79 +138,91 @@ class LandCover(GeoCore, BasicFunctions):
                 # print("CLIP")
                 landcover = gpd.clip(landcover, mask, keep_geom_type=keep_geom_type)
             except Exception as e:
-                print(f'Buffer is on {e}')
+                print(f"Buffer is on {e}")
                 landcover.geometry = landcover.buffer(0)
                 landcover = gpd.clip(landcover, mask, keep_geom_type=keep_geom_type)
 
                 self.gdf = landcover.explode(ignore_index=True)
 
         if self.write_file:
-            self.gdf = self.gdf[self.gdf.geometry.type != 'LineString']
-            self.gdf.to_file('landcover.geojson')
+            self.gdf = self.gdf[self.gdf.geometry.type != "LineString"]
+            self.gdf.to_file("landcover.geojson")
 
         return self
 
     def to_gdf(self):
         return self.gdf
 
-    def to_gpkg(self, name: str = 'landcover'):
+    def to_gpkg(self, name: str = "landcover"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{self.output_path}/{name}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{self.output_path}/{name}.gpkg", driver="GPKG")
 
     def unify_cosia_dxf(self):
         from pymdu.geometric.Cosia import Cosia
+
         if self.dxf_gdf.crs != self.cosia_gdf.crs:
             self.dxf_gdf = self.dxf_gdf.to_crs(self.cosia_gdf.crs)
 
-        self.cosia_gdf = self.cosia_gdf.rename(columns={'classe': 'classe_cosia'})
-        self.dxf_gdf = self.dxf_gdf.rename(columns={'classe': 'classe_dxf'})
+        self.cosia_gdf = self.cosia_gdf.rename(columns={"classe": "classe_cosia"})
+        self.dxf_gdf = self.dxf_gdf.rename(columns={"classe": "classe_dxf"})
 
-        self.dxf_gdf['geometry'] = self.dxf_gdf['geometry'].buffer(0.001)
+        self.dxf_gdf["geometry"] = self.dxf_gdf["geometry"].buffer(0.001)
 
-        final_gdf = gpd.overlay(self.cosia_gdf, self.dxf_gdf, how='union', keep_geom_type=False)
-        final_gdf['geometry'] = final_gdf['geometry'].buffer(0)
+        final_gdf = gpd.overlay(
+            self.cosia_gdf, self.dxf_gdf, how="union", keep_geom_type=False
+        )
+        final_gdf["geometry"] = final_gdf["geometry"].buffer(0)
 
-        final_gdf['classe'] = [classe_cosia if pd.isna(classe_dxf) else classe_dxf for (classe_cosia, classe_dxf) in zip(final_gdf['classe_cosia'], final_gdf['classe_dxf'])]
-        final_gdf['color'] = [Cosia().table_color_cosia[x] for x in final_gdf.classe]
+        final_gdf["classe"] = [
+            classe_cosia if pd.isna(classe_dxf) else classe_dxf
+            for (classe_cosia, classe_dxf) in zip(
+                final_gdf["classe_cosia"], final_gdf["classe_dxf"]
+            )
+        ]
+        final_gdf["color"] = [Cosia().table_color_cosia[x] for x in final_gdf.classe]
 
         return final_gdf
 
-    def create_landcover_from_cosia(self, dst_tif='landcover.tif', template_raster_path = None):
+    def create_landcover_from_cosia(
+        self, dst_tif="landcover.tif", template_raster_path=None
+    ):
         """
         crée le fichier tif du gdf de couverture du sol COSIA
         dst_tif: le fichier output
         """
         cosia_keys = {
-            'Bâtiment': 2,
-            'Zone imperméable': 1,
-            'Zone perméable': 6,
-            'Piscine': 7,
-            'Serre': 1,
-            'Sol nu': 6,
-            'Surface eau': 7,
-            'Neige': 7,
-            'Conifère': 6,
-            'Feuillu': 6,
-            'Coupe': 5,
-            'Broussaille': 5,
-            'Pelouse': 5,
-            'Culture': 5,
-            'Terre labourée': 6,
-            'Vigne': 5,
-            'Autre': 1,
+            "Bâtiment": 2,
+            "Zone imperméable": 1,
+            "Zone perméable": 6,
+            "Piscine": 7,
+            "Serre": 1,
+            "Sol nu": 6,
+            "Surface eau": 7,
+            "Neige": 7,
+            "Conifère": 6,
+            "Feuillu": 6,
+            "Coupe": 5,
+            "Broussaille": 5,
+            "Pelouse": 5,
+            "Culture": 5,
+            "Terre labourée": 6,
+            "Vigne": 5,
+            "Autre": 1,
         }
-        self.gdf['type'] = [cosia_keys[x] for x in self.gdf.classe]
+        self.gdf["type"] = [cosia_keys[x] for x in self.gdf.classe]
 
         gdf_to_raster(
-            dst_tif = dst_tif, #os.path.join(self.output_path, dst_tif),
-            gdf = self.gdf,
-            measurement = 'type',
-            resolution = (-1, 1),
-            raster_file_like = template_raster_path,
-            fill_value = None,
-            dtype = 'float32',
+            dst_tif=dst_tif,  # os.path.join(self.output_path, dst_tif),
+            gdf=self.gdf,
+            measurement="type",
+            resolution=(-1, 1),
+            raster_file_like=template_raster_path,
+            fill_value=None,
+            dtype="float32",
         )
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     from pymdu.image import geotiff
     from pymdu.geometric import Vegetation, Pedestrian, Water, Building
     from pymdu.geometric.Dem import Dem
@@ -219,33 +231,32 @@ if __name__ == '__main__':
     geocore = GeoCore()
     geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
 
-    building = Building(output_path='./')
+    building = Building(output_path="./")
     buildings_gdf = building.run().to_gdf()
     # building.to_shp(name='buildings')
 
-    water = Water(output_path='./')
+    water = Water(output_path="./")
     water_gdf = water.run().to_gdf()
     # water.to_shp(name='water')
 
-    pedestrian = Pedestrian(output_path='./')
+    pedestrian = Pedestrian(output_path="./")
     pedestrian_gdf = pedestrian.run().to_gdf()
     # pedestrian.to_shp(name='pedestrian')
 
-    vegetation = Vegetation(output_path='./', min_area=100)
+    vegetation = Vegetation(output_path="./", min_area=100)
     vegetation_gdf = vegetation.run().to_gdf()
     # vegetation.to_shp(name='vegetation')
 
-    cosia_gdf = gpd.read_file('../../demos/demo_cosia_gdf.shp')
-    dxf_gdf = gpd.read_file('../../demos/example_with_layers.shp')
-
+    cosia_gdf = gpd.read_file("../../demos/demo_cosia_gdf.shp")
+    dxf_gdf = gpd.read_file("../../demos/example_with_layers.shp")
 
     landcover = LandCover(
-        output_path='./',
+        output_path="./",
         building_gdf=buildings_gdf,
         vegetation_gdf=vegetation_gdf,
         water_gdf=water_gdf,
         cosia_gdf=cosia_gdf,
-        dxf_gdf = dxf_gdf,
+        dxf_gdf=dxf_gdf,
         pedestrian_gdf=pedestrian_gdf,
         write_file=False,
     )
@@ -255,19 +266,18 @@ if __name__ == '__main__':
     landcover_gdf = landcover.to_gdf()
 
     from pymdu.commons.BasicFunctions import plot_sol_occupancy
+
     if cosia_gdf is not None:
-        landcover_gdf.plot(color = landcover_gdf['color'])
+        landcover_gdf.plot(color=landcover_gdf["color"])
         fig_hist = plot_sol_occupancy(cosia_gdf, landcover_gdf)
         fig_hist.show()
     else:
-        landcover_gdf.plot(ax=plt.gca(), edgecolor='black', column='type')
+        landcover_gdf.plot(ax=plt.gca(), edgecolor="black", column="type")
     plt.show()
     # génération landcover.tif
 
-    dem = Dem(output_path='./')
+    dem = Dem(output_path="./")
     dem.run()
-
-
 
     # warp_options = gdal.WarpOptions(
     #     format="GTiff",
@@ -286,29 +296,29 @@ if __name__ == '__main__':
     #           options=warp_options)
 
     geotiff.clip_raster(
-        dst_tif='./DEM_ok.tif',
-        src_tif='./DEM.tif',
-        format='GTiff',
-        cut_shp='./mask.shp',
-        cut_name='mask',
+        dst_tif="./DEM_ok.tif",
+        src_tif="./DEM.tif",
+        format="GTiff",
+        cut_shp="./mask.shp",
+        cut_name="mask",
     )
 
     geotiff.gdf_to_raster(
-        dst_tif='./landcover.tif',
+        dst_tif="./landcover.tif",
         gdf=landcover_gdf,
-        measurement='type',
+        measurement="type",
         resolution=(-1, 1),
         raster_file_like=None,
         fill_value=None,
-        dtype='float32',
+        dtype="float32",
     )
 
     geotiff.clip_raster(
-        dst_tif='./landcover_ok.tif',
-        src_tif='./landcover.tif',
-        format='GTiff',
-        cut_shp='./mask.shp',
-        cut_name='mask',
+        dst_tif="./landcover_ok.tif",
+        src_tif="./landcover.tif",
+        format="GTiff",
+        cut_shp="./mask.shp",
+        cut_name="mask",
     )
 
     ########## TESTING ##########
