@@ -7,7 +7,6 @@ nav:
   - Installation: installation.md
   - Documentation: documentation.md
   - API Références: references.md
-#  - Demos: demo_data_inputs.ipynb
 site_url: https://rupeelab17.github.io/pymdu
 site_description: website
 repo_url: https://github.com/rupeelab17/pymdu
