@@ -54,6 +54,90 @@ class LandCover(GeoCore, BasicFunctions):
         output_path: str = None,
         write_file: bool = True,
     ):
+        """
+        Initializes the object with the given parameters.
+
+        Args:
+             building_gdf: gpd.GeoDataFrame = None,
+            vegetation_gdf: gpd.GeoDataFrame = None,
+            water_gdf: gpd.GeoDataFrame = None,
+            pedestrian_gdf: gpd.GeoDataFrame = None,
+            cosia_gdf: gpd.GeoDataFrame = None,
+            dxf_gdf: gpd.GeoDataFrame = None,
+            output_path: str = None,
+            write_file: bool = True,
+
+        Example:
+            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            import matplotlib.pyplot as plt
+            import matplotlib.patches as mpatches
+
+            plt.clf()  # markdown-exec: hide
+            from pymdu.image import geotiff
+            from pymdu.geometric import Vegetation, Pedestrian, Water, Building
+            from pymdu.geometric.Dem import Dem
+            from pymdu.commons.BasicFunctions import plot_sol_occupancy
+
+            geocore = GeoCore()
+            geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
+
+            building = Building(output_path="./")
+            buildings_gdf = building.run().to_gdf()
+            # building.to_shp(name='buildings')
+
+            water = Water(output_path="./")
+            water_gdf = water.run().to_gdf()
+            # water.to_shp(name='water')
+
+            pedestrian = Pedestrian(output_path="./")
+            pedestrian_gdf = pedestrian.run().to_gdf()
+            # pedestrian.to_shp(name='pedestrian')
+
+            vegetation = Vegetation(output_path="./", min_area=100)
+            vegetation_gdf = vegetation.run().to_gdf()
+            # vegetation.to_shp(name='vegetation')
+
+            # cosia_gdf = gpd.read_file("../../demos/demo_cosia_gdf.shp")
+            # dxf_gdf = gpd.read_f  #
+            cosia_gdf = None
+            dxf_gdf = None
+
+            landcover = LandCover(
+            output_path="./",
+            building_gdf=buildings_gdf,
+            vegetation_gdf=vegetation_gdf,
+            water_gdf=water_gdf,
+            cosia_gdf=cosia_gdf,
+            dxf_gdf=dxf_gdf,
+            pedestrian_gdf=pedestrian_gdf,
+            write_file=False,
+            )
+
+            landcover.run()
+            # landcover.to_shp(name="landcover")
+            landcover_gdf = landcover.to_gdf()
+
+            fig, ax = plt.subplots(figsize=(10, 10))
+
+            if cosia_gdf is not None:
+            landcover_gdf.plot(color=landcover_gdf["color"])
+            fig_hist = plot_sol_occupancy(cosia_gdf, landcover_gdf)
+            fig_hist.show()
+            else:
+            landcover_gdf.plot(ax=plt.gca(), edgecolor="black", column="type")
+
+            from io import StringIO  # markdown-exec: hide
+
+            buffer = StringIO()  # markdown-exec: hide
+            plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
+            plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
+            print(buffer.getvalue())  # markdown-exec: hide
+            ```
+
+        Todo:
+            * For module TODOs
+        """
+        self.listGDF = []
         self.output_path = output_path if output_path else TEMP_PATH
         if isinstance(building_gdf, gpd.geodataframe.GeoDataFrame):
             self.building = building_gdf[["geometry"]].copy()
@@ -142,7 +226,7 @@ class LandCover(GeoCore, BasicFunctions):
                 landcover.geometry = landcover.buffer(0)
                 landcover = gpd.clip(landcover, mask, keep_geom_type=keep_geom_type)
 
-                self.gdf = landcover.explode(ignore_index=True)
+            self.gdf = landcover.explode(ignore_index=True)
 
         if self.write_file:
             self.gdf = self.gdf[self.gdf.geometry.type != "LineString"]
@@ -226,6 +310,8 @@ if __name__ == "__main__":
     from pymdu.image import geotiff
     from pymdu.geometric import Vegetation, Pedestrian, Water, Building
     from pymdu.geometric.Dem import Dem
+    from pymdu.commons.BasicFunctions import plot_sol_occupancy
+
     import matplotlib.pyplot as plt
 
     geocore = GeoCore()
@@ -247,8 +333,10 @@ if __name__ == "__main__":
     vegetation_gdf = vegetation.run().to_gdf()
     # vegetation.to_shp(name='vegetation')
 
-    cosia_gdf = gpd.read_file("../../demos/demo_cosia_gdf.shp")
-    dxf_gdf = gpd.read_file("../../demos/example_with_layers.shp")
+    # cosia_gdf = gpd.read_file("../../demos/demo_cosia_gdf.shp")
+    # dxf_gdf = gpd.read_f  #
+    cosia_gdf = None
+    dxf_gdf = None
 
     landcover = LandCover(
         output_path="./",
@@ -265,7 +353,7 @@ if __name__ == "__main__":
     # landcover.to_shp(name="landcover")
     landcover_gdf = landcover.to_gdf()
 
-    from pymdu.commons.BasicFunctions import plot_sol_occupancy
+    fig, ax = plt.subplots(figsize=(10, 10))
 
     if cosia_gdf is not None:
         landcover_gdf.plot(color=landcover_gdf["color"])
@@ -273,6 +361,7 @@ if __name__ == "__main__":
         fig_hist.show()
     else:
         landcover_gdf.plot(ax=plt.gca(), edgecolor="black", column="type")
+
     plt.show()
     # génération landcover.tif
 
