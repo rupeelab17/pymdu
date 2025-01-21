@@ -74,9 +74,10 @@ class LandCover(GeoCore, BasicFunctions):
 
             plt.clf()  # markdown-exec: hide
             from pymdu.image import geotiff
-            from pymdu.geometric import Vegetation, Pedestrian, Water, Building
+            from pymdu.geometric import Vegetation, Pedestrian, Water, Building, LandCover
             from pymdu.geometric.Dem import Dem
             from pymdu.commons.BasicFunctions import plot_sol_occupancy
+            from pymdu.GeoCore import GeoCore
 
             geocore = GeoCore()
             geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
