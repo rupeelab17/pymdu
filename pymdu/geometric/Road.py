@@ -42,7 +42,7 @@ class Road(IgnCollect):
             output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
 
         Example:
-            ```python exec="false" source="tabbed-right" html="1" tabs="Source code|Plot"
+            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
             import matplotlib.pyplot as plt
             import pymdu.geometric.Road as Road
 
@@ -67,34 +67,34 @@ class Road(IgnCollect):
         self.output_path = output_path if output_path else TEMP_PATH
 
     def run(self):
-        self.execute_ign(key='road')
+        self.execute_ign(key="road")
         try:
             file = (
                 self.content
                 if isinstance(self.content, io.BytesIO)
                 else io.BytesIO(self.content)
             )
-            gdf = gpd.read_file(file, driver='GeoJSON')
+            gdf = gpd.read_file(file, driver="GeoJSON")
             self.gdf = gdf.to_crs(self._epsg)
         except Exception as e:
-            print('ERROR Road Class ==>', e)
+            print("ERROR Road Class ==>", e)
         return self
 
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'routes'):
+    def to_gpkg(self, name: str = "routes"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    routes = Road(output_path='./')
+if __name__ == "__main__":
+    routes = Road(output_path="./")
     routes.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     routes = routes.run()
     # routes.to_shp(name="routes")
     routes_gdf = routes.to_gdf()
     import matplotlib.pyplot as plt
 
-    routes_gdf.plot(edgecolor='k')
+    routes_gdf.plot(edgecolor="k")
     plt.show()
