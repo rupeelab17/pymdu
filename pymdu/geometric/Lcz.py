@@ -108,9 +108,9 @@ class Lcz(GeoCore):
 
     def run(
         self,
-        zipfile_url: str = 'zip+https://static.data.gouv.fr/resources/cartographie-des-zones-climatiques-locales-lcz-de'
-        '-83-aires-urbaines-de-plus-de-50-000-habitants-2022/20241011-113952/lcz-spot-2022-la'
-        '-rochelle.zip/LCZ_SPOT_2022_La Rochelle.shp',
+        zipfile_url: str = "zip+https://static.data.gouv.fr/resources/cartographie-des-zones-climatiques-locales-lcz"
+        "-de-83-aires-urbaines-de-plus-de-50-000-habitants-2022/20241210-104453/lcz-spot-2022-la"
+        "-rochelle.zip",
     ):
         gdf = gpd.read_file(zipfile_url, driver='ESRI Shapefile')
         gdf1 = gdf[['lcz_int', 'geometry']].copy()
