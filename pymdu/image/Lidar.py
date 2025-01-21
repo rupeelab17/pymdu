@@ -36,6 +36,7 @@ from rasterio.transform import Affine
 from scipy.spatial import cKDTree
 from shapely import box
 from shapely.geometry import Point
+from pyproj import Transformer
 
 from pymdu.GeoCore import GeoCore
 from pymdu._typing import FilePath
@@ -78,7 +79,7 @@ class Lidar(GeoCore):
             from pyproj import Transformer
             import matplotlib.pyplot as plt
             import rasterio.plot
-            from pymdu.geometric.Lidar import Lidar
+            from pymdu.image.Lidar import Lidar
 
             lidar = Lidar(
                 output_path="./",
@@ -94,7 +95,7 @@ class Lidar(GeoCore):
 
             # Lire les données et les afficher avec rasterio.plot
             with lidar_tif.open() as src:
-                fig, ax = plt.subplots(figsize=(8, 8))
+                fig, ax = plt.subplots(figsize=(10, 10))
                 rasterio.plot.show(src, ax=ax, title="Lidar CDSM")
 
             from io import StringIO  # markdown-exec: hide
@@ -384,7 +385,7 @@ class Lidar(GeoCore):
             response = requests.get(las_path)
             # Charger le contenu dans un BytesIO
             file_in_memory = io.BytesIO(response.content)
-            memfile = lidar._las2tif(
+            memfile = self._las2tif(
                 las_path=file_in_memory,
                 resolution=1.0,
                 radius=1,
@@ -607,7 +608,6 @@ class Lidar(GeoCore):
 
 if __name__ == "__main__":
     from shapely.geometry.geo import box
-    from pyproj import Transformer
     import matplotlib.pyplot as plt
     import rasterio.plot
 
