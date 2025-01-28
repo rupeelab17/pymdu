@@ -120,7 +120,6 @@ class Dpe(GeoCore):
 
     def run(self, all_values=False):
         headers = {"Content-type": "application/json"}
-
         payload = {
             "agg_size": "1000",
             "q_mode": "simple",
@@ -134,16 +133,7 @@ class Dpe(GeoCore):
         }
 
         if all_values:
-            payload = {
-                "agg_size": "1000",
-                "q_mode": "simple",
-                "bbox": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                "size": "100",
-                "sort": "geo_adresse",
-                "highlight": "nom_methode_dpe",
-                "sampling": "neighbors",
-                "format": "geojson",
-            }
+            payload.pop("select")
 
         response = requests.get(
             url=self.base_url, headers=headers, params=payload, verify=False
@@ -188,7 +178,7 @@ if __name__ == "__main__":
 
     dpe = Dpe()
     dpe.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
-    dpe_gdf = dpe.run().to_gdf()
+    dpe_gdf = dpe.run(all_values=True).to_gdf()
 
     print(dpe_gdf)
     exit()
