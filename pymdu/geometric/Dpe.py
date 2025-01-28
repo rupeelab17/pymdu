@@ -16,12 +16,10 @@
 # ******************************************************************************
 import os
 import os.path
-import urllib.parse
 
 import geopandas as gpd
 import requests
 from shapely.geometry.point import Point
-from sqlalchemy.dialects.mssql.information_schema import columns
 
 from pymdu.GeoCore import GeoCore
 from pymdu.collect.GlobalVariables import TEMP_PATH
@@ -39,7 +37,9 @@ class Dpe(GeoCore):
     Class to collect the Cadastre data
     """
 
-    def __init__(self, output_path: str = None, columns: str = None):
+    def __init__(
+        self, output_path: str = None, num_department: int = None, columns: str = None
+    ):
         """
         Initializes the object with the given parameters.
 
@@ -104,9 +104,14 @@ class Dpe(GeoCore):
         self.columns: str = columns
 
         self.output_path = output_path if output_path else TEMP_PATH
-        self.base_url = (
-            r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg"
-        )
+
+        if num_department:
+            self.base_url = f"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-{num_department}/geo_agg"
+        else:
+            self.base_url = (
+                r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg"
+            )
+
         self.table_color = {
             "A": ["A: ≤50", "#5ebd46"],  # Green for class A
             "B": ["B: 51 à 90", "#a0d468"],  # Light Green for class B
@@ -138,7 +143,6 @@ class Dpe(GeoCore):
         response = requests.get(
             url=self.base_url, headers=headers, params=payload, verify=False
         )
-
         geojson_data = response.json()
         try:
             # Initialize lists to store data
@@ -181,7 +185,6 @@ if __name__ == "__main__":
     dpe_gdf = dpe.run(all_values=True).to_gdf()
 
     print(dpe_gdf)
-    exit()
     table_color = dpe.table_color
 
     buildings = Building(output_path="./")
