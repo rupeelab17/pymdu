@@ -19,6 +19,7 @@ import warnings
 
 import geopandas as gpd
 import libpysal
+import matplotlib.pyplot as plt
 import momepy
 import osmnx
 import pandas
@@ -75,8 +76,8 @@ class DetectionUrbanTypes(GeoCore):
         bbox = self.bbox
         gdf_project = gpd.GeoDataFrame(
             gpd.GeoSeries(box(bbox[0], bbox[1], bbox[2], bbox[3])),
-            columns=['geometry'],
-            crs='epsg:4326',
+            columns=["geometry"],
+            crs="epsg:4326",
         )
         gdf_project = gdf_project.to_crs(crs=4326)
         gdf_project = gdf_project.scale(xfact=1.15, yfact=1.15)
@@ -89,7 +90,7 @@ class DetectionUrbanTypes(GeoCore):
             bbox_final[0], bbox_final[1], bbox_final[2], bbox_final[3]
         )
 
-        osmnx.config(log_console=True, overpass_endpoint='https://overpass-api.de/api')
+        osmnx.config(log_console=True, overpass_endpoint="https://overpass-api.de/api")
 
         custom_filters = (
             '["area"!~"yes"]["highway"~"footway|pedestrian|cycleway"]["foot"!~"no"]["service"!~"private"]{}'
@@ -97,7 +98,7 @@ class DetectionUrbanTypes(GeoCore):
 
         osm_graph = osmnx.graph_from_polygon(
             envelope_polygon,
-            network_type='drive',
+            network_type="drive",
             truncate_by_edge=True,
             simplify=True,
             custom_filter=custom_filters,
@@ -113,13 +114,13 @@ class DetectionUrbanTypes(GeoCore):
         )
         # print(streets.head())
         streets = momepy.remove_false_nodes(streets)
-        streets = streets[['geometry']]
-        streets['nID'] = range(len(streets))
+        streets = streets[["geometry"]]
+        streets["nID"] = range(len(streets))
 
         buildings = Building()
         buildings.bbox = bbox_final
         buildings = buildings.run().to_gdf()
-        buildings['uID'] = range(len(buildings))
+        buildings["uID"] = range(len(buildings))
 
         from pandas.api.types import is_datetime64_any_dtype as is_datetime
 
@@ -139,24 +140,24 @@ class DetectionUrbanTypes(GeoCore):
         limit = momepy.buffered_limit(buildings, 100)
 
         tessellation = momepy.Tessellation(
-            buildings, 'uID', limit, verbose=False, segment=1
+            buildings, "uID", limit, verbose=False, segment=1
         )
         tessellation = tessellation.tessellation
-        buildings = buildings.sjoin_nearest(streets, max_distance=1000, how='left')
-        buildings = buildings.drop_duplicates('uID').drop(columns='index_right')
+        buildings = buildings.sjoin_nearest(streets, max_distance=1000, how="left")
+        buildings = buildings.drop_duplicates("uID").drop(columns="index_right")
         tessellation = tessellation.merge(
-            buildings[['uID', 'nID']], on='uID', how='left'
+            buildings[["uID", "nID"]], on="uID", how="left"
         )
         # Dimensions
-        buildings['area'] = buildings.area
-        tessellation['area'] = tessellation.area
-        streets['length'] = streets.length
+        buildings["area"] = buildings.area
+        tessellation["area"] = tessellation.area
+        streets["length"] = streets.length
 
         # Shape
-        buildings['eri'] = momepy.EquivalentRectangularIndex(buildings).series
-        buildings['elongation'] = momepy.Elongation(buildings).series
-        tessellation['convexity'] = momepy.Convexity(tessellation).series
-        streets['linearity'] = momepy.Linearity(streets).series
+        buildings["eri"] = momepy.EquivalentRectangularIndex(buildings).series
+        buildings["elongation"] = momepy.Elongation(buildings).series
+        tessellation["convexity"] = momepy.Convexity(tessellation).series
+        streets["linearity"] = momepy.Linearity(streets).series
 
         # fig, ax = plt.subplots(1, 2, figsize=(24, 12))
         #
@@ -177,24 +178,24 @@ class DetectionUrbanTypes(GeoCore):
         # plt.show()
 
         # Spatial distribution
-        buildings['shared_walls'] = momepy.SharedWallsRatio(buildings).series
+        buildings["shared_walls"] = momepy.SharedWallsRatio(buildings).series
         # buildings.plot("shared_walls", figsize=(12, 12), scheme="natural_breaks", legend=True).set_axis_off()
         queen_1 = libpysal.weights.contiguity.Queen.from_dataframe(
-            tessellation, ids='uID', silence_warnings=True
+            tessellation, ids="uID", silence_warnings=True
         )
 
-        tessellation['neighbors'] = momepy.Neighbors(
-            tessellation, queen_1, 'uID', weighted=True, verbose=False
+        tessellation["neighbors"] = momepy.Neighbors(
+            tessellation, queen_1, "uID", weighted=True, verbose=False
         ).series
-        tessellation['covered_area'] = momepy.CoveredArea(
-            tessellation, queen_1, 'uID', verbose=False
+        tessellation["covered_area"] = momepy.CoveredArea(
+            tessellation, queen_1, "uID", verbose=False
         ).series
 
         with warnings.catch_warnings():
-            warnings.simplefilter('ignore')
+            warnings.simplefilter("ignore")
 
-            buildings['neighbor_distance'] = momepy.NeighborDistance(
-                buildings, queen_1, 'uID', verbose=False
+            buildings["neighbor_distance"] = momepy.NeighborDistance(
+                buildings, queen_1, "uID", verbose=False
             ).series
         #
         # fig, ax = plt.subplots(1, 2, figsize=(24, 12))
@@ -211,11 +212,11 @@ class DetectionUrbanTypes(GeoCore):
             buildings, silence_warnings=True
         )
 
-        buildings['interbuilding_distance'] = momepy.MeanInterbuildingDistance(
-            buildings, queen_1, 'uID', queen_3, verbose=False
+        buildings["interbuilding_distance"] = momepy.MeanInterbuildingDistance(
+            buildings, queen_1, "uID", queen_3, verbose=False
         ).series
-        buildings['adjacency'] = momepy.BuildingAdjacency(
-            buildings, queen_3, 'uID', buildings_q1, verbose=False
+        buildings["adjacency"] = momepy.BuildingAdjacency(
+            buildings, queen_3, "uID", buildings_q1, verbose=False
         ).series
 
         # fig, ax = plt.subplots(1, 2, figsize=(24, 12))
@@ -228,9 +229,9 @@ class DetectionUrbanTypes(GeoCore):
         # plt.show()
 
         profile = momepy.StreetProfile(streets, buildings)
-        streets['width'] = profile.w
-        streets['width_deviation'] = profile.wd
-        streets['openness'] = profile.o
+        streets["width"] = profile.w
+        streets["width_deviation"] = profile.wd
+        streets["openness"] = profile.o
 
         # fig, ax = plt.subplots(1, 3, figsize=(24, 12))
         #
@@ -244,16 +245,16 @@ class DetectionUrbanTypes(GeoCore):
         # plt.show()
 
         # Intensity
-        tessellation['car'] = momepy.AreaRatio(
-            tessellation, buildings, 'area', 'area', 'uID'
+        tessellation["car"] = momepy.AreaRatio(
+            tessellation, buildings, "area", "area", "uID"
         ).series
         # tessellation.plot("car", figsize=(12, 12), vmin=0, vmax=1, legend=True).set_axis_off()
 
         # Connectivity
         graph = momepy.gdf_to_nx(streets)
         graph = momepy.node_degree(graph)
-        graph = momepy.closeness_centrality(graph, radius=400, distance='mm_len')
-        graph = momepy.meshedness(graph, radius=400, distance='mm_len')
+        graph = momepy.closeness_centrality(graph, radius=400, distance="mm_len")
+        graph = momepy.meshedness(graph, radius=400, distance="mm_len")
         nodes, streets = momepy.nx_to_gdf(graph)
 
         # fig, ax = plt.subplots(1, 3, figsize=(24, 12))
@@ -268,28 +269,28 @@ class DetectionUrbanTypes(GeoCore):
         # ax[2].set_axis_off()
         # plt.show()
 
-        buildings['nodeID'] = momepy.get_node_id(
-            buildings, nodes, streets, 'nodeID', 'nID'
+        buildings["nodeID"] = momepy.get_node_id(
+            buildings, nodes, streets, "nodeID", "nID"
         )
         merged = tessellation.merge(
-            buildings.drop(columns=['nID', 'geometry']), on='uID'
+            buildings.drop(columns=["nID", "geometry"]), on="uID"
         )
-        merged = merged.merge(streets.drop(columns='geometry'), on='nID', how='left')
-        merged = merged.merge(nodes.drop(columns='geometry'), on='nodeID', how='left')
+        merged = merged.merge(streets.drop(columns="geometry"), on="nID", how="left")
+        merged = merged.merge(nodes.drop(columns="geometry"), on="nodeID", how="left")
 
         # Understanding the context
         percentiles = []
         for column in merged.columns.drop(
-            ['uID', 'nodeID', 'nID', 'mm_len', 'node_start', 'node_end', 'geometry']
+            ["uID", "nodeID", "nID", "mm_len", "node_start", "node_end", "geometry"]
         ):
             try:
                 perc = momepy.Percentiles(
-                    merged, column, queen_1, 'uID', verbose=False
+                    merged, column, queen_1, "uID", verbose=False
                 ).frame
-                perc.columns = [f'{column}_' + str(x) for x in perc.columns]
+                perc.columns = [f"{column}_" + str(x) for x in perc.columns]
                 percentiles.append(perc)
             except Exception as e:
-                print('percentiles =>', e)
+                print("percentiles =>", e)
 
         percentiles_joined = pandas.concat(percentiles, axis=1)
         percentiles_joined.head()
@@ -314,11 +315,22 @@ class DetectionUrbanTypes(GeoCore):
 
         # show(cgram.bokeh())
         cgram.labels.head()
-        merged['cluster'] = cgram.labels[8].values
-        urban_types = buildings[['geometry', 'uID']].merge(
-            merged[['uID', 'cluster']], on='uID'
+        merged["cluster"] = cgram.labels[8].values
+        urban_types = buildings[["geometry", "uID"]].merge(
+            merged[["uID", "cluster"]], on="uID"
         )
         # urban_types.plot("cluster", categorical=True, figsize=(16, 16), legend=True).set_axis_off()
+
+        # Générer une palette de couleurs unique pour chaque valeur de cluster
+        unique_clusters = urban_types["cluster"].unique()
+        # Convertir les couleurs en format hexadécimal
+        color_map = {
+            cluster: "#" + "".join(f"{int(c * 255):02x}" for c in plt.cm.tab10(i)[:3])
+            for i, cluster in enumerate(unique_clusters)
+        }
+
+        # Ajouter une colonne 'color' avec la couleur correspondante
+        urban_types["color"] = urban_types["cluster"].map(color_map)
 
         self.gdf = urban_types
 
@@ -327,17 +339,16 @@ class DetectionUrbanTypes(GeoCore):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'detection'):
+    def to_gpkg(self, name: str = "detection"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    import matplotlib.pyplot as plt
+if __name__ == "__main__":
 
     detection = DetectionUrbanTypes()
     detection.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     detection = detection.run()
     detection_gdf = detection.to_gdf()
-    detection_gdf.plot('cluster', categorical=True, figsize=(16, 16), legend=True)
+    detection_gdf.plot("cluster", categorical=True, figsize=(16, 16), legend=True)
     plt.show()
