@@ -104,7 +104,6 @@ class GeoCore:
 
     @property
     def gdf(self):
-        self.gdf = process_datetime(gdf=self.gdf)
         return self._gdf
 
     @gdf.setter

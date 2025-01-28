@@ -173,9 +173,8 @@ class Dpe(GeoCore):
         return self
 
     def to_gdf(self) -> gpd.GeoDataFrame:
-        self.gdf = process_datetime(gdf=self.gdf)
-
-        return self.gdf
+        gdf = process_datetime(gdf=self.gdf)
+        return gdf
 
     def to_gpkg(self, name: str = "dpe"):
         # Write the GeoDataFrame to a GPKG file

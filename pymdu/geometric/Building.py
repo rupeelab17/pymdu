@@ -152,8 +152,8 @@ class Building(IgnCollect):
         return Point(face_ce)
 
     def to_gdf(self) -> gpd.GeoDataFrame:
-        self.gdf = process_datetime(gdf=self.gdf)
-        return self.gdf
+        gdf = process_datetime(gdf=self.gdf)
+        return gdf
 
     def to_gpkg(self, name: str = "batiments"):
         # Write the GeoDataFrame to a GPKG file
