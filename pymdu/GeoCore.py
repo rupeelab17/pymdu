@@ -35,6 +35,7 @@ from pymdu.commons.BasicFunctions import (
     geo_boundary_to_polygon,
     BasicFunctions,
     geo_lat_lon_from_h3,
+    process_datetime,
 )
 
 
@@ -61,12 +62,12 @@ class GeoCore:
     _output_path_shp: str = None
     _filename_shp: str = None
 
-    collect_path = Path(os.path.join(Path(__file__).parent, 'collect'))
-    physics_path = Path(os.path.join(Path(__file__).parent, 'physics'))
-    meteo_path = Path(os.path.join(Path(__file__).parent, 'meteo'))
-    pyqgis_path = Path(os.path.join(Path(__file__).parent, 'pyqgis'))
+    collect_path = Path(os.path.join(Path(__file__).parent, "collect"))
+    physics_path = Path(os.path.join(Path(__file__).parent, "physics"))
+    meteo_path = Path(os.path.join(Path(__file__).parent, "meteo"))
+    pyqgis_path = Path(os.path.join(Path(__file__).parent, "pyqgis"))
 
-    geoclimate_temp_directory = f'osm_{_bbox[1]}_{_bbox[0]}_{_bbox[3]}_{_bbox[2]}'
+    geoclimate_temp_directory = f"osm_{_bbox[1]}_{_bbox[0]}_{_bbox[3]}_{_bbox[2]}"
 
     @classproperty
     def bbox(cls):
@@ -74,7 +75,7 @@ class GeoCore:
         Lookups should follow the method resolution order.
         """
         cls.geoclimate_temp_directory = (
-            f'osm_{cls._bbox[1]}_{cls._bbox[0]}_{cls._bbox[3]}_{cls._bbox[2]}'
+            f"osm_{cls._bbox[1]}_{cls._bbox[0]}_{cls._bbox[3]}_{cls._bbox[2]}"
         )
         return cls._bbox
 
@@ -103,6 +104,7 @@ class GeoCore:
 
     @property
     def gdf(self):
+        self.gdf = process_datetime(gdf=self.gdf)
         return self._gdf
 
     @gdf.setter
@@ -144,40 +146,40 @@ class GeoCore:
                     if not is_datetime(self.gdf[column])
                 ]
             ]
-            self.gdf = self.gdf[self.gdf.geometry.type != 'LineString']
+            self.gdf = self.gdf[self.gdf.geometry.type != "LineString"]
             print(self.gdf.head(100))
         except Exception as e:
-            print(f'ERROR {name} to_shp ==>', e)
+            print(f"ERROR {name} to_shp ==>", e)
             pass
 
-        self._filename_shp = f'{name}.shp'
+        self._filename_shp = f"{name}.shp"
         self._output_path_shp = os.path.join(self._output_path, self._filename_shp)
         if os.path.exists(self._output_path_shp):
             os.remove(self._output_path_shp)
-        self.gdf.to_file(filename=self._output_path_shp, driver='ESRI Shapefile')
+        self.gdf.to_file(filename=self._output_path_shp, driver="ESRI Shapefile")
         return self
 
     def to_gpkg(self, name: str):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
     @staticmethod
     def plot_scatter(
         df,
         metric_col,
-        x='lng',
-        y='lat',
-        marker='.',
+        x="lng",
+        y="lat",
+        marker=".",
         alpha=1,
         figsize=(16, 12),
-        colormap='viridis',
+        colormap="viridis",
     ):
         df.plot.scatter(
             x=x,
             y=y,
             c=metric_col,
             title=metric_col,
-            edgecolors='none',
+            edgecolors="none",
             colormap=colormap,
             marker=marker,
             alpha=alpha,
@@ -208,13 +210,13 @@ class GeoCore:
         # cpr_gdf['geometry'] = cpr_gdf.geometry.buffer(buffer_length_in_meters)
         gdf_4326 = gdf.to_crs(4326)
 
-        checkMultiPolygon = 'MultiPolygon' in list(gdf['geometry'].geom_type)
+        checkMultiPolygon = "MultiPolygon" in list(gdf["geometry"].geom_type)
         if checkMultiPolygon:
             gdf_4326 = BasicFunctions.drop_z(gdf_4326)
 
         hex_gdf = gdf_4326.h3.polyfill_resample(resolution=resolution).reset_index()
-        hex_gdf.rename(columns={'h3_polyfill': f'geo_h3_{resolution}'}, inplace=True)
-        hex_gdf = geo_lat_lon_from_h3(hex_gdf, f'geo_h3_{resolution}')
+        hex_gdf.rename(columns={"h3_polyfill": f"geo_h3_{resolution}"}, inplace=True)
+        hex_gdf = geo_lat_lon_from_h3(hex_gdf, f"geo_h3_{resolution}")
 
         # hex_gdf['point'] = gpd.points_from_xy(hex_gdf['lon'], hex_gdf['lat'])
         # hex_gdf = gdf.h3.polyfill(resolution=resolution, explode=True)
@@ -255,16 +257,16 @@ class GeoCore:
         gdf = gdf.explode(index_parts=True).reset_index(drop=True)
 
         # print("geom_type", gdf.geom_type)
-        gdf['geom_type'] = gdf.geom_type
+        gdf["geom_type"] = gdf.geom_type
 
         # gdf['geometry'] = gdf.buffer(0.1)
         cpr_gdf = gdf.to_crs(2154)
         # 0.5m
         buffer_length_in_meters = (0.5 * 1000) * 1.60934
-        cpr_gdf['geometry'] = cpr_gdf.geometry.buffer(buffer_length_in_meters)
+        cpr_gdf["geometry"] = cpr_gdf.geometry.buffer(buffer_length_in_meters)
 
         gdf = cpr_gdf.to_crs(4326)
-        gdf = gdf[gdf.geom_type == 'Polygon']
+        gdf = gdf[gdf.geom_type == "Polygon"]
 
         # Obtain hexagonal ids by specifying geographic extent and hexagon resolution
         # geojson = json.loads(gdf.to_json(cls=PdEncoder))
@@ -275,7 +277,7 @@ class GeoCore:
 
         for _, geo in gdf.iterrows():
             hexagons = h3.polyfill(
-                geo['geometry'].__geo_interface__,
+                geo["geometry"].__geo_interface__,
                 res=resolution,
                 geo_json_conformant=True,
             )
@@ -288,7 +290,7 @@ class GeoCore:
             data=h3_indexes, geometry=h3_polygons, crs=4326
         ).drop_duplicates()
         hex_gdf = hex_gdf.rename(
-            columns={0: 'hexid'}
+            columns={0: "hexid"}
         )  # Format column name for readability
 
         if intersection:
@@ -344,13 +346,13 @@ class GeoCore:
                 h3_northing=lambda x: x.geometry.y.astype(int),
             )
             .reset_index()
-            .drop('geometry', axis=1)
+            .drop("geometry", axis=1)
         )
 
     @staticmethod
     def raster_to_h3(
-        input_filename: str = 'gh_od_raster.tiff',
-        output_filename: str = 'gh_od_h3.json',
+        input_filename: str = "gh_od_raster.tiff",
+        output_filename: str = "gh_od_h3.json",
     ):
         f = rasterio.open(input_filename)
         band1 = f.read(1)
@@ -365,14 +367,14 @@ class GeoCore:
                 hex_id = h3.geo_to_h3(
                     lat, lng, 7
                 )  # swap lng and lat positions to fix layer orientiation
-                dset[hex_id] = {'lat': float(lat), 'lng': float(lng), 'val': int(val)}
+                dset[hex_id] = {"lat": float(lat), "lng": float(lng), "val": int(val)}
 
-        json_object = json.dumps(dset, indent=4).decode('utf-8')
+        json_object = json.dumps(dset, indent=4).decode("utf-8")
 
-        with open('./' + output_filename, 'r+') as dset_f:
+        with open("./" + output_filename, "r+") as dset_f:
             dset_f.write(json_object)
 
-    def from_geojson_to_bbox(input_filepath: str = 'path/to/file'):
+    def from_geojson_to_bbox(input_filepath: str = "path/to/file"):
         data = gpd.read_file(input_filepath)
         geom = box(
             data.bounds.minx[0],
@@ -383,7 +385,7 @@ class GeoCore:
         bbox = gpd.GeoDataFrame(geometry=[geom])
         return bbox
 
-    def geojson_merger(path='/path/to/geojson/files'):
+    def geojson_merger(path="/path/to/geojson/files"):
         """
         A commenter
         :param gejoson:
@@ -391,20 +393,20 @@ class GeoCore:
         """
         import geojson
 
-        geojsonFiles = glob.glob(path + '/*.geojson')
+        geojsonFiles = glob.glob(path + "/*.geojson")
 
         listOfGeoJson = []
         for file in geojsonFiles:
             with open(file) as f:
                 listOfGeoJson.append(geojson.load(f))
-        schema = {'properties': {'features': {'mergeStrategy': 'append'}}}
+        schema = {"properties": {"features": {"mergeStrategy": "append"}}}
         merger = Merger(schema)
         base = listOfGeoJson[0]
         for geojson in listOfGeoJson[1:]:
             merge = merger.merge(base, geojson)
             base = merge
 
-        with open('merge.geojson', 'w') as f:
+        with open("merge.geojson", "w") as f:
             json.dump(base, f)
 
     # # TODO : NE MARCHE PAS
@@ -467,7 +469,7 @@ class GeoCore:
                 file_path=file_path, ref=branch_name, streamed=False
             )
             if output:
-                with open(output, 'wb') as f:
+                with open(output, "wb") as f:
                     project.files.raw(
                         file_path=file_path,
                         ref=branch_name,
@@ -476,4 +478,4 @@ class GeoCore:
                     )
             return raw_content
         except Exception as e:
-            print('Error:', e)
+            print("Error:", e)

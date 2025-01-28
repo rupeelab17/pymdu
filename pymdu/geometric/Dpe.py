@@ -25,6 +25,7 @@ from sqlalchemy.dialects.mssql.information_schema import columns
 
 from pymdu.GeoCore import GeoCore
 from pymdu.collect.GlobalVariables import TEMP_PATH
+from pymdu.commons.BasicFunctions import process_datetime
 
 try:
     from osgeo import gdal, ogr
@@ -97,11 +98,14 @@ class Dpe(GeoCore):
         if columns is None:
             columns = "consommation_energie,classe_consommation_energie,annee_construction,latitude,longitude,geo_adresse"
 
+        if "classe_consommation_energie" in columns:
+            columns = columns + ",consommation_energie"
+
         self.columns: str = columns
 
         self.output_path = output_path if output_path else TEMP_PATH
         self.base_url = (
-            r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg?"
+            r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg"
         )
         self.table_color = {
             "A": ["A: ≤50", "#5ebd46"],  # Green for class A
@@ -121,26 +125,30 @@ class Dpe(GeoCore):
             "agg_size": "1000",
             "q_mode": "simple",
             "bbox": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-            "size": "1000",
+            "size": "100",
             "sort": "geo_adresse",
             "select": self.columns,
             "highlight": "nom_methode_dpe",
             "sampling": "neighbors",
             "format": "geojson",
         }
+
         if all_values:
             payload = {
                 "agg_size": "1000",
                 "q_mode": "simple",
                 "bbox": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                "size": "1000",
+                "size": "100",
                 "sort": "geo_adresse",
                 "highlight": "nom_methode_dpe",
                 "sampling": "neighbors",
                 "format": "geojson",
             }
-        new_url = self.__get_url_dpe(self.base_url, payload)
-        response = requests.get(url=new_url, headers=headers, verify=False)
+
+        response = requests.get(
+            url=self.base_url, headers=headers, params=payload, verify=False
+        )
+
         geojson_data = response.json()
         try:
             # Initialize lists to store data
@@ -164,12 +172,9 @@ class Dpe(GeoCore):
             print("ERROR Dpe Class ==>", e)
         return self
 
-    @staticmethod
-    def __get_url_dpe(url, payload):
-        new_url = url + "&" + urllib.parse.urlencode(payload)
-        return new_url
-
     def to_gdf(self) -> gpd.GeoDataFrame:
+        self.gdf = process_datetime(gdf=self.gdf)
+
         return self.gdf
 
     def to_gpkg(self, name: str = "dpe"):
@@ -186,6 +191,8 @@ if __name__ == "__main__":
     dpe.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     dpe_gdf = dpe.run().to_gdf()
 
+    print(dpe_gdf)
+    exit()
     table_color = dpe.table_color
 
     buildings = Building(output_path="./")
