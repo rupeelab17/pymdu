@@ -21,6 +21,7 @@ import urllib.parse
 import geopandas as gpd
 import requests
 from shapely.geometry.point import Point
+from sqlalchemy.dialects.mssql.information_schema import columns
 
 from pymdu.GeoCore import GeoCore
 from pymdu.collect.GlobalVariables import TEMP_PATH
@@ -37,7 +38,7 @@ class Dpe(GeoCore):
     Class to collect the Cadastre data
     """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str = None, columns: str = None):
         """
         Initializes the object with the given parameters.
 
@@ -92,9 +93,11 @@ class Dpe(GeoCore):
         """
 
         super().__init__()
-        self.columns: str = (
-            "consommation_energie,classe_consommation_energie,annee_construction,latitude,longitude,geo_adresse"
-        )
+
+        if columns is None:
+            columns = "consommation_energie,classe_consommation_energie,annee_construction,latitude,longitude,geo_adresse"
+
+        self.columns: str = columns
 
         self.output_path = output_path if output_path else TEMP_PATH
         self.base_url = (
