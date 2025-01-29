@@ -71,7 +71,7 @@ class DetectionUrbanTypes(GeoCore):
 
         super().__init__()
 
-    def run(self):
+    def run(self, nbr_cluster: int = 4):
         local_crs = self.epsg
         bbox = self.bbox
         gdf_project = gpd.GeoDataFrame(
@@ -315,7 +315,7 @@ class DetectionUrbanTypes(GeoCore):
 
         # show(cgram.bokeh())
         cgram.labels.head()
-        merged["cluster"] = cgram.labels[8].values
+        merged["cluster"] = cgram.labels[nbr_cluster].values
         urban_types = buildings[["geometry", "uID"]].merge(
             merged[["uID", "cluster"]], on="uID"
         )
