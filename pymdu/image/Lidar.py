@@ -378,7 +378,12 @@ class Lidar(GeoCore):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_tif(self, dsm_out: FilePath = "cdsm.tif", write_out_file=False):
+    def to_tif(
+        self,
+        dsm_out: FilePath = "cdsm.tif",
+        write_out_file=False,
+        classification_list=[1, 2, 6],
+    ):
         _, _, _, _, list_path_laz = self._get_lidar_points()
         memfiles = []
         for las_path in list_path_laz:
@@ -390,6 +395,7 @@ class Lidar(GeoCore):
                 resolution=1.0,
                 radius=1,
                 sigma=None,
+                classification_list=classification_list,
             )
             memfiles.append(memfile)
 
@@ -407,6 +413,7 @@ class Lidar(GeoCore):
         radius=None,
         sigma=None,
         roi=None,
+        classification_list=[1, 2, 6],
     ) -> MemoryFile:
         """
         Convert point cloud las to dsm tif
@@ -441,8 +448,9 @@ class Lidar(GeoCore):
 
         # single_veg = np.where(np.logical_or(las.classification == 5))
         # single_veg = np.where(new_las.classification == 6)
-        liste = [1, 2, 6]  # Exemple de liste de classifications
-        single_veg = np.where(np.isin(new_las.classification, liste))
+        # liste = [1, 2, 6]  # Exemple de liste de classifications
+        # Exemple de liste de classifications
+        single_veg = np.where(np.isin(new_las.classification, classification_list))
         points = np.vstack((new_las.x[single_veg], new_las.y[single_veg]))
         # points = np.vstack((las.x, las.y))
         if clr_out is None:
@@ -622,7 +630,7 @@ if __name__ == "__main__":
     # # plt.show()
     # lidar.to_shp(name='LidarTest')
 
-    lidar_tif = lidar.to_tif(write_out_file=True)
+    lidar_tif = lidar.to_tif(write_out_file=True, classification_list=[3, 4, 5, 9])
 
     # Lire les données et les afficher avec rasterio.plot
     with lidar_tif.open() as src:
