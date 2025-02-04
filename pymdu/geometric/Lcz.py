@@ -87,55 +87,55 @@ class Lcz(GeoCore):
         self.output_path = output_path if output_path else TEMP_PATH
         self.set_crs = set_crs
         self.table_color = {
-            1: ['LCZ 1: Compact high-rise', '#8b0101'],
-            2: ['LCZ 2: Compact mid-rise', '#cc0200'],
-            3: ['LCZ 3: Compact low-rise', '#fc0001'],
-            4: ['LCZ 4: Open high-rise', '#be4c03'],
-            5: ['LCZ 5: Open mid-rise', '#ff6602'],
-            6: ['LCZ 6: Open low-rise', '#ff9856'],
-            7: ['LCZ 7: Lightweight low-rise', '#fbed08'],
-            8: ['LCZ 8: Large low-rise', '#bcbcba'],
-            9: ['LCZ 9: Sparsely built', '#ffcca7'],
-            10: ['LCZ 10: Heavy industry', '#57555a'],
-            11: ['LCZ A: Dense trees', '#006700'],
-            12: ['LCZ B: Scattered trees', '#05aa05'],
-            13: ['LCZ C: Bush,scrub', '#648423'],
-            14: ['LCZ D: Low plants', '#bbdb7a'],
-            15: ['LCZ E: Bare rock or paved', '#010101'],
-            16: ['LCZ F: Bare soil or sand', '#fdf6ae'],
-            17: ['LCZ G: Water', '#6d67fd'],
+            1: ["LCZ 1: Compact high-rise", "#8b0101"],
+            2: ["LCZ 2: Compact mid-rise", "#cc0200"],
+            3: ["LCZ 3: Compact low-rise", "#fc0001"],
+            4: ["LCZ 4: Open high-rise", "#be4c03"],
+            5: ["LCZ 5: Open mid-rise", "#ff6602"],
+            6: ["LCZ 6: Open low-rise", "#ff9856"],
+            7: ["LCZ 7: Lightweight low-rise", "#fbed08"],
+            8: ["LCZ 8: Large low-rise", "#bcbcba"],
+            9: ["LCZ 9: Sparsely built", "#ffcca7"],
+            10: ["LCZ 10: Heavy industry", "#57555a"],
+            11: ["LCZ A: Dense trees", "#006700"],
+            12: ["LCZ B: Scattered trees", "#05aa05"],
+            13: ["LCZ C: Bush,scrub", "#648423"],
+            14: ["LCZ D: Low plants", "#bbdb7a"],
+            15: ["LCZ E: Bare rock or paved", "#010101"],
+            16: ["LCZ F: Bare soil or sand", "#fdf6ae"],
+            17: ["LCZ G: Water", "#6d67fd"],
         }
 
     def run(
         self,
-        zipfile_url: str = 'zip+https://static.data.gouv.fr/resources/cartographie-des-zones-climatiques-locales-lcz-de'
-        '-83-aires-urbaines-de-plus-de-50-000-habitants-2022/20241011-113952/lcz-spot-2022-la'
-        '-rochelle.zip/LCZ_SPOT_2022_La Rochelle.shp',
+        zipfile_url: str = "zip+https://static.data.gouv.fr/resources/cartographie-des-zones-climatiques-locales-lcz"
+        "-de-83-aires-urbaines-de-plus-de-50-000-habitants-2022/20241210-104453/lcz-spot-2022-la"
+        "-rochelle.zip",
     ):
-        gdf = gpd.read_file(zipfile_url, driver='ESRI Shapefile')
-        gdf1 = gdf[['lcz_int', 'geometry']].copy()
-        gdf1['color'] = [self.table_color[x][1] for x in gdf1['lcz_int']]
+        gdf = gpd.read_file(zipfile_url, driver="ESRI Shapefile")
+        gdf1 = gdf[["lcz_int", "geometry"]].copy()
+        gdf1["color"] = [self.table_color[x][1] for x in gdf1["lcz_int"]]
         gdf1 = gdf1.to_crs(self._epsg)
         bbox_final = box(self._bbox[0], self._bbox[1], self._bbox[2], self._bbox[3])
         gdf_bbox_mask = gpd.GeoDataFrame(
-            gpd.GeoSeries(bbox_final), columns=['geometry'], crs='epsg:4326'
+            gpd.GeoSeries(bbox_final), columns=["geometry"], crs="epsg:4326"
         )
         gdf_bbox_mask = gdf_bbox_mask.to_crs(self._epsg)
 
         self.gdf = gpd.overlay(
-            df1=gdf1, df2=gdf_bbox_mask, how='intersection', keep_geom_type=False
+            df1=gdf1, df2=gdf_bbox_mask, how="intersection", keep_geom_type=False
         )
         return self
 
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'lcz'):
+    def to_gpkg(self, name: str = "lcz"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # https://gdal.org/en/latest/user/virtual_file_systems.html
     import matplotlib.pyplot as plt
     import matplotlib.patches as mpatches
@@ -147,7 +147,7 @@ if __name__ == '__main__':
 
     # Tracer le GeoDataFrame
     fig, ax = plt.subplots(figsize=(10, 10))
-    lcz_gdf.plot(ax=ax, edgecolor=None, color=lcz_gdf['color'])
+    lcz_gdf.plot(ax=ax, edgecolor=None, color=lcz_gdf["color"])
 
     # Créer les patches pour chaque couleur et sa description dans la légende
     patches = [
@@ -157,8 +157,8 @@ if __name__ == '__main__':
     # Ajouter la légende personnalisée
     plt.legend(
         handles=patches,
-        loc='upper right',
-        title='LCZ Legend',
+        loc="upper right",
+        title="LCZ Legend",
         bbox_to_anchor=(1.1, 1.0),
     )
 

@@ -36,6 +36,7 @@ from rasterio.transform import Affine
 from scipy.spatial import cKDTree
 from shapely import box
 from shapely.geometry import Point
+from pyproj import Transformer
 
 from pymdu.GeoCore import GeoCore
 from pymdu._typing import FilePath
@@ -54,6 +55,60 @@ class Lidar(GeoCore):
         output_path: FilePath = None,
         classification: int = None,
     ):
+        """
+        Initializes the object with the given parameters.
+
+        Args:
+             building_gdf: gpd.GeoDataFrame = None,
+            vegetation_gdf: gpd.GeoDataFrame = None,
+            water_gdf: gpd.GeoDataFrame = None,
+            pedestrian_gdf: gpd.GeoDataFrame = None,
+            cosia_gdf: gpd.GeoDataFrame = None,
+            dxf_gdf: gpd.GeoDataFrame = None,
+            output_path: str = None,
+            write_file: bool = True,
+
+        Example:
+            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+            import matplotlib.pyplot as plt
+            import matplotlib.patches as mpatches
+
+            plt.clf()  # markdown-exec: hide
+
+            from shapely.geometry.geo import box
+            from pyproj import Transformer
+            import matplotlib.pyplot as plt
+            import rasterio.plot
+            from pymdu.image.Lidar import Lidar
+
+            lidar = Lidar(
+                output_path="./",
+                classification=6,
+            )
+            lidar.bbox = [-1.154894, 46.182639, -1.148361, 46.186820]
+            # lidar_gdf = lidar.run().to_gdf()
+            # # lidar_gdf.plot(ax=plt.gca(), edgecolor='black')
+            # # plt.show()
+            # lidar.to_shp(name='LidarTest')
+
+            lidar_tif = lidar.to_tif(write_out_file=True)
+
+            # Lire les données et les afficher avec rasterio.plot
+            with lidar_tif.open() as src:
+                fig, ax = plt.subplots(figsize=(10, 10))
+                rasterio.plot.show(src, ax=ax, title="Lidar CDSM")
+
+            from io import StringIO  # markdown-exec: hide
+
+            buffer = StringIO()  # markdown-exec: hide
+            plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
+            plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
+            print(buffer.getvalue())  # markdown-exec: hide
+            ```
+
+        Todo:
+            * For module TODOs
+        """
         self.list_path_laz = None
         self.output_path = output_path if output_path else TEMP_PATH
         self.classification = classification
@@ -323,18 +378,24 @@ class Lidar(GeoCore):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_tif(self, dsm_out: FilePath = "cdsm.tif", write_out_file=False):
+    def to_tif(
+        self,
+        dsm_out: FilePath = "cdsm.tif",
+        write_out_file=False,
+        classification_list=[1, 2, 6],
+    ):
         _, _, _, _, list_path_laz = self._get_lidar_points()
         memfiles = []
         for las_path in list_path_laz:
             response = requests.get(las_path)
             # Charger le contenu dans un BytesIO
             file_in_memory = io.BytesIO(response.content)
-            memfile = lidar._las2tif(
+            memfile = self._las2tif(
                 las_path=file_in_memory,
                 resolution=1.0,
                 radius=1,
                 sigma=None,
+                classification_list=classification_list,
             )
             memfiles.append(memfile)
 
@@ -352,6 +413,7 @@ class Lidar(GeoCore):
         radius=None,
         sigma=None,
         roi=None,
+        classification_list=[1, 2, 6],
     ) -> MemoryFile:
         """
         Convert point cloud las to dsm tif
@@ -386,8 +448,9 @@ class Lidar(GeoCore):
 
         # single_veg = np.where(np.logical_or(las.classification == 5))
         # single_veg = np.where(new_las.classification == 6)
-        liste = [1, 2, 6]  # Exemple de liste de classifications
-        single_veg = np.where(np.isin(new_las.classification, liste))
+        # liste = [1, 2, 6]  # Exemple de liste de classifications
+        # Exemple de liste de classifications
+        single_veg = np.where(np.isin(new_las.classification, classification_list))
         points = np.vstack((new_las.x[single_veg], new_las.y[single_veg]))
         # points = np.vstack((las.x, las.y))
         if clr_out is None:
@@ -553,7 +616,6 @@ class Lidar(GeoCore):
 
 if __name__ == "__main__":
     from shapely.geometry.geo import box
-    from pyproj import Transformer
     import matplotlib.pyplot as plt
     import rasterio.plot
 
@@ -568,7 +630,7 @@ if __name__ == "__main__":
     # # plt.show()
     # lidar.to_shp(name='LidarTest')
 
-    lidar_tif = lidar.to_tif(write_out_file=True)
+    lidar_tif = lidar.to_tif(write_out_file=True, classification_list=[3, 4, 5, 9])
 
     # Lire les données et les afficher avec rasterio.plot
     with lidar_tif.open() as src:

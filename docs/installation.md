@@ -17,7 +17,7 @@
 ### 1.1. Rapatrier le dépôt git
 
 ```bash
-git clone https://gitlab.plateforme-tipee.com/mdu/pymdu.git
+git clone https://github.com/rupeelab17/pymdu.git
 ```
 
 ### 1.2. Installation de l'environnement python
@@ -73,7 +73,7 @@ uv pip install -r requirements.txt
 ### 2.2. Rapatrier le dépôt git
 
 ```bash
-git clone https://gitlab.plateforme-tipee.com/mdu/pymdu.gi
+git clone https://github.com/rupeelab17/pymdu.gi
 cd pymdu
 ```
 

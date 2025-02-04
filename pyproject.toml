@@ -5,7 +5,7 @@
 [tool.poetry]
 name = "pymdu"
 description = "PYMDU"
-authors = ["Boris Brangeon <boris.boris@plateforme-tipee.com>", "Simon Martinez <simon.martinez@plateforme-tipee.com>", "Ainagul Jumabekova <ainagul.jumabekova@plateforme-tipee.com>"]
+authors = ["Boris Brangeon <boris.boris@plateforme-tipee.com>"]
 license = "MIT"
 readme = "README.md"
 classifiers = [
@@ -14,7 +14,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.10",
     "Operating System :: OS Independent"]
-version = "0.0.1"
+version = "0.0.3"
 
 # Only include cythonized files in final build
 include = [{ path = "pymdu/**/*.so", format = "wheel" }, { path = "pymdu/**/*.so", format = "sdist" }]  # ignored in VCS, so we need to be explicit
@@ -51,7 +51,7 @@ initial-content = """
 
 
 [tool.poetry.dependencies]
-python = ">=3.11,<3.12"
+python = ">=3.11,<3.14"
 click = "^8.1.3"
 geopandas = "^1.0.1"
 jaydebeapi = "^1.2.3"
@@ -72,16 +72,15 @@ uwg-schema = "^0.2.11"
 rtree = "^1.0.1"
 pysolar = "^0.10"
 suntimes = "^1.1.2"
-h3 = "^3.7.6"
+h3 = "3.7.7"
 h3pandas = "^0.2.3"
 pydeck = "^0.8.0"
 plotly = "^5.11.0"
 orjson = "^3.8.3"
 geocube = "^0.3.3"
-numba = "^0.60.0"
 jsonmerge = "^1.9.0"
 rasterio = "^1.3.6"
-owslib = "^0.28.1"
+owslib = {git = "https://github.com/geopython/OWSLib.git"}
 netcdf4 = "^1.6.3"
 scikit-image = "^0.20.0"
 bokeh = "^3.1.0"
@@ -115,9 +114,9 @@ scienceplots = "^2.1.1"
 xlsxwriter = "^3.2.0"
 tabulate = "^0.9.0"
 mpld3 = "^0.5.10"
-gdal = { extras = ["numpy"], version = "=3.9.2" }
+gdal = { extras = ["numpy"], version = "=3.10.1" }
 edsger = "^0.0.13"
-gdal-utils = "^3.9.3.0"
+gdal-utils = "^3.10.1.0"
 ipython = "^8.29.0"
 ipywidgets = "^8.1.5"
 python-gitlab = "^5.1.0"
@@ -166,6 +165,8 @@ mkdocs-rss-plugin = "^1.15.0"
 black = "^24.0.0"
 ruff = "^0.5.5"
 jupyter = "^1.1.1"
+Cython = "^3.0.11"
+
 
 [tool.ruff]
 #line-length = 100
@@ -209,8 +210,6 @@ exclude = [
 ]
 
 
-[tool.poetry.dev-dependencies]
-Cython = "^3.0.4"
 
 [tool.poetry.build]
 # The allows us to build C extensions (using Cython). Unstable feature
@@ -220,8 +219,8 @@ generate-setup-file = false
 script = "scripts/build_rasterize_lidar.py"
 
 [build-system]
+requires = ["poetry-core", "poetry-dynamic-versioning>=1.0.0,<2.0.0", "setuptools>=75.8.0",
+    "Cython==3.0.11", "pybind11>=2.13.6", "setuptools-cpp"]
 build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core", "poetry-dynamic-versioning>=1.0.0,<2.0.0", "setuptools>=67.7.2",
-    "Cython==3.0.4", "pybind11>=2.10.0", "setuptools-cpp"]
 #build-backend = "poetry_dynamic_versioning.backend"
 #build-backend = "setuptools.build_meta"

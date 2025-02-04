@@ -40,7 +40,7 @@ from matplotlib import rcParams
 
 class BasicFunctions(object):
     def __init__(self):
-        self.date_format = '%y-%m-%d %H:%M:%S'
+        self.date_format = "%y-%m-%d %H:%M:%S"
 
     @staticmethod
     def get_interval(a: int, mylist: list):
@@ -56,18 +56,18 @@ class BasicFunctions(object):
 
     @staticmethod
     def from_string_to_datetime(time_str: str):
-        datetime_object = datetime.strptime(time_str, '%y-%m-%d %H:%M:%S')
+        datetime_object = datetime.strptime(time_str, "%y-%m-%d %H:%M:%S")
         return datetime_object
 
     @staticmethod
     def generate_datetime_list(
-        init: str = '2022-06-21 06:00:00',
-        end: str = '2022-06-21 19:00:00',
+        init: str = "2022-06-21 06:00:00",
+        end: str = "2022-06-21 19:00:00",
         time_delta_hours: int = 3,
     ):
         liste_date = [
-            datetime.strptime(init, '%Y-%m-%d %H:%M:%S'),
-            datetime.strptime(end, '%Y-%m-%d %H:%M:%S'),
+            datetime.strptime(init, "%Y-%m-%d %H:%M:%S"),
+            datetime.strptime(end, "%Y-%m-%d %H:%M:%S"),
             timedelta(hours=time_delta_hours),
         ]
         return liste_date
@@ -75,7 +75,7 @@ class BasicFunctions(object):
     @staticmethod
     def trouver_nombre_plus_proche(liste, nombre):
         nombre_plus_proche = None
-        difference_min = float('inf')
+        difference_min = float("inf")
 
         for element in liste:
             difference = abs(element - nombre)
@@ -95,151 +95,151 @@ class BasicFunctions(object):
     @staticmethod
     def epw_columns():
         columns = [
-            'Year',
-            'Month',
-            'Day',
-            'Hour',
-            'Minute',
-            'Data Source and Uncertainty Flags',
-            'Dry Bulb Temperature',
-            'Dew Point Temperature',
-            'Relative Humidity',
-            'Atmospheric Station Pressure',
-            'Extraterrestrial Horizontal Radiation',
-            'Extraterrestrial Direct Normal Radiation',
-            'Horizontal Infrared Radiation Intensity',
-            'Global Horizontal Radiation',
-            'Direct Normal Radiation',
-            'Diffuse Horizontal Radiation',
-            'Global Horizontal Illuminance',
-            'Direct Normal Illuminance',
-            'Diffuse Horizontal Illuminance',
-            'Zenith Luminance',
-            'Wind Direction',
-            'Wind Speed',
-            'Total Sky Cover',
-            'Opaque Sky Cover (used if Horizontal IR Intensity missing)',
-            'Visibility',
-            'Ceiling Height',
-            'Present Weather Observation',
-            'Present Weather Codes',
-            'Precipitable Water',
-            'Aerosol Optical Depth',
-            'Snow Depth',
-            'Days Since Last Snowfall',
-            'Albedo',
-            'Liquid Precipitation Depth',
-            'Liquid Precipitation Quantity',
-            '',
+            "Year",
+            "Month",
+            "Day",
+            "Hour",
+            "Minute",
+            "Data Source and Uncertainty Flags",
+            "Dry Bulb Temperature",
+            "Dew Point Temperature",
+            "Relative Humidity",
+            "Atmospheric Station Pressure",
+            "Extraterrestrial Horizontal Radiation",
+            "Extraterrestrial Direct Normal Radiation",
+            "Horizontal Infrared Radiation Intensity",
+            "Global Horizontal Radiation",
+            "Direct Normal Radiation",
+            "Diffuse Horizontal Radiation",
+            "Global Horizontal Illuminance",
+            "Direct Normal Illuminance",
+            "Diffuse Horizontal Illuminance",
+            "Zenith Luminance",
+            "Wind Direction",
+            "Wind Speed",
+            "Total Sky Cover",
+            "Opaque Sky Cover (used if Horizontal IR Intensity missing)",
+            "Visibility",
+            "Ceiling Height",
+            "Present Weather Observation",
+            "Present Weather Codes",
+            "Precipitable Water",
+            "Aerosol Optical Depth",
+            "Snow Depth",
+            "Days Since Last Snowfall",
+            "Albedo",
+            "Liquid Precipitation Depth",
+            "Liquid Precipitation Quantity",
+            "",
         ]
         return columns
 
     @staticmethod
     def epw_index():
-        initRun = '2021-01-01 01:00:00'
-        endRun = '2022-01-01 00:00:00'
-        myIndex = pd.date_range(start=initRun, end=endRun, freq='1h')
+        initRun = "2021-01-01 01:00:00"
+        endRun = "2022-01-01 00:00:00"
+        myIndex = pd.date_range(start=initRun, end=endRun, freq="1h")
         return myIndex
 
     @staticmethod
     # TODO : construire avec une loop
     def lcz_color():
         tableCorresp = {
-            1: ['LCZ 1: Compact high-rise', '#8b0101', 1.0, 'LCZ_PRIMARY_1'],
+            1: ["LCZ 1: Compact high-rise", "#8b0101", 1.0, "LCZ_PRIMARY_1"],
             2: [
-                'LCZ 2: Compact mid-rise',
-                '#cc0200',
+                "LCZ 2: Compact mid-rise",
+                "#cc0200",
                 0.9411764705882353,
-                'LCZ_PRIMARY_2',
+                "LCZ_PRIMARY_2",
             ],
             3: [
-                'LCZ 3: Compact low-rise',
-                '#fc0001',
+                "LCZ 3: Compact low-rise",
+                "#fc0001",
                 0.8823529411764706,
-                'LCZ_PRIMARY_3',
+                "LCZ_PRIMARY_3",
             ],
             4: [
-                'LCZ 4: Open high-rise',
-                '#be4c03',
+                "LCZ 4: Open high-rise",
+                "#be4c03",
                 0.8235294117647058,
-                'LCZ_PRIMARY_4',
+                "LCZ_PRIMARY_4",
             ],
-            5: ['LCZ 5: Open mid-rise', '#ff6602', 0.7647058823529411, 'LCZ_PRIMARY_5'],
-            6: ['LCZ 6: Open low-rise', '#ff9856', 0.8823529411764706, 'LCZ_PRIMARY_6'],
+            5: ["LCZ 5: Open mid-rise", "#ff6602", 0.7647058823529411, "LCZ_PRIMARY_5"],
+            6: ["LCZ 6: Open low-rise", "#ff9856", 0.8823529411764706, "LCZ_PRIMARY_6"],
             7: [
-                'LCZ 7: Lightweight low-rise',
-                '#fbed08',
+                "LCZ 7: Lightweight low-rise",
+                "#fbed08",
                 0.6470588235294118,
-                'LCZ_PRIMARY_7',
+                "LCZ_PRIMARY_7",
             ],
             8: [
-                'LCZ 8: Large low-rise',
-                '#bcbcba',
+                "LCZ 8: Large low-rise",
+                "#bcbcba",
                 0.5882352941176471,
-                'LCZ_PRIMARY_8',
+                "LCZ_PRIMARY_8",
             ],
             9: [
-                'LCZ 9: Sparsely built',
-                '#ffcca7',
+                "LCZ 9: Sparsely built",
+                "#ffcca7",
                 0.5294117647058824,
-                'LCZ_PRIMARY_9',
+                "LCZ_PRIMARY_9",
             ],
             10: [
-                'LCZ 10: Heavy industry',
-                '#57555a',
+                "LCZ 10: Heavy industry",
+                "#57555a",
                 0.47058823529411764,
-                'LCZ_PRIMARY_10',
+                "LCZ_PRIMARY_10",
             ],
             101: [
-                'LCZ A: Dense trees',
-                '#006700',
+                "LCZ A: Dense trees",
+                "#006700",
                 0.4117647058823529,
-                'LCZ_PRIMARY_101',
+                "LCZ_PRIMARY_101",
             ],
             102: [
-                'LCZ B: Scattered trees',
-                '#05aa05',
+                "LCZ B: Scattered trees",
+                "#05aa05",
                 0.35294117647058826,
-                'LCZ_PRIMARY_102',
+                "LCZ_PRIMARY_102",
             ],
             103: [
-                'LCZ C: Bush,scrub',
-                '#648423',
+                "LCZ C: Bush,scrub",
+                "#648423",
                 0.29411764705882354,
-                'LCZ_PRIMARY_103',
+                "LCZ_PRIMARY_103",
             ],
             104: [
-                'LCZ D: Low plants',
-                '#bbdb7a',
+                "LCZ D: Low plants",
+                "#bbdb7a",
                 0.23529411764705882,
-                'LCZ_PRIMARY_104',
+                "LCZ_PRIMARY_104",
             ],
             105: [
-                'LCZ E: Bare rock or paved',
-                '#010101',
+                "LCZ E: Bare rock or paved",
+                "#010101",
                 0.17647058823529413,
-                'LCZ_PRIMARY_105',
+                "LCZ_PRIMARY_105",
             ],
             106: [
-                'LCZ F: Bare soil or sand',
-                '#fdf6ae',
+                "LCZ F: Bare soil or sand",
+                "#fdf6ae",
                 0.11764705882352941,
-                'LCZ_PRIMARY_106',
+                "LCZ_PRIMARY_106",
             ],
-            107: ['LCZ G: Water', '#6d67fd', 0.058823529411764705, 'LCZ_PRIMARY_107'],
+            107: ["LCZ G: Water", "#6d67fd", 0.058823529411764705, "LCZ_PRIMARY_107"],
         }
 
         value_table = {
-            'LCZ_PRIMARY_1': 1.0,
-            'LCZ_PRIMARY_2': 0.8,
-            'LCZ_PRIMARY_3': 0.7,
-            'LCZ_PRIMARY_4': 0.6,
-            'LCZ_PRIMARY_5': 0.5,
-            'LCZ_PRIMARY_6': 0.4,
-            'LCZ_PRIMARY_7': 0.3,
-            'LCZ_PRIMARY_8': 0.2,
-            'LCZ_PRIMARY_9': 0.1,
-            'LCZ_PRIMARY_10': 0.01,
+            "LCZ_PRIMARY_1": 1.0,
+            "LCZ_PRIMARY_2": 0.8,
+            "LCZ_PRIMARY_3": 0.7,
+            "LCZ_PRIMARY_4": 0.6,
+            "LCZ_PRIMARY_5": 0.5,
+            "LCZ_PRIMARY_6": 0.4,
+            "LCZ_PRIMARY_7": 0.3,
+            "LCZ_PRIMARY_8": 0.2,
+            "LCZ_PRIMARY_9": 0.1,
+            "LCZ_PRIMARY_10": 0.01,
         }
 
         return tableCorresp, value_table
@@ -300,7 +300,7 @@ def points_from_polygons(polygons) -> list:
 
 
 def geo_lat_lon_from_h3(
-    df: pd.DataFrame, from_h3_column: str, lat: str = 'lat', lon: str = 'lon'
+    df: pd.DataFrame, from_h3_column: str, lat: str = "lat", lon: str = "lon"
 ) -> pd.DataFrame:
     """ """
     df[lat], df[lon] = zip(*df[from_h3_column].apply(lambda x: h3.h3_to_geo(x)))
@@ -325,7 +325,7 @@ def geo_boundary_to_polygon(x: str) -> Polygon:
 
 
 def _clean_str(string):
-    return re.sub(r'{.*}', '', string)
+    return re.sub(r"{.*}", "", string)
 
 
 def from_point_to_bbox(LATITUDE, LONGITUDE, meters=100):
@@ -348,14 +348,14 @@ def draw_bbox_with_folium(lat=46.160329, lon=-1.151139, zoom_start=13):
     # Ajouter l'outil de dessin avec seulement l'option de dessin rectangle activée
     draw = Draw(
         draw_options={
-            'polyline': False,
-            'polygon': False,
-            'circle': False,
-            'marker': False,
-            'circlemarker': False,
-            'rectangle': True,
+            "polyline": False,
+            "polygon": False,
+            "circle": False,
+            "marker": False,
+            "circlemarker": False,
+            "rectangle": True,
         },
-        edit_options={'edit': True, 'remove': True},
+        edit_options={"edit": True, "remove": True},
     )
     draw.add_to(m)
 
@@ -406,7 +406,7 @@ def draw_bbox_with_folium(lat=46.160329, lon=-1.151139, zoom_start=13):
 
 
 def extract_coordinates_from_filenames(
-    directory_path: str, departement_code: str = '17'
+    directory_path: str, departement_code: str = "17"
 ) -> gpd.GeoDataFrame:
     """
     Extrait les informations X et Y à partir de noms de fichiers .gpkg respectant le format 'D0{departement_code}_2021_X_Y_vecto.gpkg'
@@ -424,11 +424,11 @@ def extract_coordinates_from_filenames(
     coordinates = {}
 
     # Pattern pour extraire les coordonnées X et Y à partir des noms de fichiers
-    pattern = re.compile(rf'D0{departement_code}_2021_(\d+)_(\d+)_vecto\.gpkg')
+    pattern = re.compile(rf"D0{departement_code}_2021_(\d+)_(\d+)_vecto\.gpkg")
 
     # Parcourir tous les fichiers dans le dossier spécifié
     for filename in os.listdir(directory_path):
-        if filename.endswith('.gpkg'):
+        if filename.endswith(".gpkg"):
             match = pattern.match(filename)
             if match:
                 # Extraire X et Y, multiplier par 1000
@@ -452,13 +452,13 @@ def extract_coordinates_from_filenames(
 
                 # Ajouter les coordonnées et la géométrie au dictionnaire
                 coordinates[filename] = {
-                    'X': x_coord,
-                    'Y': y_coord,
-                    'geometry': geometry,
+                    "X": x_coord,
+                    "Y": y_coord,
+                    "geometry": geometry,
                 }
 
     # Convertir le dictionnaire en GeoDataFrame
-    gdf = gpd.GeoDataFrame.from_dict(coordinates, orient='index', crs='EPSG:2154')
+    gdf = gpd.GeoDataFrame.from_dict(coordinates, orient="index", crs="EPSG:2154")
 
     return gdf
 
@@ -481,19 +481,19 @@ def get_intersection_with_bbox(
     bbox = box(*bbox_coords)
 
     # Créer un GeoDataFrame pour la bbox avec le CRS EPSG:4326
-    bbox_gdf = gpd.GeoDataFrame({'geometry': [bbox]}, crs='EPSG:4326')
+    bbox_gdf = gpd.GeoDataFrame({"geometry": [bbox]}, crs="EPSG:4326")
 
     # Reprojeter la bbox en EPSG:2154 (le CRS du GeoDataFrame d'entrée)
     bbox_gdf = bbox_gdf.to_crs(gdf.crs)
 
     # Calculer l'intersection entre le GeoDataFrame et la bbox reprojetée
-    intersection_gdf = gpd.overlay(gdf, bbox_gdf, how='intersection')
+    intersection_gdf = gpd.overlay(gdf, bbox_gdf, how="intersection")
 
     return intersection_gdf
 
 
 def get_intersection_with_bbox_and_attributes(
-    gdf: gpd.GeoDataFrame, bbox_coords: list,  directory_path: str, bbox_crs = 'EPSG:4326'
+    gdf: gpd.GeoDataFrame, bbox_coords: list, directory_path: str, bbox_crs="EPSG:4326"
 ) -> gpd.GeoDataFrame:
     """
     Calcule l'intersection entre les géométries du GeoDataFrame et une bounding box définie par bbox_coords,
@@ -512,13 +512,13 @@ def get_intersection_with_bbox_and_attributes(
     bbox = box(*bbox_coords)
 
     # Créer un GeoDataFrame pour la bbox avec le CRS
-    bbox_gdf = gpd.GeoDataFrame({'geometry': [bbox]}, crs = bbox_crs)
+    bbox_gdf = gpd.GeoDataFrame({"geometry": [bbox]}, crs=bbox_crs)
 
     # Reprojeter la bbox en EPSG:2154 (le CRS du GeoDataFrame d'entrée)
     bbox_gdf = bbox_gdf.to_crs(gdf.crs)
 
     # Extraire uniquement les géométries qui intersectent la bbox, en conservant les attributs d'origine
-    filtered_gdf = gdf[gdf.intersects(bbox_gdf.loc[0, 'geometry'])]
+    filtered_gdf = gdf[gdf.intersects(bbox_gdf.loc[0, "geometry"])]
 
     # Liste pour stocker les GeoDataFrames des fichiers .gpkg relus
     all_intersections = []
@@ -549,7 +549,7 @@ def get_intersection_with_bbox_and_attributes(
                 result_files.append(file_name)
 
         except Exception as e:
-            print(f'Erreur lors de la lecture de {file_name}: {e}')
+            print(f"Erreur lors de la lecture de {file_name}: {e}")
 
     # Combiner tous les GeoDataFrames obtenus à partir des .gpkg en un seul GeoDataFrame final
     if all_intersections:
@@ -567,13 +567,13 @@ def remove_linestring_from_geopandas(gdf: gpd.GeoDataFrame):
     list_geometry = []
     list_index = []
     for i, row in gdf.iterrows():
-        if row.geometry.type == 'Polygon':
+        if row.geometry.type == "Polygon":
             list_geometry.append(row.geometry)
             list_index.append(i)
         else:
             pass
-    data = {'index': list_index, 'geometry': list_geometry}
-    gdf_filtered = gpd.GeoDataFrame(data, crs='EPSG:2154')
+    data = {"index": list_index, "geometry": list_geometry}
+    gdf_filtered = gpd.GeoDataFrame(data, crs="EPSG:2154")
     return gdf_filtered
 
 
@@ -584,31 +584,31 @@ def convert_crs(building: gpd.GeoDataFrame, crs=3857):
 
 def trees_to_polygon(trees: gpd.GeoDataFrame, height: float = 6.0):
     new_geom = []
-    for p in trees['geometry']:
+    for p in trees["geometry"]:
         circle = p.buffer(4.0)
         new_geom.append(Polygon(list(circle.exterior.coords)))
-    trees['point'] = trees['geometry']
-    trees['geometry'] = new_geom
-    trees['geometry'] = trees['geometry'].simplify(1)
-    trees['hauteur'] = [height for x in trees['geometry']]
+    trees["point"] = trees["geometry"]
+    trees["geometry"] = new_geom
+    trees["geometry"] = trees["geometry"].simplify(1)
+    trees["hauteur"] = [height for x in trees["geometry"]]
     return trees
 
 
 def union_trees_buildings(
     buildings: gpd.GeoDataFrame, trees: gpd.GeoDataFrame, height: float = 6.0
 ):
-    union = trees.overlay(buildings, how='union')
+    union = trees.overlay(buildings, how="union")
     import numpy as np
 
     hauteur = []
-    for x, y in zip(union['hauteur_1'], union['hauteur_2']):
+    for x, y in zip(union["hauteur_1"], union["hauteur_2"]):
         if np.isnan(x):
             hauteur.append(y)
         elif np.isnan(y):
             hauteur.append(x)
         else:
             hauteur.append(height)
-    union['hauteur'] = hauteur
+    union["hauteur"] = hauteur
     # bug sur la dernière ligne > TODO : mieux comprendre ce bug
     union.drop(union.tail(1).index, inplace=True)
     return union
@@ -616,10 +616,10 @@ def union_trees_buildings(
 
 def shadows_on_ground(shaders_gdf: gpd.GeoDataFrame, shades_gdf: gpd.GeoDataFrame):
     shadows_ground = shades_gdf.overlay(
-        shaders_gdf, how='difference', keep_geom_type=True
+        shaders_gdf, how="difference", keep_geom_type=True
     )
     shadows_ground = shadows_ground.explode(ignore_index=True)
-    shadows_ground['id'] = [x for x in shadows_ground.index]
+    shadows_ground["id"] = [x for x in shadows_ground.index]
     return shadows_ground
 
 
@@ -630,11 +630,11 @@ def convert_3D_2D(geometry):
     new_geo = []
     for p in geometry:
         if p.has_z:
-            if p.geom_type == 'Polygon':
+            if p.geom_type == "Polygon":
                 lines = [xy[:2] for xy in list(p.exterior.coords)]
                 new_p = Polygon(lines)
                 new_geo.append(new_p)
-            elif p.geom_type == 'MultiPolygon':
+            elif p.geom_type == "MultiPolygon":
                 new_multi_p = []
                 for ap in p:
                     lines = [xy[:2] for xy in list(ap.exterior.coords)]
@@ -642,6 +642,7 @@ def convert_3D_2D(geometry):
                     new_multi_p.append(new_p)
                 new_geo.append(MultiPolygon(new_multi_p))
     return new_geo
+
 
 def plot_sol_occupancy(gdf_before, gdf_after, **kwargs):
     """
@@ -654,22 +655,32 @@ def plot_sol_occupancy(gdf_before, gdf_after, **kwargs):
     Returns:
         plotly.graph_objects.Figure histogram
     """
-    gdf_before['area'] = gdf_before.area
-    gdf_after['area'] = gdf_after.area
+    gdf_before["area"] = gdf_before.area
+    gdf_after["area"] = gdf_after.area
 
-    class_before = gdf_before.groupby('classe')['area'].sum().reset_index(name='area_before')
-    class_after = gdf_after.groupby('classe')['area'].sum().reset_index(name='area_after')
+    class_before = (
+        gdf_before.groupby("classe")["area"].sum().reset_index(name="area_before")
+    )
+    class_after = (
+        gdf_after.groupby("classe")["area"].sum().reset_index(name="area_after")
+    )
 
-    merged_areas = pd.merge(class_before, class_after, on='classe', how='outer').fillna(0)
-    merged_areas['percentage_before'] = ((merged_areas['area_before']) / merged_areas['area_before'].sum()) * 100
-    merged_areas['percentage_after'] = ((merged_areas['area_after']) / merged_areas['area_before'].sum()) * 100
+    merged_areas = pd.merge(class_before, class_after, on="classe", how="outer").fillna(
+        0
+    )
+    merged_areas["percentage_before"] = (
+        (merged_areas["area_before"]) / merged_areas["area_before"].sum()
+    ) * 100
+    merged_areas["percentage_after"] = (
+        (merged_areas["area_after"]) / merged_areas["area_before"].sum()
+    ) * 100
 
-    plt.style.use(['science', 'no-latex'])
-    rcParams['font.family'] = 'DejaVu Sans'
+    plt.style.use(["science", "no-latex"])
+    rcParams["font.family"] = "DejaVu Sans"
 
     # Plot
     fig, ax = plt.subplots(figsize=(8, 5))
-    x = np.arange(len(merged_areas['classe']))  # x locations for the groups
+    x = np.arange(len(merged_areas["classe"]))  # x locations for the groups
 
     # Bar width
     width = 0.35
@@ -678,27 +689,51 @@ def plot_sol_occupancy(gdf_before, gdf_after, **kwargs):
     after_patches = []
 
     from pymdu.geometric.Cosia import Cosia
-    for i, classe in enumerate(merged_areas['classe']):
+
+    for i, classe in enumerate(merged_areas["classe"]):
         color = Cosia().table_color_cosia[classe]
-        before_bar = ax.bar(x[i] - width / 2, merged_areas['percentage_before'][i], width,
-                            label='Before' if i == 0 else "",
-                            color=color, edgecolor='black')
-        after_bar = ax.bar(x[i] + width / 2, merged_areas['percentage_after'][i], width,
-                           label='After' if i == 0 else "",
-                           color=color, edgecolor='black', hatch='x')
+        before_bar = ax.bar(
+            x[i] - width / 2,
+            merged_areas["percentage_before"][i],
+            width,
+            label="Before" if i == 0 else "",
+            color=color,
+            edgecolor="black",
+        )
+        after_bar = ax.bar(
+            x[i] + width / 2,
+            merged_areas["percentage_after"][i],
+            width,
+            label="After" if i == 0 else "",
+            color=color,
+            edgecolor="black",
+            hatch="x",
+        )
         before_patches.append(before_bar)
         after_patches.append(after_bar)
     # Add labels, title, and legend
-    ax.set_xlabel('Classe', fontsize=12)
-    ax.set_ylabel('Pourcentage', fontsize=12)
-    ax.set_title('Pourcentage avant et après par occupation du sol', fontsize=14)
+    ax.set_xlabel("Classe", fontsize=12)
+    ax.set_ylabel("Pourcentage", fontsize=12)
+    ax.set_title("Pourcentage avant et après par occupation du sol", fontsize=14)
     ax.set_xticks(x)
-    ax.set_xticklabels(merged_areas['classe'], rotation=45)
+    ax.set_xticklabels(merged_areas["classe"], rotation=45)
     # ax.legend()
-    ax.legend([before_patches[4], after_patches[4]],
-              ['Avant', 'Après (x)'], loc='upper left')
+    ax.legend(
+        [before_patches[4], after_patches[4]], ["Avant", "Après (x)"], loc="upper left"
+    )
     # Add grid for better readability
-    ax.grid(visible=True, linestyle='--', linewidth=0.5, alpha=0.7)
+    ax.grid(visible=True, linestyle="--", linewidth=0.5, alpha=0.7)
 
     plt.tight_layout()
     return fig
+
+
+# Convertir les propriétés en types JSON compatibles
+def process_datetime(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    from pandas.api.types import is_datetime64_any_dtype as is_datetime
+
+    # gdf = gdf[[column for column in gdf.columns if not is_datetime(gdf[column])]]
+    for column in gdf.columns:
+        if is_datetime(gdf[column]):
+            gdf[column] = gdf[column].dt.year
+    return gdf

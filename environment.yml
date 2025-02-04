@@ -6,7 +6,8 @@ channels:
 dependencies:
   - python=3.11
   - rasterio
-  - gdal=3.9
+  - gdal=3.10.1
+  - qgis=3.40.3
   - openjpeg
   - llvmlite
   - laspy[lazrs,laszip]

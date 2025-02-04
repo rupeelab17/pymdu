@@ -48,11 +48,9 @@ RUN micromamba clean --all --yes
 WORKDIR /app
 
 # install dependencies
-#COPY ./setup.py .
 COPY ./pyproject.toml .
 COPY ./README.md .
-COPY demos ./notebooks
-COPY ./Tests ./Tests
+COPY notebooks ./notebooks
 
 COPY ./pymdu ./pymdu
 VOLUME ./pymdu ./pymdu
@@ -100,4 +98,3 @@ RUN chmod +x /docker-entrypoint.sh
 
 WORKDIR /app/notebooks
 ENTRYPOINT ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c", "jupyter notebook --port=8898 --allow-root --notebook-dir='/app/notebooks' --ServerApp.password='' --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.allow_root=True --NotebookApp.open_browser=False"]
-#WORKDIR /app/pymdu
