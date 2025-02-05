@@ -26,7 +26,7 @@ import pandas as pd
 import rasterio
 import rasterio as rio
 import requests
-from osgeo import gdal, ogr
+from osgeo import gdal, ogr, osr
 from pandas import DataFrame
 from rasterio import MemoryFile
 from rasterio.enums import Resampling
@@ -37,6 +37,7 @@ from scipy.spatial import cKDTree
 from shapely import box
 from shapely.geometry import Point
 from pyproj import Transformer
+from shapely.geometry.multipoint import MultiPoint
 
 from pymdu.GeoCore import GeoCore
 from pymdu._typing import FilePath
@@ -59,7 +60,7 @@ class Lidar(GeoCore):
         Initializes the object with the given parameters.
 
         Args:
-             building_gdf: gpd.GeoDataFrame = None,
+            building_gdf: gpd.GeoDataFrame = None,
             vegetation_gdf: gpd.GeoDataFrame = None,
             water_gdf: gpd.GeoDataFrame = None,
             pedestrian_gdf: gpd.GeoDataFrame = None,
@@ -114,7 +115,7 @@ class Lidar(GeoCore):
         self.classification = classification
 
     def _get_lidar_points(self):
-        url = "https://data.geopf.fr/private/wfs/"
+        url = "https://data.geopf.fr/private/wfs"
 
         # Créer le transformer pour la conversion de EPSG:4326 vers EPSG:2154
         transformer = Transformer.from_crs("EPSG:4326", "EPSG:2154", always_xy=True)
@@ -138,8 +139,9 @@ class Lidar(GeoCore):
 
         response = requests.get(
             url, params=params, headers={"Accept": "application/json"}
-        ).json()
-
+        )
+        print(response)
+        response = response.json()
         # Extraire les URLs des features
         list_path_laz = [
             feature["properties"]["url"] for feature in response["features"]
@@ -271,7 +273,19 @@ class Lidar(GeoCore):
             # gdf.crs = {'init': f'epsg:{self._epsg}'}  # set correct spatial reference
             list_lidar_gdf.append(gdf)
 
-        self.gdf = gpd.GeoDataFrame(pd.concat(list_lidar_gdf, ignore_index=True))
+        gdf = gpd.GeoDataFrame(pd.concat(list_lidar_gdf, ignore_index=True))
+
+        polygons = []
+        for cls, group in gdf.groupby(
+            "classification"
+        ):  # Remplacez "classification" par le nom de votre colonne
+            multipoint = MultiPoint([pt for pt in group.geometry])
+            # Choix de la méthode : convex hull ou alpha shape
+            poly = multipoint.convex_hull  # ou alphashape.alphashape(multipoint, alpha)
+            polygons.append({"classification": cls, "geometry": poly})
+
+        self.gdf = gpd.GeoDataFrame(polygons, crs=gdf.crs)
+        print(self.gdf.head(10))
 
         return self
 
@@ -454,10 +468,13 @@ class Lidar(GeoCore):
         points = np.vstack((new_las.x[single_veg], new_las.y[single_veg]))
         # points = np.vstack((las.x, las.y))
         if clr_out is None:
-            values = new_las.z[single_veg]
-            # values = las.z
-            # values = las.classification
-            values = values[np.newaxis, ...]
+            # values = new_las.z[single_veg]
+            # values = values[np.newaxis, ...]
+
+            values_height = new_las.z[single_veg][np.newaxis, ...]
+            values_classification = new_las.classification[single_veg][np.newaxis, ...]
+            values = np.vstack((values_height, values_classification))
+
         else:
             values = np.vstack((las.z, las.red, las.green, las.blue))
 
@@ -517,7 +534,7 @@ class Lidar(GeoCore):
         transform = transform * Affine.scale(resolution, -resolution)
 
         profile = DefaultGTiffProfile(
-            count=1,
+            count=2,  # 2 bandes : hauteur et classification
             dtype=out.dtype,
             width=roi["xsize"],
             height=roi["ysize"],
@@ -529,7 +546,9 @@ class Lidar(GeoCore):
             # Créer et écrire dans le MemoryFile
             memfile = MemoryFile()
             with memfile.open(**profile) as dst:
-                dst.write(out[..., 0], 1)  # Écrire la première bande
+                # dst.write(out[..., 0], 1)  # Écrire la première bande
+                for band in range(2):
+                    dst.write(out[..., band], band + 1)
 
             # Retourner le MemoryFile
             return memfile
@@ -621,10 +640,29 @@ if __name__ == "__main__":
 
     lidar = Lidar(
         output_path="./",
-        classification=6,
+        # classification=6,
     )
     lidar.bbox = [-1.154894, 46.182639, -1.148361, 46.186820]
     # lidar_gdf = lidar.run().to_gdf()
+
+    # fig, ax = plt.subplots(figsize=(12, 10))
+    #
+    # lidar_gdf.plot(
+    #     cmap="hot_r",
+    #     column="classification",
+    #     legend=True,
+    #     ax=ax,
+    #     edgecolor=None,
+    # )
+    #
+    # # Pour s'assurer que l'axe couvre bien l'extension de vos données
+    # xmin, ymin, xmax, ymax = lidar_gdf.total_bounds
+    # ax.set_xlim(xmin, xmax)
+    # ax.set_ylim(ymin, ymax)
+    # ax.set_axis_off()
+    #
+    # plt.show()
+    # exit()
 
     # # lidar_gdf.plot(ax=plt.gca(), edgecolor='black')
     # # plt.show()
@@ -644,11 +682,20 @@ if __name__ == "__main__":
     # open image:
     im = gdal.Open("./cdsm.tif")
     srcband = im.GetRasterBand(1)
+    srcband_classification = im.GetRasterBand(2)
 
     if srcband.GetNoDataValue() is None:
         mask = None
     else:
         mask = srcband
+
+    # Get CRS from raster
+    spatial_ref = im.GetSpatialRef()
+
+    # If no CRS found
+    if spatial_ref is None:
+        spatial_ref = osr.SpatialReference()
+        spatial_ref.ImportFromEPSG(2154)
 
     # create output vector:
     driver = ogr.GetDriverByName("ESRI Shapefile")
@@ -657,21 +704,33 @@ if __name__ == "__main__":
 
     vector = driver.CreateDataSource(lidar_shp_path)
     layer = vector.CreateLayer(
-        lidar_shp_path.replace(".shp", ""), im.GetSpatialRef(), geom_type=ogr.wkbPolygon
+        lidar_shp_path.replace(".shp", ""), spatial_ref, geom_type=ogr.wkbPolygon
     )
 
     # create field to write NDVI values:
-    field = ogr.FieldDefn("hauteur", ogr.OFTReal)
-    layer.CreateField(field)
-    del field
+    field_hauteur = ogr.FieldDefn("hauteur", ogr.OFTReal)
+    field_classification = ogr.FieldDefn("class", ogr.OFTInteger)
+    layer.CreateField(field_hauteur)
+    layer.CreateField(field_classification)
+    del field_hauteur, field_classification
 
-    # polygonize:
+    # Polygonize first band (Hauteur)
     gdal.Polygonize(
         srcband, mask, layer, 0, options=[], callback=gdal.TermProgress_nocb
     )
 
+    # Polygonize second band (Classification)
+    gdal.Polygonize(
+        srcband_classification,
+        mask,
+        layer,
+        1,
+        options=[],
+        callback=gdal.TermProgress_nocb,
+    )
+
     # close files:
-    del im, srcband, vector, layer
+    del im, srcband, vector, layer, srcband_classification
 
     lidar = gpd.read_file(filename=lidar_shp_path, driver="ESRI Shapefile")
     print(lidar.head())
@@ -693,3 +752,23 @@ if __name__ == "__main__":
     input_shapefile = "LidarTest.shp"
     output_shapefile = "cleaned_polygon.shp"
     clean_inner_polygons(input_shapefile, output_shapefile)
+
+    fig, ax = plt.subplots(figsize=(12, 10))
+    cleaned_polygon_df = gpd.read_file(input_shapefile, driver="ESRI Shapefile")
+
+    cleaned_polygon_df.plot(
+        cmap="hot_r",
+        column="class",
+        legend=True,
+        ax=ax,
+        edgecolor=None,
+    )
+
+    # Pour s'assurer que l'axe couvre bien l'extension de vos données
+    xmin, ymin, xmax, ymax = cleaned_polygon_df.total_bounds
+    ax.set_xlim(xmin, xmax)
+    ax.set_ylim(ymin, ymax)
+    # Optionnel : masquer les axes pour un rendu plus "cartographique"
+    ax.set_axis_off()
+
+    plt.show()
