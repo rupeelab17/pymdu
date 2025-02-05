@@ -632,6 +632,83 @@ class Lidar(GeoCore):
         # Retourner le MemoryFile
         return memfile
 
+    def process_polygonize(
+        self, path_file_csdm: str = "./cdsm.tif"
+    ) -> gpd.GeoDataFrame:
+        lidar_shp_path = os.path.join(TEMP_PATH, "LidarTest.shp")
+
+        # ================================================
+        # open image:
+        im = gdal.Open(path_file_csdm)
+        print("Nombre de bandes:", im.RasterCount)
+
+        srcband = im.GetRasterBand(1)
+        srcband_classification = im.GetRasterBand(2)
+
+        if srcband.GetNoDataValue() is None:
+            mask = None
+        else:
+            mask = srcband
+
+        # Get CRS from raster
+        spatial_ref = im.GetSpatialRef()
+
+        # If no CRS found
+        if spatial_ref is None:
+            spatial_ref = osr.SpatialReference()
+            spatial_ref.ImportFromEPSG(2154)
+
+        # create output vector:
+        driver = ogr.GetDriverByName("ESRI Shapefile")
+        if os.path.exists(lidar_shp_path):
+            driver.DeleteDataSource(lidar_shp_path)
+
+        vector = driver.CreateDataSource(lidar_shp_path)
+        layer = vector.CreateLayer(
+            lidar_shp_path.replace(".shp", ""), spatial_ref, geom_type=ogr.wkbPolygon
+        )
+
+        # create field to write NDVI values:
+        field_hauteur = ogr.FieldDefn("hauteur", ogr.OFTReal)
+        field_classification = ogr.FieldDefn("class", ogr.OFTInteger)
+        layer.CreateField(field_hauteur)
+        layer.CreateField(field_classification)
+        del field_hauteur, field_classification
+
+        # Polygonize first band (Hauteur)
+        gdal.Polygonize(
+            srcband, mask, layer, 0, options=[], callback=gdal.TermProgress_nocb
+        )
+
+        # Polygonize second band (Classification)
+        gdal.Polygonize(
+            srcband_classification,
+            mask,
+            layer,
+            1,
+            options=[],
+            callback=gdal.TermProgress_nocb,
+        )
+
+        # close files:
+        del im, srcband, vector, layer, srcband_classification
+
+        def clean_inner_polygons(input_shapefile, output_shapefile):
+            # Read the input shapefile
+            gdf = gpd.read_file(input_shapefile, driver="ESRI Shapefile")
+            # Dissolve polygons while preserving classification
+            dissolved_gdf = gdf.dissolve(
+                by="class"
+            )  # Utilise la classification pour dissoudre
+            # Reset index to avoid MultiIndex issues
+            dissolved_gdf = dissolved_gdf.reset_index()
+            return dissolved_gdf
+
+        input_shapefile = "LidarTest.shp"
+        output_shapefile = "cleaned_polygon.shp"
+        self.gdf = clean_inner_polygons(lidar_shp_path, output_shapefile)
+        return self.gdf
+
 
 if __name__ == "__main__":
     from shapely.geometry.geo import box
@@ -676,85 +753,9 @@ if __name__ == "__main__":
         rasterio.plot.show(src, ax=ax, title="Lidar CDSM")
         plt.show()
 
-    lidar_shp_path = os.path.join(TEMP_PATH, "LidarTest.shp")
-
-    # ================================================
-    # open image:
-    im = gdal.Open("./cdsm.tif")
-    srcband = im.GetRasterBand(1)
-    srcband_classification = im.GetRasterBand(2)
-
-    if srcband.GetNoDataValue() is None:
-        mask = None
-    else:
-        mask = srcband
-
-    # Get CRS from raster
-    spatial_ref = im.GetSpatialRef()
-
-    # If no CRS found
-    if spatial_ref is None:
-        spatial_ref = osr.SpatialReference()
-        spatial_ref.ImportFromEPSG(2154)
-
-    # create output vector:
-    driver = ogr.GetDriverByName("ESRI Shapefile")
-    if os.path.exists(lidar_shp_path):
-        driver.DeleteDataSource(lidar_shp_path)
-
-    vector = driver.CreateDataSource(lidar_shp_path)
-    layer = vector.CreateLayer(
-        lidar_shp_path.replace(".shp", ""), spatial_ref, geom_type=ogr.wkbPolygon
-    )
-
-    # create field to write NDVI values:
-    field_hauteur = ogr.FieldDefn("hauteur", ogr.OFTReal)
-    field_classification = ogr.FieldDefn("class", ogr.OFTInteger)
-    layer.CreateField(field_hauteur)
-    layer.CreateField(field_classification)
-    del field_hauteur, field_classification
-
-    # Polygonize first band (Hauteur)
-    gdal.Polygonize(
-        srcband, mask, layer, 0, options=[], callback=gdal.TermProgress_nocb
-    )
-
-    # Polygonize second band (Classification)
-    gdal.Polygonize(
-        srcband_classification,
-        mask,
-        layer,
-        1,
-        options=[],
-        callback=gdal.TermProgress_nocb,
-    )
-
-    # close files:
-    del im, srcband, vector, layer, srcband_classification
-
-    lidar = gpd.read_file(filename=lidar_shp_path, driver="ESRI Shapefile")
-    print(lidar.head())
-    lidar.to_file("LidarTest.shp", driver="ESRI Shapefile")
-
-    def clean_inner_polygons(input_shapefile, output_shapefile):
-        # Read the input shapefile
-        gdf = gpd.read_file(input_shapefile, driver="ESRI Shapefile")
-        print(gdf.columns)
-        # Dissolve all polygons into a single polygon
-        dissolved = gdf.unary_union
-
-        # Convert the dissolved polygon back to a GeoDataFrame
-        dissolved_gdf = gpd.GeoDataFrame(geometry=[dissolved], crs=gdf.crs)
-
-        # Save the dissolved polygon to a new shapefile
-        dissolved_gdf.to_file(output_shapefile)
-
-    input_shapefile = "LidarTest.shp"
-    output_shapefile = "cleaned_polygon.shp"
-    clean_inner_polygons(input_shapefile, output_shapefile)
+    cleaned_polygon_df = lidar.process_polygonize(path_file_csdm="./cdsm.tif")
 
     fig, ax = plt.subplots(figsize=(12, 10))
-    cleaned_polygon_df = gpd.read_file(input_shapefile, driver="ESRI Shapefile")
 
     cleaned_polygon_df.plot(
         cmap="hot_r",
