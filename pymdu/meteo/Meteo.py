@@ -108,14 +108,12 @@ class Meteo(GeoCore):
             )
         else:
             file_path = f'france/{WEATHERFILE_PATH}'
-            raw_content = f'https://raw.githubusercontent.com/rupeelab17/epw-data/refs/heads/main/france/{file_path}'
-
+            raw_content = f'https://raw.githubusercontent.com/rupeelab17/epw-data/refs/heads/main/{file_path}'
         weather_dataframe = pd.read_csv(
-            io.BytesIO(raw_content),
+            raw_content,
             low_memory=False,
             skiprows=8,
-            names=self.epw_columns,
-        )
+            names=self.epw_columns)
 
         return weather_filename_found, weather_dataframe
 
@@ -132,9 +130,10 @@ class Meteo(GeoCore):
         else:
             weather_filename, weather_dataframe = self._get_weather_from_position()
 
-        print(weather_dataframe.head(3))
-
-        index = pd.date_range(start=begin, freq='1h', periods=8760)
+        begin_str = begin
+        date_obj = datetime.strptime(begin_str, '%Y-%m-%d %H:%M:%S')
+        annee = date_obj.year
+        index = pd.date_range(start=f"{annee}-01-01 00:00:00", freq='1h', periods=8760)
         weather_dataframe.index = index
 
         umep_data = pd.DataFrame(
@@ -190,6 +189,7 @@ class Meteo(GeoCore):
 
         # day + ' 00:00:00': day + ' 23:00:00'
         data_select = weather_dataframe[begin:end]
+        print(data_select)
         for key in table_corresp.keys():
             umep_data[key] = data_select[table_corresp[key]].values
 
