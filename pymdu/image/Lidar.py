@@ -702,6 +702,10 @@ class Lidar(GeoCore):
             )  # Utilise la classification pour dissoudre
             # Reset index to avoid MultiIndex issues
             dissolved_gdf = dissolved_gdf.reset_index()
+            # Écriture dans un fichier de sortie si un chemin est fourni
+            if output_shapefile:
+                dissolved_gdf.to_file(output_shapefile, driver="ESRI Shapefile")
+
             return dissolved_gdf
 
         input_shapefile = "LidarTest.shp"
