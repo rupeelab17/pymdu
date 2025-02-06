@@ -650,6 +650,9 @@ class Lidar(GeoCore):
         else:
             mask = srcband
 
+        # Obtenir la géotransformation (pour convertir coordonnées monde → pixel)
+        gt = im.GetGeoTransform()
+
         # Get CRS from raster
         spatial_ref = im.GetSpatialRef()
 
@@ -664,11 +667,9 @@ class Lidar(GeoCore):
             driver.DeleteDataSource(lidar_shp_path)
 
         vector = driver.CreateDataSource(lidar_shp_path)
-        layer = vector.CreateLayer(
-            lidar_shp_path.replace(".shp", ""), spatial_ref, geom_type=ogr.wkbPolygon
-        )
+        layer = vector.CreateLayer("", spatial_ref, geom_type=ogr.wkbPolygon)
 
-        # create field to write NDVI values:
+        # cre_ate field to write NDVI values:
         field_hauteur = ogr.FieldDefn("hauteur", ogr.OFTReal)
         field_classification = ogr.FieldDefn("class", ogr.OFTInteger)
         layer.CreateField(field_hauteur)
@@ -681,15 +682,51 @@ class Lidar(GeoCore):
         )
 
         # Polygonize second band (Classification)
-        gdal.Polygonize(
-            srcband_classification,
-            mask,
-            layer,
-            1,
-            options=[],
-            callback=gdal.TermProgress_nocb,
-        )
+        # gdal.Polygonize(
+        #     srcband_classification,
+        #     mask,
+        #     layer,
+        #     1,
+        #     options=[],
+        #     callback=gdal.TermProgress_nocb,
+        # )
 
+        # =============================================
+        # 4. Définir une fonction utilitaire pour convertir les coordonnées monde en coordonnées pixels
+        def world_to_pixel(geo_transform, x, y):
+            originX = geo_transform[0]
+            originY = geo_transform[3]
+            pixelWidth = geo_transform[1]
+            pixelHeight = geo_transform[5]
+            px = int((x - originX) / pixelWidth)
+            py = int((y - originY) / pixelHeight)
+            return px, py
+
+        # =============================================
+        # 5. Pour chaque polygone, lire la valeur de la deuxième bande au niveau du centroïde
+        layer.ResetReading()
+        for feature in layer:
+            geom = feature.GetGeometryRef()
+            if geom is None:
+                continue
+            centroid = geom.Centroid()
+            x = centroid.GetX()
+            y = centroid.GetY()
+            # Convertir les coordonnées du centroïde en indices de pixel
+            px, py = world_to_pixel(gt, x, y)
+            # Lire la valeur dans la deuxième bande (taille 1x1)
+            classification_array = srcband_classification.ReadAsArray(px, py, 1, 1)
+
+            if str(classification_array[0][0]) != "nan":
+                classification_value = int(classification_array[0][0])
+            else:
+                classification_value = 3
+            feature.SetField("class", classification_value)
+            layer.SetFeature(feature)
+
+        # =============================================
+        # 6. Finaliser et fermer les ressources
+        layer.SyncToDisk()
         # close files:
         del im, srcband, vector, layer, srcband_classification
 
@@ -708,9 +745,12 @@ class Lidar(GeoCore):
 
             return dissolved_gdf
 
-        input_shapefile = "LidarTest.shp"
         output_shapefile = "cleaned_polygon.shp"
-        self.gdf = clean_inner_polygons(lidar_shp_path, output_shapefile)
+        self.gdf = clean_inner_polygons(lidar_shp_path, output_shapefile=None)
+
+        # self.gdf = gpd.read_file(lidar_shp_path, driver="ESRI Shapefile")
+        # self.gdf.to_file("LidarTest.shp", driver="ESRI Shapefile")
+
         return self.gdf
 
 
@@ -758,6 +798,8 @@ if __name__ == "__main__":
         plt.show()
 
     cleaned_polygon_df = lidar.process_polygonize(path_file_csdm="./cdsm.tif")
+
+    print(cleaned_polygon_df.head())
 
     fig, ax = plt.subplots(figsize=(12, 10))
 
