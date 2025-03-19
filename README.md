@@ -29,3 +29,8 @@ Thank you!
 [4]: https://github.com/orbisgis/geoclimate
 
 [5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
+
+## Funding
+
+This project has received funding from the *France Relance* program under the agreement number *[Numéro de la convention]*.  
+We acknowledge the support provided for the development and implementation of this work.
