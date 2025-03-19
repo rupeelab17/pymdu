@@ -6,13 +6,13 @@ données urbaines. Il s'inspire et réutilise des outils comme [GeoClimate][4], 
 offrir une solution à l'analyse de l'environnement urbain. Une application de pymdu est l'analyse du
 confort thermique extérieur. 
 
-# Documentation : 
+# Documentation 
 https://rupeelab17.github.io/pymdu/
 
-# Installation :
+# Installation
 https://rupeelab17.github.io/pymdu/installation/
 
-## Citations :
+## Citations
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper attribution helps maintain the integrity of the original work and supports the contributors. 
 Thank you!
 
