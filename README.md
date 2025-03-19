@@ -31,6 +31,6 @@ Thank you!
 [5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
 
 ## Funding
-
-This project has received funding from the *France Relance* program under the agreement number *[Numéro de la convention]*.  
+<img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="50"/>
+This project has received funding from the *France Relance* program under the agreement number *ANR-21-PRRD-0010-01*.  
 We acknowledge the support provided for the development and implementation of this work.
