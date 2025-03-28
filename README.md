@@ -31,9 +31,9 @@ If you reuse or adapt any of the work from this GitHub repository, please ensure
 attribution helps maintain the integrity of the original work and supports the contributors.
 Thank you!
 
-```Martinez, S., Vellei, M., Rendu, M., Brangeon, B., Griffon, C., & Bozonnet, E. (2025). A methodology to bridge urban shade guidelines with climate metrics. Sustainable Cities and Society, 124, https://doi.org/10.1016/J.SCS.2025.10632```
+```Martinez, S., Vellei, M., Rendu, M., Brangeon, B., Griffon, C., & Bozonnet, E. (2025). A methodology to bridge urban shade guidelines with climate metrics. Sustainable Cities and Society, 124``` [link][6]
 
-```Martinez, S., Bozonnet, E., Rendu, M., & Brangeon, B. (2024). Modèle de données urbain pour l’étude de la surchauffe des quartiers. https://doi.org/10.34894/VQ1DJA```
+```Martinez, S., Bozonnet, E., Rendu, M., & Brangeon, B. (2024). Modèle de données urbain pour l’étude de la surchauffe des quartiers.``` [link][7] 
 
 
 [1]: https://github.com/thomas-leduc/t4gpd
@@ -45,6 +45,10 @@ Thank you!
 [4]: https://github.com/orbisgis/geoclimate
 
 [5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
+
+[6]: https://doi.org/10.1016/J.SCS.2025.10632
+
+[7]: https://doi.org/10.34894/VQ1DJA
 
 ## Funding
 <img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>
