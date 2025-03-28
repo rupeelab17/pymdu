@@ -8,14 +8,6 @@ to offer a complete
 solution for urban environmental analysis. A key application of pymdu is outdoor thermal comfort analysis, enabling the
 simulation and optimization of urban spaces to improve the well-being of residents.
 
-# Pymdu (Python Modèle de Données Urbain)
-
-Pymdu (Modèle de Données Urbain) est un package Python conçu pour collecter, post-traiter, modéliser et analyser des
-données urbaines. Il s'inspire et réutilise des outils comme [GeoClimate][4], [UWG][3], [UMEP-DEV][2], [t4gpd][1],
-et [pythermalcomfort][5] pour
-offrir une solution complète à l'analyse de l'environnement urbain. Une application clé de pymdu est l'analyse du
-confort thermique extérieur, permettant de simuler et d'optimiser les espaces urbains pour améliorer le bien-être des
-habitants.
 
 ## Documentation :
 
@@ -46,9 +38,9 @@ Thank you!
 
 [5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
 
-[6]: https://doi.org/10.1016/J.SCS.2025.10632
+[6]: https://www.sciencedirect.com/science/article/pii/S2210670725001994?via%3Dihub
 
-[7]: https://doi.org/10.34894/VQ1DJA
+[7]: https://hal.science/EC-NANTES/hal-04599209v1
 
 ## Funding
 <img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>
