@@ -17,11 +17,11 @@ offrir une solution complète à l'analyse de l'environnement urbain. Une applic
 confort thermique extérieur, permettant de simuler et d'optimiser les espaces urbains pour améliorer le bien-être des
 habitants.
 
-# Documentation :
+## Documentation :
 
 https://rupeelab17.github.io/pymdu/
 
-# Installation :
+## Installation :
 
 https://rupeelab17.github.io/pymdu/installation/
 
