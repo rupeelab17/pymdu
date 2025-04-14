@@ -4,6 +4,13 @@
     
         [java Windows OS et Mac OS](https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
     
+    === "Installation de miniforge"
+    
+        [miniforge Windows OS et Mac OS](https://github.com/conda-forge/miniforge)
+
+        [miniforge Windows OS => Miniforge3-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe)
+    
+
     === "Installation de micromamba"
     
         [micromamba Windows OS et Mac OS](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
