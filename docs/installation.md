@@ -55,10 +55,7 @@ micromamba install fiona -c micromamba-forge
 ```bash
 cd pymdu
 uv pip install poetry
-poetry self add "poetry-dynamic-versioning[plugin]"
 python -m poetry install --with docs
-poetry export -f requirements.txt --output requirements.txt --without-hashes --with docs
-uv pip install -r requirements.txt
 ```
 
 ## 2. Installation de pymdu avec Docker
@@ -73,7 +70,7 @@ uv pip install -r requirements.txt
 ### 2.2. Rapatrier le dépôt git
 
 ```bash
-git clone https://github.com/rupeelab17/pymdu.gi
+git clone https://github.com/rupeelab17/pymdu.git
 cd pymdu
 ```
 
