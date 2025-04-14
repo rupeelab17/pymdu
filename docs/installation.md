@@ -5,8 +5,8 @@
         [java Windows OS et Mac OS](https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
     
     === "Installation de miniforge"
-    
-        [miniforge Windows OS et Mac OS](https://github.com/conda-forge/miniforge)
+
+        [This repository holds the minimal installers for Conda and Mamba](https://github.com/conda-forge/miniforge)
 
         [miniforge Windows OS => Miniforge3-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe)
     
@@ -29,14 +29,30 @@ git clone https://github.com/rupeelab17/pymdu.git
 
 ### 1.2. Installation de l'environnement python
 
-```bash
-cd pymdu
-micromamba env create -f environment.yml # (1)!
-micromamba activate pymdu
-micromamba install git pip uv
-micromamba install qgis -c micromamba-forge
-micromamba install fiona -c micromamba-forge
-```
+!!! warning "Comme vous voulez !!!"
+
+    === "Conda"
+    
+        ```bash
+        cd pymdu
+        conda env create -f environment.yml # (1)!
+        conda activate pymdu
+        conda install git pip uv
+        conda install qgis -c conda-forge
+        conda install fiona -c conda-forge
+        ```    
+
+    === "Micromamba"
+    
+        ```bash
+        cd pymdu
+        micromamba env create -f environment.yml # (1)!
+        micromamba activate pymdu
+        micromamba install git pip uv
+        micromamba install qgis -c micromamba-forge
+        micromamba install fiona -c micromamba-forge
+        ```
+
 
 1.  :man_raising_hand: L'environnement python est créé en local.
 
