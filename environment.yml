@@ -1,4 +1,4 @@
-name: umep_pymdu
+name: pymdu
 channels:
   - conda-forge
   - defaults
