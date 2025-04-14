@@ -6,6 +6,13 @@ offrir une solution complète à l'analyse de l'environnement urbain. Une applic
 confort thermique extérieur, permettant de simuler et d'optimiser les espaces urbains pour améliorer le bien-être des
 habitants. 
 
+## Credits
+
+
+## Installation :
+
+https://rupeelab17.github.io/pymdu/installation/
+
 ## Citations :
 
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper
@@ -16,9 +23,12 @@ Thank you!
 
 ```Martinez, S., Bozonnet, E., Rendu, M., & Brangeon, B. (2024). Modèle de données urbain pour l’étude de la surchauffe des quartiers.``` [link][7] 
 
-## Credits
 
-Created by [Tipee][0]
+## Funding
+<img src="https://github.com/rupeelab17/pymdu/blob/main/figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>
+This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01.  
+We acknowledge the support provided for the development and implementation of this work.
+
 
 [0]: http://plateforme-tipee.com
 
@@ -32,9 +42,8 @@ Created by [Tipee][0]
 
 [5]: https://github.com/CenterForTheBuiltEnvironment/pythermalcomfort
 
-[6]: https://www.sciencedirect.com/science/article/pii/S2210670725001994?via%3Dihub
+[6]: https://doi.org/10.1016/J.SCS.2025.10632
 
-[7]: https://hal.science/EC-NANTES/hal-04599209v1
-
+[7]: https://doi.org/10.34894/VQ1DJA
 
 
