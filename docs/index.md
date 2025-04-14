@@ -6,12 +6,9 @@ offrir une solution complète à l'analyse de l'environnement urbain. Une applic
 confort thermique extérieur, permettant de simuler et d'optimiser les espaces urbains pour améliorer le bien-être des
 habitants. 
 
-## Credits
-
-
 ## Installation :
 
-https://rupeelab17.github.io/pymdu/installation/
+[https://rupeelab17.github.io/pymdu/installation/][8]
 
 ## Citations :
 
@@ -46,4 +43,4 @@ We acknowledge the support provided for the development and implementation of 
 
 [7]: https://doi.org/10.34894/VQ1DJA
 
-
+[8]: https://rupeelab17.github.io/pymdu/installation/
