@@ -9,15 +9,15 @@ solution for urban environmental analysis. A key application of pymdu is outdoor
 simulation and optimization of urban spaces to improve the well-being of residents.
 
 
-## Documentation :
+## Documentation
 
 https://rupeelab17.github.io/pymdu/
 
-## Installation :
+## Installation
 
 https://rupeelab17.github.io/pymdu/installation/
 
-## Citations :
+## Citations
 
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper
 attribution helps maintain the integrity of the original work and supports the contributors.
@@ -43,11 +43,12 @@ Thank you!
 [7]: https://hal.science/EC-NANTES/hal-04599209v1
 
 ## Funding
-<img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>  <img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
+ <img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>    <img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
 
-This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01. This project is supported by funding granted to the Tipee Platform as part of the LRZTC project / Operation 3.1.1 (Programme d'Investissements d'Avenir) by the Banque des Territoires. 
-We acknowledge the support provided for the development and implementation of this work.
+This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01. This project is supported by funding granted to the Tipee Platform as part of the LRTZC project / Task 3.1.1 (Programme d'Investissements d'Avenir) by the Banque des Territoires, coordinated by the urban community of la Rochelle, France. 
+We strongly acknowledge the support provided for the development and implementation of this work!
 
-<img src="figures/logo-lasie.png" alt="drawing" width="80"/>
-<img src="figures/logo_tipee.jpeg" alt="drawing" width="80"/>
-<img src="figures/logo_rupeelab.jpg" alt="drawing" width="80"/>
+## Team
+Created by [Tipee](https://plateforme-tipee.com/) and [LaSIE](https://lasie.univ-larochelle.fr/), as part of the joint laboratory RupeeLAB.
+
+<img src="figures/logo-lasie.png" alt="drawing" width="80"/>  <img src="figures/logo_tipee.jpeg" alt="drawing" width="80"/>  <img src="figures/logo_rupeelab.jpg" alt="drawing" width="80"/>
