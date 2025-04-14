@@ -632,10 +632,14 @@
 
 <div class="breadcrumb"><a href="installation/">Installation</a></div><div class="admonition warning">
 <p class="admonition-title">Prérequis</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Installation de java 11</label><label for="__tabbed_1_2">Installation de micromamba</label><label for="__tabbed_1_3">Installation de git</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Installation de java 11</label><label for="__tabbed_1_2">Installation de miniforge</label><label for="__tabbed_1_3">Installation de micromamba</label><label for="__tabbed_1_4">Installation de git</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox">java Windows OS et Mac OS</a></p>
+</div>
+<div class="tabbed-block">
+<p><a href="https://github.com/conda-forge/miniforge">miniforge Windows OS et Mac OS</a></p>
+<p><a href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe">miniforge Windows OS =&gt; Miniforge3-Windows-x86_64.exe</a></p>
 </div>
 <div class="tabbed-block">
 <p><a href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html">micromamba Windows OS et Mac OS</a></p>
@@ -679,10 +683,7 @@
 <h3 id="13-installation-du-package-pour-le-developpement">1.3. Installation du package pour le développement</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>pymdu
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>poetry
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>poetry<span class="w"> </span>self<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;poetry-dynamic-versioning[plugin]&quot;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>python<span class="w"> </span>-m<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>docs
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>poetry<span class="w"> </span><span class="nb">export</span><span class="w"> </span>-f<span class="w"> </span>requirements.txt<span class="w"> </span>--output<span class="w"> </span>requirements.txt<span class="w"> </span>--without-hashes<span class="w"> </span>--with<span class="w"> </span>docs
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>python<span class="w"> </span>-m<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>docs
 </span></code></pre></div>
 <h2 id="2-installation-de-pymdu-avec-docker">2. Installation de pymdu avec Docker</h2>
 <h3 id="21-installation-de-docker">2.1. Installation de Docker</h3>
@@ -697,7 +698,7 @@
 </div>
 </div>
 <h3 id="22-rapatrier-le-depot-git">2.2. Rapatrier le dépôt git</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rupeelab17/pymdu.gi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rupeelab17/pymdu.git
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>pymdu
 </span></code></pre></div>
 <h3 id="23-construction-de-limage-docker">2.3. Construction de l'image Docker</h3>
