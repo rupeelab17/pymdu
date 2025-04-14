@@ -43,11 +43,11 @@ Thank you!
 [7]: https://hal.science/EC-NANTES/hal-04599209v1
 
 ## Funding
-<img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>
-<img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
+<img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>  <img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
+
 This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01. This project is supported by funding granted to the Tipee Platform as part of the LRZTC project / Operation 3.1.1 (Programme d'Investissements d'Avenir) by the Banque des Territoires. 
 We acknowledge the support provided for the development and implementation of this work.
 
-<img src="figures/logo-lasie.svg" alt="drawing" width="80"/>
-<img src="figures/logo-tipee.svg" alt="drawing" width="80"/>
-<img src="figures/logo-rupeelab.jpg" alt="drawing" width="80"/>
+<img src="figures/logo-lasie.png" alt="drawing" width="80"/>
+<img src="figures/logo_tipee.jpeg" alt="drawing" width="80"/>
+<img src="figures/logo_rupeelab.jpg" alt="drawing" width="80"/>
