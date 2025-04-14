@@ -140,3 +140,5 @@ dmypy.json
 /pymdu/physics/aeraulic/uRockle/Resources/
 /example/output/
 jupyterlite/
+.jupyter
+.cache
