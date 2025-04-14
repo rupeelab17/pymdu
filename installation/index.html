@@ -638,7 +638,7 @@
 <p><a href="https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox">java Windows OS et Mac OS</a></p>
 </div>
 <div class="tabbed-block">
-<p><a href="https://github.com/conda-forge/miniforge">miniforge Windows OS et Mac OS</a></p>
+<p><a href="https://github.com/conda-forge/miniforge">This repository holds the minimal installers for Conda and Mamba</a></p>
 <p><a href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe">miniforge Windows OS =&gt; Miniforge3-Windows-x86_64.exe</a></p>
 </div>
 <div class="tabbed-block">
@@ -655,39 +655,56 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rupeelab17/pymdu.git
 </span></code></pre></div>
 <h3 id="12-installation-de-lenvironnement-python">1.2. Installation de l'environnement python</h3>
+<div class="admonition warning">
+<p class="admonition-title">Comme vous voulez !!!</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Conda</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+</div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>pymdu
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>micromamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span><span class="c1"># (1)!</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>micromamba<span class="w"> </span>activate<span class="w"> </span>pymdu
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>micromamba<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>pip<span class="w"> </span>uv
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>micromamba<span class="w"> </span>install<span class="w"> </span>qgis<span class="w"> </span>-c<span class="w"> </span>micromamba-forge
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>micromamba<span class="w"> </span>install<span class="w"> </span>fiona<span class="w"> </span>-c<span class="w"> </span>micromamba-forge
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span><span class="c1"># (1)!</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>conda<span class="w"> </span>activate<span class="w"> </span>pymdu
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>conda<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>pip<span class="w"> </span>uv
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>conda<span class="w"> </span>install<span class="w"> </span>qgis<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>conda<span class="w"> </span>install<span class="w"> </span>fiona<span class="w"> </span>-c<span class="w"> </span>conda-forge
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code>=== &quot;Micromamba&quot;
+</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>pymdu
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>micromamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span><span class="c1"># (1)!</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>micromamba<span class="w"> </span>activate<span class="w"> </span>pymdu
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>micromamba<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>pip<span class="w"> </span>uv
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>micromamba<span class="w"> </span>install<span class="w"> </span>qgis<span class="w"> </span>-c<span class="w"> </span>micromamba-forge
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>micromamba<span class="w"> </span>install<span class="w"> </span>fiona<span class="w"> </span>-c<span class="w"> </span>micromamba-forge
 </span></code></pre></div>
 <ol>
 <li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:" /> L'environnement python est créé en local.</li>
 </ol>
 <details class="info" open="open">
 <summary>environment.yml</summary>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdu</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">channels</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- defaults</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- numba</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">dependencies</span><span class="p">:</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.11</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rasterio</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gdal</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openjpeg</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llvmlite</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdu</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">channels</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- defaults</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- numba</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">dependencies</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.11</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rasterio</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gdal</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openjpeg</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llvmlite</span>
 </span></code></pre></div>
 </details>
 <h3 id="13-installation-du-package-pour-le-developpement">1.3. Installation du package pour le développement</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>pymdu
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>poetry
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>python<span class="w"> </span>-m<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>docs
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>pymdu
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>poetry
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>python<span class="w"> </span>-m<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span>docs
 </span></code></pre></div>
 <h2 id="2-installation-de-pymdu-avec-docker">2. Installation de pymdu avec Docker</h2>
 <h3 id="21-installation-de-docker">2.1. Installation de Docker</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Windows OS</label><label for="__tabbed_2_2">Mac OS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Windows OS</label><label for="__tabbed_3_2">Mac OS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://docs.docker.com/desktop/install/windows-install/">https://docs.docker.com/desktop/install/windows-install/</a></p>
@@ -698,39 +715,39 @@
 </div>
 </div>
 <h3 id="22-rapatrier-le-depot-git">2.2. Rapatrier le dépôt git</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rupeelab17/pymdu.git
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>pymdu
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rupeelab17/pymdu.git
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>pymdu
 </span></code></pre></div>
 <h3 id="23-construction-de-limage-docker">2.3. Construction de l'image Docker</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>--platform<span class="w"> </span>linux/amd64<span class="w"> </span>-t<span class="w"> </span>tipee/pymdu:latest<span class="w"> </span>.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>--platform<span class="w"> </span>linux/amd64<span class="w"> </span>-t<span class="w"> </span>tipee/pymdu:latest<span class="w"> </span>.
 </span></code></pre></div>
 <h3 id="24-execution-du-conteneur">2.4. Exécution du conteneur</h3>
 <h4 id="sur-macos-ou-linux">Sur MacOS ou Linux</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Première méthode</label><label for="__tabbed_3_2">Seconde méthode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Première méthode</label><label for="__tabbed_4_2">Seconde méthode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker<span class="w"> </span>start<span class="w"> </span>pymdu
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docker<span class="w"> </span>stop<span class="w"> </span>pymdu
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker<span class="w"> </span>start<span class="w"> </span>pymdu
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>docker<span class="w"> </span>stop<span class="w"> </span>pymdu
 </span></code></pre></div>
 </div>
 </div>
 </div>
 <h4 id="sur-windows">Sur Windows</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Première méthode</label><label for="__tabbed_4_2">Seconde méthode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Première méthode</label><label for="__tabbed_5_2">Seconde méthode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span>%cd%/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span>%cd%/demos:/app/demos<span class="w"> </span>tipee/pymdu:latest
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span>%cd%:/app<span class="w"> </span>tipee/pymdu:latest
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker<span class="w"> </span>start<span class="w"> </span>pymdu
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>docker<span class="w"> </span>stop<span class="w"> </span>pymdu
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>pymdu<span class="w"> </span>-p<span class="w"> </span><span class="m">8898</span>:8898<span class="w"> </span>-v<span class="w"> </span>%cd%:/app<span class="w"> </span>tipee/pymdu:latest
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>start<span class="w"> </span>pymdu
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>docker<span class="w"> </span>stop<span class="w"> </span>pymdu
 </span></code></pre></div>
 </div>
 </div>
@@ -740,25 +757,25 @@
 <p><a href="http://localhost:8898/">http://localhost:8898/</a></p>
 </div>
 <h2 id="3-compression-et-conversion-des-images-tiff">3. Compression et conversion des images Tiff</h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>Tmrt_1997_157_0700D.tif<span class="w">  </span>Tmrt_1997_157_0700D_comp.tif<span class="w"> </span>-co<span class="w"> </span><span class="nv">COMPRESS</span><span class="o">=</span>DEFLATE<span class="w"> </span>-co<span class="w"> </span><span class="nv">PREDICTOR</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>-co<span class="w"> </span><span class="nv">DISCARD_LSB</span><span class="o">=</span><span class="m">2</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>Tmrt_1997_157_0700D.tif<span class="w">  </span>Tmrt_1997_157_0700D_comp.tif<span class="w"> </span>-co<span class="w"> </span><span class="nv">COMPRESS</span><span class="o">=</span>DEFLATE<span class="w"> </span>-co<span class="w"> </span><span class="nv">PREDICTOR</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>-co<span class="w"> </span><span class="nv">DISCARD_LSB</span><span class="o">=</span><span class="m">2</span>
 </span></code></pre></div>
 <h3 id="31-convertir-tiff-en-jpeg2000">3.1. Convertir Tiff en Jpeg2000</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>micromamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>micromamba-forge<span class="w"> </span>openjpeg
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/bodleian/image-processing.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>micromamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>micromamba-forge<span class="w"> </span>openjpeg
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/bodleian/image-processing.git
 </span></code></pre></div>
 <h3 id="32-convertir-tiff-32bit-en-16bit">3.2. Convertir Tiff 32bit en 16bit</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>gdal_calc.py<span class="w"> </span>-A<span class="w"> </span>Tmrt_1997_157_0700D_comp.tif<span class="w"> </span>--outfile<span class="o">=</span>out_round_multiplie.tif<span class="w"> </span>--calc<span class="o">=</span><span class="s2">&quot;round(A,3)*1000&quot;</span><span class="w"> </span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>-ot<span class="w"> </span>int16<span class="w"> </span>out_round_multiplie.tif<span class="w"> </span>out_round_multiplie_16bits.tif
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>opj_compress<span class="w"> </span>-i<span class="w"> </span>out_round_multiplie_16bits.tif<span class="w"> </span>-o<span class="w"> </span>out_round_multiplie_16bits.jp2
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>-ot<span class="w"> </span>float32<span class="w"> </span>out_round_multiplie_16bits.jp2<span class="w"> </span>Tmrt_1997_157_0700D_32bit.tif
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>gdal_calc.py<span class="w"> </span>-A<span class="w"> </span>Tmrt_1997_157_0700D_32bit.tif<span class="w"> </span>--outfile<span class="o">=</span>Tmrt_1997_157_0700D_final.tif<span class="w"> </span>--calc<span class="o">=</span><span class="s2">&quot;A/1000&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gdal_calc.py<span class="w"> </span>-A<span class="w"> </span>Tmrt_1997_157_0700D_comp.tif<span class="w"> </span>--outfile<span class="o">=</span>out_round_multiplie.tif<span class="w"> </span>--calc<span class="o">=</span><span class="s2">&quot;round(A,3)*1000&quot;</span><span class="w"> </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>-ot<span class="w"> </span>int16<span class="w"> </span>out_round_multiplie.tif<span class="w"> </span>out_round_multiplie_16bits.tif
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>opj_compress<span class="w"> </span>-i<span class="w"> </span>out_round_multiplie_16bits.tif<span class="w"> </span>-o<span class="w"> </span>out_round_multiplie_16bits.jp2
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>gdal_translate<span class="w"> </span>-of<span class="w"> </span>GTiff<span class="w"> </span>-ot<span class="w"> </span>float32<span class="w"> </span>out_round_multiplie_16bits.jp2<span class="w"> </span>Tmrt_1997_157_0700D_32bit.tif
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>gdal_calc.py<span class="w"> </span>-A<span class="w"> </span>Tmrt_1997_157_0700D_32bit.tif<span class="w"> </span>--outfile<span class="o">=</span>Tmrt_1997_157_0700D_final.tif<span class="w"> </span>--calc<span class="o">=</span><span class="s2">&quot;A/1000&quot;</span>
 </span></code></pre></div>
 <h3 id="33-convertir-tiff-16bit-en-jpeg2000-avec-python">3.3. Convertir Tiff 16bit en Jpeg2000 avec Python</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">image_processing</span><span class="w"> </span><span class="kn">import</span> <span class="n">openjpeg</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">opj</span> <span class="o">=</span> <span class="n">openjpeg</span><span class="o">.</span><span class="n">OpenJpeg</span><span class="p">(</span><span class="n">openjpeg_base_path</span><span class="o">=</span><span class="s2">&quot;/Users/Boris/anamicromamba3/envs/pymdu/bin/opj_compress&quot;</span><span class="p">)</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">opj</span><span class="o">.</span><span class="n">opj_compress</span><span class="p">(</span><span class="s2">&quot;Tmrt_1997_157_0700D_16bit.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;Tmrt_1997_157_0700D.jp2&quot;</span><span class="p">,</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>                 <span class="n">openjpeg_options</span><span class="o">=</span><span class="n">openjpeg</span><span class="o">.</span><span class="n">DEFAULT_LOSSLESS_COMPRESS_OPTIONS</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">image_processing</span><span class="w"> </span><span class="kn">import</span> <span class="n">openjpeg</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">opj</span> <span class="o">=</span> <span class="n">openjpeg</span><span class="o">.</span><span class="n">OpenJpeg</span><span class="p">(</span><span class="n">openjpeg_base_path</span><span class="o">=</span><span class="s2">&quot;/Users/Boris/anamicromamba3/envs/pymdu/bin/opj_compress&quot;</span><span class="p">)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">opj</span><span class="o">.</span><span class="n">opj_compress</span><span class="p">(</span><span class="s2">&quot;Tmrt_1997_157_0700D_16bit.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;Tmrt_1997_157_0700D.jp2&quot;</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>                 <span class="n">openjpeg_options</span><span class="o">=</span><span class="n">openjpeg</span><span class="o">.</span><span class="n">DEFAULT_LOSSLESS_COMPRESS_OPTIONS</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
 <p>Generated by MkDocs</p>
