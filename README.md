@@ -2,6 +2,19 @@
 
 ![Pymdu's GitHub stats](https://github-readme-stats.vercel.app/api?username=rupeelab17&show_icons=true&theme=radical)
 
+===============================================================================
+ Language            Files        Lines         Code     Comments       Blanks
+===============================================================================
+ Python                167        63348        53434         5178         4736
+ C++                     1          449          356           28           65
+ QML                     2          143          143            0            0
+ JSON                    2           91           89            0            2
+ Shell                   1            2            1            1            0
+ Plain Text             10        13416            0        13416            0
+===============================================================================
+ Total                 183        77449        54023        18623         4803
+===============================================================================
+
 # Pymdu (Python Urban Data Model)
 
 Pymdu (Urban Data Model) is a Python package designed to collect, post-process, model, and analyze urban data. It draws
