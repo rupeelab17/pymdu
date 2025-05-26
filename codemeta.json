@@ -1,0 +1,110 @@
+{
+    "@context": "https://w3id.org/codemeta/3.0",
+    "type": "SoftwareSourceCode",
+    "applicationCategory": "Sustainable Cities and Society",
+    "author": [
+        {
+            "id": "_:author_1",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Tipee"
+            },
+            "email": "simon.martinez@plateforme-tipee.com",
+            "familyName": "Martinez",
+            "givenName": "Simon"
+        },
+        {
+            "id": "_:author_2",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "I2M - UMR CNRS 5295"
+            },
+            "email": "marika.vellei@u-bordeaux.fr",
+            "familyName": "Vellei",
+            "givenName": "Marika"
+        },
+        {
+            "id": "_:author_3",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Tipee"
+            },
+            "email": "manon.rendu@plateforme-tipee.com",
+            "familyName": "Rendu",
+            "givenName": "Manon"
+        },
+        {
+            "id": "_:author_4",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Tipee"
+            },
+            "email": "boris.brangeon@plateforme-tipee.com",
+            "familyName": "Brangeon",
+            "givenName": "Boris"
+        },
+        {
+            "id": "_:author_5",
+            "type": "Person",
+            "email": "griffon.carlota@orange.fr",
+            "familyName": "Griffon",
+            "givenName": "Carlota"
+        },
+        {
+            "id": "_:author_6",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "La Rochelle Université"
+            },
+            "email": "emmanuel.bozonnet@univ-lr.fr",
+            "familyName": "Bozonnet",
+            "givenName": "Emmanuel"
+        },
+        {
+            "id": "_:author_7",
+            "type": "Person",
+            "affiliation": {
+                "type": "Organization",
+                "name": "Tipee"
+            },
+            "email": "ainagul.jumabekova@plateforme-tipee.com",
+            "familyName": "Jumabekova",
+            "givenName": "Ainagul"
+        }
+    ],
+    "codeRepository": "https://github.com/rupeelab17/pymdu.git",
+    "dateCreated": "2024-12-17",
+    "dateModified": "2024-12-17",
+    "datePublished": "2024-12-17",
+    "description": "Pymdu (Urban Data Model) is a Python package designed to collect, post-process, model, and analyze urban data. It draws inspiration from and reuses tools like GeoClimate, UWG, UMEP-DEV, t4gpd, and pythermalcomfort to offer a complete solution for urban environmental analysis. A key application of pymdu is outdoor thermal comfort analysis, enabling the simulation and optimization of urban spaces to improve the well-being of residents.",
+    "funder": {
+        "type": "Organization",
+        "name": "ANR-21-PRRD-0010-01"
+    },
+    "keywords": "Outdoor Thermal ComfortOutdoor ShadeHeat Stressurban overheatinglocal climate actionclimate policy",
+    "license": "https://spdx.org/licenses/GPL-3.0-only",
+    "name": "pymdu",
+    "operatingSystem": [
+        "Linux",
+        "Windows",
+        "MACOS"
+    ],
+    "programmingLanguage": "Python 3",
+    "review": {
+        "type": "Review",
+        "reviewAspect": "Sustainable Cities and Society"
+    },
+    "version": "1.0.0",
+    "codemeta:contIntegration": {
+        "id": "https://github.com/rupeelab17/pymdu"
+    },
+    "continuousIntegration": "https://github.com/rupeelab17/pymdu",
+    "developmentStatus": "active",
+    "issueTracker": "https://github.com/rupeelab17/pymdu/issues",
+    "referencePublication": "https://doi.org/10.1016/j.scs.2025.106322"
+}
