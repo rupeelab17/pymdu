@@ -1,5 +1,8 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=rupeelab17)](https://github.com/anuraghazra/github-readme-stats)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=rupeelab17&show_icons=true)
+
 # Pymdu (Python Urban Data Model)
 
 Pymdu (Urban Data Model) is a Python package designed to collect, post-process, model, and analyze urban data. It draws
