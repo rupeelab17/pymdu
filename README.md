@@ -1,6 +1,6 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
-![Pymdu's GitHub stats](https://github-readme-stats.vercel.app/api?username=rupeelab17&show_icons=true&theme=radical)
+[//]: # (![Pymdu's GitHub stats]&#40;https://github-readme-stats.vercel.app/api?username=rupeelab17&show_icons=true&theme=radical&#41;)
 
 # Pymdu (Python Urban Data Model)
 
