@@ -1,5 +1,9 @@
 !!! warning "Prérequis"
 
+    === "Installation de la prise en charge de C et C++ dans Visual Studio"
+    
+        [Windows OS](https://learn.microsoft.com/fr-fr/cpp/build/vscpp-step-0-installation?view=msvc-170)
+    
     === "Installation de java 11"
     
         [java Windows OS et MacOS](https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
@@ -37,7 +41,7 @@ git clone https://github.com/rupeelab17/pymdu.git
         cd pymdu
         conda env create -f environment.yml # (1)!
         conda activate pymdu
-        conda install git pip uv
+        conda install git pip
         conda install qgis -c conda-forge
         conda install fiona -c conda-forge
         ```    
@@ -48,7 +52,7 @@ git clone https://github.com/rupeelab17/pymdu.git
         cd pymdu
         micromamba env create -f environment.yml # (1)!
         micromamba activate pymdu
-        micromamba install git pip uv
+        micromamba install git pip
         micromamba install qgis -c conda-forge
         micromamba install fiona -c conda-forge
         ```
@@ -75,24 +79,25 @@ git clone https://github.com/rupeelab17/pymdu.git
 
 ```bash
 cd pymdu
-uv pip install poetry
-python -m poetry install --with docs
+pip install poetry
+python -m poetry install
 ```
 
 !!! warning
 
-    Pour une installation classique avec conda, il faut dé-zipper [https://github.com/rupeelab17/pymdu/blob/main/docker/processing_umep.zip](https://github.com/rupeelab17/pymdu/blob/main/docker/processing_umep.zip)
-    dans le dossier share/qgis/python/plugins de l’installation de l’environment python créé (voir ligne 89 du fichier [https://github.com/rupeelab17/pymdu/blob/main/Dockerfile](https://github.com/rupeelab17/pymdu/blob/main/Dockerfile))
+    Pour une installation classique avec conda, il faut dé-zipper [https://github.com/UMEP-dev/UMEP-processing/archive/refs/heads/main.zip](https://github.com/UMEP-dev/UMEP-processing/archive/refs/heads/main.zip)
+    dans le dossier [...]/envs/pymdu/share/qgis/python/plugins dans un dossier nommer processing_umep de l’installation de l’environment python créé (voir ligne 89 du fichier [https://github.com/rupeelab17/pymdu/blob/main/Dockerfile](https://github.com/rupeelab17/pymdu/blob/main/Dockerfile))
+    => vérifier le chemin de votre python 'where python'
 
 ## 2. Installation de pymdu avec Docker
 
 ### 2.1. Installation de Docker
 
 === "Windows OS"
-    [https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
+[https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
 
 === "MacOS"
-    [https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
+[https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
 
 ### 2.2. Rapatrier le dépôt git
 
