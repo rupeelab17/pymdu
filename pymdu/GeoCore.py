@@ -35,7 +35,6 @@ from pymdu.commons.BasicFunctions import (
     geo_boundary_to_polygon,
     BasicFunctions,
     geo_lat_lon_from_h3,
-    process_datetime,
 )
 
 
@@ -58,9 +57,9 @@ class GeoCore:
     _bbox: list = BBOX_LR
     _epsg: int = 2154
     _gdf: gpd.GeoDataFrame = None
-    _output_path: str = None
-    _output_path_shp: str = None
-    _filename_shp: str = None
+    _output_path: str | None = None
+    _output_path_shp: str | None = None
+    _filename_shp: str | None = None
 
     collect_path = Path(os.path.join(Path(__file__).parent, "collect"))
     physics_path = Path(os.path.join(Path(__file__).parent, "physics"))
@@ -146,7 +145,6 @@ class GeoCore:
                 ]
             ]
             self.gdf = self.gdf[self.gdf.geometry.type != "LineString"]
-            print(self.gdf.head(100))
         except Exception as e:
             print(f"ERROR {name} to_shp ==>", e)
             pass

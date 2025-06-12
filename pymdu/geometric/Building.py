@@ -18,17 +18,10 @@ import io
 import os.path
 
 import geopandas as gpd
-import numpy as np
-from shapely.geometry import Point
 
 from pymdu.collect.GlobalVariables import TEMP_PATH
 from pymdu.collect.ign.IgnCollect import IgnCollect
 from pymdu.commons.BasicFunctions import process_datetime
-
-try:
-    from osgeo import gdal, ogr
-except ImportError:
-    pass
 
 
 class Building(IgnCollect):
@@ -41,10 +34,10 @@ class Building(IgnCollect):
 
     def __init__(
         self,
-        filepath_shp: str = None,
-        output_path: str = None,
-        defaultStoreyHeight: float = 3,
-        set_crs: int = None,
+        filepath_shp: str | None = None,
+        output_path: str | None = None,
+        defaultStoreyHeight: float = 3.0,
+        set_crs: int | None = None,
     ):
         """
         Initializes the object with the given parameters.
@@ -144,18 +137,21 @@ class Building(IgnCollect):
         self.gdf = gdf
         return self
 
-    def centroid(self):  # rectangle centroid
-        coord = self.exterior.coords
-        face_p0 = np.array(coord[0])
-        face_p2 = np.array(coord[2])
-        face_ce = (face_p0 + face_p2) / 2
-        return Point(face_ce)
-
     def to_gdf(self) -> gpd.GeoDataFrame:
+        """
+
+        Returns:
+
+        """
         gdf = process_datetime(gdf=self.gdf)
         return gdf
 
     def to_gpkg(self, name: str = "batiments"):
+        """
+
+        Args:
+            name:
+        """
         # Write the GeoDataFrame to a GPKG file
         self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
@@ -164,10 +160,4 @@ if __name__ == "__main__":
     buildings = Building(output_path="./")
     buildings.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     buildings = buildings.run()
-# buildings.to_shp(name="batiments")
-# from shapely import box
-# bbox_final = box(buildings.bbox[0], buildings.bbox[1], buildings.bbox[2], buildings.bbox[3])
-# print(bbox_final.wkt)
-# area_polygon = [[i[1], i[0]] for i in list(bbox_final.exterior.coords)]
-# print(area_polygon)
-# print(bbox_final.exterior)
+    print(buildings.to_gdf().head())

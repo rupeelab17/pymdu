@@ -34,7 +34,7 @@ except ImportError:
 class Rnb(GeoCore):
     """ """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         """
         Initializes the object with the given parameters.
 

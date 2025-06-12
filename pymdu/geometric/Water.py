@@ -38,7 +38,10 @@ class Water(GeoCore):
     """
 
     def __init__(
-        self, filepath_shp: str = None, output_path: str = None, set_crs: int = None
+        self,
+        filepath_shp: str | None = None,
+        output_path: str | None = None,
+        set_crs: int = None,
     ):
         """
         Initializes the object with the given parameters.
@@ -80,7 +83,7 @@ class Water(GeoCore):
             osm = OsmCollect(key='"natural"="water"')
             self.gdf = osm.run().to_gdf()
         else:
-            self.gdf = gpd.read_file(self.filepath_shp, driver='ESRI Shapefile')
+            self.gdf = gpd.read_file(self.filepath_shp, driver="ESRI Shapefile")
 
         if self.set_crs:
             self.gdf = self.gdf.set_crs(
@@ -94,13 +97,13 @@ class Water(GeoCore):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'water'):
+    def to_gpkg(self, name: str = "water"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    water = Water(output_path='./')
+if __name__ == "__main__":
+    water = Water(output_path="./")
     water.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     water = water.run()
     # water.to_shp(name="water")
@@ -108,5 +111,5 @@ if __name__ == '__main__':
     # vegetation.to_shp(name="vegetation")
     import matplotlib.pyplot as plt
 
-    water_gdf.plot(edgecolor='k')
+    water_gdf.plot(edgecolor="k")
     plt.show()

@@ -51,7 +51,7 @@ class LandCover(GeoCore, BasicFunctions):
         pedestrian_gdf: gpd.GeoDataFrame = None,
         cosia_gdf: gpd.GeoDataFrame = None,
         dxf_gdf: gpd.GeoDataFrame = None,
-        output_path: str = None,
+        output_path: str | None = None,
         write_file: bool = True,
     ):
         """
@@ -64,7 +64,7 @@ class LandCover(GeoCore, BasicFunctions):
             pedestrian_gdf: gpd.GeoDataFrame = None,
             cosia_gdf: gpd.GeoDataFrame = None,
             dxf_gdf: gpd.GeoDataFrame = None,
-            output_path: str = None,
+            output_path: str | None  = None,
             write_file: bool = True,
 
         Example:
@@ -135,8 +135,6 @@ class LandCover(GeoCore, BasicFunctions):
             print(buffer.getvalue())  # markdown-exec: hide
             ```
 
-        Todo:
-            * For module TODOs
         """
         self.listGDF = []
         self.output_path = output_path if output_path else TEMP_PATH

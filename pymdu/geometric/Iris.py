@@ -34,7 +34,7 @@ except ImportError:
 class Iris(IgnCollect):
     """ """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         """
         Initializes the object with the given parameters.
 
@@ -67,13 +67,13 @@ class Iris(IgnCollect):
         self.output_path = output_path if output_path else TEMP_PATH
 
     def run(self):
-        self.execute_ign(key='iris')
+        self.execute_ign(key="iris")
         file = (
             self.content
             if isinstance(self.content, io.BytesIO)
             else io.BytesIO(self.content)
         )
-        gdf = gpd.read_file(file, driver='GeoJSON')
+        gdf = gpd.read_file(file, driver="GeoJSON")
         gdf = gdf.to_crs(self._epsg)
         self.gdf = gdf
         return self
@@ -88,13 +88,13 @@ class Iris(IgnCollect):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'iris'):
+    def to_gpkg(self, name: str = "iris"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    iris = Iris(output_path='./')
+if __name__ == "__main__":
+    iris = Iris(output_path="./")
     iris.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     iris = iris.run()
     # iris.to_shp(name="iris")

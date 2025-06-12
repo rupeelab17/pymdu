@@ -32,7 +32,9 @@ from osgeo import osr
 from osgeo.osr import SpatialReference
 
 
-def crop_from_image(src_tif: str = None, dst_tif: str = None, crs: int = 2154):
+def crop_from_image(
+    src_tif: str | None = None, dst_tif: str | None = None, crs: int = 2154
+):
     dataset = rasterio.open(src_tif)
     minx = dataset.bounds[0]
     miny = dataset.bounds[3]
@@ -41,7 +43,7 @@ def crop_from_image(src_tif: str = None, dst_tif: str = None, crs: int = 2154):
     # print([minx, miny, maxx, maxy])
 
     destination = gdal.Translate(
-        src_tif, dst_tif, projWin=[minx, miny, maxx, maxy], outputSRS='EPSG:%s' % crs
+        src_tif, dst_tif, projWin=[minx, miny, maxx, maxy], outputSRS="EPSG:%s" % crs
     )
     # close the destination image
     destination = None
@@ -49,7 +51,10 @@ def crop_from_image(src_tif: str = None, dst_tif: str = None, crs: int = 2154):
 
 
 def resample_resolution(
-    src_tif: str = None, dst_tif: str = None, new_xres: int = 1, new_yres: int = -1
+    src_tif: str | None = None,
+    dst_tif: str | None = None,
+    new_xres: int = 1,
+    new_yres: int = -1,
 ):
     """
     resample resolution the pixel size of the raster.
@@ -64,7 +69,7 @@ def resample_resolution(
     :param new_xres:
 
     """
-    options = gdal.WarpOptions(options=['tr'], xRes=new_xres, yRes=new_yres)
+    options = gdal.WarpOptions(options=["tr"], xRes=new_xres, yRes=new_yres)
     newfile = gdal.Warp(
         destNameOrDestDS=src_tif,
         srcDSOrSrcDSTab=dst_tif,
@@ -76,8 +81,8 @@ def resample_resolution(
 
 
 def reproject(
-    src_tif: str = None,
-    dst_tif: str = None,
+    src_tif: str | None = None,
+    dst_tif: str | None = None,
     src_epsg: int = 3857,
     dist_epsg: int = 2154,
 ):
@@ -94,7 +99,7 @@ def reproject(
     :param new_xres:
 
     """
-    options = gdal.WarpOptions(options=['tr'], srcSRS=src_epsg, dstSRS=dist_epsg)
+    options = gdal.WarpOptions(options=["tr"], srcSRS=src_epsg, dstSRS=dist_epsg)
     newfile = gdal.Warp(
         destNameOrDestDS=src_tif,
         srcDSOrSrcDSTab=dst_tif,
@@ -105,7 +110,10 @@ def reproject(
 
 
 def resample_size(
-    src_tif: str = None, dst_tif: str = None, new_width: int = 1, new_height: int = -1
+    src_tif: str | None = None,
+    dst_tif: str | None = None,
+    new_width: int = 1,
+    new_height: int = -1,
 ):
     """
     resample size of the raster.
@@ -120,7 +128,7 @@ def resample_size(
     :param new_width:
 
     """
-    options = gdal.WarpOptions(options=['ts'], width=new_width, height=new_height)
+    options = gdal.WarpOptions(options=["ts"], width=new_width, height=new_height)
     newfile = gdal.Warp(
         destNameOrDestDS=src_tif,
         srcDSOrSrcDSTab=dst_tif,
@@ -130,7 +138,9 @@ def resample_size(
     newfile = None
 
 
-def resample_projection(src_tif: str = None, dst_tif: str = None, new_epsg: int = 2154):
+def resample_projection(
+    src_tif: str | None = None, dst_tif: str | None = None, new_epsg: int = 2154
+):
     """
     resample projection of the raster.
 
@@ -143,7 +153,7 @@ def resample_projection(src_tif: str = None, dst_tif: str = None, new_epsg: int 
     :param new_epsg:
 
     """
-    options = gdal.WarpOptions(options=['ts'], dstSRS='EPSG:' + str(new_epsg))
+    options = gdal.WarpOptions(options=["ts"], dstSRS="EPSG:" + str(new_epsg))
     newfile = gdal.Warp(
         destNameOrDestDS=src_tif,
         srcDSOrSrcDSTab=dst_tif,
@@ -153,7 +163,7 @@ def resample_projection(src_tif: str = None, dst_tif: str = None, new_epsg: int 
     newfile = None
 
 
-def toto(src_tif, dst_tif='output.tif'):
+def toto(src_tif, dst_tif="output.tif"):
     """
 
     Returns:
@@ -183,13 +193,13 @@ def toto(src_tif, dst_tif='output.tif'):
     gdal.Translate(
         dst_tif,
         data,
-        format='GTiff',
+        format="GTiff",
         projWin=[minx, maxy, maxx, miny],
         outputSRS=data.GetProjectionRef(),
     )
 
 
-def raster_to_gdf(src_tif, new_field_name: str = 'elevation') -> gpd.GeoDataFrame:
+def raster_to_gdf(src_tif, new_field_name: str = "elevation") -> gpd.GeoDataFrame:
     """
     Returns:
         object:
@@ -201,8 +211,8 @@ def raster_to_gdf(src_tif, new_field_name: str = 'elevation') -> gpd.GeoDataFram
     myarray[(0 <= myarray) & (myarray < 1)] = 2
     myarray[myarray == 1.0] = 0
 
-    driver = gdal.GetDriverByName('GTiff')
-    raster_tmp = os.path.join(tempfile.gettempdir(), 'raster_tmp.tif')
+    driver = gdal.GetDriverByName("GTiff")
+    raster_tmp = os.path.join(tempfile.gettempdir(), "raster_tmp.tif")
     ds_out = driver.CreateCopy(raster_tmp, source_raster)
     band = ds_out.GetRasterBand(1)
     # write the modified array to the raster
@@ -212,14 +222,14 @@ def raster_to_gdf(src_tif, new_field_name: str = 'elevation') -> gpd.GeoDataFram
     # clear the buffer, and ensure file is written
     ds_out.FlushCache()
 
-    driver = ogr.GetDriverByName('ESRI Shapefile')
-    shp_tmp = os.path.join(tempfile.gettempdir(), 'shp_tmp.shp')
+    driver = ogr.GetDriverByName("ESRI Shapefile")
+    shp_tmp = os.path.join(tempfile.gettempdir(), "shp_tmp.shp")
     out_data = driver.CreateDataSource(shp_tmp)
     # getting projection from source raster
     srs = osr.SpatialReference()
     srs.ImportFromWkt(source_raster.GetProjectionRef())
     # create layer with projection
-    out_layer = out_data.CreateLayer('polygons', srs)
+    out_layer = out_data.CreateLayer("polygons", srs)
     new_field = ogr.FieldDefn(new_field_name, ogr.OFTReal)
     out_layer.CreateField(new_field)
     gdal.Polygonize(band, band, out_layer, -1, [], callback=None)
@@ -242,9 +252,9 @@ def gdf_to_raster(
     measurement: str,
     categorical: bool = False,
     resolution: tuple = (-0.03, 0.03),
-    raster_file_like: str = None,
+    raster_file_like: str | None = None,
     fill_value=None,
-    dtype='float64',
+    dtype="float64",
 ):
     """
 
@@ -271,7 +281,7 @@ def gdf_to_raster(
 
     if raster_file_like:
         raster_file = rioxarray.open_rasterio(raster_file_like)
-        like = raster_file.to_dataset(name='data')
+        like = raster_file.to_dataset(name="data")
         resolution = None
     else:
         like = None
@@ -293,7 +303,7 @@ def gdf_to_raster(
     # print(trest_string)
     # geo_grid = geo_grid.rio.reproject(geo_grid.rio.crs, resolution=0.5, resampling=Resampling.average)
     geo_grid[measurement].rio.to_raster(
-        dst_tif, compress='lzw', bigtiff='YES', dtype=dtype
+        dst_tif, compress="lzw", bigtiff="YES", dtype=dtype
     )
 
     return geo_grid
@@ -308,11 +318,11 @@ def tif_to_geojson(tif_path, output_geojson_path):
     srs.ImportFromWkt(tif_dataset.GetProjection())
 
     # Create a new GeoJSON datasource
-    driver = ogr.GetDriverByName('GeoJSON')
+    driver = ogr.GetDriverByName("GeoJSON")
     geojson_dataset = driver.CreateDataSource(output_geojson_path)
 
     # Create a new layer in the GeoJSON datasource
-    layer = geojson_dataset.CreateLayer('layer', srs, ogr.wkbPolygon)
+    layer = geojson_dataset.CreateLayer("layer", srs, ogr.wkbPolygon)
 
     # Get the raster band from the TIFF file
     band = tif_dataset.GetRasterBand(1)
@@ -326,13 +336,13 @@ def tif_to_geojson(tif_path, output_geojson_path):
 
 
 def clip_raster(
-    dst_tif=r'./clipped.tif',
-    src_tif=r'./utci_1700.tif',
-    format='GTiff',
+    dst_tif=r"./clipped.tif",
+    src_tif=r"./utci_1700.tif",
+    format="GTiff",
     width=0,
     height=0,
-    cut_shp=r'./mask.shp',
-    cut_name='mask',
+    cut_shp=r"./mask.shp",
+    cut_name="mask",
 ):
     warp_options = gdal.WarpOptions(
         format=format,
@@ -341,11 +351,11 @@ def clip_raster(
         height=height,
         dstNodata=None,
         dstAlpha=False,
-        dstSRS='EPSG:2154',
+        dstSRS="EPSG:2154",
         cropToCutline=True,
         cutlineDSName=cut_shp,
         cutlineLayer=cut_name,
-        resampleAlg='cubic',
+        resampleAlg="cubic",
     )
 
     gdal.Warp(dst_tif, src_tif, options=warp_options)
@@ -353,47 +363,50 @@ def clip_raster(
 
 
 def clip_raster_processing(
-    input_dir: str = None, dst_tif: str = None, cut_shp: str = None, list_files=None
+    input_dir: str | None = None,
+    dst_tif: str | None = None,
+    cut_shp: str | None = None,
+    list_files=None,
 ):
     from pymdu.physics.umep.UmepCore import UmepCore
 
     if list_files is None:
-        list_files = ['DSM', 'DEM', 'TDSM', 'CDSM', 'landcover', 'HEIGHT', 'ASPECT']
+        list_files = ["DSM", "DEM", "TDSM", "CDSM", "landcover", "HEIGHT", "ASPECT"]
 
     for file in list_files:
         umep_core = UmepCore(output_dir=input_dir)
         (
             umep_core.run_processing(
-                name='gdal:cliprasterbymasklayer',
+                name="gdal:cliprasterbymasklayer",
                 options={
-                    'INPUT': os.path.join(input_dir, f'{file}.tif'),
-                    'MASK': os.path.join(input_dir, cut_shp),
+                    "INPUT": os.path.join(input_dir, f"{file}.tif"),
+                    "MASK": os.path.join(input_dir, cut_shp),
                     # 'SOURCE_CRS': QgsCoordinateReferenceSystem('EPSG:2154'),
                     # 'TARGET_CRS': QgsCoordinateReferenceSystem('EPSG:2154'),
-                    'SOURCE_CRS': 'EPSG:2154',
-                    'TARGET_CRS': 'EPSG:2154',
-                    'TARGET_EXTENT': None,
-                    'NODATA': None,
-                    'ALPHA_BAND': False,
-                    'CROP_TO_CUTLINE': True,
-                    'KEEP_RESOLUTION': False,
-                    'SET_RESOLUTION': False,
-                    'X_RESOLUTION': None,
-                    'Y_RESOLUTION': None,
-                    'MULTITHREADING': False,
-                    'OPTIONS': '',
-                    'DATA_TYPE': 0,
-                    'EXTRA': '',
-                    'OUTPUT': os.path.join(input_dir, dst_tif),
+                    "SOURCE_CRS": "EPSG:2154",
+                    "TARGET_CRS": "EPSG:2154",
+                    "TARGET_EXTENT": None,
+                    "NODATA": None,
+                    "ALPHA_BAND": False,
+                    "CROP_TO_CUTLINE": True,
+                    "KEEP_RESOLUTION": False,
+                    "SET_RESOLUTION": False,
+                    "X_RESOLUTION": None,
+                    "Y_RESOLUTION": None,
+                    "MULTITHREADING": False,
+                    "OPTIONS": "",
+                    "DATA_TYPE": 0,
+                    "EXTRA": "",
+                    "OUTPUT": os.path.join(input_dir, dst_tif),
                 },
             ),
         )
 
 
 def raster_file_like(
-    src_tif='./BASE/RESHAPE/landcover.tif',
-    like_path='./BASE/RESHAPE/DEM.tif',
-    dst_tif='./BASE/RESHAPE/landcover_ok.tif',
+    src_tif="./BASE/RESHAPE/landcover.tif",
+    like_path="./BASE/RESHAPE/DEM.tif",
+    dst_tif="./BASE/RESHAPE/landcover_ok.tif",
     remove_nan: bool = False,
 ):
     raster = rioxarray.open_rasterio(
@@ -413,17 +426,17 @@ def raster_file_like(
     try:
         raster_temp.data[0] = raster.data[0][1:, 1:]
     except Exception:
-        print('Pas besoin de re-découper')
+        print("Pas besoin de re-découper")
         raster_temp.data[0] = raster.data[0]
 
-    raster_temp.rio.write_crs('epsg:2154', inplace=True)
+    raster_temp.rio.write_crs("epsg:2154", inplace=True)
     raster_temp.rio.write_transform(like.rio.transform(), inplace=True)
     raster_temp.rio.to_raster(dst_tif)
 
     return raster
 
 
-def reproject_resample_cropped_raster(model_file, src_tif, dst_tif='optionnal'):
+def reproject_resample_cropped_raster(model_file, src_tif, dst_tif="optionnal"):
     """
 
     Args:
@@ -464,19 +477,19 @@ def reproject_resample_cropped_raster(model_file, src_tif, dst_tif='optionnal'):
     input_ds = None
 
     # projection du raster dans le CRS 2154
-    step0 = '/vsimem/step_0.tif'
+    step0 = "/vsimem/step_0.tif"
 
     print(gdal.__file__)
     ds = gdal.Warp(
         destNameOrDestDS=step0,
         srcDSOrSrcDSTab=src_tif,
-        options=gdal.WarpOptions(dstSRS='EPSG:2154', format='GTiff'),
+        options=gdal.WarpOptions(dstSRS="EPSG:2154", format="GTiff"),
     )
 
     ds = None
 
     # resample du raster pour avoir des pixels de -1, 1
-    step1 = '/vsimem/step_1.tif'
+    step1 = "/vsimem/step_1.tif"
     ds = gdal.Warp(
         destNameOrDestDS=step1,
         srcDSOrSrcDSTab=step0,
@@ -495,7 +508,7 @@ def reproject_resample_cropped_raster(model_file, src_tif, dst_tif='optionnal'):
         dst_tif,
         step1,
         options=gdal.TranslateOptions(
-            format='GTiff', projWin=[minx, miny, maxx, maxy], outputSRS='EPSG:2154'
+            format="GTiff", projWin=[minx, miny, maxx, maxy], outputSRS="EPSG:2154"
         ),
     )
 
@@ -508,8 +521,8 @@ def reproject_resample_cropped_raster(model_file, src_tif, dst_tif='optionnal'):
 
 
 def add_pixel_width_height(
-    dst_tif=r'./utci_1700.tif',
-    src_tif=r'./utci_1700_resized.tif',
+    dst_tif=r"./utci_1700.tif",
+    src_tif=r"./utci_1700_resized.tif",
     n_width=400,
     n_height=400,
 ):
@@ -573,11 +586,11 @@ def add_pixel_width_height(
 
 
 def shp_to_tif(
-    InputShp=r'C:\Users\simon\python-scripts\pymdu\Tests\umep\ATLANTECH\pedestrian.shp',
-    OutputImage=r'T:\_QAPEOSUD_SIMULATIONS\ATLANTECH_2020\indicator\ZonePietonne.tif',
-    RefImage=r'T:\_QAPEOSUD_SIMULATIONS\ATLANTECH_2020\solweig\results\Tmrt_1997_171_2300N.tif',
+    InputShp=r"C:\Users\simon\python-scripts\pymdu\Tests\umep\ATLANTECH\pedestrian.shp",
+    OutputImage=r"T:\_QAPEOSUD_SIMULATIONS\ATLANTECH_2020\indicator\ZonePietonne.tif",
+    RefImage=r"T:\_QAPEOSUD_SIMULATIONS\ATLANTECH_2020\solweig\results\Tmrt_1997_171_2300N.tif",
 ):
-    gdalformat = 'GTiff'
+    gdalformat = "GTiff"
     datatype = gdal.GDT_Byte
     burnVal = 1  # value for the output image pixels
     ##########################################################
@@ -595,7 +608,7 @@ def shp_to_tif(
         Image.RasterYSize,
         1,
         datatype,
-        options=['COMPRESS=DEFLATE'],
+        options=["COMPRESS=DEFLATE"],
     )
     Output.SetProjection(Image.GetProjectionRef())
     Output.SetGeoTransform(Image.GetGeoTransform())
@@ -613,26 +626,26 @@ def shp_to_tif(
 
     # Build image overviews
     subprocess.call(
-        'gdaladdo --config COMPRESS_OVERVIEW DEFLATE '
+        "gdaladdo --config COMPRESS_OVERVIEW DEFLATE "
         + OutputImage
-        + ' 2 4 8 16 32 64',
+        + " 2 4 8 16 32 64",
         shell=True,
     )
 
 
 def mask_raster_from_tif(
-    InputMaskTif=r'cours_de_recreation.tif',
-    InputRaster=r'aout_mois_14_heure_10_vent_10_direction_90_32.5_Tair_33_vmin_42_vmax.tif',
+    InputMaskTif=r"cours_de_recreation.tif",
+    InputRaster=r"aout_mois_14_heure_10_vent_10_direction_90_32.5_Tair_33_vmin_42_vmax.tif",
 ):
     data = rioxarray.open_rasterio(InputRaster).copy()
-    ds_data = data.to_dataset(name='Indicateur')
+    ds_data = data.to_dataset(name="Indicateur")
     zone_interet = rioxarray.open_rasterio(InputMaskTif).copy()
-    ds_zone_interet = zone_interet.to_dataset(name='ZoneInteret')
+    ds_zone_interet = zone_interet.to_dataset(name="ZoneInteret")
 
-    merge_xr = xarray.merge([ds_data['Indicateur'], ds_zone_interet['ZoneInteret']])
+    merge_xr = xarray.merge([ds_data["Indicateur"], ds_zone_interet["ZoneInteret"]])
     data_masked = merge_xr.where(merge_xr.ZoneInteret > 0.5)
-    data_masked['Indicateur'][0].rio.to_raster(
-        InputRaster.replace('.tif', '_masked.tif')
+    data_masked["Indicateur"][0].rio.to_raster(
+        InputRaster.replace(".tif", "_masked.tif")
     )
 
     return data_masked
@@ -640,8 +653,8 @@ def mask_raster_from_tif(
 
 def tiff_to_jp2(
     src_tif,
-    output='output.jp2',
-    openjpeg_base_path='/Users/Boris/anaconda3/envs/pymdu/bin',
+    output="output.jp2",
+    openjpeg_base_path="/Users/Boris/anaconda3/envs/pymdu/bin",
 ):
     """
 
@@ -665,12 +678,12 @@ def tiff_to_jp2(
     multiplied_data = rounded_data * 1000
 
     # Convert the data type to int16
-    rounded_multiplied_data_int16 = multiplied_data.astype('int16')
+    rounded_multiplied_data_int16 = multiplied_data.astype("int16")
 
     # Create a new raster dataset for the rounded values
-    output_path = os.path.join(tempfile.gettempdir(), 'output.tif')
+    output_path = os.path.join(tempfile.gettempdir(), "output.tif")
 
-    driver = gdal.GetDriverByName('GTiff')
+    driver = gdal.GetDriverByName("GTiff")
     # output_dataset = driver.CreateCopy(output_path, dataset)
 
     # Create a new raster dataset for the multiplied values
@@ -693,7 +706,7 @@ def tiff_to_jp2(
     output_band.WriteArray(rounded_multiplied_data_int16)
 
     # Set the data type of the output band
-    output_band.SetMetadata({'PIXELTYPE': 'INT16'})
+    output_band.SetMetadata({"PIXELTYPE": "INT16"})
 
     # Close the datasets
     band = None

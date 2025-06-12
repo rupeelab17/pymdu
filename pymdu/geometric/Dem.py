@@ -31,7 +31,7 @@ class Dem(IgnCollect):
 
     """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         """
         Initializes the object with the given parameters.
 
@@ -67,9 +67,9 @@ class Dem(IgnCollect):
         self.dataarray = None
         self.output_path = output_path if output_path else TEMP_PATH
         # self.path_save_tiff_before_manip = os.path.join(self.output_path, 'DEM_before.tif')
-        self.path_save_tiff = os.path.join(self.output_path, 'DEM.tif')
-        self.path_save_mask = os.path.join(self.output_path, 'mask.shp')
-        self.path_temp_tiff = os.path.join(TEMP_PATH, 'dem.tiff')
+        self.path_save_tiff = os.path.join(self.output_path, "DEM.tif")
+        self.path_save_mask = os.path.join(self.output_path, "mask.shp")
+        self.path_temp_tiff = os.path.join(TEMP_PATH, "dem.tiff")
 
         if os.path.exists(self.path_temp_tiff):
             os.remove(self.path_temp_tiff)
@@ -77,7 +77,7 @@ class Dem(IgnCollect):
             os.remove(self.path_save_tiff)
 
     def run(self, shape: tuple = None):
-        self.content = self.execute_ign(key='dem').content
+        self.content = self.execute_ign(key="dem").content
 
         import rioxarray as rxr
 
@@ -107,24 +107,24 @@ class Dem(IgnCollect):
         try:
             self.dataarray.rio.to_raster(
                 self.path_save_tiff,
-                compress='lzw',
-                bigtiff='YES',
-                num_threads='all_cpus',
+                compress="lzw",
+                bigtiff="YES",
+                num_threads="all_cpus",
                 tiled=True,
-                driver='GTiff',
+                driver="GTiff",
                 predictor=2,
                 discard_lsb=2,
             )
         except Exception as e:
-            print('Oups Exception ', e)
-            print('Oups Exception ', self.path_save_tiff)
+            print("Oups Exception ", e)
+            print("Oups Exception ", self.path_save_tiff)
             self.dataarray.rio.to_raster(
-                'Dem.tif',
-                compress='lzw',
-                bigtiff='NO',
-                num_threads='all_cpus',
+                "Dem.tif",
+                compress="lzw",
+                bigtiff="NO",
+                num_threads="all_cpus",
                 tiled=True,
-                driver='GTiff',
+                driver="GTiff",
                 predictor=2,
                 discard_lsb=2,
             )
@@ -155,18 +155,18 @@ class Dem(IgnCollect):
     def __generate_mask_and_adapt_dem(self):
         gdf_project = gpd.GeoDataFrame(
             gpd.GeoSeries(box(self.bbox[0], self.bbox[1], self.bbox[2], self.bbox[3])),
-            columns=['geometry'],
-            crs='epsg:4326',
+            columns=["geometry"],
+            crs="epsg:4326",
         )
         gdf_project = gdf_project.to_crs(epsg=2154)
         envelope_polygon = gdf_project.envelope.bounds
         bbox = envelope_polygon.values[0]
         bbox_final = box(bbox[0], bbox[1], bbox[2], bbox[3])
         gdf_bbox_mask_2154 = gpd.GeoDataFrame(
-            gpd.GeoSeries(bbox_final), columns=['geometry'], crs='epsg:2154'
+            gpd.GeoSeries(bbox_final), columns=["geometry"], crs="epsg:2154"
         )
         gdf_bbox_mask_2154.scale(xfact=0.85, yfact=0.85).to_file(
-            self.path_save_mask, driver='ESRI Shapefile'
+            self.path_save_mask, driver="ESRI Shapefile"
         )
 
     def convert_16bit_to_8bit(self, input_path, output_path):
@@ -178,10 +178,10 @@ class Dem(IgnCollect):
         data = band.ReadAsArray()
 
         # Scale the data to 8-bit range (0-255) for display
-        scaled_data = ((data / data.max()) * 255).astype('uint8')
+        scaled_data = ((data / data.max()) * 255).astype("uint8")
 
         # Create a new 8-bit GeoTIFF file
-        driver = gdal.GetDriverByName('GTiff')
+        driver = gdal.GetDriverByName("GTiff")
         out_ds = driver.Create(
             output_path, ds.RasterXSize, ds.RasterYSize, 1, gdal.GDT_Byte
         )
@@ -200,8 +200,8 @@ class Dem(IgnCollect):
         pass
 
 
-if __name__ == '__main__':
-    dem = Dem(output_path='./')
+if __name__ == "__main__":
+    dem = Dem(output_path="./")
     dem.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     ign_dem = dem.run()
 
@@ -214,6 +214,6 @@ if __name__ == '__main__':
     # tif_to_geojson("./DEM.tif", "./DEM.geojson")
 
     fig, ax = plt.subplots(figsize=(15, 15))
-    raster = rasterio.open('DEM.tif')
+    raster = rasterio.open("DEM.tif")
     rasterio.plot.show(raster, ax=ax)
     plt.show()

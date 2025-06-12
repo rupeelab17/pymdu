@@ -28,6 +28,7 @@ import rasterio as rio
 import requests
 from osgeo import gdal, ogr, osr
 from pandas import DataFrame
+from pyproj import Transformer
 from rasterio import MemoryFile
 from rasterio.enums import Resampling
 from rasterio.merge import merge
@@ -36,7 +37,6 @@ from rasterio.transform import Affine
 from scipy.spatial import cKDTree
 from shapely import box
 from shapely.geometry import Point
-from pyproj import Transformer
 from shapely.geometry.multipoint import MultiPoint
 
 from pymdu.GeoCore import GeoCore
@@ -44,7 +44,14 @@ from pymdu._typing import FilePath
 from pymdu.collect.GlobalVariables import TEMP_PATH
 from pymdu.image import rasterize
 
+from scipy.stats import binned_statistic_2d
 
+from rasterio.transform import from_origin, xy
+import rasterio.features
+from shapely.geometry import shape
+from skimage.feature import peak_local_max
+from skimage.segmentation import watershed
+import gc
 # https://github.com/DTMilodowski/LiDAR_canopy/blob/3fa568548e2aa921cedce940636ae2536e8d6339/src/LiDAR_io.py
 # https://laspy.readthedocs.io/en/latest/installation.html
 # python3 -m pip install "laspy[lazrs,laszip]"
@@ -66,7 +73,7 @@ class Lidar(GeoCore):
             pedestrian_gdf: gpd.GeoDataFrame = None,
             cosia_gdf: gpd.GeoDataFrame = None,
             dxf_gdf: gpd.GeoDataFrame = None,
-            output_path: str = None,
+            output_path: str | None  = None,
             write_file: bool = True,
 
         Example:
@@ -147,6 +154,269 @@ class Lidar(GeoCore):
             feature["properties"]["url"] for feature in response["features"]
         ]
         return min_x, min_y, max_x, max_y, list_path_laz
+
+    def load_lidar_points(self, laz_urls):
+        """
+        Download each LAZ file into memory and load its LiDAR points.
+
+        Returns:
+          NumPy array of shape (N, 4) with columns [x, y, z, classification].
+        """
+        all_points = []
+        for url in laz_urls:
+            print("Downloading LAZ file from:", url)
+            r = requests.get(url)
+            if r.status_code != 200:
+                print("Error downloading:", url)
+                continue
+            file_obj = io.BytesIO(r.content)
+            try:
+                las = laspy.read(file_obj)
+            except Exception as e:
+                print("Error reading LAZ file:", e)
+                continue
+            pts = np.vstack((las.x, las.y, las.z, las.classification)).T
+            all_points.append(pts)
+        if not all_points:
+            raise Exception("No LiDAR points were loaded.")
+        return np.concatenate(all_points, axis=0)
+
+    def process_lidar_points(self,points, bbox, classification_list = [3, 4, 5], resolution=1.0):
+        """
+        Computes DSM, DTM, and CHM from LiDAR points.
+
+        Arguments:
+            points: Nx4 array of (x, y, z, classification)
+            bbox: [x_min, x_max, y_min, y_max] in meters (projected CRS)
+            resolution: Grid resolution in meters
+
+        Returns:
+            DSM, DTM, CHM (2D arrays)
+        """
+        x = points[:, 0]
+        y = points[:, 1]
+        z = points[:, 2]
+        classification = points[:, 3]
+
+        x_min, x_max, y_min, y_max = bbox
+
+        # Apply spatial mask: keep only points within the bbox.
+        spatial_mask = (x >= x_min) & (x <= x_max) & (y >= y_min) & (y <= y_max)
+        x = x[spatial_mask]
+        y = y[spatial_mask]
+        z = z[spatial_mask]
+        classification = classification[spatial_mask]
+
+        # For DSM, use only vegetation points defined in classification_list.
+        veg_mask = np.isin(classification, classification_list)
+        if not np.any(veg_mask):
+            raise ValueError("No vegetation points found within the bounding box for the provided classification_list.")
+
+        # Define grid extents
+
+        width = int((x_max - x_min) / resolution)
+        height = int((y_max - y_min) / resolution)
+
+        # Bin edges
+        x_bins = np.linspace(x_min, x_max, width + 1)
+        y_bins = np.linspace(y_min, y_max, height + 1)
+
+        # Compute DSM: maximum elevation from vegetation returns.
+        dsm, _, _, _ = binned_statistic_2d(x[veg_mask], y[veg_mask], z[veg_mask],
+                                           statistic='max', bins=[x_bins, y_bins])
+
+        # Compute DTM (min elevation for ground points)
+        ground_mask = (classification == 2)
+        if np.any(ground_mask):
+            dtm, _, _, _ = binned_statistic_2d(x[ground_mask], y[ground_mask], z[ground_mask],
+                                               statistic='min', bins=[x_bins, y_bins])
+        else:
+            dtm = np.full_like(dsm, np.nan)
+
+        # Compute CHM (Canopy Height Model)
+        chm = dsm - dtm
+        chm[chm < 0] = 0  # Remove negative heights due to errors
+
+        return dsm, dtm, chm
+
+    def extract_tree_crowns(self, chm, transform, lidar_points=None,
+                            min_tree_height = 2.0, min_distance = 5,
+                            crown_shp="tree_crowns.shp",
+                            tops_shp="tree_tops.shp",
+                            lidar_shp="tree_lidar_points.shp"):
+        """
+        Extracts tree crown polygons and tree top points from a CHM using watershed segmentation.
+        Optionally, it also filters LiDAR points (classes 3,4,5) and saves them.
+
+        Parameters:
+          chm : 2D numpy array
+              Canopy Height Model (CHM) raster (oriented north-up).
+          transform : Affine
+              Affine transform associated with the CHM (e.g., from_origin).
+          lidar_points : np.ndarray, optional
+              LiDAR points array with columns [x, y, z, classification]. If provided, only points
+              with classification 3,4,5 will be saved.
+          min_tree_height : float, default 2.0
+              Minimum canopy height (in meters) to consider a pixel as part of a tree.
+          min_distance : int, default 5
+              Minimum number of pixels separating local maxima (tree tops).
+          crown_shp : str, default "tree_crowns.shp"
+              Output filename for tree crown polygons shapefile.
+          tops_shp : str, default "tree_tops.shp"
+              Output filename for tree top points shapefile.
+          lidar_shp : str, default "tree_lidar_points.shp"
+              Output filename for filtered LiDAR points shapefile (if lidar_points is provided).
+
+        Returns:
+          gdf_crowns : GeoDataFrame
+              GeoDataFrame containing tree crown polygons.
+          gdf_tops : GeoDataFrame
+              GeoDataFrame containing tree top points.
+          gdf_lidar : GeoDataFrame or None
+              GeoDataFrame containing filtered LiDAR points (if lidar_points was provided); otherwise None.
+        """
+
+        mask = chm >= min_tree_height
+
+
+        # Note: peak_local_max returns (row, col) coordinates.
+        local_max_coords = peak_local_max(chm, min_distance = min_distance,
+                                          threshold_abs = min_tree_height)
+        print(f"Detected {len(local_max_coords)} tree top candidates.")
+
+
+        markers = np.zeros_like(chm, dtype=np.int32)
+        for idx, (row, col) in enumerate(local_max_coords, start=1):
+            markers[row, col] = idx
+
+
+        segmentation = watershed(-chm, markers, mask=mask)
+
+        crown_polygons = []
+        crown_ids = []
+        tree_heights = []
+
+        for geom, val in rasterio.features.shapes(segmentation.astype(np.int32),
+                                                  mask=(segmentation > 0),
+                                                  transform=transform):
+            if val == 0:
+                continue
+            poly = shape(geom)
+            crown_polygons.append(poly)
+            crown_ids.append(val)
+
+            # Estimate tree height from CHM at detected peak
+            tree_heights.append(chm[segmentation == val].max())
+
+        print(f"Extracted {len(crown_polygons)} crown polygons.")
+
+        tree_top_points = []
+        tree_ids_tops = []
+        estimated_trunk_heights = []
+        estimated_diameters = []
+
+        min_diameter = 1.0
+        for idx, (row, col) in enumerate(local_max_coords, start=1):
+            # xy returns (x, y) from row, col based on the transform.
+            x, y = xy(transform, row, col)
+            tree_top_points.append(Point(x, y))
+            tree_ids_tops.append(idx)
+
+            # Get height from crown segmentation
+            tree_height = tree_heights[idx - 1]
+
+            # Estimate trunk height
+            trunk_height = tree_height * 0.3
+            estimated_trunk_heights.append(trunk_height)
+
+            # Estimate diameter (diamètre à hauteur de poitrine (DBH))
+            dbh = max(0.1 * (tree_height ** 1.2), min_diameter)
+            estimated_diameters.append(dbh)
+
+
+        # Create GeoDataFrame for tree crowns
+        gdf_crowns = gpd.GeoDataFrame({
+            'tree_id': crown_ids,
+            'tree_height': tree_heights,
+            'trunk_height': estimated_trunk_heights,
+            'diameter': estimated_diameters
+        }, geometry=crown_polygons, crs="EPSG:2154")
+
+        gdf_crowns.to_file(crown_shp)
+        print(f"Tree crowns saved to '{crown_shp}'.")
+
+        # Create GeoDataFrame for tree tops
+        gdf_tops = gpd.GeoDataFrame({
+            'tree_id': tree_ids_tops,
+            'type': 1,
+            'height': tree_heights,
+            'trunk zone': estimated_trunk_heights,
+            'diameter': estimated_diameters
+        }, geometry=tree_top_points, crs="EPSG:2154")
+
+        gdf_tops.to_file(tops_shp)
+        print(f"Tree tops saved to '{tops_shp}'.")
+
+        # 9. (Optional) Filter and save LiDAR points for tree vegetation classes 3,4,5.
+        gdf_lidar = None
+        # if lidar_points is not None:
+        #     tree_classes = [3, 4, 5]
+        #     mask_tree = np.isin(lidar_points[:, 3], tree_classes)
+        #     tree_points = lidar_points[mask_tree]
+        #     # Create point geometries from LiDAR x and y.
+        #     tree_point_geoms = [Point(x, y) for x, y in zip(tree_points[:, 0], tree_points[:, 1])]
+        #     gdf_lidar = gpd.GeoDataFrame({'z': tree_points[:, 2]}, geometry=tree_point_geoms, crs="EPSG:2154")
+        #     gdf_lidar.to_file(lidar_shp)
+        #     print(f"Filtered LiDAR tree points (classes 3,4,5) saved to '{lidar_shp}'.")
+
+        return gdf_crowns, gdf_tops, gdf_lidar
+
+    def run_trees(self):
+        min_x, min_y, max_x, max_y, laz_urls = self._get_lidar_points()
+        points = self.load_lidar_points(laz_urls)
+        # Define transformation from EPSG:4326 (WGS84) to EPSG:2154 (Lambert 93)
+        transformer = Transformer.from_crs("EPSG:4326", "EPSG:2154", always_xy=True)
+
+        # Convert bbox (lon_min, lat_min, lon_max, lat_max)
+        x_min, y_min = transformer.transform(self._bbox[0], self._bbox[1])
+        x_max, y_max = transformer.transform(self._bbox[2], self._bbox[3])
+
+        # Projected bbox
+        bbox_projected = [x_min, x_max, y_min, y_max]
+        print("Projected BBOX (EPSG:2154):", bbox_projected)
+
+        # (d) Compute DSM, DTM, CHM
+        resolution = 1.0
+        DSM, DTM, CHM = self.process_lidar_points(points, bbox_projected)
+
+        DSM_adjusted = np.flipud(DSM.T)
+        DTM_adjusted = np.flipud(DTM.T)
+        CHM_adjusted = np.flipud(CHM.T)
+
+        transform = from_origin(x_min, y_max, resolution, resolution)
+
+        for raster, name in zip([DSM_adjusted, DTM_adjusted, CHM_adjusted], ["DSM.tif", "DTM.tif", "CHM.tif"]):
+            with rasterio.open(
+                    name,
+                    "w",
+                    driver="GTiff",
+                    height=raster.shape[0],
+                    width=raster.shape[1],
+                    count=1,
+                    dtype=raster.dtype,
+                    crs="EPSG:2154",
+                    transform=transform,
+            ) as dst:
+                dst.write(raster, 1)
+            print(f"{name} saved successfully.")
+
+        # free up memory
+        del points, laz_urls
+        gc.collect()
+
+        gdf_crowns, gdf_tops, gdf_lidar = self.extract_tree_crowns(CHM_adjusted, transform, lidar_points = None,
+                                                              min_tree_height=2.0, min_distance=5)
+        return gdf_tops
 
     def run(self):
         min_x, min_y, max_x, max_y, list_path_laz = self._get_lidar_points()
@@ -746,10 +1016,12 @@ class Lidar(GeoCore):
             return dissolved_gdf
 
         output_shapefile = "cleaned_polygon.shp"
-        self.gdf = clean_inner_polygons(lidar_shp_path, output_shapefile=None)
+        self.gdf = clean_inner_polygons(
+            lidar_shp_path, output_shapefile=output_shapefile
+        )
 
-        # self.gdf = gpd.read_file(lidar_shp_path, driver="ESRI Shapefile")
-        # self.gdf.to_file("LidarTest.shp", driver="ESRI Shapefile")
+        self.gdf = gpd.read_file(lidar_shp_path, driver="ESRI Shapefile")
+        self.gdf.to_file("LidarTest.shp", driver="ESRI Shapefile")
 
         return self.gdf
 
@@ -789,6 +1061,9 @@ if __name__ == "__main__":
     # # plt.show()
     # lidar.to_shp(name='LidarTest')
 
+    gdf_tops = lidar.run_trees()
+
+    # Comment AJ from here
     lidar_tif = lidar.to_tif(write_out_file=True, classification_list=[3, 4, 5, 9])
 
     # Lire les données et les afficher avec rasterio.plot
