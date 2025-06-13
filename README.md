@@ -48,7 +48,7 @@ Thank you!
  <img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>    <img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
 
 This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01. This project is supported by funding granted to the Tipee Platform as part of the LRTZC project / Task 3.1.1 (Programme d'Investissements d'Avenir) by the Banque des Territoires, coordinated by the urban community of la Rochelle, France. 
-We strongly acknowledge the support provided for the development and implementation of this work!
+We strongly acknowledge the support provided for the development and implementation of this work!!
 
 ## Team
 Created by [Tipee](https://plateforme-tipee.com/) and [LaSIE](https://lasie.univ-larochelle.fr/), as part of the joint laboratory RupeeLAB.
