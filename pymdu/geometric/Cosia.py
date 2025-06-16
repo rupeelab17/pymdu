@@ -61,47 +61,54 @@ class Cosia(IgnCollect):
     """
 
     def __init__(
-        self, output_path: str | None = None, template_raster_path: str | None = None, directory_path_cosia: str | None = None
+        self,
+        output_path: str | None = None,
+        template_raster_path: str | None = None,
+        directory_path_cosia: str | None = None,
     ):
+        """
+        Initializes the object with the given parameters.
+
+        Args:
+           output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
+        Example:
+           ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+           import matplotlib.pyplot as plt
+
+           plt.clf()  # markdown-exec: hide
+           import pymdu.geometric.Cosia as Cosia
+           import rasterio
+           import rasterio.plot
+
+           cosia = Cosia(output_path='./')
+           cosia.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
+           ign_cosia = cosia.run_ign()
+           fig, ax = plt.subplots(figsize=(15, 15))
+           raster = rasterio.open('cosia.tif')
+           rasterio.plot.show(raster, ax=ax, cmap='viridis')
+           from io import StringIO  # markdown-exec: hide
+
+           buffer = StringIO()  # markdown-exec: hide
+           plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
+           plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
+           print(buffer.getvalue())  # markdown-exec: hide
+           ```
+
+        Todo:
+           * For module TODOs
+        """
         self.dataarray = None
         self.output_path = output_path if output_path else TEMP_PATH
         # self.path_save_tiff_before_manip = os.path.join(self.output_path, 'DEM_before.tif')
         self.path_save_tiff = os.path.join(self.output_path, "cosia.tif")
         self.path_temp_tiff = os.path.join(TEMP_PATH, "cosia.tiff")
-        self.directory_path_cosia=directory_path_cosia
+        self.directory_path_cosia = directory_path_cosia
 
         if os.path.exists(self.path_temp_tiff):
             os.remove(self.path_temp_tiff)
         if os.path.exists(self.path_save_tiff):
             os.remove(self.path_save_tiff)
-        """
-        Initializes the object with the given parameters.
 
-        Args:
-            output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
-            template_raster_path (str): The default height of each storey.
-
-        Example:
-            ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
-            import matplotlib.pyplot as plt
-
-            plt.clf()  # markdown-exec: hide
-            cosia = Cosia(output_path='./')
-            cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
-            cosia_gdf = cosia.run().to_gdf()
-            cosia_gdf.plot(color=cosia_gdf['color'])
-            cosia_gdf.plot(ax=plt.gca())
-            from io import StringIO  # markdown-exec: hide
-
-            buffer = StringIO()  # markdown-exec: hide
-            plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
-            plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
-            print(buffer.getvalue())  # markdown-exec: hide
-            ```
-
-        Todo:
-            * For module TODOs
-        """
         super().__init__()
         self.cosia_keys = {
             "Bâtiment": 2,
@@ -202,6 +209,7 @@ class Cosia(IgnCollect):
                 predictor=2,
                 discard_lsb=2,
             )
+        return self
 
     def run_postgres(self, departement: str = "17"):
         self.get_geodata(departement=departement)
@@ -356,16 +364,12 @@ class Cosia(IgnCollect):
 
 
 if __name__ == "__main__":
-    # cosia = Cosia(output_path="./")
-    # cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
-    # ign_cosia = cosia.run2()
+    cosia = Cosia(output_path="./")
+    cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
+    ign_cosia = cosia.run_ign()
 
     import matplotlib.pyplot as plt
     import matplotlib.patches as mpatches
-    from pymdu.commons.BasicFunctions import (
-        extract_coordinates_from_filenames,
-        get_intersection_with_bbox_and_attributes,
-    )
 
     bbox_coords = [-1.152704, 46.181627, -1.139893, 46.18699]
     # fixme : interroger une base accessible à tout le monde
@@ -399,7 +403,7 @@ if __name__ == "__main__":
         handles=patches,
         loc="upper right",
         title="Cosia Legend",
-        bbox_to_anchor = (1.5,1.0)
+        bbox_to_anchor=(1.5, 1.0),
     )
 
     # Afficher la carte avec la légende
