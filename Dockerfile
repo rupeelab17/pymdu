@@ -50,7 +50,7 @@ WORKDIR /app
 # install dependencies
 COPY ./pyproject.toml .
 COPY ./README.md .
-COPY notebooks ./notebooks
+#COPY notebooks ./notebooks
 
 COPY ./pymdu ./pymdu
 VOLUME ./pymdu ./pymdu
