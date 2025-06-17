@@ -38,7 +38,8 @@ ARG MAMBA_DOCKERFILE_ACTIVATE=1
 # Create the environment:
 COPY ./environment.yml .
 RUN micromamba env create -f environment.yml
-RUN micromamba shell init -s bash -p /opt/conda
+# RUN micromamba shell init -s bash -p /opt/conda
+ENV PATH=/opt/envs/umep_pymdu/bin:$PATH
 
 SHELL ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c"]
 RUN micromamba install qgis -c conda-forge
