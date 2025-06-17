@@ -42,8 +42,8 @@ RUN micromamba env create -f environment.yml
 ENV PATH=/opt/envs/umep_pymdu/bin:$PATH
 
 SHELL ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c"]
-RUN micromamba install qgis -c conda-forge
-RUN micromamba install ocl-icd-system pyopencl -c conda-forge
+# RUN micromamba install qgis -c conda-forge=
+# RUN micromamba install ocl-icd-system pyopencl -c conda-forge
 RUN micromamba clean --all --yes
 
 # Set the working directory in the container
