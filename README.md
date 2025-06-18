@@ -10,7 +10,6 @@ to offer a complete
 solution for urban environmental analysis. A key application of pymdu is outdoor thermal comfort analysis, enabling the
 simulation and optimization of urban spaces to improve the well-being of residents.
 
-
 ## Documentation
 
 https://rupeelab17.github.io/pymdu/
@@ -18,6 +17,9 @@ https://rupeelab17.github.io/pymdu/
 ## Installation
 
 https://rupeelab17.github.io/pymdu/installation/
+
+## Notebook
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rupeelab17/pymdu.git/HEAD?urlpath=%2Fdoc%2Ftree%2FDemo_PyMDU_Atelier.ipynb)
 
 ## Citations
 
