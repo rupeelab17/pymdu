@@ -36,42 +36,50 @@ class ShadowCalculation(GeoCore):
     def __init__(
         self,
         buildings_gdf: gpd.GeoDataFrame = Technoforum().buildings(),
-        init: str = '2022-06-21 06:00:00',
-        end: str = '2022-06-21 19:00:00',
+        init: str = "2022-06-21 06:00:00",
+        end: str = "2022-06-21 19:00:00",
         time_delta_hours: int = 3,
-        year: str = '2022',
+        year: str = "2022",
         annual_calculation: bool = False,
+        time_zone: str = "Europe/Paris",
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self.shadows = None
         self.buildings_gdf = buildings_gdf
-        if annual_calculation:
-            self.start = f'{year}-01-01 00:00:00'
+        self.annual_calculation = annual_calculation
+        self.init = init
+        self.end = end
+        self.time_zone = time_zone
+        self.year = year
+        self.time_delta_hours = time_delta_hours
+
+    def run(self):
+        if self.annual_calculation:
+            self.start = f"{self.year}-01-01 00:00:00"
             self.liste_date = [
-                datetime(int(year), i + +1, 1, ii, 0, 0, 0)
+                datetime(int(self.year), i + +1, 1, ii, 0, 0, 0)
                 for i in range(12)
                 for ii in range(24)
             ]
 
         else:
             self.liste_date = BasicFunctions.generate_datetime_list(
-                init, end, time_delta_hours
+                self.init, self.end, self.time_delta_hours
             )
-
-    def run(self):
         # self.buildings_gdf = convert_crs(self.buildings_gdf, crs=self._epsg)
         self.buildings_gdf = self.buildings_gdf.to_crs(self._epsg)
         datetimes = DatetimeLib.generate(self.liste_date)
+        print(datetimes)
         self.shadows = STHardShadow(
             occludersGdf=self.buildings_gdf,
             datetimes=datetimes,
-            occludersElevationFieldname='hauteur',
+            occludersElevationFieldname="hauteur",
             altitudeOfShadowPlane=0,
             aggregate=True,
-            tz='Europe/Paris',
-            model='pysolar',
+            tz=self.time_zone,
+            model="pysolar",
         ).run()
         return self
 

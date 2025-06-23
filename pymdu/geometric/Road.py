@@ -34,7 +34,7 @@ class Road(IgnCollect):
     Class to collect the Road data
     """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         """
         Initializes the object with the given parameters.
 

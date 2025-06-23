@@ -37,11 +37,15 @@ RUN --mount=type=cache,target=/var/cache/apt \
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 # Create the environment:
 COPY ./environment.yml .
-RUN micromamba env create -f environment.yml \
-    && micromamba shell init -s bash -p /opt/conda
+RUN micromamba env create -f environment.yml -p /opt/conda/envs/umep_pymdu
+
+# Définir l'environnement par défaut
+ENV PATH=/opt/conda/envs/umep_pymdu/bin:$PATH
+ENV CONDA_DEFAULT_ENV=/opt/conda/envs/umep_pymdu
+
 SHELL ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c"]
-RUN micromamba install qgis -c conda-forge
-RUN micromamba install ocl-icd-system pyopencl -c conda-forge
+# RUN micromamba install qgis -c conda-forge=
+# RUN micromamba install ocl-icd-system pyopencl -c conda-forge
 RUN micromamba clean --all --yes
 
 # Set the working directory in the container
@@ -50,7 +54,6 @@ WORKDIR /app
 # install dependencies
 COPY ./pyproject.toml .
 COPY ./README.md .
-COPY notebooks ./notebooks
 
 COPY ./pymdu ./pymdu
 VOLUME ./pymdu ./pymdu
@@ -70,7 +73,7 @@ RUN --mount=type=cache,target=/app/.cache python -m uv pip install notebook jupy
 RUN --mount=type=cache,target=/app/.cache python -m uv pip install jupyter --upgrade
 
 RUN --mount=type=cache,target=/app/.cache poetry install --no-interaction --no-ansi -vvv
-RUN #--mount=type=cache,target=/app/.cache poetry export -f requirements.txt --output requirements.txt --without-hashes
+# RUN --mount=type=cache,target=/app/.cache poetry export -f requirements.txt --output requirements.txt --without-hashes
 #RUN --mount=type=cache,target=/app/.cache python setup.py install
 
 # QGIS UMEP
@@ -96,5 +99,5 @@ COPY docker/docker-entrypoint.sh /docker-entrypoint.sh
 COPY docker/jupyter_server_config.py /app/jupyter_server_config.py
 RUN chmod +x /docker-entrypoint.sh
 
-WORKDIR /app/notebooks
-ENTRYPOINT ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c", "jupyter notebook --port=8898 --allow-root --notebook-dir='/app/notebooks' --ServerApp.password='' --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.allow_root=True --NotebookApp.open_browser=False"]
+WORKDIR /app
+ENTRYPOINT ["micromamba", "run", "-n", "umep_pymdu", "/bin/bash", "-c", "jupyter notebook --port=8898 --allow-root --notebook-dir='/app' --ServerApp.password='' --ip=0.0.0.0 --NotebookApp.token='' --NotebookApp.allow_root=True --NotebookApp.open_browser=False"]

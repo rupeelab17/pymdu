@@ -34,7 +34,7 @@ class Cadastre(IgnCollect):
     Class representing the Cadastre data collection.
     """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         """
         Represents the collection of Cadastre data.
         Args:
@@ -67,30 +67,30 @@ class Cadastre(IgnCollect):
         self.output_path = output_path if output_path else TEMP_PATH
 
     def run(self):
-        self.execute_ign(key='cadastre')
+        self.execute_ign(key="cadastre")
         try:
             file = (
                 self.content
                 if isinstance(self.content, io.BytesIO)
                 else io.BytesIO(self.content)
             )
-            gdf = gpd.read_file(file, driver='GeoJSON')
+            gdf = gpd.read_file(file, driver="GeoJSON")
             gdf = gdf.to_crs(self._epsg)
             self.gdf = gdf
         except Exception as e:
-            print('ERROR Cadastre Class ==>', e)
+            print("ERROR Cadastre Class ==>", e)
         return self
 
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'cadastre'):
+    def to_gpkg(self, name: str = "cadastre"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    cadastre = Cadastre(output_path='./')
+if __name__ == "__main__":
+    cadastre = Cadastre(output_path="./")
     cadastre.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     cadastre = cadastre.run()
     # cadastre.to_shp(name="cadastre")

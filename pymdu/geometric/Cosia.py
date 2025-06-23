@@ -14,20 +14,24 @@
 #  You should have received a copy of the GNU General Public License           *
 #  along with pymdu.  If not, see <https://www.gnu.org/licenses/>.             *
 # ******************************************************************************
-import re
 import os
+import re
 
 import geopandas as gpd
 import pandas as pd
 from osgeo import gdal
-# from osgeo_utils.samples import ogr2ogr
-from pymdu.GeoCore import GeoCore
-from pymdu.collect.GlobalVariables import TEMP_PATH
-
 from shapely import box, Polygon
 from sqlalchemy import create_engine, text
 from tqdm import tqdm
+from rasterio.enums import Resampling
 
+# from osgeo_utils.samples import ogr2ogr
+from pymdu.collect.GlobalVariables import TEMP_PATH
+from pymdu.collect.ign import IgnCollect
+from pymdu.commons.BasicFunctions import (
+    extract_coordinates_from_filenames,
+    get_intersection_with_bbox_and_attributes,
+)
 
 # for i in *.gpkg; do ogr2ogr -f "PostgreSQL" "PG:host=10.17.36.50 user=postgres password=postgres dbname=cosia" $i -lco LAUNDER=NO; done
 # Name              Code Alb  Emis Ts_deg Tstart TmaxLST
@@ -40,7 +44,7 @@ from tqdm import tqdm
 # Walls             99   0.20 0.90 0.37   -3.41  15.0
 
 
-class Cosia(GeoCore):
+class Cosia(IgnCollect):
     """
     A class used to collect and process Cosia data.
 
@@ -56,94 +60,168 @@ class Cosia(GeoCore):
         gdf (geopandas.GeoDataFrame): The GeoDataFrame containing the geodata.
     """
 
-    def __init__(self, output_path: str = None, template_raster_path: str = None):
+    def __init__(
+        self,
+        output_path: str | None = None,
+        template_raster_path: str | None = None,
+        directory_path_cosia: str | None = None,
+    ):
         """
         Initializes the object with the given parameters.
 
         Args:
-            output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
-            template_raster_path (str): The default height of each storey.
-
+           output_path (str): The output path for the processed data. If not provided, a default temporary path will be used.
         Example:
-            ```python exec="false" source="tabbed-right" html="1" tabs="Source code|Plot"
-            import matplotlib.pyplot as plt
+           ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
+           import matplotlib.pyplot as plt
 
-            plt.clf()  # markdown-exec: hide
-            cosia = Cosia(output_path='./')
-            cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
-            cosia_gdf = cosia.run().to_gdf()
-            cosia_gdf.plot(color=cosia_gdf['color'])
-            cosia_gdf.plot(ax=plt.gca())
-            from io import StringIO  # markdown-exec: hide
+           plt.clf()  # markdown-exec: hide
+           import pymdu.geometric.Cosia as Cosia
+           import rasterio
+           import rasterio.plot
 
-            buffer = StringIO()  # markdown-exec: hide
-            plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
-            plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
-            print(buffer.getvalue())  # markdown-exec: hide
-            ```
+           cosia = Cosia(output_path='./')
+           cosia.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
+           ign_cosia = cosia.run_ign()
+           fig, ax = plt.subplots(figsize=(15, 15))
+           raster = rasterio.open('cosia.tif')
+           rasterio.plot.show(raster, ax=ax, cmap='viridis')
+           from io import StringIO  # markdown-exec: hide
+
+           buffer = StringIO()  # markdown-exec: hide
+           plt.gcf().set_size_inches(10, 5)  # markdown-exec: hide
+           plt.savefig(buffer, format='svg', dpi=199)  # markdown-exec: hide
+           print(buffer.getvalue())  # markdown-exec: hide
+           ```
 
         Todo:
-            * For module TODOs
+           * For module TODOs
         """
+        self.dataarray = None
+        self.output_path = output_path if output_path else TEMP_PATH
+        # self.path_save_tiff_before_manip = os.path.join(self.output_path, 'DEM_before.tif')
+        self.path_save_tiff = os.path.join(self.output_path, "cosia.tif")
+        self.path_temp_tiff = os.path.join(TEMP_PATH, "cosia.tiff")
+        self.directory_path_cosia = directory_path_cosia
+
+        if os.path.exists(self.path_temp_tiff):
+            os.remove(self.path_temp_tiff)
+        if os.path.exists(self.path_save_tiff):
+            os.remove(self.path_save_tiff)
+
         super().__init__()
         self.cosia_keys = {
-            'Bâtiment': 2,
-            'Zone imperméable': 1,
-            'Zone perméable': 6,
-            'Piscine': 7,
-            'Serre': 1,
-            'Sol nu': 6,
-            'Surface eau': 7,
-            'Neige': 7,
-            'Conifère': 6,
-            'Feuillu': 6,
-            'Coupe': 5,
-            'Broussaille': 5,
-            'Pelouse': 5,
-            'Culture': 5,
-            'Terre labourée': 6,
-            'Vigne': 5,
-            'Autre': 1,
+            "Bâtiment": 2,
+            "Zone imperméable": 1,
+            "Zone perméable": 6,
+            "Piscine": 7,
+            "Serre": 1,
+            "Sol nu": 6,
+            "Surface eau": 7,
+            "Neige": 7,
+            "Conifère": 6,
+            "Feuillu": 6,
+            "Coupe": 5,
+            "Broussaille": 5,
+            "Pelouse": 5,
+            "Culture": 5,
+            "Terre labourée": 6,
+            "Vigne": 5,
+            "Autre": 1,
         }
         self.output_path = output_path if output_path else TEMP_PATH
         self.template_raster_path = template_raster_path
         self.gdf: gpd.GeoDataFrame = None
         self.table_color_cosia = {
-            'Bâtiment': '#ce7079',
-            'Zone imperméable': '#a6aab7',
-            'Zone perméable': '#987752',
-            'Piscine': '#62d0ff',
-            'Serre': '#b9e2d4',
-            'Sol nu': '#bbb096',
-            'Surface eau': '#3375a1',
-            'Neige': '#e9effe',
-            'Conifère': '#216e2e',
-            'Feuillu': '#4c9129',
-            'Coupe': '#e48e4d',
-            'Broussaille': '#b5c335',
-            'Pelouse': '#8cd76a',
-            'Culture': '#decf55',
-            'Terre labourée': '#d0a349',
-            'Vigne': '#b08290',
-            'Autre': '#222222',
+            "Bâtiment": "#ce7079",
+            "Zone imperméable": "#a6aab7",
+            "Zone perméable": "#987752",
+            "Piscine": "#62d0ff",
+            "Serre": "#b9e2d4",
+            "Sol nu": "#bbb096",
+            "Surface eau": "#3375a1",
+            "Neige": "#e9effe",
+            "Conifère": "#216e2e",
+            "Feuillu": "#4c9129",
+            "Coupe": "#e48e4d",
+            "Broussaille": "#b5c335",
+            "Pelouse": "#8cd76a",
+            "Culture": "#decf55",
+            "Terre labourée": "#d0a349",
+            "Vigne": "#b08290",
+            "Autre": "#222222",
         }
 
     def __import_gpkg_to_postgres(self, file_gpkg: str):
         pgConnection = (
-            'PG:host=10.17.36.50 user=postgres password=postgres dbname=cosia'
+            "PG:host=10.17.36.50 user=postgres password=postgres dbname=cosia"
         )
         gpkgFile = file_gpkg
         # set GDAL config options
-        gdal.SetConfigOption('OGR_TRUNCATE', 'YES')
-        gdal.SetConfigOption('PG_USE_COPY', 'YES')
-        gdal.SetConfigOption('LAUNDER', 'NO')
+        gdal.SetConfigOption("OGR_TRUNCATE", "YES")
+        gdal.SetConfigOption("PG_USE_COPY", "YES")
+        gdal.SetConfigOption("LAUNDER", "NO")
         # ogr2ogr.main(
         #     ['', '-append', '-preserve_fid', '-f', 'PostgreSQL', pgConnection, gpkgFile]
         # )
 
-    def run(self, departement: str = '17'):
+    def run_ign(self):
+        self.content = self.execute_ign(key="cosia").content
+
+        import rioxarray as rxr
+
+        dataarray = rxr.open_rasterio(self.path_temp_tiff)
+
+        self.dataarray = dataarray.rio.reproject(
+            dst_crs=self._epsg,
+            resolution=1,
+            resampling=Resampling.nearest,
+            # nodata=-9999, fill_value=-9999
+        )
+        # Scale the data to 8-bit range (0-255)
+        # Update metadata for the output file
+        # profile = dataarray.profile
+        # profile.update(dtype='uint8', compress='lzw')
+
+        # TODO : j'observe un bug ici
+        # CPLE_AppDefinedError: Deleting C:/Users/simon/AppData/Local/Temp/DEM.tiff failed: Permission denied
+        try:
+            self.dataarray.rio.to_raster(
+                self.path_save_tiff,
+                compress="lzw",
+                bigtiff="YES",
+                num_threads="all_cpus",
+                tiled=True,
+                driver="GTiff",
+                predictor=2,
+                discard_lsb=2,
+            )
+        except Exception as e:
+            print("Oups Exception ", e)
+            print("Oups Exception ", self.path_save_tiff)
+            self.dataarray.rio.to_raster(
+                "Cosia.tif",
+                compress="lzw",
+                bigtiff="NO",
+                num_threads="all_cpus",
+                tiled=True,
+                driver="GTiff",
+                predictor=2,
+                discard_lsb=2,
+            )
+        return self
+
+    def run_postgres(self, departement: str = "17"):
         self.get_geodata(departement=departement)
         return self
+
+    def run(self):
+        gdf_coordinates = extract_coordinates_from_filenames(self.directory_path_cosia)
+        # intersection_gdf = get_intersection_with_bbox(gdf_coordinates, bbox_coords)
+        cosia = get_intersection_with_bbox_and_attributes(
+            gdf_coordinates, self._bbox, self.directory_path_cosia
+        )
+        return cosia
 
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
@@ -167,13 +245,13 @@ class Cosia(GeoCore):
         # TODO : faire un "raiseException"
 
         cosia_clip_zone_pietonne = gpd.clip(self.gdf, pedestrian)
-        cosia_clip_zone_pietonne['classe'] = [
-            'Zone imperméable' for x in cosia_clip_zone_pietonne.classe
+        cosia_clip_zone_pietonne["classe"] = [
+            "Zone imperméable" for x in cosia_clip_zone_pietonne.classe
         ]
-        cosia_clip_zone_pietonne['key_umep'] = [
+        cosia_clip_zone_pietonne["key_umep"] = [
             1 for x in cosia_clip_zone_pietonne.classe
         ]
-        difference = self.gdf.overlay(cosia_clip_zone_pietonne, how='difference')
+        difference = self.gdf.overlay(cosia_clip_zone_pietonne, how="difference")
 
         self.gdf = gpd.GeoDataFrame(
             pd.concat([cosia_clip_zone_pietonne, difference], ignore_index=True)
@@ -182,22 +260,22 @@ class Cosia(GeoCore):
         return self.gdf
 
     def get_geodata(
-            self,
-            departement: str = '17',
-            ip_address: str = '127.0.0.1',
-            # uri="postgresql+psycopg2://postgres:postgres@10.17.36.50:5432/cosia",
+        self,
+        departement: str = "17",
+        ip_address: str = "127.0.0.1",
+        # uri="postgresql+psycopg2://postgres:postgres@10.17.36.50:5432/cosia",
     ):
         gdf_project = gpd.GeoDataFrame(
             gpd.GeoSeries(box(self.bbox[0], self.bbox[1], self.bbox[2], self.bbox[3])),
-            columns=['geometry'],
-            crs='epsg:4326',
+            columns=["geometry"],
+            crs="epsg:4326",
         )
         gdf_project = gdf_project.to_crs(epsg=2154)
         envelope_polygon = gdf_project.envelope.bounds
         bbox = envelope_polygon.values[0]
         bbox_final = box(bbox[0], bbox[1], bbox[2], bbox[3])
 
-        uri = f'postgresql+psycopg2://postgres:postgres@{ip_address}:{5432}/cosia'
+        uri = f"postgresql+psycopg2://postgres:postgres@{ip_address}:{5432}/cosia"
 
         # Replace 'your_database_connection_string' with your actual database connection string
         engine = create_engine(uri)
@@ -217,19 +295,19 @@ class Cosia(GeoCore):
 
         # Extract and print the table names
         table_names = [
-            row['table_name']
+            row["table_name"]
             for row in result
-            if re.compile(rf'^D0{departement}+').match(row['table_name'])
+            if re.compile(rf"^D0{departement}+").match(row["table_name"])
         ]
 
         table_names_filtered = []
         for name_tuile in tqdm(table_names):
-            xmin = int(name_tuile.split('_')[2]) * 1000
-            ymax = int(name_tuile.split('_')[3]) * 1000
+            xmin = int(name_tuile.split("_")[2]) * 1000
+            ymax = int(name_tuile.split("_")[3]) * 1000
             tuile = gpd.GeoDataFrame(
-                index=[0], crs='epsg:2154', geometry=[self.__create_square(xmin, ymax)]
+                index=[0], crs="epsg:2154", geometry=[self.__create_square(xmin, ymax)]
             )
-            intersection = gpd.overlay(tuile, gdf_project, how='intersection')
+            intersection = gpd.overlay(tuile, gdf_project, how="intersection")
             if not intersection.empty:
                 table_names_filtered.append(name_tuile)
 
@@ -248,80 +326,71 @@ class Cosia(GeoCore):
             #            WHERE ST_Intersects(geom,ST_MakeEnvelope(ST_GeomFromText("{bbox_final.wkt}"), 2154))
 
             gdf = gpd.read_postgis(
-                sql=f'{QUERY}', con=create_engine(uri, echo=False), crs=2154
+                sql=f"{QUERY}", con=create_engine(uri, echo=False), crs=2154
             )
             if gdf is not None:
                 gdf_list.append(gdf)
 
         self.gdf = gpd.GeoDataFrame(pd.concat(gdf_list, ignore_index=True))
 
-
-
-        self.gdf['key_umep'] = [self.cosia_keys[x] for x in self.gdf.classe]
-        self.gdf = self.gdf.rename_geometry('geometry')
+        self.gdf["key_umep"] = [self.cosia_keys[x] for x in self.gdf.classe]
+        self.gdf = self.gdf.rename_geometry("geometry")
         self.gdf = gpd.clip(self.gdf, gdf_project)
         return self.gdf
 
     def create_trees_from_cosia(
-            self,
-            geom_col='geometry',
-            height=6.0,
-            type=2,
-            trunk_zone=3.0,
-            diameter=4.0,
-            resolution=13,
+        self,
+        geom_col="geometry",
+        height=6.0,
+        type=2,
+        trunk_zone=3.0,
+        diameter=4.0,
+        resolution=13,
     ):
         """ """
         hexagone_arbres = self.gdf[
-            (self.gdf['classe'] == 'Conifère') | (self.gdf['classe'] == 'Feuillu')
-            ].to_crs(4326)
+            (self.gdf["classe"] == "Conifère") | (self.gdf["classe"] == "Feuillu")
+        ].to_crs(4326)
         position_arbres = hexagone_arbres.h3.polyfill_resample(resolution=resolution)
-        position_arbres['centre'] = [x.centroid for x in position_arbres[geom_col]]
+        position_arbres["centre"] = [x.centroid for x in position_arbres[geom_col]]
         point_arbres = position_arbres.copy()
-        point_arbres['geometry'] = position_arbres['centre']
-        point_arbres['height'] = [height for x in position_arbres['centre']]
-        point_arbres['type'] = [type for x in position_arbres['centre']]
-        point_arbres['trunk_zone'] = [trunk_zone for x in position_arbres['centre']]
-        point_arbres['diameter'] = [diameter for x in position_arbres['centre']]
-        point_arbres.drop('centre', inplace=True, axis=1)
+        point_arbres["geometry"] = position_arbres["centre"]
+        point_arbres["height"] = [height for x in position_arbres["centre"]]
+        point_arbres["type"] = [type for x in position_arbres["centre"]]
+        point_arbres["trunk_zone"] = [trunk_zone for x in position_arbres["centre"]]
+        point_arbres["diameter"] = [diameter for x in position_arbres["centre"]]
+        point_arbres.drop("centre", inplace=True, axis=1)
         return point_arbres
 
 
-
-
-if __name__ == '__main__':
-    # dem = Dem(output_path="./")
-    # dem.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
-    # ign_dem = dem.run()
-
+if __name__ == "__main__":
+    cosia = Cosia(output_path="./")
+    cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
+    ign_cosia = cosia.run_ign()
 
     import matplotlib.pyplot as plt
     import matplotlib.patches as mpatches
-    from pymdu.commons.BasicFunctions import (
-        extract_coordinates_from_filenames,
-        get_intersection_with_bbox_and_attributes,
-    )
 
     bbox_coords = [-1.152704, 46.181627, -1.139893, 46.18699]
     # fixme : interroger une base accessible à tout le monde
     # chemoin des fichiers cosia
-    directory_path = os.path.join('D:\\CoSIA_D017_2021\\CoSIA_D017_2021')
+    directory_path = os.path.join("D:\\CoSIA_D017_2021\\CoSIA_D017_2021")
+
     gdf_coordinates = extract_coordinates_from_filenames(directory_path)
     # intersection_gdf = get_intersection_with_bbox(gdf_coordinates, bbox_coords)
     cosia = get_intersection_with_bbox_and_attributes(
         gdf_coordinates, bbox_coords, directory_path
     )
+
     table_color_cosia = Cosia().table_color_cosia
-    cosia['color'] = [table_color_cosia[x] for x in cosia.classe]
+    cosia["color"] = [table_color_cosia[x] for x in cosia.classe]
     # Tracer le GeoDataFrame
     fig, ax = plt.subplots(figsize=(10, 10))
-    cosia.plot(ax=ax, edgecolor=None, color=cosia['color'])
-
+    cosia.plot(ax=ax, edgecolor=None, color=cosia["color"])
 
     def supprimer_caracteres_speciaux(chaine):
         # Utilise une expression régulière pour supprimer tout ce qui n'est pas un caractère alphanumérique
-        return re.sub(r'[^a-zA-Z0-9]', '', chaine)
-
+        return re.sub(r"[^a-zA-Z0-9]", "", chaine)
 
     # Créer les patches pour chaque couleur et sa description dans la légende
     patches = [
@@ -332,9 +401,9 @@ if __name__ == '__main__':
     # Ajouter la légende personnalisée
     plt.legend(
         handles=patches,
-        loc='upper right',
-        title='Cosia Legend',
-        bbox_to_anchor=(1.0, 1.0),
+        loc="upper right",
+        title="Cosia Legend",
+        bbox_to_anchor=(1.5, 1.0),
     )
 
     # Afficher la carte avec la légende

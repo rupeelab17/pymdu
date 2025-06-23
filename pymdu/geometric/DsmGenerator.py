@@ -36,8 +36,8 @@ class DsmGenerator(GeoCore):
         filepath_dem: str,
         filepath_mask: str,
         osm_tool: bool = False,
-        building_shp_path: str = None,
-        output_path: str = None,
+        building_shp_path: str | None = None,
+        output_path: str | None = None,
     ):
         self.filepath_dem = filepath_dem
         self.filepath_mask = filepath_mask
@@ -115,9 +115,9 @@ class DsmGenerator(GeoCore):
             ]
             # print(field_names)
             # print(len(field_names))
-            if 'height_asl' not in field_names:
+            if "height_asl" not in field_names:
                 # Add a new field
-                new_field = ogr.FieldDefn('height_asl', ogr.OFTReal)
+                new_field = ogr.FieldDefn("height_asl", ogr.OFTReal)
                 layer_building_shp.CreateField(new_field)
 
             # https://opensourceoptions.com/blog/zonal-statistics-algorithm-with-python-in-4-steps/
@@ -140,10 +140,10 @@ class DsmGenerator(GeoCore):
                 ]
                 return new_geot
 
-            mem_driver_gdal = gdal.GetDriverByName('MEM')
-            mem_driver = ogr.GetDriverByName('Memory')
+            mem_driver_gdal = gdal.GetDriverByName("MEM")
+            mem_driver = ogr.GetDriverByName("Memory")
 
-            shp_name = 'temp.shp'
+            shp_name = "temp.shp"
             nodata = gdal_dem.GetRasterBand(1).GetNoDataValue()
 
             p_feat = layer_building_shp.GetNextFeature()
@@ -156,7 +156,7 @@ class DsmGenerator(GeoCore):
                     dest_srs = osr.SpatialReference()
                     dest_srs.ImportFromEPSG(2154)
                     tp_ds = mem_driver.CreateDataSource(shp_name)
-                    tp_lyr = tp_ds.CreateLayer('polygons', dest_srs, ogr.wkbPolygon)
+                    tp_lyr = tp_ds.CreateLayer("polygons", dest_srs, ogr.wkbPolygon)
                     tp_lyr.CreateFeature(p_feat.Clone())
 
                     offsets = boundingBoxToOffsets(
@@ -167,7 +167,7 @@ class DsmGenerator(GeoCore):
                     # print("new_geot", new_geot)
 
                     tr_ds = mem_driver_gdal.Create(
-                        '',
+                        "",
                         offsets[3] - offsets[2],
                         offsets[1] - offsets[0],
                         1,
@@ -186,7 +186,7 @@ class DsmGenerator(GeoCore):
                             offsets[1] - offsets[0],
                         )
                     except Exception as e:
-                        print('ERROR DsmGenerator', e)
+                        print("ERROR DsmGenerator", e)
                         r_array = None
 
                     id = p_feat.GetFID()
@@ -201,7 +201,7 @@ class DsmGenerator(GeoCore):
                         )
                         if dem_maskarray is not None:
                             # print("elevation mean", dem_maskarray.mean())
-                            field_hauteur = p_feat.GetField('hauteur')
+                            field_hauteur = p_feat.GetField("hauteur")
                             # print(f"hauteur batiment : {field_hauteur}\n")
 
                             if (
@@ -210,7 +210,7 @@ class DsmGenerator(GeoCore):
                                 and field_hauteur
                             ):
                                 p_feat.SetField(
-                                    'height_asl', dem_maskarray.mean() + field_hauteur
+                                    "height_asl", dem_maskarray.mean() + field_hauteur
                                 )
                                 # p_feat.SetField('height_asl', 0)
                             elif (
@@ -218,7 +218,7 @@ class DsmGenerator(GeoCore):
                                 and dem_maskarray.mean()
                                 and not field_hauteur
                             ):
-                                p_feat.SetField('height_asl', dem_maskarray.mean())
+                                p_feat.SetField("height_asl", dem_maskarray.mean())
                                 # p_feat.SetField('height_asl', 0)
                             else:
                                 pass
@@ -258,21 +258,21 @@ class DsmGenerator(GeoCore):
 
             sort_options = gdal.VectorTranslateOptions(
                 options=[
-                    '-select',
-                    'height_asl',
-                    '-t_srs',
-                    'EPSG:2154',
-                    '-sql',
-                    f'SELECT * FROM  {inlayer} ORDER BY height_asl ASC',
+                    "-select",
+                    "height_asl",
+                    "-t_srs",
+                    "EPSG:2154",
+                    "-sql",
+                    f"SELECT * FROM  {inlayer} ORDER BY height_asl ASC",
                 ]
             )
 
             gdal.UseExceptions()
             # Reads example file with sorted polygons
-            sort_ln = 'sortPoly'
+            sort_ln = "sortPoly"
 
             # Sort layer ascending to prevent lower buildings from overwriting higher buildings in some complexes
-            path_sortPoly = os.path.join(self.output_path, sort_ln + '.shp')
+            path_sortPoly = os.path.join(self.output_path, sort_ln + ".shp")
             # print("path_sortPoly", path_sortPoly)
 
             # if os.path.exists(path_sortPoly):
@@ -283,7 +283,7 @@ class DsmGenerator(GeoCore):
                 srcDS=self.building_shp_path,
                 # SQLStatement=f'SELECT * FROM  {inlayer} ORDER BY hauteur ASC',
                 options=sort_options,
-                format='ESRI Shapefile',
+                format="ESRI Shapefile",
             )
 
             # Convert polygon layer to raster
@@ -292,17 +292,17 @@ class DsmGenerator(GeoCore):
             rasterize_options = gdal.RasterizeOptions(
                 xRes=1,
                 yRes=-1,
-                attribute='height_asl',
-                format='GTiff',
+                attribute="height_asl",
+                format="GTiff",
                 layers=[str(sort_ln)],
-                creationOptions=['COMPRESS=DEFLATE', 'TILED=YES'],
+                creationOptions=["COMPRESS=DEFLATE", "TILED=YES"],
             )
 
-            if os.path.exists(os.path.join(self.output_path, 'clipdsm.tif')):
-                os.remove(os.path.join(self.output_path, 'clipdsm.tif'))
+            if os.path.exists(os.path.join(self.output_path, "clipdsm.tif")):
+                os.remove(os.path.join(self.output_path, "clipdsm.tif"))
 
             ras = gdal.Rasterize(
-                destNameOrDestDS=os.path.join(self.output_path, 'clipdsm.tif'),
+                destNameOrDestDS=os.path.join(self.output_path, "clipdsm.tif"),
                 srcDS=source_sortPoly,
                 options=rasterize_options,
             )
@@ -310,21 +310,21 @@ class DsmGenerator(GeoCore):
             del ras
 
             warp_options = gdal.WarpOptions(
-                format='GTiff',
+                format="GTiff",
                 xRes=1,
                 yRes=1,
-                dstSRS='EPSG:2154',
+                dstSRS="EPSG:2154",
                 cutlineDSName=self.filepath_mask,
-                cutlineLayer='mask',
+                cutlineLayer="mask",
                 cropToCutline=True,
             )
 
-            if os.path.exists(os.path.join(self.output_path, 'clipdsm_clipped.tif')):
-                os.remove(os.path.join(self.output_path, 'clipdsm_clipped.tif'))
+            if os.path.exists(os.path.join(self.output_path, "clipdsm_clipped.tif")):
+                os.remove(os.path.join(self.output_path, "clipdsm_clipped.tif"))
 
             ds = gdal.Warp(
-                destNameOrDestDS=os.path.join(self.output_path, 'clipdsm_clipped.tif'),
-                srcDSOrSrcDSTab=os.path.join(self.output_path, 'clipdsm.tif'),
+                destNameOrDestDS=os.path.join(self.output_path, "clipdsm_clipped.tif"),
+                srcDSOrSrcDSTab=os.path.join(self.output_path, "clipdsm.tif"),
                 options=warp_options,
             )
             del ds
@@ -332,34 +332,34 @@ class DsmGenerator(GeoCore):
             warp_options = gdal.WarpOptions(
                 # HYPER IMPORTANT overwrite == True
                 # Remplacez le jeu de données cible s'il existe déjà. L'écrasement doit être compris ici comme la suppression et la recréation du fichier à partir de zéro. Notez que si cette option n'est pas spécifiée et que le fichier de sortie existe déjà, il sera mis à jour sur place.
-                options='overwrite',
-                format='GTiff',
+                options="overwrite",
+                format="GTiff",
                 outputBounds=[str(minx), str(miny), str(maxx), str(maxy)],
                 outputBoundsSRS=dem_crs,
                 dstSRS=dem_crs,
                 xRes=1,
                 yRes=-1,
-                dstNodata='-9999',
+                dstNodata="-9999",
                 cropToCutline=True,
             )
 
-            if os.path.exists(os.path.join(self.output_path, 'clipdem.tif')):
-                os.remove(os.path.join(self.output_path, 'clipdem.tif'))
+            if os.path.exists(os.path.join(self.output_path, "clipdem.tif")):
+                os.remove(os.path.join(self.output_path, "clipdem.tif"))
 
             gdal.Warp(
-                destNameOrDestDS=os.path.join(self.output_path, r'clipdem.tif'),
+                destNameOrDestDS=os.path.join(self.output_path, r"clipdem.tif"),
                 srcDSOrSrcDSTab=self.filepath_dem,
                 options=warp_options,
             )
 
             # Adding DSM to DEM
             # Read DEM
-            dem_raster = gdal.Open(os.path.join(self.output_path, 'clipdem.tif'))
+            dem_raster = gdal.Open(os.path.join(self.output_path, "clipdem.tif"))
             dem_array = np.array(dem_raster.ReadAsArray().astype(np.float64))
             dem_raster = None
 
             dsm_raster = gdal.Open(
-                os.path.join(self.output_path, 'clipdsm_clipped.tif')
+                os.path.join(self.output_path, "clipdsm_clipped.tif")
             )
             dsm_array = np.array(dsm_raster.ReadAsArray().astype(np.float64))
 
@@ -380,30 +380,30 @@ class DsmGenerator(GeoCore):
 
             saveraster(
                 gdal_data=dsm_raster,
-                filename=os.path.join(self.output_path, 'DSM.tif'),
+                filename=os.path.join(self.output_path, "DSM.tif"),
                 raster=dsm_array,
             )
             dsm_raster = None
 
-            os.remove(os.path.join(self.output_path, 'clipdem.tif'))
-            os.remove(os.path.join(self.output_path, 'clipdsm.tif'))
-            os.remove(os.path.join(self.output_path, 'clipdsm_clipped.tif'))
+            os.remove(os.path.join(self.output_path, "clipdem.tif"))
+            os.remove(os.path.join(self.output_path, "clipdsm.tif"))
+            os.remove(os.path.join(self.output_path, "clipdsm_clipped.tif"))
             os.remove(path_sortPoly)
-            for file in glob.glob('sortPoly*'):
+            for file in glob.glob("sortPoly*"):
                 os.remove(file)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from pymdu.geometric.Building import Building
     from pymdu.geometric import Dem
 
     geocore = GeoCore()
     geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
-    building = Building(output_path='./')
-    building.run().to_shp(name='buildings')
+    building = Building(output_path="./")
+    building.run().to_shp(name="buildings")
     print(building.output_path_shp)
 
-    dem = Dem(output_path='./')
+    dem = Dem(output_path="./")
     dem.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     ign_dem = dem.run()
 
@@ -412,7 +412,7 @@ if __name__ == '__main__':
     print(building.output_path_shp)
 
     dsm = DsmGenerator(
-        output_path='./',
+        output_path="./",
         filepath_dem=ign_dem.path_save_tiff,
         filepath_mask=ign_dem.path_save_mask,
         osm_tool=False,

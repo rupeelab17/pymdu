@@ -1,16 +1,27 @@
 !!! warning "Prérequis"
 
+    === "Installation de la prise en charge de C et C++ dans Visual Studio"
+    
+        [Windows OS](https://learn.microsoft.com/fr-fr/cpp/build/vscpp-step-0-installation?view=msvc-170)
+    
     === "Installation de java 11"
     
-        [java Windows OS et Mac OS](https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
+        [java Windows OS et MacOS](https://www.oracle.com/fr/java/technologies/javase/jdk11-archive-downloads.html#license-lightbox)
     
+    === "Installation de miniforge"
+
+        [This repository holds the minimal installers for Conda and Mamba](https://github.com/conda-forge/miniforge)
+
+        [miniforge Windows OS => Miniforge3-Windows-x86_64.exe](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe)
+    
+
     === "Installation de micromamba"
     
-        [micromamba Windows OS et Mac OS](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
+        [micromamba Windows OS et MacOS](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html)
     
     === "Installation de git"
     
-        [git Windows OS et Mac OS](hhttps://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+        [git Windows OS et MacOS](hhttps://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## 1. Installation de pymdu
 
@@ -22,17 +33,31 @@ git clone https://github.com/rupeelab17/pymdu.git
 
 ### 1.2. Installation de l'environnement python
 
-```bash
-cd pymdu
-micromamba env create -f environment.yml # (1)!
-micromamba activate pymdu
-micromamba install git pip uv
-micromamba install qgis -c micromamba-forge
-micromamba install fiona -c micromamba-forge
-```
+!!! warning "Comme vous voulez !!!"
 
-1.  :man_raising_hand: L'environnement python est créé en local.
+    === "Conda"
+    
+        ```bash
+        cd pymdu
+        conda env create -f environment.yml # (1)!
+        conda activate pymdu
+        conda install git pip
+        conda install qgis -c conda-forge
+        conda install fiona -c conda-forge
+        ```    
 
+    === "Micromamba"
+    
+        ```bash
+        cd pymdu
+        micromamba env create -f environment.yml # (1)!
+        micromamba activate pymdu
+        micromamba install git pip
+        micromamba install qgis -c conda-forge
+        micromamba install fiona -c conda-forge
+        ```
+
+1. :man_raising_hand: L'environnement python est créé en local.
 
 ???+ info "environment.yml"
 
@@ -54,26 +79,30 @@ micromamba install fiona -c micromamba-forge
 
 ```bash
 cd pymdu
-uv pip install poetry
-poetry self add "poetry-dynamic-versioning[plugin]"
-python -m poetry install --with docs
-poetry export -f requirements.txt --output requirements.txt --without-hashes --with docs
-uv pip install -r requirements.txt
+pip install poetry
+python -m poetry install
 ```
+
+!!! warning
+
+    Pour une installation classique avec conda, il faut dé-zipper [https://github.com/UMEP-dev/UMEP-processing/archive/refs/heads/main.zip](https://github.com/UMEP-dev/UMEP-processing/archive/refs/heads/main.zip)
+    dans le dossier [...]/envs/pymdu/share/qgis/python/plugins dans un dossier nommer processing_umep de l’installation de l’environment python créé (voir ligne 89 du fichier [https://github.com/rupeelab17/pymdu/blob/main/Dockerfile](https://github.com/rupeelab17/pymdu/blob/main/Dockerfile))
+    => vérifier le chemin de votre python 'where python'
 
 ## 2. Installation de pymdu avec Docker
 
 ### 2.1. Installation de Docker
-=== "Windows OS"
-    [https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
 
-=== "Mac OS"
-    [https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
+=== "Windows OS"
+[https://docs.docker.com/desktop/install/windows-install/](https://docs.docker.com/desktop/install/windows-install/)
+
+=== "MacOS"
+[https://docs.docker.com/desktop/install/mac-install/](https://docs.docker.com/desktop/install/mac-install/)
 
 ### 2.2. Rapatrier le dépôt git
 
 ```bash
-git clone https://github.com/rupeelab17/pymdu.gi
+git clone https://github.com/rupeelab17/pymdu.git
 cd pymdu
 ```
 
@@ -88,13 +117,13 @@ DOCKER_BUILDKIT=1 docker build --platform linux/amd64 -t tipee/pymdu:latest .
 #### Sur MacOS ou Linux
 
 === "Première méthode"
-    
+
     ```bash
     docker run --name pymdu --rm -it -p 8898:8898 -v "$(pwd)"/demos:/app/demos tipee/pymdu:latest
     ```
 
 === "Seconde méthode"
-    
+
     ```bash
     docker create --name pymdu -p 8898:8898 -v "$(pwd)"/demos:/app/demos tipee/pymdu:latest
     docker start pymdu

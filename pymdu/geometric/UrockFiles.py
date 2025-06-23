@@ -34,7 +34,7 @@ class UrockFiles(GeoCore):
 
     def __init__(
         self,
-        output_path: str = None,
+        output_path: str | None = None,
         buildings_gdf: gpd.GeoDataFrame = None,
         trees_gdf: gpd.GeoDataFrame = None,
     ):
@@ -43,7 +43,7 @@ class UrockFiles(GeoCore):
         self.trees_gdf = trees_gdf
 
     def generate_urock_buildings(
-        self, filename_shp='urock_bld.shp'
+        self, filename_shp="urock_bld.shp"
     ) -> gpd.GeoDataFrame:
         """
 
@@ -75,7 +75,7 @@ class UrockFiles(GeoCore):
 
     def generate_urock_trees(
         self,
-        filename_shp='urock_trees.shp',
+        filename_shp="urock_trees.shp",
         size: int = 6,
         ID_VEG: int = 5,
         MIN_HEIGHT: float = 2.2,
@@ -86,43 +86,57 @@ class UrockFiles(GeoCore):
         Returns:
         """
         trees = self.trees_gdf
-        trees = trees.to_crs('3857')
+        trees = trees.to_crs("3857")
         liste_arbres = []
-        for geom in trees['geometry']:
+        for geom in trees["geometry"]:
             liste_arbres.append(self.__flat_hex_polygon(geom, size))
-        arbres_urock = gpd.GeoDataFrame(crs='epsg:3857', geometry=liste_arbres)
-        arbres_urock['ID_VEG'] = [ID_VEG for x in trees['geometry']]
-        arbres_urock['MIN_HEIGHT'] = [MIN_HEIGHT for x in trees['geometry']]
-        arbres_urock['MAX_HEIGHT'] = [MAX_HEIGHT for x in trees['geometry']]
-        arbres_urock['ATTENUATIO'] = [ATTENUATIO for x in trees['geometry']]
+        arbres_urock = gpd.GeoDataFrame(crs="epsg:3857", geometry=liste_arbres)
+        # arbres_urock["ID_VEG"] = [ID_VEG for x in trees["geometry"]]
+        # arbres_urock["MIN_HEIGHT"] = [MIN_HEIGHT for x in trees["geometry"]]
+        # arbres_urock["MAX_HEIGHT"] = [MAX_HEIGHT for x in trees["geometry"]]
+        # arbres_urock["ATTENUATIO"] = [ATTENUATIO for x in trees["geometry"]]
+        column_map = {
+            "ID_VEG": ("tree_id", ID_VEG),
+            "MIN_HEIGHT": ("height", MIN_HEIGHT),
+            "MAX_HEIGHT": ("height", MAX_HEIGHT),
+            "CROWN_BASE": ("height", MIN_HEIGHT * 0.25),
+            "CROWN_TOP": ("height", MAX_HEIGHT),
+            "ATTENUATIO": ("diameter", ATTENUATIO),
+        }
+
+        def fill_or_default(in_col, default):
+            return trees[in_col].tolist() if in_col in trees.columns else [default] * len(trees)
+
+        for out_col, (in_col, default) in column_map.items():
+            arbres_urock[out_col] = fill_or_default(in_col, default)
         arbres_urock.to_file(os.path.join(self.output_path, filename_shp))
 
         return arbres_urock
 
     @staticmethod
     def convert_umep_index_to_date(
-        meteo_path='LaRochelle_rcp85_IPSL_bc_type_list_UMEP.txt', year='2022'
+        meteo_path="LaRochelle_rcp85_IPSL_bc_type_list_UMEP.txt", year="2022"
     ):
         meteo_path = meteo_path
-        meteo = pd.read_csv(meteo_path, sep=' ')
+        meteo = pd.read_csv(meteo_path, sep=" ")
         year = year
         liste_of_date = [
-            datetime.strptime(year + '-' + str(day), '%Y-%j') for day in meteo['id']
+            datetime.strptime(year + "-" + str(day), "%Y-%j") for day in meteo["id"]
         ]
         date = [
-            res.strftime(f'%Y-%m-%d {hour}:00:00')
-            for (res, hour) in zip(liste_of_date, meteo['it'])
+            res.strftime(f"%Y-%m-%d {hour}:00:00")
+            for (res, hour) in zip(liste_of_date, meteo["it"])
         ]
         date = [pd.to_datetime(x) for x in date]
         return date
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # test_simon
     # ================
-    path_results = './Ressources'
-    path_trees = os.path.join(path_results, 'trees.shp')
-    path_buildings = os.path.join(path_results, 'buildings.shp')
+    path_results = "./Ressources"
+    path_trees = os.path.join(path_results, "trees.shp")
+    path_buildings = os.path.join(path_results, "buildings.shp")
 
     try_urock_gen = UrockFiles(
         output_path=path_results,
@@ -130,6 +144,6 @@ if __name__ == '__main__':
         trees_gdf=gpd.read_file(path_trees),
     )
     urock_buildings_gdf = try_urock_gen.generate_urock_buildings(
-        filename_shp='urock_bld.shp'
+        filename_shp="urock_bld.shp"
     )
-    urock_trees_gdf = try_urock_gen.generate_urock_trees(filename_shp='urock_trees.shp')
+    urock_trees_gdf = try_urock_gen.generate_urock_trees(filename_shp="urock_trees.shp")

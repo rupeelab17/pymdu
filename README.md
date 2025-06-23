@@ -1,5 +1,7 @@
 <img src="figures/logo-pymdu.png" alt="drawing" width="100"/>
 
+[//]: # (![Pymdu's GitHub stats]&#40;https://github-readme-stats.vercel.app/api?username=rupeelab17&show_icons=true&theme=radical&#41;)
+
 # Pymdu (Python Urban Data Model)
 
 Pymdu (Urban Data Model) is a Python package designed to collect, post-process, model, and analyze urban data. It draws
@@ -8,16 +10,18 @@ to offer a complete
 solution for urban environmental analysis. A key application of pymdu is outdoor thermal comfort analysis, enabling the
 simulation and optimization of urban spaces to improve the well-being of residents.
 
-
-## Documentation :
+## Documentation
 
 https://rupeelab17.github.io/pymdu/
 
-## Installation :
+## Installation
 
 https://rupeelab17.github.io/pymdu/installation/
 
-## Citations :
+## Notebook
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rupeelab17/pymdu.git/HEAD?urlpath=%2Fdoc%2Ftree%2FDemo_PyMDU_Atelier.ipynb)
+
+## Citations
 
 If you reuse or adapt any of the work from this GitHub repository, please ensure to properly cite this reference. Proper
 attribution helps maintain the integrity of the original work and supports the contributors.
@@ -43,6 +47,12 @@ Thank you!
 [7]: https://hal.science/EC-NANTES/hal-04599209v1
 
 ## Funding
-<img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>
-This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01.  
-We acknowledge the support provided for the development and implementation of this work.
+ <img src="figures/Logo_France_Relance_vert.png" alt="drawing" width="80"/>    <img src="figures/logo-zerocarbone.svg" alt="drawing" width="80"/>
+
+This project has received funding from the France Relance program under the agreement number ANR-21-PRRD-0010-01. This project is supported by funding granted to the Tipee Platform as part of the LRTZC project / Task 3.1.1 (Programme d'Investissements d'Avenir) by the Banque des Territoires, coordinated by the urban community of la Rochelle, France. 
+We strongly acknowledge the support provided for the development and implementation of this work!!
+
+## Team
+Created by [Tipee](https://plateforme-tipee.com/) and [LaSIE](https://lasie.univ-larochelle.fr/), as part of the joint laboratory RupeeLAB.
+
+<img src="figures/logo-lasie.png" alt="drawing" width="80"/>  <img src="figures/logo_tipee.jpeg" alt="drawing" width="80"/>  <img src="figures/logo_rupeelab.jpg" alt="drawing" width="80"/>

@@ -34,11 +34,15 @@ except ImportError:
 class Dpe(GeoCore):
     # TODO : déplacer dans collect
     """
-    Class to collect the Cadastre data
+    Class to collect the DPE data
+    https://koumoul.com/data-fair/api/v1/datasets/dpe-france/metadata-attachments/ADEME%20-%20DPE%20-%20Dictionnaire%20de%20donn%C3%A9es%20-%202020-06-08.pdf
     """
 
     def __init__(
-        self, output_path: str = None, num_department: int = None, columns: str = None
+        self,
+        output_path: str | None = None,
+        num_department: int = None,
+        columns: str | None = None,
     ):
         """
         Initializes the object with the given parameters.
@@ -109,7 +113,8 @@ class Dpe(GeoCore):
             self.base_url = f"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-{num_department}/geo_agg"
         else:
             self.base_url = (
-                r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg"
+                # r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-france/geo_agg"
+                r"https://data.ademe.fr/data-fair/api/v1/datasets/dpe-v2-logements-existants/geo_agg"
             )
 
         self.table_color = {

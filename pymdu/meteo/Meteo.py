@@ -95,7 +95,7 @@ class Meteo(GeoCore):
         weather_filename_found = listOfName[min_index]
 
         WEATHERFILE_PATH = weather_filename_found + '.epw'
-        print('WEATHERFILE_PATH FOUND', WEATHERFILE_PATH)
+        # print('WEATHERFILE_PATH FOUND', WEATHERFILE_PATH)
 
         if token_gitlab:
             raw_content = self.download_file_gitlab(
@@ -109,6 +109,7 @@ class Meteo(GeoCore):
         else:
             file_path = f'france/{WEATHERFILE_PATH}'
             raw_content = f'https://raw.githubusercontent.com/rupeelab17/epw-data/refs/heads/main/{file_path}'
+
         weather_dataframe = pd.read_csv(
             raw_content,
             low_memory=False,
@@ -189,7 +190,7 @@ class Meteo(GeoCore):
 
         # day + ' 00:00:00': day + ' 23:00:00'
         data_select = weather_dataframe[begin:end]
-        print(data_select)
+        # print(data_select)
         for key in table_corresp.keys():
             umep_data[key] = data_select[table_corresp[key]].values
 
@@ -197,7 +198,7 @@ class Meteo(GeoCore):
         umep_data.to_csv(
             os.path.join(self.output_path, weather_filename), sep=' ', index=False
         )
-        print(f'Data saved in {weather_filename}')
+        # print(f'Data saved in {weather_filename}')
         return umep_data
 
     def gen_umep_weather_from_list(
@@ -230,7 +231,7 @@ class Meteo(GeoCore):
             concat = evenings[evenings['it'] < 22]
         else:
             pass
-        print(epw_file.replace('.epw', '_list_UMEP.txt'))
+        # print(epw_file.replace('.epw', '_list_UMEP.txt'))
         concat.to_csv(epw_file.replace('.epw', '_list_UMEP.txt'), sep=' ', index=False)
 
         data = pd.read_csv(epw_file, names=self.epw_columns, skiprows=8)
@@ -342,7 +343,7 @@ if __name__ == '__main__':
     )
 
     url = meteo_test.find_url_meteo_france(year=2000, dep=17)
-    print('meteo_test', url)
+    # print('meteo_test', url)
     data = pd.read_csv(url, compression='gzip', header=0, sep=';', quotechar='"')
     data['date'] = [
         datetime.strptime(str(x), '%Y%m%d%H').strftime('%Y-%m-%d %H:00:00')

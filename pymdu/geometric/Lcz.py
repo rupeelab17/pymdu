@@ -35,8 +35,8 @@ class Lcz(GeoCore):
 
     def __init__(
         self,
-        filepath_shp: str = None,
-        output_path: str = None,
+        filepath_shp: str | None = None,
+        output_path: str | None = None,
         set_crs: int = None,
     ):
         """

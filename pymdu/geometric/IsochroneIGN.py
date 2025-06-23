@@ -35,11 +35,11 @@ class IsochroneIGN(IgnCollect):
 
     def __init__(
         self,
-        output_path: str = None,
-        resource: str = 'bdtopo-valhalla',
+        output_path: str | None = None,
+        resource: str = "bdtopo-valhalla",
         point: tuple = (2.337306, 48.849319),
         costValue: int = 300,
-        costType: str = 'time',
+        costType: str = "time",
         set_crs: int = None,
     ):
         """
@@ -92,14 +92,14 @@ class IsochroneIGN(IgnCollect):
             costType=self.costType,
         )
 
-        self.execute_ign(key='isochrone', **payload)
+        self.execute_ign(key="isochrone", **payload)
         file = (
             self.content
             if isinstance(self.content, io.BytesIO)
             else io.BytesIO(self.content)
         )
 
-        gdf = gpd.read_file(file, driver='GeoJSON')
+        gdf = gpd.read_file(file, driver="GeoJSON")
 
         if self.set_crs:
             gdf = gdf.set_crs(crs=self.set_crs, inplace=True, allow_override=True)
@@ -112,17 +112,17 @@ class IsochroneIGN(IgnCollect):
     def to_gdf(self) -> gpd.GeoDataFrame:
         return self.gdf
 
-    def to_gpkg(self, name: str = 'isochrone'):
+    def to_gpkg(self, name: str = "isochrone"):
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
+        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
 
 
-if __name__ == '__main__':
-    isochroneIGN = IsochroneIGN(output_path='./')
+if __name__ == "__main__":
+    isochroneIGN = IsochroneIGN(output_path="./")
     isochroneIGN.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     isochroneIGN = isochroneIGN.run()
     import matplotlib.pyplot as plt
 
     plt.clf()
-    isochroneIGN.to_gdf().plot(ax=plt.gca(), edgecolor='black', legend=True)
+    isochroneIGN.to_gdf().plot(ax=plt.gca(), edgecolor="black", legend=True)
     plt.show()
