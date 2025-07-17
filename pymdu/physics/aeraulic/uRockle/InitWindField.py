@@ -3847,7 +3847,7 @@ def setInitialWindField(
             str(i) + ',' + str(j)
             for i, j in buildingHeightWindSpeed.set_index(Z)[
                 HORIZ_WIND_SPEED
-            ].iteritems()
+            ].items()
         ]
         cursor.execute(
             """
