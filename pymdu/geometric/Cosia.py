@@ -65,6 +65,8 @@ class Cosia(IgnCollect):
         output_path: str | None = None,
         template_raster_path: str | None = None,
         directory_path_cosia: str | None = None,
+        department_code: str = '17',
+        year: str = '2021'
     ):
         """
         Initializes the object with the given parameters.
@@ -103,6 +105,8 @@ class Cosia(IgnCollect):
         self.path_save_tiff = os.path.join(self.output_path, "cosia.tif")
         self.path_temp_tiff = os.path.join(TEMP_PATH, "cosia.tiff")
         self.directory_path_cosia = directory_path_cosia
+        self.department_code = department_code
+        self.year = year
 
         if os.path.exists(self.path_temp_tiff):
             os.remove(self.path_temp_tiff)
@@ -217,7 +221,8 @@ class Cosia(IgnCollect):
         return self
 
     def run(self):
-        gdf_coordinates = extract_coordinates_from_filenames(self.directory_path_cosia)
+        gdf_coordinates = extract_coordinates_from_filenames(self.directory_path_cosia, self.department_code, self.year)
+        # gdf_coordinates = extract_coordinates_from_filenames(self.directory_path_cosia)
         # intersection_gdf = get_intersection_with_bbox(gdf_coordinates, bbox_coords)
         cosia = get_intersection_with_bbox_and_attributes(
             gdf_coordinates, self._bbox, self.directory_path_cosia
