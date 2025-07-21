@@ -36,7 +36,7 @@ class GeoclimateCollect(GeoCore):
     ===
     """
 
-    def __init__(self, output_path: str = None):
+    def __init__(self, output_path: str | None = None):
         super().__init__()
         self.output_path = output_path if output_path else TEMP_PATH
         self.dir_output_path = os.path.join(
@@ -49,28 +49,28 @@ class GeoclimateCollect(GeoCore):
 
         os.makedirs(self.dir_output_path)
         pathJson = str(
-            self.collect_path.joinpath('geoclimate/my_first_config_file_osm.json')
+            self.collect_path.joinpath("geoclimate/my_first_config_file_osm.json")
         )
-        pathtoGo = str(self.collect_path.joinpath('geoclimate/toGo.json'))
+        pathtoGo = str(self.collect_path.joinpath("geoclimate/toGo.json"))
         pathJarGeoclimate = str(
-            self.collect_path.joinpath('geoclimate/geoclimate-0.0.2.jar')
+            self.collect_path.joinpath("geoclimate/geoclimate-0.0.2.jar")
         )
-        print('pathJarGeoclimate', pathJarGeoclimate)
+        print("pathJarGeoclimate", pathJarGeoclimate)
 
         with open(pathJson) as f:
             myJson = json.load(f)
-            myJson['input']['locations'] = [
+            myJson["input"]["locations"] = [
                 [self._bbox[1], self._bbox[0], self._bbox[3], self._bbox[2]]
             ]
             # os.makedirs("layers", exist_ok=True)
-            myJson['output']['folder'] = self.output_path
+            myJson["output"]["folder"] = self.output_path
 
-            with open(pathtoGo, 'w') as f:
+            with open(pathtoGo, "w") as f:
                 json.dump(myJson, f)
                 f.close()
 
         proc = subprocess.Popen(
-            ['java', '-jar', pathJarGeoclimate, '-w ', 'OSM', '-f', pathtoGo],
+            ["java", "-jar", pathJarGeoclimate, "-w ", "OSM", "-f", pathtoGo],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
         )
@@ -93,25 +93,25 @@ class GeoclimateCollect(GeoCore):
         #     self.run()
 
         bloc = gpd.read_file(
-            os.path.join(self.dir_output_path, 'rsu_indicators.geojson')
+            os.path.join(self.dir_output_path, "rsu_indicators.geojson")
         )
         # bloc = bloc[['BUILDING_TOTAL_FRACTION', 'geometry']]
         # bloc = bloc.rename(columns={"BUILDING_TOTAL_FRACTION": "surf_ratio"})
         bloc = bloc.to_crs(self._epsg)
 
         building_blocks = gpd.read_file(
-            os.path.join(self.dir_output_path, 'block_indicators.geojson')
+            os.path.join(self.dir_output_path, "block_indicators.geojson")
         )
         building_blocks = building_blocks.to_crs(self._epsg)
         return bloc, building_blocks
 
     def to_shp(self, remove_geojson: bool = False) -> None:
-        all_files_geojson = glob.glob(os.path.join(self.dir_output_path, '*.geojson'))
+        all_files_geojson = glob.glob(os.path.join(self.dir_output_path, "*.geojson"))
         for file_geojson in all_files_geojson:
             filename = Path(file_geojson).stem
             gdf = gpd.read_file(
-                os.path.join(self.dir_output_path, f'{filename}.geojson'),
-                driver='GeoJSON',
+                os.path.join(self.dir_output_path, f"{filename}.geojson"),
+                driver="GeoJSON",
             )
             try:
                 from pandas.api.types import is_datetime64_any_dtype as is_datetime
@@ -120,10 +120,10 @@ class GeoclimateCollect(GeoCore):
                     [column for column in gdf.columns if not is_datetime(gdf[column])]
                 ]
             except Exception as e:
-                print(f'ERROR {filename} to_shp ==>', e)
+                print(f"ERROR {filename} to_shp ==>", e)
                 pass
             gdf.to_file(
-                os.path.join(self.dir_output_path, f'{filename}.shp'), 'ESRI Shapefile'
+                os.path.join(self.dir_output_path, f"{filename}.shp"), "ESRI Shapefile"
             )
             if remove_geojson:
                 os.remove(file_geojson)
@@ -133,7 +133,7 @@ class GeoclimateCollect(GeoCore):
         raise NotImplementedError
 
 
-if __name__ == '__main__':
-    geoclimate = GeoclimateCollect(output_path='/Users/Boris/Downloads')
+if __name__ == "__main__":
+    geoclimate = GeoclimateCollect(output_path="/Users/Boris/Downloads")
     geoclimate.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
     geoclimate.run().to_shp(remove_geojson=True)

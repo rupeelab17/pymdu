@@ -16,13 +16,6 @@
 #  You should have received a copy of the GNU General Public License           *
 #  along with pymdu.  If not, see <https://www.gnu.org/licenses/>.             *
 # ******************************************************************************
-import sys
-from shutil import copyfile
-
-from pymdu.physics.solar.solweig.SolweigWorker import SolweigWorker
-
-from pymdu.physics.solar.solweig import WriteMetadataSOLWEIG
-
 # ******************************************************************************
 #  This file is part of pymdu.                                                 *
 #                                                                              *
@@ -40,40 +33,44 @@ from pymdu.physics.solar.solweig import WriteMetadataSOLWEIG
 #  along with pymdu.  If not, see <https://www.gnu.org/licenses/>.             *
 # ******************************************************************************
 import os
+import sys
 import zipfile
+from datetime import datetime
+from shutil import copyfile
 
 import numpy as np
 from osgeo import gdal, osr
 
+from pymdu.GeoCore import GeoCore
+from pymdu.physics.solar.UtilitiesSolar import saveraster
+from pymdu.physics.solar.solweig import WriteMetadataSOLWEIG
 from pymdu.physics.solar.solweig.SEBESOLWEIGCommonFiles.Solweig_v2015_metdata_noload import (
     Solweig_2015a_metdata_noload,
 )
 from pymdu.physics.solar.solweig.SOLWEIGpython.Tgmaps_v1 import Tgmaps_v1
-from pymdu.GeoCore import GeoCore
-from pymdu.physics.solar.UtilitiesSolar import saveraster
-from datetime import datetime
+from pymdu.physics.solar.solweig.SolweigWorker import SolweigWorker
 
 
 class Solweig(GeoCore):
     def __init__(
         self,
-        filepath_lancover: str = None,
+        filepath_lancover: str | None = None,
         filepath_veg_cdsm: str | None = None,
-        filepath_svf_zip: str = None,
-        filepath_veg_tdsm: str = None,
-        filepath_wall_height: str = None,
-        filepath_wall_aspect: str = None,
-        filepath_meteo: str = None,
-        filepath_dsm: str = None,
-        filepath_dem: str = None,
-        filepath_shadowmats: str = 'shadowmats.npz',
-        folderPath: str = './',
+        filepath_svf_zip: str | None = None,
+        filepath_veg_tdsm: str | None = None,
+        filepath_wall_height: str | None = None,
+        filepath_wall_aspect: str | None = None,
+        filepath_meteo: str | None = None,
+        filepath_dsm: str | None = None,
+        filepath_dem: str | None = None,
+        filepath_shadowmats: str = "shadowmats.npz",
+        folderPath: str = "./",
         usevegdem: bool = False,
         useDEM: bool = True,
         usePerez: bool = True,
         useMeteo: bool = False,
         write_other_files: bool = False,
-        date_str: str = None,
+        date_str: str | None = None,
         parallel: bool = True,
     ):
         self.parallel = parallel
@@ -118,10 +115,10 @@ class Solweig(GeoCore):
 
     def run(self):
         if self.folderPath is None:
-            print('Error', 'No selected folder')
+            print("Error", "No selected folder")
             return
         else:
-            print('startWorker')
+            print("startWorker")
             self.gdal_dsm = gdal.Open(self.filePath_dsm)
             self.dsm = self.gdal_dsm.ReadAsArray().astype(np.float64)
             sizex = self.dsm.shape[0]  # rows
@@ -197,8 +194,8 @@ class Solweig(GeoCore):
 
                 if not (vegsizex == sizex) & (vegsizey == sizey):
                     print(
-                        'Error in vegetation canopy DSM',
-                        'All grids must be of same extent and resolution',
+                        "Error in vegetation canopy DSM",
+                        "All grids must be of same extent and resolution",
                     )
                     return
 
@@ -211,8 +208,8 @@ class Solweig(GeoCore):
                     trunkratio = self.trunkHeigh / 100.0
                     self.vegdsm2 = self.vegdsm * trunkratio
                     if self.save_trunk:
-                        outDs = gdal.GetDriverByName('GTiff').Create(
-                            os.path.join(self.folderPath, 'TDSM.tif'),
+                        outDs = gdal.GetDriverByName("GTiff").Create(
+                            os.path.join(self.folderPath, "TDSM.tif"),
                             cols,
                             rows,
                             int(1),
@@ -230,8 +227,8 @@ class Solweig(GeoCore):
 
                 if not (vegsizex == sizex) & (vegsizey == sizey):  # &
                     print(
-                        'Error in trunk zone DSM',
-                        'All grids must be of same extent and resolution',
+                        "Error in trunk zone DSM",
+                        "All grids must be of same extent and resolution",
                     )
                     return
 
@@ -255,8 +252,8 @@ class Solweig(GeoCore):
 
                 if not (lcsizex == sizex) & (lcsizey == sizey):
                     print(
-                        'Error in land cover grid',
-                        'All grids must be of same extent and resolution',
+                        "Error in land cover grid",
+                        "All grids must be of same extent and resolution",
                     )
                     return
 
@@ -264,16 +261,16 @@ class Solweig(GeoCore):
                 baddataDecid = self.lcgrid == 4
                 if baddataConifer.any():
                     print(
-                        'Error in land cover grid',
-                        'Land cover grid includes Confier land cover class. '
-                        'Ground cover information (underneath canopy) is required.',
+                        "Error in land cover grid",
+                        "Land cover grid includes Confier land cover class. "
+                        "Ground cover information (underneath canopy) is required.",
                     )
                     return
                 if baddataDecid.any():
                     print(
-                        'Error in land cover grid',
-                        'Land cover grid includes Decidiuous land cover class. '
-                        'Ground cover information (underneath canopy) is required.',
+                        "Error in land cover grid",
+                        "Land cover grid includes Decidiuous land cover class. "
+                        "Ground cover information (underneath canopy) is required.",
                     )
                     return
             else:
@@ -290,8 +287,8 @@ class Solweig(GeoCore):
 
                 if not (demsizex == sizex) & (demsizey == sizey):
                     print(
-                        'Error in DEM',
-                        'All grids must be of same extent and resolution',
+                        "Error in DEM",
+                        "All grids must be of same extent and resolution",
                     )
                     return
 
@@ -306,7 +303,7 @@ class Solweig(GeoCore):
 
                 if (dsmraise != demraise) and (dsmraise - demraise > 0.5):
                     print(
-                        'WARNiNG! DEM and DSM was raised unequally (difference > 0.5 m). Check your input data!'
+                        "WARNiNG! DEM and DSM was raised unequally (difference > 0.5 m). Check your input data!"
                     )
 
                 alt = np.median(self.dem)
@@ -316,66 +313,66 @@ class Solweig(GeoCore):
             # SVFs #
             if self.folderPathSVF is None:
                 print(
-                    'Error',
-                    'No SVF zipfile is selected. Use the Sky View Factor'
-                    'Calculator to generate svf.zip',
+                    "Error",
+                    "No SVF zipfile is selected. Use the Sky View Factor"
+                    "Calculator to generate svf.zip",
                 )
                 return
             else:
-                zip = zipfile.ZipFile(self.folderPathSVF, 'r')
+                zip = zipfile.ZipFile(self.folderPathSVF, "r")
                 zip.extractall(self.folderPath)
                 zip.close()
 
                 try:
-                    dataSet = gdal.Open(os.path.join(self.folderPath, 'svf.tif'))
+                    dataSet = gdal.Open(os.path.join(self.folderPath, "svf.tif"))
                     svf = dataSet.ReadAsArray().astype(np.float64)
-                    dataSet = gdal.Open(os.path.join(self.folderPath, 'svfN.tif'))
+                    dataSet = gdal.Open(os.path.join(self.folderPath, "svfN.tif"))
                     svfN = dataSet.ReadAsArray().astype(np.float64)
-                    dataSet = gdal.Open(os.path.join(self.folderPath, 'svfS.tif'))
+                    dataSet = gdal.Open(os.path.join(self.folderPath, "svfS.tif"))
                     svfS = dataSet.ReadAsArray().astype(np.float64)
-                    dataSet = gdal.Open(os.path.join(self.folderPath, 'svfE.tif'))
+                    dataSet = gdal.Open(os.path.join(self.folderPath, "svfE.tif"))
                     svfE = dataSet.ReadAsArray().astype(np.float64)
-                    dataSet = gdal.Open(os.path.join(self.folderPath, 'svfW.tif'))
+                    dataSet = gdal.Open(os.path.join(self.folderPath, "svfW.tif"))
                     svfW = dataSet.ReadAsArray().astype(np.float64)
 
                     if self.usevegdem:
-                        dataSet = gdal.Open(os.path.join(self.folderPath, 'svfveg.tif'))
+                        dataSet = gdal.Open(os.path.join(self.folderPath, "svfveg.tif"))
                         svfveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfNveg.tif')
+                            os.path.join(self.folderPath, "svfNveg.tif")
                         )
                         svfNveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfSveg.tif')
+                            os.path.join(self.folderPath, "svfSveg.tif")
                         )
                         svfSveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfEveg.tif')
+                            os.path.join(self.folderPath, "svfEveg.tif")
                         )
                         svfEveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfWveg.tif')
+                            os.path.join(self.folderPath, "svfWveg.tif")
                         )
                         svfWveg = dataSet.ReadAsArray().astype(np.float64)
 
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfaveg.tif')
+                            os.path.join(self.folderPath, "svfaveg.tif")
                         )
                         svfaveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfNaveg.tif')
+                            os.path.join(self.folderPath, "svfNaveg.tif")
                         )
                         svfNaveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfSaveg.tif')
+                            os.path.join(self.folderPath, "svfSaveg.tif")
                         )
                         svfSaveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfEaveg.tif')
+                            os.path.join(self.folderPath, "svfEaveg.tif")
                         )
                         svfEaveg = dataSet.ReadAsArray().astype(np.float64)
                         dataSet = gdal.Open(
-                            os.path.join(self.folderPath, 'svfWaveg.tif')
+                            os.path.join(self.folderPath, "svfWaveg.tif")
                         )
                         svfWaveg = dataSet.ReadAsArray().astype(np.float64)
                     else:
@@ -391,10 +388,10 @@ class Solweig(GeoCore):
                         svfWaveg = np.ones((rows, cols))
                 except:
                     print(
-                        'SVF import error',
-                        'The zipfile including the SVFs seems corrupt. '
-                        'Retry calcualting the SVFs in the Pre-processor or choose '
-                        'another file ',
+                        "SVF import error",
+                        "The zipfile including the SVFs seems corrupt. "
+                        "Retry calcualting the SVFs in the Pre-processor or choose "
+                        "another file ",
                     )
                     return
 
@@ -403,13 +400,13 @@ class Solweig(GeoCore):
 
                 if not (svfsizex == sizex) & (svfsizey == sizey):  # &
                     print(
-                        'Error in svf rasters',
-                        'All grids must be of same extent and resolution',
+                        "Error in svf rasters",
+                        "All grids must be of same extent and resolution",
                     )
                     return
 
                 tmp = svf + svfveg - 1.0
-                print('tmp', tmp)
+                print("tmp", tmp)
                 tmp[tmp < 0.0] = 0.0
 
                 # RUSTINE BORIS
@@ -420,7 +417,7 @@ class Solweig(GeoCore):
 
             # Wall height and aspect #
             if self.filePathWallHeight is None:
-                print('Error', 'No valid wall height grid is selected')
+                print("Error", "No valid wall height grid is selected")
                 return
 
             dataSet = gdal.Open(self.filePathWallHeight)
@@ -431,13 +428,13 @@ class Solweig(GeoCore):
 
             if not (wallheightsizex == sizex) & (wallheightsizey == sizey):
                 print(
-                    'Error in wall height grid',
-                    'All grids must be of same extent and resolution',
+                    "Error in wall height grid",
+                    "All grids must be of same extent and resolution",
                 )
                 return
 
             if self.filePathWallApect is None:
-                print('Error', 'No valid wall aspect grid is selected')
+                print("Error", "No valid wall aspect grid is selected")
                 return
 
             dataSet = gdal.Open(self.filePathWallApect)
@@ -448,22 +445,22 @@ class Solweig(GeoCore):
 
             if not (wallaspectsizex == sizex) & (wallaspectsizey == sizey):
                 print(
-                    'Error in wall aspect grid',
-                    'All grids must be of same extent and resolution',
+                    "Error in wall aspect grid",
+                    "All grids must be of same extent and resolution",
                 )
                 return
 
             if (sizex * sizey) > 250000 and (sizex * sizey) <= 1000000:
-                print('Semi lage grid', 'This process will take a couple of minutes.')
+                print("Semi lage grid", "This process will take a couple of minutes.")
 
             if (sizex * sizey) > 1000000 and (sizex * sizey) <= 4000000:
-                print('Large grid', 'This process will take some time.')
+                print("Large grid", "This process will take some time.")
 
             if (sizex * sizey) > 4000000 and (sizex * sizey) <= 16000000:
-                print('Very large grid', 'This process will take a long time.')
+                print("Very large grid", "This process will take a long time.")
 
             if (sizex * sizey) > 16000000:
-                print('Huge grid', 'This process will take a very long time.')
+                print("Huge grid", "This process will take a very long time.")
 
             # Meteorological data #
             Twater = []
@@ -477,7 +474,7 @@ class Solweig(GeoCore):
                 self.meteodata = np.zeros((1, 24)) - 999.0
 
                 # date = self.dlg.calendarWidget.selectedDate()
-                date = datetime.strptime(self.date_str, '%Y-%m-%d %H:%M:%S')
+                date = datetime.strptime(self.date_str, "%Y-%m-%d %H:%M:%S")
                 year = date.year
                 month = date.month
                 day = date.day
@@ -551,10 +548,10 @@ class Solweig(GeoCore):
             # building grid and land cover preparation
             # sitein = os.path.join(".", "solveig/landcoverclasses_2016a.txt")
             sitein = str(
-                self.physics_path.joinpath('solar/solweig/landcoverclasses_2016a.txt')
+                self.physics_path.joinpath("solar/solweig/landcoverclasses_2016a.txt")
             )
 
-            f = open(sitein, 'r')
+            f = open(sitein, "r")
             lin = f.readlines()
             lc_class = np.zeros((lin.__len__() - 1, 6))
             for i in range(1, lin.__len__()):
@@ -577,7 +574,7 @@ class Solweig(GeoCore):
                 buildings[buildings >= 2.0] = 0.0
 
             saveraster(
-                self.gdal_dsm, os.path.join(self.folderPath, 'buildings.tif'), buildings
+                self.gdal_dsm, os.path.join(self.folderPath, "buildings.tif"), buildings
             )
 
             if self.onlyGlobal:
@@ -585,7 +582,7 @@ class Solweig(GeoCore):
             else:
                 onlyglobal = 0
 
-            location = {'longitude': lon, 'latitude': lat, 'altitude': alt}
+            location = {"longitude": lon, "latitude": lat, "altitude": alt}
             YYYY, altitude, azimuth, zen, jday, leafon, dectime, altmax = (
                 Solweig_2015a_metdata_noload(
                     inputdata=self.meteodata, location=location, UTC=UTC
@@ -609,9 +606,9 @@ class Solweig(GeoCore):
                 treeplanter = 1
                 if metfileexist == 0:
                     print(
-                        'Meteorological file missing',
-                        'To generate data for the TreePlanter, a meteorological '
-                        'input file must be used.',
+                        "Meteorological file missing",
+                        "To generate data for the TreePlanter, a meteorological "
+                        "input file must be used.",
                     )
                     return
             else:
@@ -622,16 +619,16 @@ class Solweig(GeoCore):
                 if onlyglobal == 0:
                     if np.min(radD) == -999:
                         print(
-                            'Diffuse radiation include NoData values (-999)',
+                            "Diffuse radiation include NoData values (-999)",
                             'Tick in the box "Estimate diffuse and direct shortwave..." or aqcuire '
-                            'observed values from external data sources.',
+                            "observed values from external data sources.",
                         )
                         return
                     if np.min(radI) == -999:
                         print(
-                            'Direct radiation include NoData values (-999)',
+                            "Direct radiation include NoData values (-999)",
                             'Tick in the box "Estimate diffuse and direct shortwave..." or aqcuire '
-                            'observed values from external data sources.',
+                            "observed values from external data sources.",
                         )
                         return
 
@@ -748,23 +745,25 @@ class Solweig(GeoCore):
             if self.usePerez:
                 if self.filePath_shadowmats is None:
                     print(
-                        'Error',
-                        'No Shadow file is selected. Use the Sky View Factor'
-                        'Calculator to generate shadowmats.npz',
+                        "Error",
+                        "No Shadow file is selected. Use the Sky View Factor"
+                        "Calculator to generate shadowmats.npz",
                     )
                     return
                 else:
                     anisotropic_sky = 1
                     data = np.load(self.filePath_shadowmats)
-                    shmat = data['shadowmat']
-                    vegshmat = data['vegshadowmat']
-                    vbshvegshmat = data['vbshmat']
+                    shmat = data["shadowmat"]
+                    vegshmat = data["vegshadowmat"]
+                    vbshvegshmat = data["vbshmat"]
                     if self.usevegdem:
                         diffsh = np.zeros((rows, cols, shmat.shape[2]))
                         for i in range(0, shmat.shape[2]):
                             diffsh[:, :, i] = shmat[:, :, i] - (
                                 1 - vegshmat[:, :, i]
-                            ) * (1 - self.trans)  # changes in psi not implemented yet
+                            ) * (
+                                1 - self.trans
+                            )  # changes in psi not implemented yet
                     else:
                         diffsh = shmat
                         vegshmat += 1
@@ -796,14 +795,14 @@ class Solweig(GeoCore):
             if self.landcover:
                 if np.max(self.lcgrid) > 7 or np.min(self.lcgrid) < 1:
                     print(
-                        'Attention! The land cover grid includes integer values higher (or lower) than UMEP-formatted land cover grid (should be integer between 1 and 7). If other LC-classes should be included they also need to be included in landcoverclasses_2016a.txt'
+                        "Attention! The land cover grid includes integer values higher (or lower) than UMEP-formatted land cover grid (should be integer between 1 and 7). If other LC-classes should be included they also need to be included in landcoverclasses_2016a.txt"
                     )
                     return
                     # QMessageBox.critical(self.dlg, "Error", "The land cover grid includes values not appropriate for UMEP-formatted land cover grid (should be integer between 1 and 7).")
                     # return
                 if np.where(self.lcgrid) == 3 or np.where(self.lcgrid) == 4:
                     print(
-                        'Error The land cover grid includes values (decidouos and/or conifer) not appropriate for SOLWEIG-formatted land cover grid (should not include 3 or 4).'
+                        "Error The land cover grid includes values (decidouos and/or conifer) not appropriate for SOLWEIG-formatted land cover grid (should not include 3 or 4)."
                     )
                     return
                 [
@@ -854,7 +853,7 @@ class Solweig(GeoCore):
                 metfileexist,
                 self.PathMet,
                 self.meteodata,
-                '.',
+                ".",
                 absK,
                 absL,
                 albedo_b,
@@ -877,38 +876,38 @@ class Solweig(GeoCore):
             # Save files for Tree Planter
             if self.treePlanter:
                 # Save DSM
-                copyfile(self.filePath_dsm, os.path.join(self.folderPath, 'DSM.tif'))
+                copyfile(self.filePath_dsm, os.path.join(self.folderPath, "DSM.tif"))
 
                 # Save met file
-                copyfile(self.PathMet, os.path.join(self.folderPath, 'metfile.txt'))
+                copyfile(self.PathMet, os.path.join(self.folderPath, "metfile.txt"))
 
                 # Save CDSM
                 if self.usevegdem:
                     copyfile(
-                        self.filePath_cdsm, os.path.join(self.folderPath, 'CDSM.tif')
+                        self.filePath_cdsm, os.path.join(self.folderPath, "CDSM.tif")
                     )
 
                 # Saving settings from SOLWEIG for SOLWEIG1D in TreePlanter
                 settingsHeader = (
-                    'UTC, posture, onlyglobal, landcover, anisotropic, cylinder, albedo_walls, '
-                    'albedo_ground, emissivity_walls, emissivity_ground, absK, absL, elevation, '
-                    'patch_option'
+                    "UTC, posture, onlyglobal, landcover, anisotropic, cylinder, albedo_walls, "
+                    "albedo_ground, emissivity_walls, emissivity_ground, absK, absL, elevation, "
+                    "patch_option"
                 )
                 settingsFmt = (
-                    '%i',
-                    '%i',
-                    '%i',
-                    '%i',
-                    '%i',
-                    '%i',
-                    '%1.2f',
-                    '%1.2f',
-                    '%1.2f',
-                    '%1.2f',
-                    '%1.2f',
-                    '%1.2f',
-                    '%1.2f',
-                    '%i',
+                    "%i",
+                    "%i",
+                    "%i",
+                    "%i",
+                    "%i",
+                    "%i",
+                    "%1.2f",
+                    "%1.2f",
+                    "%1.2f",
+                    "%1.2f",
+                    "%1.2f",
+                    "%1.2f",
+                    "%1.2f",
+                    "%i",
                 )
                 settingsData = np.array(
                     [
@@ -931,11 +930,11 @@ class Solweig(GeoCore):
                     ]
                 )
                 np.savetxt(
-                    os.path.join(self.folderPath, 'treeplantersettings.txt'),
+                    os.path.join(self.folderPath, "treeplantersettings.txt"),
                     settingsData,
                     fmt=settingsFmt,
                     header=settingsHeader,
-                    delimiter=' ',
+                    delimiter=" ",
                 )
 
             #  If metfile starts at night
@@ -1095,28 +1094,28 @@ class Solweig(GeoCore):
 
     def read_meteodata(self):
         headernum = 1
-        delim = ' '
+        delim = " "
         try:
             metdata = np.loadtxt(
                 self.folderPathMeteo, skiprows=headernum, delimiter=delim
             )
         except:
             print(
-                'Import Error',
-                'Make sure format of meteorological file is correct. You can '
+                "Import Error",
+                "Make sure format of meteorological file is correct. You can "
                 "prepare your data by using 'Prepare Existing Data' in "
-                'the Pre-processor',
+                "the Pre-processor",
             )
             return
 
         if metdata.shape[1] == 24:
-            print('SOLWEIG', 'Meteorological data succesfully loaded')
+            print("SOLWEIG", "Meteorological data succesfully loaded")
         else:
             print(
-                'Import Error',
-                'Wrong number of columns in meteorological data. You can '
+                "Import Error",
+                "Wrong number of columns in meteorological data. You can "
                 "prepare your data by using 'Prepare Existing Data' in "
-                'the Pre-processor',
+                "the Pre-processor",
             )
             return
 
@@ -1334,28 +1333,28 @@ class Solweig(GeoCore):
             patch_option,
             write_other_files,
         ).run(parallel=self.parallel)
-        print('ret', ret)
+        print("ret", ret)
         self.workerFinished(ret)
 
     def workerFinished(self, ret):
-        filename = os.path.join(self.folderPath, 'Tmrt_average' + '.tif')
+        filename = os.path.join(self.folderPath, "Tmrt_average" + ".tif")
 
         # temporary fix for mac, ISSUE #15
         pf = sys.platform
-        if pf == 'darwin' or pf == 'linux2' or pf == 'linux':
+        if pf == "darwin" or pf == "linux2" or pf == "linux":
             if not os.path.exists(self.folderPath):
                 os.makedirs(self.folderPath)
 
         if ret is not None:
-            tmrtplot = ret['tmrtplot']
+            tmrtplot = ret["tmrtplot"]
             saveraster(self.gdal_dsm, filename, tmrtplot)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     geocore = GeoCore()
     geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.186990]
     a = Solweig(
-        filepath_dsm='/Users/Boris/Documents/TIPEE/pymdu/Tests/umep/DEM.tiff',
-        folderPath='.',
+        filepath_dsm="/Users/Boris/Documents/TIPEE/pymdu/Tests/umep/DEM.tiff",
+        folderPath=".",
     )
     a.run()

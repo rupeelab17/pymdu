@@ -8,4 +8,13 @@ from pymdu import image
 from pymdu import meteo
 from pymdu import diagnostic
 
-__all__ = ['collect', 'demos', 'physics', 'geometric', 'plotting', 'image', 'meteo', 'diagnostic']
+__all__ = [
+    "collect",
+    "demos",
+    "physics",
+    "geometric",
+    "plotting",
+    "image",
+    "meteo",
+    "diagnostic",
+]

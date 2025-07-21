@@ -1,0 +1,9 @@
+paths
+/opt/conda/envs/mdu/bin
+/opt/conda/envs/mdu/share/qgis/python/plugins
+/opt/conda/envs/mdu/share/qgis/python
+/app
+/opt/conda/envs/mdu/lib/python310.zip
+/opt/conda/envs/mdu/lib/python3.10
+/opt/conda/envs/mdu/lib/python3.10/lib-dynload
+/opt/conda/envs/mdu/lib/python3.10/site-packages

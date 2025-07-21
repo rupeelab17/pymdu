@@ -129,6 +129,7 @@ class Cosia(IgnCollect):
             "Vigne": 5,
             "Autre": 1,
         }
+
         self.output_path = output_path if output_path else TEMP_PATH
         self.template_raster_path = template_raster_path
         self.gdf: gpd.GeoDataFrame = None
@@ -365,16 +366,16 @@ class Cosia(IgnCollect):
 
 if __name__ == "__main__":
     cosia = Cosia(output_path="./")
-    cosia.bbox = [-1.15643, 46.16123, -1.15127, 46.16378]
+    bbox_coords = [-1.152704, 46.181627, -1.139893, 46.18699]
     ign_cosia = cosia.run_ign()
 
     import matplotlib.pyplot as plt
     import matplotlib.patches as mpatches
 
-    bbox_coords = [-1.152704, 46.181627, -1.139893, 46.18699]
     # fixme : interroger une base accessible à tout le monde
     # chemoin des fichiers cosia
-    directory_path = os.path.join("D:\\CoSIA_D017_2021\\CoSIA_D017_2021")
+    # directory_path = os.path.join("D:\\CoSIA_D017_2021\\CoSIA_D017_2021")
+    directory_path = os.path.join("/Users/Boris/Downloads/CoSIA_D017_2021")
 
     gdf_coordinates = extract_coordinates_from_filenames(directory_path)
     # intersection_gdf = get_intersection_with_bbox(gdf_coordinates, bbox_coords)
@@ -384,6 +385,7 @@ if __name__ == "__main__":
 
     table_color_cosia = Cosia().table_color_cosia
     cosia["color"] = [table_color_cosia[x] for x in cosia.classe]
+
     # Tracer le GeoDataFrame
     fig, ax = plt.subplots(figsize=(10, 10))
     cosia.plot(ax=ax, edgecolor=None, color=cosia["color"])
@@ -394,7 +396,7 @@ if __name__ == "__main__":
 
     # Créer les patches pour chaque couleur et sa description dans la légende
     patches = [
-        mpatches.Patch(color=value, label=supprimer_caracteres_speciaux(label))
+        mpatches.Patch(color=value, label=label)
         for (value, label) in zip(table_color_cosia.values(), table_color_cosia.keys())
     ]
 
@@ -403,7 +405,7 @@ if __name__ == "__main__":
         handles=patches,
         loc="upper right",
         title="Cosia Legend",
-        bbox_to_anchor=(1.5, 1.0),
+        bbox_to_anchor=(1.0, 1.0),
     )
 
     # Afficher la carte avec la légende

@@ -145,9 +145,9 @@ class SVFCalculator(object):
                             amaxvalue,
                             bush,
                         )
-                        vegsh = shadowresult['vegsh']
-                        vbshvegsh = shadowresult['vbshvegsh']
-                        sh = shadowresult['sh']
+                        vegsh = shadowresult["vegsh"]
+                        vbshvegsh = shadowresult["vbshvegsh"]
+                        sh = shadowresult["sh"]
                         vegshmat[:, :, index] = vegsh
                         vbshvegshmat[:, :, index] = vbshvegsh
                     else:
@@ -256,30 +256,30 @@ class SVFCalculator(object):
                 svfNaveg[(svfNaveg > 1.0)] = 1.0
 
             svfresult = {
-                'svf': svf,
-                'svfE': svfE,
-                'svfS': svfS,
-                'svfW': svfW,
-                'svfN': svfN,
-                'svfveg': svfveg,
-                'svfEveg': svfEveg,
-                'svfSveg': svfSveg,
-                'svfWveg': svfWveg,
-                'svfNveg': svfNveg,
-                'svfaveg': svfaveg,
-                'svfEaveg': svfEaveg,
-                'svfSaveg': svfSaveg,
-                'svfWaveg': svfWaveg,
-                'svfNaveg': svfNaveg,
-                'shmat': shmat,
-                'vegshmat': vegshmat,
-                'vbshvegshmat': vbshvegshmat,
+                "svf": svf,
+                "svfE": svfE,
+                "svfS": svfS,
+                "svfW": svfW,
+                "svfN": svfN,
+                "svfveg": svfveg,
+                "svfEveg": svfEveg,
+                "svfSveg": svfSveg,
+                "svfWveg": svfWveg,
+                "svfNveg": svfNveg,
+                "svfaveg": svfaveg,
+                "svfEaveg": svfEaveg,
+                "svfSaveg": svfSaveg,
+                "svfWaveg": svfWaveg,
+                "svfNaveg": svfNaveg,
+                "shmat": shmat,
+                "vegshmat": vegshmat,
+                "vbshvegshmat": vbshvegshmat,
             }
 
             if self.killed is False:
                 ret = svfresult
         except Exception as e:
-            print('ERROR', e)
+            print("ERROR", e)
             # forward the exception upstream
             print(self.print_exception())
 
@@ -410,9 +410,9 @@ class SVFCalculation(GeoCore):
     def __init__(
         self,
         filepath_dsm,
-        filepath_veg_cdsm: str = None,
-        filepath_veg_tdsm: str = None,
-        folderPath: str = './',
+        filepath_veg_cdsm: str | None = None,
+        filepath_veg_tdsm: str | None = None,
+        folderPath: str = "./",
         usevegdem: bool = True,
         useWallHeightAspect: bool = False,
     ):
@@ -454,25 +454,25 @@ class SVFCalculation(GeoCore):
 
         if 250000 < (sizex * sizey) <= 1000000:
             print(
-                'Semi lage grid',
-                'This process will take a couple of minutes. '
-                'Go and make yourself a cup of tea...',
+                "Semi lage grid",
+                "This process will take a couple of minutes. "
+                "Go and make yourself a cup of tea...",
             )
 
         if 1000000 < (sizex * sizey) <= 4000000:
-            print('Large grid', 'This process will take some time. ' 'Go for lunch...')
+            print("Large grid", "This process will take some time. " "Go for lunch...")
 
         if 4000000 < (sizex * sizey) <= 16000000:
             print(
-                'Very large grid',
-                'This process will take a long time. ' 'Go for lunch and for a walk...',
+                "Very large grid",
+                "This process will take a long time. " "Go for lunch and for a walk...",
             )
 
         if (sizex * sizey) > 16000000:
             print(
-                'Huge grid',
-                'This process will take a very long time. '
-                'Go home for the weekend or consider to tile your grid',
+                "Huge grid",
+                "This process will take a very long time. "
+                "Go home for the weekend or consider to tile your grid",
             )
 
         if self.filepath_vegCDMS:
@@ -484,7 +484,7 @@ class SVFCalculation(GeoCore):
             vegsizey = self.vegdsm.shape[1]
 
             if not (vegsizex == sizex) & (vegsizey == sizey):  # &
-                print('Error', 'All grids must be of same extent and resolution')
+                print("Error", "All grids must be of same extent and resolution")
                 return
 
             if self.filepath_vegTDSM:
@@ -498,7 +498,7 @@ class SVFCalculation(GeoCore):
             vegsizey = self.vegdsm2.shape[1]
 
             if not (vegsizex == sizex) & (vegsizey == sizey):  # &
-                print('Error', 'All grids must be of same extent and resolution')
+                print("Error", "All grids must be of same extent and resolution")
                 return
 
         else:
@@ -512,7 +512,7 @@ class SVFCalculation(GeoCore):
             vhsizex = self.wheight.shape[0]
             vhsizey = self.wheight.shape[1]
             if not (vhsizex == sizex) & (vhsizey == sizey):  # &
-                print(None, 'Error', 'All grids must be of same extent and resolution')
+                print(None, "Error", "All grids must be of same extent and resolution")
                 return
 
             self.gdal_wa = gdal.Open(self.filepath_wallAspect)
@@ -520,14 +520,14 @@ class SVFCalculation(GeoCore):
             vasizex = self.waspect.shape[0]
             vasizey = self.waspect.shape[1]
             if not (vasizex == sizex) & (vasizey == sizey):
-                print(None, 'Error', 'All grids must be of same extent and resolution')
+                print(None, "Error", "All grids must be of same extent and resolution")
                 return
 
-        if self.folderPath == 'None':
-            print('Error', 'No selected folder')
+        if self.folderPath == "None":
+            print("Error", "No selected folder")
             return
         else:
-            print('startWorker')
+            print("startWorker")
             # self.startWorker(self.dsm, self.vegdsm, self.vegdsm2, self.scale, self.usevegdem, self.wheight, self.waspect)
             self.startWorker(
                 self.dsm, self.vegdsm, self.vegdsm2, self.scale, self.usevegdem
@@ -535,127 +535,127 @@ class SVFCalculation(GeoCore):
 
     def startWorker(self, dsm, vegdem, vegdem2, scale, usevegdem):
         ret = SVFCalculator(dsm, vegdem, vegdem2, scale, usevegdem).run()
-        print('ret', ret)
+        print("ret", ret)
         self.workerFinished(ret)
 
     def workerFinished(self, ret):
-        filename = os.path.join(self.folderPath, 'SkyViewFactor' + '.tif')
+        filename = os.path.join(self.folderPath, "SkyViewFactor" + ".tif")
 
         # temporary fix for mac, ISSUE #15
         pf = sys.platform
-        if pf == 'darwin' or pf == 'linux2' or pf == 'linux':
+        if pf == "darwin" or pf == "linux2" or pf == "linux":
             if not os.path.exists(self.folderPath):
                 os.makedirs(self.folderPath)
 
         if ret is not None:
-            self.svfbu = ret['svf']
-            svfbuE = ret['svfE']
-            svfbuS = ret['svfS']
-            svfbuW = ret['svfW']
-            svfbuN = ret['svfN']
+            self.svfbu = ret["svf"]
+            svfbuE = ret["svfE"]
+            svfbuS = ret["svfS"]
+            svfbuW = ret["svfW"]
+            svfbuN = ret["svfN"]
 
             saveraster(
-                self.gdal_dsm, os.path.join(self.folderPath, 'svf.tif'), self.svfbu
+                self.gdal_dsm, os.path.join(self.folderPath, "svf.tif"), self.svfbu
             )
-            saveraster(self.gdal_dsm, os.path.join(self.folderPath, 'svfE.tif'), svfbuE)
-            saveraster(self.gdal_dsm, os.path.join(self.folderPath, 'svfS.tif'), svfbuS)
-            saveraster(self.gdal_dsm, os.path.join(self.folderPath, 'svfW.tif'), svfbuW)
-            saveraster(self.gdal_dsm, os.path.join(self.folderPath, 'svfN.tif'), svfbuN)
+            saveraster(self.gdal_dsm, os.path.join(self.folderPath, "svfE.tif"), svfbuE)
+            saveraster(self.gdal_dsm, os.path.join(self.folderPath, "svfS.tif"), svfbuS)
+            saveraster(self.gdal_dsm, os.path.join(self.folderPath, "svfW.tif"), svfbuW)
+            saveraster(self.gdal_dsm, os.path.join(self.folderPath, "svfN.tif"), svfbuN)
 
-            if os.path.isfile(os.path.join(self.folderPath, 'svfs.zip')):
-                os.remove(os.path.join(self.folderPath, 'svfs.zip'))
+            if os.path.isfile(os.path.join(self.folderPath, "svfs.zip")):
+                os.remove(os.path.join(self.folderPath, "svfs.zip"))
 
-            zip = zipfile.ZipFile(os.path.join(self.folderPath, 'svfs.zip'), 'a')
-            zip.write(os.path.join(self.folderPath, 'svf.tif'), 'svf.tif')
-            zip.write(os.path.join(self.folderPath, 'svfE.tif'), 'svfE.tif')
-            zip.write(os.path.join(self.folderPath, 'svfS.tif'), 'svfS.tif')
-            zip.write(os.path.join(self.folderPath, 'svfW.tif'), 'svfW.tif')
-            zip.write(os.path.join(self.folderPath, 'svfN.tif'), 'svfN.tif')
+            zip = zipfile.ZipFile(os.path.join(self.folderPath, "svfs.zip"), "a")
+            zip.write(os.path.join(self.folderPath, "svf.tif"), "svf.tif")
+            zip.write(os.path.join(self.folderPath, "svfE.tif"), "svfE.tif")
+            zip.write(os.path.join(self.folderPath, "svfS.tif"), "svfS.tif")
+            zip.write(os.path.join(self.folderPath, "svfW.tif"), "svfW.tif")
+            zip.write(os.path.join(self.folderPath, "svfN.tif"), "svfN.tif")
             zip.close()
 
-            os.remove(os.path.join(self.folderPath, 'svf.tif'))
-            os.remove(os.path.join(self.folderPath, 'svfE.tif'))
-            os.remove(os.path.join(self.folderPath, 'svfS.tif'))
-            os.remove(os.path.join(self.folderPath, 'svfW.tif'))
-            os.remove(os.path.join(self.folderPath, 'svfN.tif'))
+            os.remove(os.path.join(self.folderPath, "svf.tif"))
+            os.remove(os.path.join(self.folderPath, "svfE.tif"))
+            os.remove(os.path.join(self.folderPath, "svfS.tif"))
+            os.remove(os.path.join(self.folderPath, "svfW.tif"))
+            os.remove(os.path.join(self.folderPath, "svfN.tif"))
 
             if not self.usevegdem:
                 self.svftotal = self.svfbu
             else:
                 # report the result
-                svfveg = ret['svfveg']
-                svfEveg = ret['svfEveg']
-                svfSveg = ret['svfSveg']
-                svfWveg = ret['svfWveg']
-                svfNveg = ret['svfNveg']
-                svfaveg = ret['svfaveg']
-                svfEaveg = ret['svfEaveg']
-                svfSaveg = ret['svfSaveg']
-                svfWaveg = ret['svfWaveg']
-                svfNaveg = ret['svfNaveg']
+                svfveg = ret["svfveg"]
+                svfEveg = ret["svfEveg"]
+                svfSveg = ret["svfSveg"]
+                svfWveg = ret["svfWveg"]
+                svfNveg = ret["svfNveg"]
+                svfaveg = ret["svfaveg"]
+                svfEaveg = ret["svfEaveg"]
+                svfSaveg = ret["svfSaveg"]
+                svfWaveg = ret["svfWaveg"]
+                svfNaveg = ret["svfNaveg"]
 
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfveg.tif'), svfveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfveg.tif"), svfveg
                 )
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfEveg.tif'), svfEveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfEveg.tif"), svfEveg
                 )
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfSveg.tif'), svfSveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfSveg.tif"), svfSveg
                 )
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfWveg.tif'), svfWveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfWveg.tif"), svfWveg
                 )
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfNveg.tif'), svfNveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfNveg.tif"), svfNveg
                 )
                 saveraster(
-                    self.gdal_dsm, os.path.join(self.folderPath, 'svfaveg.tif'), svfaveg
+                    self.gdal_dsm, os.path.join(self.folderPath, "svfaveg.tif"), svfaveg
                 )
                 saveraster(
                     self.gdal_dsm,
-                    os.path.join(self.folderPath, 'svfEaveg.tif'),
+                    os.path.join(self.folderPath, "svfEaveg.tif"),
                     svfEaveg,
                 )
                 saveraster(
                     self.gdal_dsm,
-                    os.path.join(self.folderPath, 'svfSaveg.tif'),
+                    os.path.join(self.folderPath, "svfSaveg.tif"),
                     svfSaveg,
                 )
                 saveraster(
                     self.gdal_dsm,
-                    os.path.join(self.folderPath, 'svfWaveg.tif'),
+                    os.path.join(self.folderPath, "svfWaveg.tif"),
                     svfWaveg,
                 )
                 saveraster(
                     self.gdal_dsm,
-                    os.path.join(self.folderPath, 'svfNaveg.tif'),
+                    os.path.join(self.folderPath, "svfNaveg.tif"),
                     svfNaveg,
                 )
 
-                zip = zipfile.ZipFile(os.path.join(self.folderPath, 'svfs.zip'), 'a')
-                zip.write(os.path.join(self.folderPath, 'svfveg.tif'), 'svfveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfEveg.tif'), 'svfEveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfSveg.tif'), 'svfSveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfWveg.tif'), 'svfWveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfNveg.tif'), 'svfNveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfaveg.tif'), 'svfaveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfEaveg.tif'), 'svfEaveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfSaveg.tif'), 'svfSaveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfWaveg.tif'), 'svfWaveg.tif')
-                zip.write(os.path.join(self.folderPath, 'svfNaveg.tif'), 'svfNaveg.tif')
+                zip = zipfile.ZipFile(os.path.join(self.folderPath, "svfs.zip"), "a")
+                zip.write(os.path.join(self.folderPath, "svfveg.tif"), "svfveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfEveg.tif"), "svfEveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfSveg.tif"), "svfSveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfWveg.tif"), "svfWveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfNveg.tif"), "svfNveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfaveg.tif"), "svfaveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfEaveg.tif"), "svfEaveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfSaveg.tif"), "svfSaveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfWaveg.tif"), "svfWaveg.tif")
+                zip.write(os.path.join(self.folderPath, "svfNaveg.tif"), "svfNaveg.tif")
                 zip.close()
 
-                os.remove(os.path.join(self.folderPath, 'svfveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfEveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfSveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfWveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfNveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfaveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfEaveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfSaveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfWaveg.tif'))
-                os.remove(os.path.join(self.folderPath, 'svfNaveg.tif'))
+                os.remove(os.path.join(self.folderPath, "svfveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfEveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfSveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfWveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfNveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfaveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfEaveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfSaveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfWaveg.tif"))
+                os.remove(os.path.join(self.folderPath, "svfNaveg.tif"))
 
                 trans = self.transmitivity_of_light_through_vegetation / 100.0
 
@@ -664,16 +664,16 @@ class SVFCalculation(GeoCore):
             saveraster(self.gdal_dsm, filename, self.svftotal)
 
             # Save shadow images for SOLWEIG 2019a
-            shmat = ret['shmat']
-            vegshmat = ret['vegshmat']
-            vbshvegshmat = ret['vbshvegshmat']
+            shmat = ret["shmat"]
+            vegshmat = ret["vegshmat"]
+            vbshvegshmat = ret["vbshvegshmat"]
             # wallshmat = ret["wallshmat"]
             # wallsunmat = ret["wallsunmat"]
             # wallshvemat = ret["wallshvemat"]
             # facesunmat = ret["facesunmat"]
 
             np.savez_compressed(
-                os.path.join(self.folderPath, 'shadowmats.npz'),
+                os.path.join(self.folderPath, "shadowmats.npz"),
                 shadowmat=shmat,
                 vegshadowmat=vegshmat,
                 vbshmat=vbshvegshmat,
@@ -683,15 +683,15 @@ class SVFCalculation(GeoCore):
 
         else:
             print(
-                'Operations cancelled either by user or error. See the General tab in Log Meassages Panel (speech bubble, lower right) for more information.'
+                "Operations cancelled either by user or error. See the General tab in Log Meassages Panel (speech bubble, lower right) for more information."
             )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     geocore = GeoCore()
     geocore.bbox = [-1.152704, 46.181627, -1.139893, 46.186990]
     a = SVFCalculation(
-        filepath_dsm='/Users/Boris/Documents/TIPEE/pymdu/Tests/umep/DEM.tiff',
-        folderPath='.',
+        filepath_dsm="/Users/Boris/Documents/TIPEE/pymdu/Tests/umep/DEM.tiff",
+        folderPath=".",
     )
     a.run()
