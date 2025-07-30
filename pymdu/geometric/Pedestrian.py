@@ -152,6 +152,7 @@ class Pedestrian(GeoCore):
         pedestrian = pedestrian.to_crs(4326)
         # Resample to H3 cells
         # print(h3pandas.__version__)
+
         position_arbres = pedestrian.h3.polyfill_resample(resolution)
         position_arbres["centre"] = [x.centroid for x in position_arbres["geometry"]]
         point_arbres = position_arbres.copy()
