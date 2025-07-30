@@ -2,7 +2,6 @@ import os
 
 import geopandas as gpd
 # import h3pandas
-
 import osmnx as ox
 from shapely.geometry import box
 
