@@ -27,7 +27,7 @@ from osgeo import gdal, osr, ogr
 
 from pymdu.GeoCore import GeoCore
 from pymdu.collect.GlobalVariables import TEMP_PATH
-from pymdu.physics.solar.UtilitiesSolar import saveraster
+from pymdu.commons.BasicFunctions import saveraster
 
 
 class DsmGenerator(GeoCore):

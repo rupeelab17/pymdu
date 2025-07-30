@@ -1,7 +1,7 @@
 import os
 
 import geopandas as gpd
-import h3pandas
+# import h3pandas
 import osmnx as ox
 from shapely.geometry import box
 
@@ -150,7 +150,7 @@ class Pedestrian(GeoCore):
         pedestrian = pedestrian.explode(ignore_index=True)
         pedestrian = pedestrian.to_crs(4326)
         # Resample to H3 cells
-        print(h3pandas.__version__)
+        # print(h3pandas.__version__)
         position_arbres = pedestrian.h3.polyfill_resample(resolution)
         position_arbres["centre"] = [x.centroid for x in position_arbres["geometry"]]
         point_arbres = position_arbres.copy()

@@ -29,9 +29,11 @@ from IPython.display import display, HTML
 from folium.plugins import Draw
 from geopy.distance import geodesic
 from ipywidgets import Output
+from osgeo.gdalconst import GDT_Float32
 from shapely import wkb, box
 from shapely.geometry import Point, MultiPolygon, Polygon
 
+from osgeo import gdal
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 import scienceplots
@@ -737,3 +739,24 @@ def process_datetime(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         if is_datetime(gdf[column]):
             gdf[column] = gdf[column].dt.year
     return gdf
+
+
+def saveraster(gdal_data, filename, raster):
+    rows = gdal_data.RasterYSize
+    cols = gdal_data.RasterXSize
+
+    outDs = gdal.GetDriverByName('GTiff').Create(
+        filename, cols, rows, int(1), GDT_Float32
+    )
+    outBand = outDs.GetRasterBand(1)
+
+    # write the data
+    outBand.WriteArray(raster, 0, 0)
+    # flush data to disk, set the NoData value and calculate stats
+    outBand.FlushCache()
+    outBand.SetNoDataValue(-9999)
+
+    # georeference the image and set the projection
+    outDs.SetGeoTransform(gdal_data.GetGeoTransform())
+    outDs.SetProjection(gdal_data.GetProjection())
+    outDs = None

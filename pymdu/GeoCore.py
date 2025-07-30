@@ -23,7 +23,7 @@ from pathlib import Path
 
 import geopandas as gpd
 import gitlab
-import h3
+# import h3
 import matplotlib.pyplot as plt
 import orjson as json
 import rasterio
@@ -220,113 +220,113 @@ class GeoCore:
         # hex_gdf = hex_gdf.h3.h3_to_geo_boundary()
         return hex_gdf
 
-    @staticmethod
-    def gen_hexagons(
-        gdf: gpd.GeoDataFrame, resolution: int = 10, intersection: bool = False
-    ) -> gpd.GeoDataFrame:
-        """
-        Converts an input multipolygon layer to H3 hexagons given a resolution.
-        Parameters
-        ----------
-        resolution: int, 0:15
-            Hexagon resolution, higher values create smaller hexagons.
-        gdf: GeoDataFrame
-            Input city polygons to transform into hexagons.
-        Returns
-        -------
-        gdf_hexagons: GeoDataFrame
-            Hexagon geometry GeoDataFrame (hex_id, geom).
-        Examples
-        --------
-        :param gdf:
-        :param resolution:
-        :param intersection:
-        """
-        # class PdEncoder(json.JSONEncoder):
-        #     def default(self, obj):
-        #         if isinstance(obj, pd.Timestamp):
-        #             return str(obj)
-        #         return json.JSONEncoder.default(self, obj)
-
-        # https://github.com/mastersigat/GeoPandas/blob/main/Prisenmain_H3_Index.ipynb
-        # https://geographicdata.science/book/data/h3_grid/build_sd_h3_grid.html
-
-        gdf = gdf.explode(index_parts=True).reset_index(drop=True)
-
-        # print("geom_type", gdf.geom_type)
-        gdf["geom_type"] = gdf.geom_type
-
-        # gdf['geometry'] = gdf.buffer(0.1)
-        cpr_gdf = gdf.to_crs(2154)
-        # 0.5m
-        buffer_length_in_meters = (0.5 * 1000) * 1.60934
-        cpr_gdf["geometry"] = cpr_gdf.geometry.buffer(buffer_length_in_meters)
-
-        gdf = cpr_gdf.to_crs(4326)
-        gdf = gdf[gdf.geom_type == "Polygon"]
-
-        # Obtain hexagonal ids by specifying geographic extent and hexagon resolution
-        # geojson = json.loads(gdf.to_json(cls=PdEncoder))
-        # print(geojson)
-
-        h3_polygons = list()
-        h3_indexes = list()
-
-        for _, geo in gdf.iterrows():
-            hexagons = h3.polyfill(
-                geo["geometry"].__geo_interface__,
-                res=resolution,
-                geo_json_conformant=True,
-            )
-            for hexagon in hexagons:
-                h3_polygons.append(geo_boundary_to_polygon(hexagon))
-                h3_indexes.append(hexagon)
-
-        # Create hexagon dataframe
-        hex_gdf = gpd.GeoDataFrame(
-            data=h3_indexes, geometry=h3_polygons, crs=4326
-        ).drop_duplicates()
-        hex_gdf = hex_gdf.rename(
-            columns={0: "hexid"}
-        )  # Format column name for readability
-
-        if intersection:
-            # TODO https://github.com/EL-BID/urbanpy/blob/master/urbanpy/geom/geom.py
-            pass
-            # columns = ["nature"]
-            # hex_gdf = hex_gdf.to_crs(2154)
-            # polygons_ = gdf.copy().to_crs(2154)  # Preserve data state
-            # polygons_['poly_area'] = polygons_.geometry.area  # Calc polygon area
-            #
-            # # Overlay intersection
-            # overlayed = gpd.overlay(polygons_, hex_gdf, how='intersection')
-            # print(overlayed.head())
-            # print(overlayed.columns)
-            # # Downsample indicators using proporional overlayed area w.r.t polygon area
-            # area_prop = overlayed.geometry.area / overlayed['poly_area']
-            # overlayed[columns] = overlayed[columns].apply(lambda col: col * area_prop)
-            #
-            # # Aggregate over Hex ID
-            # per_hexagon_data = overlayed.groupby("hexid")[columns].sum()
-            #
-            # # Preserve data as GeoDataFrame
-            # hex_df = pd.merge(left=per_hexagon_data, right=hex_gdf[["hexid", 'geometry']], on="hexid")
-            # print(hex_df.head())
-            # print(hex_df.columns)
-            # hex_gdf = gpd.GeoDataFrame(hex_df[["hexid"] + columns], geometry=hex_df['geometry'], crs=hex_gdf.crs)
-
-        #     # # Reset index to move hexagonal polygon id list to its own column
-        #     hex_gdf = hex_gdf.reset_index()
-        #     #
-        #     # # Rename column names to allow spatial overlay operation later
-        #     hex_gdf.columns = ['hexid', 'geometry']
-        #     #
-        #     # ### Step 3 (Final Step): spatial intersection of network and hexagonal grids
-        #     #
-        #     # hex_gdf = gdf.overlay(hex_gdf, how='intersection')
-        #     hex_gdf = clip(gdf=hex_gdf, mask=gdf)
-
-        return hex_gdf
+    # @staticmethod
+    # def gen_hexagons(
+    #     gdf: gpd.GeoDataFrame, resolution: int = 10, intersection: bool = False
+    # ) -> gpd.GeoDataFrame:
+    #     """
+    #     Converts an input multipolygon layer to H3 hexagons given a resolution.
+    #     Parameters
+    #     ----------
+    #     resolution: int, 0:15
+    #         Hexagon resolution, higher values create smaller hexagons.
+    #     gdf: GeoDataFrame
+    #         Input city polygons to transform into hexagons.
+    #     Returns
+    #     -------
+    #     gdf_hexagons: GeoDataFrame
+    #         Hexagon geometry GeoDataFrame (hex_id, geom).
+    #     Examples
+    #     --------
+    #     :param gdf:
+    #     :param resolution:
+    #     :param intersection:
+    #     """
+    #     # class PdEncoder(json.JSONEncoder):
+    #     #     def default(self, obj):
+    #     #         if isinstance(obj, pd.Timestamp):
+    #     #             return str(obj)
+    #     #         return json.JSONEncoder.default(self, obj)
+    #
+    #     # https://github.com/mastersigat/GeoPandas/blob/main/Prisenmain_H3_Index.ipynb
+    #     # https://geographicdata.science/book/data/h3_grid/build_sd_h3_grid.html
+    #
+    #     gdf = gdf.explode(index_parts=True).reset_index(drop=True)
+    #
+    #     # print("geom_type", gdf.geom_type)
+    #     gdf["geom_type"] = gdf.geom_type
+    #
+    #     # gdf['geometry'] = gdf.buffer(0.1)
+    #     cpr_gdf = gdf.to_crs(2154)
+    #     # 0.5m
+    #     buffer_length_in_meters = (0.5 * 1000) * 1.60934
+    #     cpr_gdf["geometry"] = cpr_gdf.geometry.buffer(buffer_length_in_meters)
+    #
+    #     gdf = cpr_gdf.to_crs(4326)
+    #     gdf = gdf[gdf.geom_type == "Polygon"]
+    #
+    #     # Obtain hexagonal ids by specifying geographic extent and hexagon resolution
+    #     # geojson = json.loads(gdf.to_json(cls=PdEncoder))
+    #     # print(geojson)
+    #
+    #     h3_polygons = list()
+    #     h3_indexes = list()
+    #
+    #     for _, geo in gdf.iterrows():
+    #         hexagons = h3.polyfill(
+    #             geo["geometry"].__geo_interface__,
+    #             res=resolution,
+    #             geo_json_conformant=True,
+    #         )
+    #         for hexagon in hexagons:
+    #             h3_polygons.append(geo_boundary_to_polygon(hexagon))
+    #             h3_indexes.append(hexagon)
+    #
+    #     # Create hexagon dataframe
+    #     hex_gdf = gpd.GeoDataFrame(
+    #         data=h3_indexes, geometry=h3_polygons, crs=4326
+    #     ).drop_duplicates()
+    #     hex_gdf = hex_gdf.rename(
+    #         columns={0: "hexid"}
+    #     )  # Format column name for readability
+    #
+    #     if intersection:
+    #         # TODO https://github.com/EL-BID/urbanpy/blob/master/urbanpy/geom/geom.py
+    #         pass
+    #         # columns = ["nature"]
+    #         # hex_gdf = hex_gdf.to_crs(2154)
+    #         # polygons_ = gdf.copy().to_crs(2154)  # Preserve data state
+    #         # polygons_['poly_area'] = polygons_.geometry.area  # Calc polygon area
+    #         #
+    #         # # Overlay intersection
+    #         # overlayed = gpd.overlay(polygons_, hex_gdf, how='intersection')
+    #         # print(overlayed.head())
+    #         # print(overlayed.columns)
+    #         # # Downsample indicators using proporional overlayed area w.r.t polygon area
+    #         # area_prop = overlayed.geometry.area / overlayed['poly_area']
+    #         # overlayed[columns] = overlayed[columns].apply(lambda col: col * area_prop)
+    #         #
+    #         # # Aggregate over Hex ID
+    #         # per_hexagon_data = overlayed.groupby("hexid")[columns].sum()
+    #         #
+    #         # # Preserve data as GeoDataFrame
+    #         # hex_df = pd.merge(left=per_hexagon_data, right=hex_gdf[["hexid", 'geometry']], on="hexid")
+    #         # print(hex_df.head())
+    #         # print(hex_df.columns)
+    #         # hex_gdf = gpd.GeoDataFrame(hex_df[["hexid"] + columns], geometry=hex_df['geometry'], crs=hex_gdf.crs)
+    #
+    #     #     # # Reset index to move hexagonal polygon id list to its own column
+    #     #     hex_gdf = hex_gdf.reset_index()
+    #     #     #
+    #     #     # # Rename column names to allow spatial overlay operation later
+    #     #     hex_gdf.columns = ['hexid', 'geometry']
+    #     #     #
+    #     #     # ### Step 3 (Final Step): spatial intersection of network and hexagonal grids
+    #     #     #
+    #     #     # hex_gdf = gdf.overlay(hex_gdf, how='intersection')
+    #     #     hex_gdf = clip(gdf=hex_gdf, mask=gdf)
+    #
+    #     return hex_gdf
 
     @staticmethod
     def aggregate_to_h3(gdf: gpd.GeoDataFrame, resolution: int):
