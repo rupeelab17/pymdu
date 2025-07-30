@@ -406,7 +406,7 @@ def draw_bbox_with_folium(lat=46.160329, lon=-1.151139, zoom_start=13):
 
 
 def extract_coordinates_from_filenames(
-    directory_path: str, departement_code: str = "17"
+    directory_path: str, departement_code: str = "17", year : str = '2021'
 ) -> gpd.GeoDataFrame:
     """
     Extrait les informations X et Y à partir de noms de fichiers .gpkg respectant le format 'D0{departement_code}_2021_X_Y_vecto.gpkg'
@@ -424,7 +424,7 @@ def extract_coordinates_from_filenames(
     coordinates = {}
 
     # Pattern pour extraire les coordonnées X et Y à partir des noms de fichiers
-    pattern = re.compile(rf"D0{departement_code}_2021_(\d+)_(\d+)_vecto\.gpkg")
+    pattern = re.compile(rf"D0{departement_code}_{year}_(\d+)_(\d+)_vecto\.gpkg")
 
     # Parcourir tous les fichiers dans le dossier spécifié
     for filename in os.listdir(directory_path):

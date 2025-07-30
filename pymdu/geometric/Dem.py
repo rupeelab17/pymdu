@@ -17,8 +17,10 @@
 import os
 
 import geopandas as gpd
+import numpy as np
 from osgeo import gdal
 from rasterio.enums import Resampling
+from rasterio.shutil import copy
 from shapely.geometry import box
 
 from pymdu.collect.GlobalVariables import TEMP_PATH
@@ -100,18 +102,21 @@ class Dem(IgnCollect):
         # Scale the data to 8-bit range (0-255)
         # Update metadata for the output file
         # profile = dataarray.profile
-        # profile.update(dtype='uint8', compress='lzw')
+        # profile.update(dtype="uint8", compress="lzw")
 
         # TODO : j'observe un bug ici
         # CPLE_AppDefinedError: Deleting C:/Users/simon/AppData/Local/Temp/DEM.tiff failed: Permission denied
         try:
             self.dataarray.rio.to_raster(
                 self.path_save_tiff,
+                # dtype=np.uint256,
                 compress="lzw",
                 bigtiff="YES",
                 num_threads="all_cpus",
                 tiled=True,
                 driver="GTiff",
+                blockxsize=512,
+                blockysize=512,
                 predictor=2,
                 discard_lsb=2,
             )
@@ -130,7 +135,17 @@ class Dem(IgnCollect):
             )
 
         self.__generate_mask_and_adapt_dem()
-
+        # Création du COG final
+        # copy(
+        #     self.path_save_tiff,  # source avec overviews
+        #     self.path_save_tiff + "cog",  # destination .tif COG
+        #     driver="COG",
+        #     compress="LZW",
+        #     predictor=2,
+        #     bigtiff="YES",
+        #     # (facultatif) préciser la méthode de rééchantillonnage des overviews :
+        #     overview_resampling="average",
+        # )
         return self
 
     def content(self):

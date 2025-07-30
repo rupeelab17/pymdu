@@ -37,7 +37,7 @@ class TemperatureCalculation(GeoCore):
     """
 
     def __init__(self):
-        self.toto = 'toto'
+        self.toto = "toto"
         # self.data = pd.read_excel(MAIN_PATH+'/physics/thermal/param_uwg.xlsx', index_col=0, header=None).rename(columns={1: "test"})
         # self.data['test']['schtraffic'] = eval(self.data['test']['schtraffic'])
         # self.data['test']['bld'] = eval(self.data['test']['bld'])
@@ -61,13 +61,13 @@ class TemperatureCalculation(GeoCore):
         # self.dataframe = self.data[columns]
         # self.dataframe = self.dataframe.dropna(axis=1)
 
-    def run(self, epw_name: str = 'technoforum.epw'):
+    def run(self, epw_name: str = "technoforum.epw"):
         """
 
         Returns:
             object:
         """
-        columns = list(set(self.dataframe.keys()) - set(['test']))
+        columns = list(set(self.dataframe.keys()) - set(["test"]))
         for col in columns:
             model = UWG.from_param_args(
                 float(self.dataframe[col].bldheight),
@@ -115,7 +115,7 @@ class TemperatureCalculation(GeoCore):
                 # h_obs=dataframe[col].h_obs,
                 epw_path=os.path.join(TEMP_PATH, epw_name),
                 new_epw_dir=None,
-                new_epw_name=f'bloc_{col}.epw',
+                new_epw_name=f"bloc_{col}.epw",
                 ref_bem_vector=None,
                 ref_sch_vector=None,
             )
@@ -135,28 +135,28 @@ class TemperatureCalculation(GeoCore):
 
     def single_run(
         self,
-        geoclimate_pah=r'./qapeosud/osm_atlantech/',
-        epw_path=r'C:\Users\simon\python-scripts\pymdu/FRA_AC_La.Rochelle.073150_TMYx.epw',
+        geoclimate_path=r"./qapeosud/osm_atlantech/",
+        epw_path=r"C:\Users\simon\python-scripts\pymdu/FRA_AC_La.Rochelle.073150_TMYx.epw",
         log=False,
     ):
         bbox = GeoCore().bbox
 
         building = gpd.read_file(
-            os.path.join(geoclimate_pah, 'building.geojson')
+            os.path.join(geoclimate_path, "building.geojson")
         ).to_crs(2154)
         building_blocks = gpd.read_file(
-            os.path.join(geoclimate_pah, 'block_indicators.geojson')
+            os.path.join(geoclimate_path, "block_indicators.geojson")
         ).to_crs(2154)
         bloc = gpd.read_file(
-            os.path.join(geoclimate_pah, 'rsu_indicators.geojson')
+            os.path.join(geoclimate_path, "rsu_indicators.geojson")
         ).to_crs(2154)
-        bloc['area'] = [g.area for g in bloc['geometry']]
+        bloc["area"] = [g.area for g in bloc["geometry"]]
         uwg_data = bloc[
             [
-                'BUILDING_TOTAL_FRACTION',
-                'AVG_HEIGHT_ROOF_AREA_WEIGHTED',
-                'FREE_EXTERNAL_FACADE_DENSITY',
-                'area',
+                "BUILDING_TOTAL_FRACTION",
+                "AVG_HEIGHT_ROOF_AREA_WEIGHTED",
+                "FREE_EXTERNAL_FACADE_DENSITY",
+                "area",
             ]
         ]
 
@@ -164,165 +164,165 @@ class TemperatureCalculation(GeoCore):
             GeoCore().bbox[0], GeoCore().bbox[1], GeoCore().bbox[2], GeoCore().bbox[3]
         )
 
-        district = gpd.GeoDataFrame(index=[0], crs='epsg:4326', geometry=[geom]).to_crs(
+        district = gpd.GeoDataFrame(index=[0], crs="epsg:4326", geometry=[geom]).to_crs(
             2154
         )
 
         for k in [
-            'BUILDING_TOTAL_FRACTION',
-            'AVG_HEIGHT_ROOF_AREA_WEIGHTED',
-            'FREE_EXTERNAL_FACADE_DENSITY',
+            "BUILDING_TOTAL_FRACTION",
+            "AVG_HEIGHT_ROOF_AREA_WEIGHTED",
+            "FREE_EXTERNAL_FACADE_DENSITY",
         ]:
-            uwg_data[k + '_AREA_WEIGHTED'] = uwg_data[k] * uwg_data['area']
+            uwg_data[k + "_AREA_WEIGHTED"] = uwg_data[k] * uwg_data["area"]
 
         blddensity = (
-            uwg_data['BUILDING_TOTAL_FRACTION_AREA_WEIGHTED'].sum()
-            / uwg_data['area'].sum()
+            uwg_data["BUILDING_TOTAL_FRACTION_AREA_WEIGHTED"].sum()
+            / uwg_data["area"].sum()
         )
         bldheight = (
-            uwg_data['AVG_HEIGHT_ROOF_AREA_WEIGHTED_AREA_WEIGHTED'].sum()
-            / uwg_data['area'].sum()
+            uwg_data["AVG_HEIGHT_ROOF_AREA_WEIGHTED_AREA_WEIGHTED"].sum()
+            / uwg_data["area"].sum()
         )
         vertohor = (
-            uwg_data['FREE_EXTERNAL_FACADE_DENSITY_AREA_WEIGHTED'].sum()
-            / uwg_data['area'].sum()
+            uwg_data["FREE_EXTERNAL_FACADE_DENSITY_AREA_WEIGHTED"].sum()
+            / uwg_data["area"].sum()
         )
 
         try:
-            veg = gpd.read_file(os.path.join(geoclimate_pah, 'vegetation.shp'))
+            veg = gpd.read_file(os.path.join(geoclimate_path, "vegetation.shp"))
         except:
             veg = gpd.read_file(
-                os.path.join(geoclimate_pah, 'vegetation.geojson')
+                os.path.join(geoclimate_path, "vegetation.geojson")
             ).to_crs(2154)
-        grasscover = veg.area.sum() / uwg_data['area'].sum()
+        grasscover = veg.area.sum() / uwg_data["area"].sum()
         charlength = np.sqrt(district.area.values[0])
 
         liste_index = [
-            'blddensity',
-            'bldheight',
-            'grasscover',
-            'vertohor',
-            'gid',
-            'charlength',
+            "blddensity",
+            "bldheight",
+            "grasscover",
+            "vertohor",
+            "gid",
+            "charlength",
         ]
         liste_values = [blddensity, bldheight, grasscover, vertohor, 0, charlength]
         to_fill = pd.DataFrame()
 
         to_fill.index = liste_index
-        to_fill['values'] = liste_values
+        to_fill["values"] = liste_values
 
         data = pd.read_excel(
-            str(self.physics_path.joinpath('thermal/param_uwg.xlsx')),
+            str(self.physics_path.joinpath("thermal/param_uwg.xlsx")),
             index_col=0,
             header=None,
-        ).rename(columns={1: 'test'})
+        ).rename(columns={1: "test"})
         vector_uwg = []
         for index in data.index:
             if index in to_fill.index:
                 vector_uwg.append(to_fill[to_fill.index == index].values[0][0])
             else:
                 try:
-                    vector_uwg.append(eval(data['test'][index][-1]))
+                    vector_uwg.append(eval(data["test"][index][-1]))
                 except:
-                    vector_uwg.append(data['test'][index])
-        data['uwg'] = vector_uwg
+                    vector_uwg.append(data["test"][index])
+        data["uwg"] = vector_uwg
         if log:
             args = [
-                ('bldheight', float(data['uwg'].bldheight)),
-                ('blddensity', float(data['uwg'].blddensity)),
-                ('vertohor', float(data['uwg'].vertohor)),
-                ('grasscover', float(data['uwg'].grasscover)),
-                ('treecover', float(data['uwg'].treecover)),
-                ('zone', data['uwg'].zone),
-                ('month', data['uwg'].month),
-                ('day', data['uwg'].day),
-                ('nday', data['uwg'].nday),
-                ('dtsim', data['uwg'].dtsim),
-                ('dtweather', data['uwg'].dtweather),
-                ('bld', eval(data['uwg'].bld)),
-                ('autosize', data['uwg'].autosize),
-                ('h_mix', data['uwg'].h_mix),
-                ('sensocc', data['uwg'].sensocc),
-                ('latfocc', data['uwg'].latfocc),
-                ('radfocc', data['uwg'].radfocc),
-                ('radfequip', data['uwg'].radfequip),
-                ('radflight', data['uwg'].radflight),
-                ('charlength', float(data['uwg'].charlength)),
-                ('albroad', data['uwg'].albroad),
-                ('droad', data['uwg'].droad),
-                ('kroad', data['uwg'].kroad),
-                ('croad', data['uwg'].croad),
-                ('rurvegcover', data['uwg'].rurvegcover),
-                ('vegstart', data['uwg'].vegstart),
-                ('vegend', data['uwg'].vegend),
-                ('albveg', data['uwg'].albveg),
-                ('latgrss', data['uwg'].latgrss),
-                ('lattree', data['uwg'].lattree),
-                ('sensanth', data['uwg'].sensanth),
-                ('schtraffic', eval(data['uwg'].schtraffic)),
-                ('h_ubl1', data['uwg'].h_ubl1),
-                ('h_ubl2', data['uwg'].h_ubl2),
-                ('h_ref', data['uwg'].h_ref),
-                ('h_temp', data['uwg'].h_temp),
-                ('h_wind', data['uwg'].h_wind),
-                ('c_circ', data['uwg'].c_circ),
-                ('c_exch', data['uwg'].c_exch),
-                ('maxday', data['uwg'].maxday),
-                ('maxnight', data['uwg'].maxnight),
-                ('windmin', data['uwg'].windmin),
-                ('h_obs', data['uwg'].h_obs),
-                ('epw_path', epw_path),
-                ('new_epw_dir', None),  # new_epw_dir
-                ('new_epw_name', None),  # new_epw_name
-                ('ref_bem_vector', None),  # ref_bem_vector
-                ('ref_sch_vector', None),  # ref_sch_vector
+                ("bldheight", float(data["uwg"].bldheight)),
+                ("blddensity", float(data["uwg"].blddensity)),
+                ("vertohor", float(data["uwg"].vertohor)),
+                ("grasscover", float(data["uwg"].grasscover)),
+                ("treecover", float(data["uwg"].treecover)),
+                ("zone", data["uwg"].zone),
+                ("month", data["uwg"].month),
+                ("day", data["uwg"].day),
+                ("nday", data["uwg"].nday),
+                ("dtsim", data["uwg"].dtsim),
+                ("dtweather", data["uwg"].dtweather),
+                ("bld", eval(data["uwg"].bld)),
+                ("autosize", data["uwg"].autosize),
+                ("h_mix", data["uwg"].h_mix),
+                ("sensocc", data["uwg"].sensocc),
+                ("latfocc", data["uwg"].latfocc),
+                ("radfocc", data["uwg"].radfocc),
+                ("radfequip", data["uwg"].radfequip),
+                ("radflight", data["uwg"].radflight),
+                ("charlength", float(data["uwg"].charlength)),
+                ("albroad", data["uwg"].albroad),
+                ("droad", data["uwg"].droad),
+                ("kroad", data["uwg"].kroad),
+                ("croad", data["uwg"].croad),
+                ("rurvegcover", data["uwg"].rurvegcover),
+                ("vegstart", data["uwg"].vegstart),
+                ("vegend", data["uwg"].vegend),
+                ("albveg", data["uwg"].albveg),
+                ("latgrss", data["uwg"].latgrss),
+                ("lattree", data["uwg"].lattree),
+                ("sensanth", data["uwg"].sensanth),
+                ("schtraffic", eval(data["uwg"].schtraffic)),
+                ("h_ubl1", data["uwg"].h_ubl1),
+                ("h_ubl2", data["uwg"].h_ubl2),
+                ("h_ref", data["uwg"].h_ref),
+                ("h_temp", data["uwg"].h_temp),
+                ("h_wind", data["uwg"].h_wind),
+                ("c_circ", data["uwg"].c_circ),
+                ("c_exch", data["uwg"].c_exch),
+                ("maxday", data["uwg"].maxday),
+                ("maxnight", data["uwg"].maxnight),
+                ("windmin", data["uwg"].windmin),
+                ("h_obs", data["uwg"].h_obs),
+                ("epw_path", epw_path),
+                ("new_epw_dir", None),  # new_epw_dir
+                ("new_epw_name", None),  # new_epw_name
+                ("ref_bem_vector", None),  # ref_bem_vector
+                ("ref_sch_vector", None),  # ref_sch_vector
             ]
             for x in args:
                 print(x)
         model = UWG.from_param_args(
-            float(data['uwg'].bldheight),
-            float(data['uwg'].blddensity),
-            float(data['uwg'].vertohor),
-            float(data['uwg'].grasscover),
-            float(data['uwg'].treecover),
-            data['uwg'].zone,
-            month=data['uwg'].month,
-            day=data['uwg'].day,
-            nday=data['uwg'].nday,
-            dtsim=data['uwg'].dtsim,
-            dtweather=data['uwg'].dtweather,
-            bld=eval(data['uwg'].bld),
-            autosize=data['uwg'].autosize,
-            h_mix=data['uwg'].h_mix,
-            sensocc=data['uwg'].sensocc,
-            latfocc=data['uwg'].latfocc,
-            radfocc=data['uwg'].radfocc,
-            radfequip=data['uwg'].radfequip,
-            radflight=data['uwg'].radflight,
-            charlength=float(data['uwg'].charlength),
-            albroad=data['uwg'].albroad,
-            droad=data['uwg'].droad,
-            kroad=data['uwg'].kroad,
-            croad=data['uwg'].croad,
-            rurvegcover=data['uwg'].rurvegcover,
-            vegstart=data['uwg'].vegstart,
-            vegend=data['uwg'].vegend,
-            albveg=data['uwg'].albveg,
-            latgrss=data['uwg'].latgrss,
-            lattree=data['uwg'].lattree,
-            sensanth=data['uwg'].sensanth,
-            schtraffic=eval(data['uwg'].schtraffic),
-            h_ubl1=data['uwg'].h_ubl1,
-            h_ubl2=data['uwg'].h_ubl2,
-            h_ref=data['uwg'].h_ref,
-            h_temp=data['uwg'].h_temp,
-            h_wind=data['uwg'].h_wind,
-            c_circ=data['uwg'].c_circ,
-            c_exch=data['uwg'].c_exch,
-            maxday=data['uwg'].maxday,
-            maxnight=data['uwg'].maxnight,
-            windmin=data['uwg'].windmin,
-            h_obs=data['uwg'].h_obs,
+            float(data["uwg"].bldheight),
+            float(data["uwg"].blddensity),
+            float(data["uwg"].vertohor),
+            float(data["uwg"].grasscover),
+            float(data["uwg"].treecover),
+            data["uwg"].zone,
+            month=data["uwg"].month,
+            day=data["uwg"].day,
+            nday=data["uwg"].nday,
+            dtsim=data["uwg"].dtsim,
+            dtweather=data["uwg"].dtweather,
+            bld=eval(data["uwg"].bld),
+            autosize=data["uwg"].autosize,
+            h_mix=data["uwg"].h_mix,
+            sensocc=data["uwg"].sensocc,
+            latfocc=data["uwg"].latfocc,
+            radfocc=data["uwg"].radfocc,
+            radfequip=data["uwg"].radfequip,
+            radflight=data["uwg"].radflight,
+            charlength=float(data["uwg"].charlength),
+            albroad=data["uwg"].albroad,
+            droad=data["uwg"].droad,
+            kroad=data["uwg"].kroad,
+            croad=data["uwg"].croad,
+            rurvegcover=data["uwg"].rurvegcover,
+            vegstart=data["uwg"].vegstart,
+            vegend=data["uwg"].vegend,
+            albveg=data["uwg"].albveg,
+            latgrss=data["uwg"].latgrss,
+            lattree=data["uwg"].lattree,
+            sensanth=data["uwg"].sensanth,
+            schtraffic=eval(data["uwg"].schtraffic),
+            h_ubl1=data["uwg"].h_ubl1,
+            h_ubl2=data["uwg"].h_ubl2,
+            h_ref=data["uwg"].h_ref,
+            h_temp=data["uwg"].h_temp,
+            h_wind=data["uwg"].h_wind,
+            c_circ=data["uwg"].c_circ,
+            c_exch=data["uwg"].c_exch,
+            maxday=data["uwg"].maxday,
+            maxnight=data["uwg"].maxnight,
+            windmin=data["uwg"].windmin,
+            h_obs=data["uwg"].h_obs,
             epw_path=epw_path,
             new_epw_dir=None,
             new_epw_name=None,
@@ -343,9 +343,15 @@ class TemperatureCalculation(GeoCore):
         model.write_epw()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     uwg = TemperatureCalculation()
+    # uwg.single_run(
+    #     geoclimate_path=r'C:\Users\simon\TIPEE\TIPEE - PLABAT\2.8 GROUPE THERMIQUE\2.8.6 Simulations thermiques\Travail\notebooks\geoclimate-data/',
+    #     epw_path=r'C:\Users\simon\TIPEE\TIPEE - PLABAT\2.8 GROUPE THERMIQUE\2.8.6 Simulations thermiques\Travail\notebooks/FRA_AC_La.Rochelle.Intl.AP.073160_TMYx.epw',
+    # )
+
     uwg.single_run(
-        geoclimate_pah=r'C:\Users\simon\TIPEE\TIPEE - PLABAT\2.8 GROUPE THERMIQUE\2.8.6 Simulations thermiques\Travail\notebooks\geoclimate-data/',
-        epw_path=r'C:\Users\simon\TIPEE\TIPEE - PLABAT\2.8 GROUPE THERMIQUE\2.8.6 Simulations thermiques\Travail\notebooks/FRA_AC_La.Rochelle.Intl.AP.073160_TMYx.epw',
+        geoclimate_path=r"/Users/Boris/Downloads/osm_geoclimate",
+        epw_path=r"/Users/Boris/Downloads/LaRochelle_historical_IPSL_bc_type.epw",
+        log=True,
     )
