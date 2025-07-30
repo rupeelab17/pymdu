@@ -59,7 +59,7 @@ class Solweig(UmepCore):
         abs_l=0.95,
         posture=0.5,
         cyl=True,
-        only_global=False,
+        onlyglobal=False,
     ):
         if meteo_path is not None:
             self.meteo_path = meteo_path
@@ -91,7 +91,7 @@ class Solweig(UmepCore):
                 'POSTURE': posture,
                 'CYL': cyl,
                 'INPUTMET': self.meteo_path,
-                'ONLYGLOBAL': False,
+                'ONLYGLOBAL': onlyglobal,
                 'UTC': 0,
                 'POI_FILE': None,
                 'POI_FIELD': '',
@@ -109,8 +109,7 @@ class Solweig(UmepCore):
                 'OUTPUT_LUP': False,
                 'OUTPUT_SH': True,
                 'OUTPUT_TREEPLANTER': False,
-                'OUTPUT_DIR': self.output_dir,
-                'ONLY_GLOBAL': only_global,
+                'OUTPUT_DIR': self.output_dir
             },
         )
 
