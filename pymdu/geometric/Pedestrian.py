@@ -144,6 +144,7 @@ class Pedestrian(GeoCore):
         pedestrian = pedestrian.to_crs(4326)
         # Resample to H3 cells
         import h3pandas
+
         # print(h3pandas.__version__)
 
         position_arbres = pedestrian.h3.polyfill_resample(resolution)
@@ -177,6 +178,6 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     ax = pedestrian_gdf.plot(ax=plt.gca(), edgecolor="black")
-    # point_arbres.plot(color='red', ax=ax, markersize=10)
-    # point_arbres.plot(color='black', markersize=10, ax=ax)
+    # point_arbres.plot(color="red", ax=ax, markersize=10)
+    # point_arbres.plot(color="black", markersize=10, ax=ax)
     plt.show()
