@@ -1,7 +1,7 @@
 import os
 
 import geopandas as gpd
-# import h3pandas
+
 import osmnx as ox
 from shapely.geometry import box
 
@@ -31,7 +31,6 @@ class Pedestrian(GeoCore):
         Example:
             ```python exec="true" source="tabbed-right" html="1" tabs="Source code|Plot"
             import matplotlib.pyplot as plt
-            import h3pandas
 
             plt.clf()  # markdown-exec: hide
             import pymdu.geometric.Pedestrian as Pedestrian
@@ -40,13 +39,7 @@ class Pedestrian(GeoCore):
             pedestrian.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
             pedestrian.run()
             gdf = pedestrian.to_gdf()
-            point_arbres = pedestrian.tree_position(
-                pedestrian=pedestrian.gdf,
-                resolution=11,
-                height=6.0,
-                type=2,
-                trunk_zone=3.0,
-            )
+
             gdf.plot(ax=plt.gca(), edgecolor='black')
             # point_arbres.plot(color='red', markersize=10)
             from io import StringIO  # markdown-exec: hide
@@ -150,6 +143,7 @@ class Pedestrian(GeoCore):
         pedestrian = pedestrian.explode(ignore_index=True)
         pedestrian = pedestrian.to_crs(4326)
         # Resample to H3 cells
+        import h3pandas
         # print(h3pandas.__version__)
 
         position_arbres = pedestrian.h3.polyfill_resample(resolution)
