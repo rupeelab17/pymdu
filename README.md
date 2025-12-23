@@ -20,7 +20,8 @@ https://rupeelab17.github.io/pymdu/installation/
 
 ### MacOS
 ```sh
-venv .venv --python 3.12.12urce ./venv/bin/activate
+uv venv .venv --python 3.12.12
+source ./venv/bin/activate
 export SDKROOT=$(xcrun --show-sdk-path)
 export CPATH=$SDKROOT/usr/include/c++/v1
 git clone https://rupeelab17.github.io/pymdu.git
