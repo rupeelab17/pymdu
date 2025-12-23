@@ -25,9 +25,9 @@ export SDKROOT=$(xcrun --show-sdk-path)
 export CPATH=$SDKROOT/usr/include/c++/v1
 git clone https://rupeelab17.github.io/pymdu.git
 uv pip install -e .
+```
 
-##```
- Notebook
+## Notebook
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rupeelab17/pymdu.git/HEAD?urlpath=%2Fdoc%2Ftree%2FDemo_PyMDU_Atelier.ipynb)
 
 ## Citations
