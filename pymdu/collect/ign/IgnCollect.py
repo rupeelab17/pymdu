@@ -78,7 +78,7 @@ class IgnCollect(GeoCore):
         self.filter_xml = None
         self.ign_keys = {
             "buildings": "BDTOPO_V3:batiment",
-            "cosia": "IGNF_COSIA_2021-2023_WMS",
+            "cosia": "IGNF_COSIA_2021-2023",
             "water": "BDTOPO_V3:plan_d_eau",
             "road": "BDTOPO_V3:troncon_de_route",
             "irc": "ORTHOIMAGERY.ORTHOPHOTOS.IRC",
