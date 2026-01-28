@@ -82,57 +82,57 @@ class Building(IgnCollect):
 
     def run(self):
         if not self.filepath_shp:
-            self.execute_ign(key="buildings")
+            self.execute_ign(key='buildings')
             file = (
                 self.content
                 if isinstance(self.content, io.BytesIO)
                 else io.BytesIO(self.content)
             )
 
-            gdf = gpd.read_file(file, driver="GeoJSON")
+            gdf = gpd.read_file(file, driver='GeoJSON')
         else:
-            gdf = gpd.read_file(self.filepath_shp, driver="ESRI Shapefile")
+            gdf = gpd.read_file(self.filepath_shp, driver='ESRI Shapefile')
 
         if self.set_crs:
             gdf = gdf.set_crs(crs=self.set_crs, inplace=True, allow_override=True)
         else:
             gdf = gdf.to_crs(self._epsg)
 
-        gdf["noHauteur"] = gdf["hauteur"].isnull()
+        gdf['noHauteur'] = gdf['hauteur'].isnull()
 
         # calcul hauteur moyenne
         # ===========================
-        gdf["area"] = gdf.apply(lambda x: x.geometry.area, axis=1)
-        gdf["areaHauteur"] = gdf.apply(lambda x: x["area"] * x["hauteur"], axis=1)
+        gdf['area'] = gdf.apply(lambda x: x.geometry.area, axis=1)
+        gdf['areaHauteur'] = gdf.apply(lambda x: x['area'] * x['hauteur'], axis=1)
 
-        mean_distric_height = gdf["areaHauteur"].sum() / (gdf["area"].sum())
+        mean_distric_height = gdf['areaHauteur'].sum() / (gdf['area'].sum())
 
-        if "nombre_d_etages" in gdf.columns:
-            gdf["etage_nulle"] = gdf["nombre_d_etages"].isnull()
-            gdf["hauteur"] = gdf.apply(
+        if 'nombre_d_etages' in gdf.columns:
+            gdf['etage_nulle'] = gdf['nombre_d_etages'].isnull()
+            gdf['hauteur'] = gdf.apply(
                 lambda x: (
-                    x["nombre_d_etages"] * self.defaultStoreyHeight
-                    if x["noHauteur"] and not x["etage_nulle"]
-                    else x["hauteur"]
+                    x['nombre_d_etages'] * self.defaultStoreyHeight
+                    if x['noHauteur'] and not x['etage_nulle']
+                    else x['hauteur']
                 ),
                 axis=1,
             )
 
-        elif "HAUTEUR_2" in gdf.columns:
-            gdf["noH2"] = gdf["HAUTEUR_2"].isnull()
-            gdf["hauteur"] = gdf.apply(
+        elif 'HAUTEUR_2' in gdf.columns:
+            gdf['noH2'] = gdf['HAUTEUR_2'].isnull()
+            gdf['hauteur'] = gdf.apply(
                 lambda x: (
-                    x["HAUTEUR_2"] if x["noHauteur"] and not x["noH2"] else x["hauteur"]
+                    x['HAUTEUR_2'] if x['noHauteur'] and not x['noH2'] else x['hauteur']
                 ),
                 axis=1,
             )
         else:
-            gdf["hauteur"] = gdf.apply(
-                lambda x: mean_distric_height if x["noHauteur"] else x["hauteur"],
+            gdf['hauteur'] = gdf.apply(
+                lambda x: mean_distric_height if x['noHauteur'] else x['hauteur'],
                 axis=1,
             )
 
-        gdf.dropna(subset=["hauteur"], inplace=True)
+        gdf.dropna(subset=['hauteur'], inplace=True)
 
         self.gdf = gdf
         return self
@@ -146,18 +146,21 @@ class Building(IgnCollect):
         gdf = process_datetime(gdf=self.gdf)
         return gdf
 
-    def to_gpkg(self, name: str = "batiments"):
+    def to_gpkg(self, name: str = 'batiments'):
         """
 
         Args:
             name:
         """
         # Write the GeoDataFrame to a GPKG file
-        self.gdf.to_file(f"{os.path.join(self.output_path, name)}.gpkg", driver="GPKG")
+        self.gdf.to_file(f'{os.path.join(self.output_path, name)}.gpkg', driver='GPKG')
 
 
-if __name__ == "__main__":
-    buildings = Building(output_path="./")
-    buildings.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
+if __name__ == '__main__':
+    buildings = Building(output_path='./')
+    # buildings.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
+    buildings.bbox = [-1.163263, 46.141396, -1.142664, 46.149238]
     buildings = buildings.run()
     print(buildings.to_gdf().head())
+    length = buildings.to_gdf().length
+    print(length)

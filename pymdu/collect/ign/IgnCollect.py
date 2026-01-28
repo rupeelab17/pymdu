@@ -32,18 +32,18 @@ from owslib.wfs import WebFeatureService
 from owslib.wms import WebMapService
 from shapely.geometry import Polygon
 
-from pymdu.GeoCore import GeoCore
 from pymdu.collect.GlobalVariables import TEMP_PATH
 from pymdu.commons.BasicFunctions import _clean_str
+from pymdu.GeoCore import GeoCore
 
-pd.set_option("display.max_columns", None)
+pd.set_option('display.max_columns', None)
 
 try:
     from osgeo import gdal, ogr
 except ImportError:
     pass
 
-warnings.filterwarnings("ignore")
+warnings.filterwarnings('ignore')
 
 
 # session = CachedSession(
@@ -69,6 +69,9 @@ class IgnCollect(GeoCore):
     """
 
     # https://docs.geoserver.org/2.22.x/en/user/tutorials/cql/cql_tutorial.html
+
+    WFS_MAX_FEATURES = 1000
+    WFS_MAX_RECURSION_DEPTH = 15
 
     _cql_filter: str | None = None
     _cutline_from_polygon: Polygon | None = None
@@ -96,12 +99,12 @@ class IgnCollect(GeoCore):
 
         # https://geoservices.ign.fr/bascule-vers-la-geoplateforme
         path_filename_ressource = str(
-            self.collect_path.joinpath("ign/Tableau-suivi-services-web-23-05-2025.csv")
+            self.collect_path.joinpath('ign/Tableau-suivi-services-web-23-05-2025.csv')
         )
         self.df_csv_file = pd.read_csv(
             path_filename_ressource,
-            encoding="ISO-8859-1",
-            sep=";",
+            encoding='ISO-8859-1',
+            sep=';',
             index_col=4,
             header=0,
         )
@@ -124,14 +127,14 @@ class IgnCollect(GeoCore):
         self._cutline_from_polygon = value
 
     @lru_cache(maxsize=None)
-    def __get_full_list_wfs(self, topic, version="2.0.0"):
+    def __get_full_list_wfs(self, topic, version='2.0.0'):
         raw_data_file = self.__get_capabilities(
-            key=topic, version=version, service="wfs"
+            key=topic, version=version, service='wfs'
         )
 
         root = ET.parse(raw_data_file).getroot()
 
-        list_var = ["FeatureTypeList"]
+        list_var = ['FeatureTypeList']
 
         find = False
 
@@ -150,9 +153,9 @@ class IgnCollect(GeoCore):
             df = data[i]
             d = {}
 
-            list_var0 = ["Name", "Title", "DefaultCRS", "Abstract"]
-            list_var1 = ["WGS84BoundingBox", "Keywords"]
-            list_subvar = ["LowerCorner", "UpperCorner", "Keyword"]
+            list_var0 = ['Name', 'Title', 'DefaultCRS', 'Abstract']
+            list_var1 = ['WGS84BoundingBox', 'Keywords']
+            list_subvar = ['LowerCorner', 'UpperCorner', 'Keyword']
 
             for j in range(len(df)):
                 for var in list_var0:
@@ -172,7 +175,7 @@ class IgnCollect(GeoCore):
 
         if len(list_df) > 0:
             data_all = (
-                pd.concat(list_df).reset_index(drop=True).dropna(axis=0, how="all")
+                pd.concat(list_df).reset_index(drop=True).dropna(axis=0, how='all')
             )
         else:
             data_all = list_df
@@ -180,19 +183,19 @@ class IgnCollect(GeoCore):
         return data_all
 
     @lru_cache(maxsize=None)
-    def __get_capabilities(self, topic, version="1.0.0", service="wmts"):
+    def __get_capabilities(self, topic, version='1.0.0', service='wmts'):
         # https://geoservices.ign.fr/services-geoplateforme-diffusion
         service_upper = service.upper()
 
-        link = f"https://data.geopf.fr/{service}/ows?SERVICE={service_upper}&VERSION={version}&REQUEST=GetCapabilities"
+        link = f'https://data.geopf.fr/{service}/ows?SERVICE={service_upper}&VERSION={version}&REQUEST=GetCapabilities'
 
         try:
             proxies = {
-                "http": os.environ["http_proxy"],
-                "https": os.environ["https_proxy"],
+                'http': os.environ['http_proxy'],
+                'https': os.environ['https_proxy'],
             }
         except:
-            proxies = {"http": "", "https": ""}
+            proxies = {'http': '', 'https': ''}
 
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         getCapabilities = requests.get(link, proxies=proxies, verify=False)
@@ -205,7 +208,7 @@ class IgnCollect(GeoCore):
 
         return file
 
-    def get_geoportail_list(self, format="WFS", topic="essentiels", version="2.0.0"):
+    def get_geoportail_list(self, format='WFS', topic='essentiels', version='2.0.0'):
         """
 
         Args:
@@ -220,15 +223,15 @@ class IgnCollect(GeoCore):
 
         if len(data_full_list) > 0:
             list_var = [
-                "Name",
-                "Identifier",
-                "Title",
-                "DefaultCRS",
-                "SupportedCRS",
-                "TileMatrixSet",
-                "Abstract",
-                "LegendURL",
-                "Format",
+                'Name',
+                'Identifier',
+                'Title',
+                'DefaultCRS',
+                'SupportedCRS',
+                'TileMatrixSet',
+                'Abstract',
+                'LegendURL',
+                'Format',
             ]
 
             list_col = [col for col in data_full_list.columns if col in list_var]
@@ -236,24 +239,24 @@ class IgnCollect(GeoCore):
             data_list = data_full_list[list_col]
             data_list = data_list.drop_duplicates().reset_index(drop=True)
 
-            if "Name" in data_list.columns:
-                data_list.rename(columns={"Name": "Identifier"}, inplace=True)
+            if 'Name' in data_list.columns:
+                data_list.rename(columns={'Name': 'Identifier'}, inplace=True)
 
-            data_list["DataFormat"] = format
-            data_list["Topic"] = topic
-            data_list["ApiVersion"] = version
+            data_list['DataFormat'] = format
+            data_list['Topic'] = topic
+            data_list['ApiVersion'] = version
 
         data_all = data_list.reset_index(drop=True)
 
         # set column order
         first_col = [
-            "Topic",
-            "DataFormat",
-            "ApiVersion",
-            "Identifier",
-            "Abstract",
-            "Title",
-            "ZoomRange",
+            'Topic',
+            'DataFormat',
+            'ApiVersion',
+            'Identifier',
+            'Abstract',
+            'Title',
+            'ZoomRange',
         ]
         available_col = [col for col in first_col if col in data_all.columns]
         other_col = [col for col in data_all.columns if col not in available_col]
@@ -262,130 +265,130 @@ class IgnCollect(GeoCore):
 
         return data_all
 
-    def __execute_ign_old(self, key: str = "buildings"):
+    def __execute_ign_old(self, key: str = 'buildings'):
         row = self.get_row_ressource(key)
-        name = row["Nom technique"].values[0]
-        url = row["URL d'accès"].values[0].split("&REQUEST=GetCapabilities")[0]
+        name = row['Nom technique'].values[0]
+        url = row["URL d'accès"].values[0].split('&REQUEST=GetCapabilities')[0]
         self._bbox = [round(num, 5) for num in self._bbox]
         print(url)
         payload = {
-            "road": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'road': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                 },
             },
-            "water": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'water': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                 },
             },
-            "buildings": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'buildings': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                 },
             },
-            "irc": {
-                "headers": {},
-                "params": {
-                    "LAYERS": name,
-                    "EXCEPTIONS": "text/xml",
-                    "FORMAT": "image/geotiff",
-                    "SERVICE": "WMS",
-                    "VERSION": "1.3.0",
-                    "REQUEST": "GetMap",
-                    "STYLES": "",
-                    "CRS": "EPSG:4326",
-                    "BBOX": f"{self._bbox[1]},{self._bbox[0]},{self._bbox[3]},{self._bbox[2]}",
-                    "WIDTH": 1000,
-                    "HEIGHT": 1000,
-                    "DPI": 50,
+            'irc': {
+                'headers': {},
+                'params': {
+                    'LAYERS': name,
+                    'EXCEPTIONS': 'text/xml',
+                    'FORMAT': 'image/geotiff',
+                    'SERVICE': 'WMS',
+                    'VERSION': '1.3.0',
+                    'REQUEST': 'GetMap',
+                    'STYLES': '',
+                    'CRS': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[1]},{self._bbox[0]},{self._bbox[3]},{self._bbox[2]}',
+                    'WIDTH': 1000,
+                    'HEIGHT': 1000,
+                    'DPI': 50,
                 },
             },
-            "dem": {
-                "headers": {},
-                "params": {
-                    "LAYERS": name,
-                    "FORMAT": "image/geotiff",
-                    "SERVICE": "WMS",
-                    "VERSION": "1.3.0",
-                    "REQUEST": "GetMap",
-                    "STYLES": "",
-                    "CRS": "EPSG:4326",
-                    "BBOX": f"{self._bbox[1]},{self._bbox[0]},{self._bbox[3]},{self._bbox[2]}",
-                    "WIDTH": 1000,
-                    "HEIGHT": 1000,
-                    "DPI": 50,
+            'dem': {
+                'headers': {},
+                'params': {
+                    'LAYERS': name,
+                    'FORMAT': 'image/geotiff',
+                    'SERVICE': 'WMS',
+                    'VERSION': '1.3.0',
+                    'REQUEST': 'GetMap',
+                    'STYLES': '',
+                    'CRS': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[1]},{self._bbox[0]},{self._bbox[3]},{self._bbox[2]}',
+                    'WIDTH': 1000,
+                    'HEIGHT': 1000,
+                    'DPI': 50,
                 },
             },
-            "cadastre": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'cadastre': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                 },
             },
-            "iris": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'iris': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                     # "CQL_FILTER": "code_iris ='172000102'"
                     # "CQL_FILTER": "nom_com LIKE 'Lago%'"
                 },
             },
-            "vegetation": {
-                "headers": {"Content-type": "application/json"},
-                "params": {
-                    "REQUEST": "GetFeature",
-                    "TYPENAME": name,
-                    "SRSNAME": "EPSG:4326",
-                    "BBOX": f"{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}",
-                    "EPSG": 4326,
-                    "STARTINDEX": 0,
-                    "COUNT": 10000,
-                    "outputFormat": "application/json",
-                    "SERVICE": "WFS",
+            'vegetation': {
+                'headers': {'Content-type': 'application/json'},
+                'params': {
+                    'REQUEST': 'GetFeature',
+                    'TYPENAME': name,
+                    'SRSNAME': 'EPSG:4326',
+                    'BBOX': f'{self._bbox[0]},{self._bbox[1]},{self._bbox[2]},{self._bbox[3]}',
+                    'EPSG': 4326,
+                    'STARTINDEX': 0,
+                    'COUNT': 10000,
+                    'outputFormat': 'application/json',
+                    'SERVICE': 'WFS',
                     # "CQL_FILTER": "code_iris ='172000102'"
                     # "CQL_FILTER": "nom_com LIKE 'Lago%'"
                 },
@@ -393,21 +396,21 @@ class IgnCollect(GeoCore):
         }
 
         if self._cql_filter:
-            del payload[key]["params"]["BBOX"]
-            del payload[key]["params"]["EPSG"]
-            payload[key]["params"]["CQL_FILTER"] = self._cql_filter
+            del payload[key]['params']['BBOX']
+            del payload[key]['params']['EPSG']
+            payload[key]['params']['CQL_FILTER'] = self._cql_filter
 
         if self.cutline_from_polygon:
-            del payload[key]["params"]["BBOX"]
-            payload[key]["params"][
-                "CQL_FILTER"
-            ] = f"INTERSECTS(geometrie,{str(self.cutline_from_polygon.wkt)})"
+            del payload[key]['params']['BBOX']
+            payload[key]['params']['CQL_FILTER'] = (
+                f'INTERSECTS(geometrie,{str(self.cutline_from_polygon.wkt)})'
+            )
 
             # new_url = f'https://wxs.ign.fr/essentiels/geoportail/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAME=BDTOPO_V3:batiment&SRSNAME=EPSG:4326,EPSG:4326&STARTINDEX=0&COUNT=10000&outputFormat=application%2Fjson&SERVICE=WFS&cql_filter={payload[key]["params"]["cql_filter"]}'  # print(new_url)  #  # response = requests.get(url=new_url, verify=False)
 
-        new_url = self.__get_url_ign(url, payload[key]["params"])
+        new_url = self.__get_url_ign(url, payload[key]['params'])
         response = requests.get(
-            url=new_url, headers=payload[key]["headers"], verify=False
+            url=new_url, headers=payload[key]['headers'], verify=False
         )
 
         # print('response content  : ', response.content)
@@ -415,22 +418,88 @@ class IgnCollect(GeoCore):
         # if "errors" in response.content:
         #     raise Exception(response.content)
 
-        print("URL  : ", response.url)
+        print('URL  : ', response.url)
 
-        if key == "irc":
-            with open(os.path.join(TEMP_PATH, "img.tiff"), "wb") as f:
+        if key == 'irc':
+            with open(os.path.join(TEMP_PATH, 'img.tiff'), 'wb') as f:
                 f.write(response.content)
-            print("URL  : ", os.path.join(TEMP_PATH, "img.tiff"))
-        elif key == "dem":
-            with open(os.path.join(TEMP_PATH, "dem.tiff"), "wb") as f:
+            print('URL  : ', os.path.join(TEMP_PATH, 'img.tiff'))
+        elif key == 'dem':
+            with open(os.path.join(TEMP_PATH, 'dem.tiff'), 'wb') as f:
                 f.write(response.content)
-            print("URL  : ", os.path.join(TEMP_PATH, "dem.tiff"))
+            print('URL  : ', os.path.join(TEMP_PATH, 'dem.tiff'))
 
         self.content = response.content
         # self.content = json.loads(response.text)
         return self
 
-    def execute_ign(self, key: str = "buildings", **kwargs):
+    def _get_features_for_bbox(
+        self,
+        wfs2: WebFeatureService,
+        typename: str,
+        bbox: list | None,
+        filter_xml: str | None,
+        maxfeatures: int = 1000,
+    ) -> dict:
+        """Call WFS GetFeature for a single bbox and return parsed GeoJSON dict."""
+        response = wfs2.getfeature(
+            typename=typename,
+            bbox=bbox,
+            filter=filter_xml,
+            startindex=0,
+            maxfeatures=maxfeatures,
+            outputFormat='application/json',
+        )
+        raw = response.read()
+        return json.loads(raw.decode('utf-8'))
+
+    def _get_all_features_bbox(
+        self,
+        wfs2: WebFeatureService,
+        typename: str,
+        bbox: list | None,
+        filter_xml: str | None,
+        maxfeatures: int = 1000,
+        depth: int = 0,
+        max_depth: int = 15,
+    ) -> list:
+        """Recursively fetch all features in bbox by dichotomie when hitting maxfeatures."""
+        if bbox is None:
+            resp = self._get_features_for_bbox(
+                wfs2, typename, None, filter_xml, maxfeatures
+            )
+            return resp.get('features', [])
+
+        resp = self._get_features_for_bbox(
+            wfs2, typename, bbox, filter_xml, maxfeatures
+        )
+        features = resp.get('features', [])
+
+        if len(features) < maxfeatures or depth >= max_depth:
+            return features
+
+        xmin, ymin, xmax, ymax = bbox
+        if (xmax - xmin) >= (ymax - ymin):
+            mid = (xmin + xmax) / 2.0
+            sub1 = [xmin, ymin, mid, ymax]
+            sub2 = [mid, ymin, xmax, ymax]
+        else:
+            mid = (ymin + ymax) / 2.0
+            sub1 = [xmin, ymin, xmax, mid]
+            sub2 = [xmin, mid, xmax, ymax]
+
+        sub_filter = None
+        all_features = self._get_all_features_bbox(
+            wfs2, typename, sub1, sub_filter, maxfeatures, depth + 1, max_depth
+        )
+        all_features.extend(
+            self._get_all_features_bbox(
+                wfs2, typename, sub2, sub_filter, maxfeatures, depth + 1, max_depth
+            )
+        )
+        return all_features
+
+    def execute_ign(self, key: str = 'buildings', **kwargs):
         row = self.get_row_ressource(key=key)
         print(row.index.values)
         typename = row.index.values[0]
@@ -439,39 +508,41 @@ class IgnCollect(GeoCore):
         url = (
             row["URL d'acces Geoplateforme"]
             .values[0]
-            .split("&REQUEST=GetCapabilities")[0]
+            .split('&REQUEST=GetCapabilities')[0]
         )
 
         if key in [
-            "buildings",
-            "road",
-            "water",
-            "cadastre",
-            "iris",
-            "vegetation",
-            "hydrographique",
+            'buildings',
+            'road',
+            'water',
+            'cadastre',
+            'iris',
+            'vegetation',
+            'hydrographique',
         ]:
             # url = "https://data.geopf.fr/wfs/ows"
-            print("Geo url", url)
-            wfs2 = WebFeatureService(url=url, version="2.0.0", timeout=130)
+            print('Geo url', url)
+            wfs2 = WebFeatureService(url=url, version='2.0.0', timeout=130)
 
             title = wfs2.identification.title
             version = wfs2.identification.version
             type_wfs = wfs2.identification.type
-            print("execute_ign", title, version, type_wfs)
+            print('execute_ign', title, version, type_wfs)
             # requests_possible = [f"{url}" + "/" + operation.name for operation in wfs2.operations]
             # print(requests_possible)
             # print("\n\n")
+
+            request_bbox = list(self._bbox) if self._bbox is not None else None
 
             if self._cql_filter:
                 # filter = PropertyIsEqualTo(propertyname='nom_com', literal='Lagord')
                 # self.filter_xml = ElementTree.tostring(filter.toXML()).decode("utf-8")
 
-                BBOX = BBox(bbox=self._bbox, crs="EPSG:4326")
+                BBOX = BBox(bbox=self._bbox, crs='EPSG:4326')
                 print(BBOX)
                 self.filter_xml = ElementTree.tostring(
-                    BBOX.toXML(), encoding="ascii", method="xml", xml_declaration=True
-                ).decode("utf-8")
+                    BBOX.toXML(), encoding='ascii', method='xml', xml_declaration=True
+                ).decode('utf-8')
                 print(self.filter_xml)
 
                 # filter1 = fes2.PropertyIsEqualTo("nom_com", "Poitiers")
@@ -483,31 +554,44 @@ class IgnCollect(GeoCore):
 
                 self._bbox = None
 
-            print("typename", typename)
-            response_file = wfs2.getfeature(
-                typename=typename,
-                bbox=self._bbox,
-                filter=self.filter_xml,
-                startindex=0,
-                maxfeatures=10000,
-                # propertyname=["nom_com"],
-                outputFormat="application/json",
+            print('typename', typename)
+            all_features = self._get_all_features_bbox(
+                wfs2,
+                typename,
+                request_bbox,
+                self.filter_xml,
+                maxfeatures=self.WFS_MAX_FEATURES,
+                depth=0,
+                max_depth=self.WFS_MAX_RECURSION_DEPTH,
             )
+            seen_ids = set()
+            unique_features = []
+            for f in all_features:
+                fid = f.get('id')
+                if fid is None:
+                    unique_features.append(f)
+                elif fid not in seen_ids:
+                    seen_ids.add(fid)
+                    unique_features.append(f)
 
-            self.content = response_file
-        elif key == "isochrone":
-            url = url.replace("/getcapabilities", "/isochrone")
-            resource = f"{kwargs.get('resource')[0]}"
-            costValue = f"{kwargs.get('costValue')[0]}"
-            poi = f"{kwargs.get('point')[0][0]},{kwargs.get('point')[0][1]}"
-            print("poi=>", poi)
+            self.content = json.dumps(
+                {'type': 'FeatureCollection', 'features': unique_features},
+                ensure_ascii=False,
+            ).encode('utf-8')
+
+        elif key == 'isochrone':
+            url = url.replace('/getcapabilities', '/isochrone')
+            resource = f'{kwargs.get("resource")[0]}'
+            costValue = f'{kwargs.get("costValue")[0]}'
+            poi = f'{kwargs.get("point")[0][0]},{kwargs.get("point")[0][1]}'
+            print('poi=>', poi)
             payload = {
-                "resource": resource,
-                "point": poi,
-                "costValue": costValue,
-                "costType": "time",
+                'resource': resource,
+                'point': poi,
+                'costValue': costValue,
+                'costType': 'time',
             }
-            headers = {"Content-Type": "application/json", "Accept": "application/json"}
+            headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
             response_file = requests.post(
                 url=url, headers=headers, data=json.dumps(payload)
             )
@@ -515,8 +599,8 @@ class IgnCollect(GeoCore):
 
         else:
             # url = "https://data.geopf.fr/wms-r/wms"
-            version = "1.3.0"
-            crs = "EPSG:4326"
+            version = '1.3.0'
+            crs = 'EPSG:4326'
             wms = WebMapService(url=url, version=version, timeout=130)
             # GetMap (image/jpeg)
 
@@ -524,7 +608,7 @@ class IgnCollect(GeoCore):
 
             # résolution au sol cible en mètres/pixel (~20 cm pour l'orthophoto IGN)
 
-            resolution = kwargs.get("resolution") or 1.0
+            resolution = kwargs.get('resolution') or 1.0
             # Taille bbox
             xmin, ymin, xmax, ymax = self._bbox
             lon_center = (xmin + xmax) / 2
@@ -543,7 +627,7 @@ class IgnCollect(GeoCore):
             # print("width_px", width_px, "height_px", height_px)
 
             # Inversion bbox si nécessaire (EPSG:4326 + WMS 1.3.0)
-            if key == "ortho" and version == "1.3.0" and crs == "EPSG:4326":
+            if key == 'ortho' and version == '1.3.0' and crs == 'EPSG:4326':
                 bbox_str = [ymin, xmin, ymax, xmax]
             else:
                 bbox_str = [xmin, ymin, xmax, ymax]
@@ -556,16 +640,16 @@ class IgnCollect(GeoCore):
                 # width=width_px,
                 # height=height_px,
                 size=(width_px, height_px),
-                exceptions="text/xml",
-                format="image/geotiff",
+                exceptions='text/xml',
+                format='image/geotiff',
                 transparent=True,
-                styles=["normal"],
+                styles=['normal'],
             )
 
-            if key in ["irc", "dem", "cosia"]:
-                with open(os.path.join(TEMP_PATH, f"{key}.tiff"), "wb") as f:
+            if key in ['irc', 'dem', 'cosia']:
+                with open(os.path.join(TEMP_PATH, f'{key}.tiff'), 'wb') as f:
                     f.write(response_file.read())
-                print("URL  : ", os.path.join(TEMP_PATH, f"{key}.tiff"))
+                print('URL  : ', os.path.join(TEMP_PATH, f'{key}.tiff'))
 
             self.content = response_file.read()
 
@@ -576,33 +660,33 @@ class IgnCollect(GeoCore):
         # new_url = url + '&' + urllib.parse.urlencode(payload, safe='():&,+').replace('&EPSG=', ',EPSG:').replace('&json', '/json').replace('&geotiff', '/geotiff')
         new_url = (
             url
-            + "&"
+            + '&'
             + urllib.parse.urlencode(payload)
-            .replace("%3A", ":")
-            .replace("%2F", "&")
-            .replace("%2C", ",")
-            .replace("&EPSG=", ",EPSG:")
-            .replace("&json", "/json")
-            .replace("&geotiff", "/geotiff")
-            .replace("%28", "(")
-            .replace("%29", ")")
-            .replace("%2B", "+")
+            .replace('%3A', ':')
+            .replace('%2F', '&')
+            .replace('%2C', ',')
+            .replace('&EPSG=', ',EPSG:')
+            .replace('&json', '/json')
+            .replace('&geotiff', '/geotiff')
+            .replace('%28', '(')
+            .replace('%29', ')')
+            .replace('%2B', '+')
         )
         return new_url
 
-    def get_row_ressource(self, key: str = "buildings"):
-        print("key=>", key)
+    def get_row_ressource(self, key: str = 'buildings'):
+        print('key=>', key)
         row = self.df_csv_file.loc[(self.df_csv_file.index == self.ign_keys[key])]
         return row
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     ign = IgnCollect()
     ign.bbox = [-1.152704, 46.181627, -1.139893, 46.18699]
-    content = ign.execute_ign(key="cosia", resolution=0.2).content
+    content = ign.execute_ign(key='cosia', resolution=0.2).content
     file_tiff = io.BytesIO(content)
     # Write the stuff
-    with open("cosia.tiff", "wb") as f:
+    with open('cosia.tiff', 'wb') as f:
         f.write(content)
 
     # content = ign.execute_ign(key="ortho", resolution=0.2).content
